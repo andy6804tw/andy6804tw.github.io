@@ -6,13 +6,10 @@ description: some word here
 keywords: Node.js, ESLint, Airbnb
 ---
 
+## 何謂 ESLint ?
+ ESLint支援ES6與JSX語法，具高度設定彈性與擴充性的檢查語法工具，可提供程式開發者在語法上的錯誤警告，此篇教學我所使用的是Airbnb的規範，簡單來說ESLint就是可以規範整個開發團隊中的coding style。
 
 <img src="https://es6.io/images/eslint.png"> <img src="https://a0.muscache.com/airbnb/static/logos/belo-200x200-4d851c5b28f61931bf1df28dd15e60ef.png">
-
-
-## 何謂 ESLint ?
-
- ESLint支援ES6與JSX語法，具高度設定彈性與擴充性的檢查語法工具，可提供程式開發者在語法上的錯誤警告，此篇教學我所使用的是Airbnb的規範，簡單來說ESLint就是可以規範整個開發團隊中的coding style。
 
 ## 事前準備
 - Visual Studio Code
