@@ -82,14 +82,13 @@ GitHub是什麼?你可以簡單想成它是一個遠端的數據庫也就是一�
 
 ##### 6. push到遠端數據庫
 
-Creat之後會給你一段git程式碼把它複製貼放你的git bash就可以把本地端的檔案上傳到據庫囉，以下是我的位置不要照貼啊！！
+
 ```
 $ git remote add origin https://github.com/andy6804tw/GitTest.git
 $ git push -u origin master
 ```
 
-<img src="https://2.bp.blogspot.com/-3waFgNh0lRs/WXWbT_gAsQI/AAAAAAAABtM/svQHFLtwA9wZcFooUw9XxUMTHyKMpYhfwCLcBGAs/s1600/7.png">
+Creat之後會給你一段git程式碼把它複製貼放你的git bash就可以把本地端的檔案上傳到據庫囉，以下是我的位置不要照貼啊！！ 
+<img src="https://2.bp.blogspot.com/-3waFgNh0lRs/WXWbT_gAsQI/AAAAAAAABtM/svQHFLtwA9wZcFooUw9XxUMTHyKMpYhfwCLcBGAs/s1600/7.png"> 
 
-
-最後上傳成功回到網頁上重新整理就會發先檔案已經全部上傳囉!
-是不是很快速又方便，雖然網路上有許多git的GUI圖形介面化的軟體例如：[GitHub Desktop](https://desktop.github.com/)、[SourceTree](https://www.sourcetreeapp.com/)，簡單按個幾下也可以做出上步驟，所以下篇教學打算來完整說明git的運作流程與圖形化界面的操作。
+最後上傳成功回到網頁上重新整理就會發先檔案已經全部上傳囉! 是不是很快速又方便，雖然網路上有許多git的GUI圖形介面化的軟體例如：[GitHub Desktop](https://desktop.github.com/)、[SourceTree](https://www.sourcetreeapp.com/)，簡單按個幾下也可以做出上步驟，所以下篇教學打算來完整說明git的運作流程與圖形化界面的操作。
