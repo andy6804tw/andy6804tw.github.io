@@ -29,3 +29,19 @@ https://developer.android.com/studio/index.html
 ##### 3.自動 import
 有時候貼上程式碼或是自己寫Code時常常要引入函式庫，選取自動匯入系統就會偵測依照您目前狀態匯入適合的library
  File->Settings->Editor->General->Auto Import 選取All自動匯入lib
+
+<img src="https://3.bp.blogspot.com/-mO_q3Ma9I5o/WW3mHuS_pvI/AAAAAAAABrw/iUdYApfQmbg4beISrVO4xOpNJSMq2cXewCLcBGAs/s640/3.png">
+
+##### 4. 與 git 連動
+
+版本控制是製作專案的最重要部分，這這片文章中先教各位檢察環境
+
+建議安裝Android Studio之前先到以下網站下載
+
+Git : https://git-scm.com/
+
+之後再Android Studio中`File->Settings->Version Control->Git `點選Test測試看看有沒有連動萬一沒有的話請選擇當初安裝Git的磁碟機底下的位置，基本上安裝預設都會在這`C:\Program Files\Git\cmd\git.exe`
+
+<img src="https://4.bp.blogspot.com/-1jzriqUS2y8/WW3nrSpM47I/AAAAAAAABr4/XQeVksFxkwMaAjp-2DFUFj02HwqW145VwCLcBGAs/s1600/4.png">
+
+下篇教學再教各位如何使用Git bash命令提示字元方式做版本控制，且上傳到遠端GitHub中 !

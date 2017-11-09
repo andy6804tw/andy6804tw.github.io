@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Java筆記] Collection介紹'
+title: '[Java筆記] Collection 介紹'
 categories: Java
 description: java 容器介紹
 keywords: java, collection, list, set, map
