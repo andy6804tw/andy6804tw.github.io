@@ -67,7 +67,7 @@ $ git commit –m ‘第一次上傳’
 $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 ```
-最後在下一次`git commit –m ‘第一次上傳’`就成功囉!
+最後在下一次`git commit –m ‘第一次上傳’`就成功囉!
 
 >到上述步驟其實就已間簡單完成版本控制了，但還尚未結束先前不是有提到GitHub嗎?
 這部份我們使用GitHub作為我們專案儲存的地方當然你也可以使用其他的例如BitBucket等...
