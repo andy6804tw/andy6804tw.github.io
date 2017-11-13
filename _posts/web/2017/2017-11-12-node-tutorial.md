@@ -2,8 +2,8 @@
 layout: post
 title: '[Node.js新手] Node.js 入門介紹'
 categories: Web
-description: npm管理工具介紹
-keywords: Node.js, npm
+description: Node.js 入門介紹
+keywords: Node.js
 ---
 
 
