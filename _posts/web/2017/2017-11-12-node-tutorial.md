@@ -49,7 +49,7 @@ server.listen('3000', function () {
 })
 
 ```
-之後在終端機輸入 node index.js 啟動檔案
+之後在終端機輸入 node index.js 啟動檔案
 
 <img src="/images/posts/web/img1061112-1.png">
 
@@ -57,4 +57,4 @@ server.listen('3000', function () {
 
 <img src="/images/posts/web/img1061112-2.png">
 
-此外在開發上為了減低開發時間以及提升效率，所以 Node.js 延伸出很多框架供使用者做開發，例如: 被官方認同的 Express 框架、Sails.js (node.js mvc)、Koa、Socket Stream ......等
+此外在開發上為了減低開發時間以及提升效率，所以 Node.js 延伸出很多框架供使用者做開發，例如: 被官方認同的 Express 框架、Sails.js (node.js mvc)、Koa、Socket Stream ......等
