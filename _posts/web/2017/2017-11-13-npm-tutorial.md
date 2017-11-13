@@ -11,14 +11,14 @@ npm 全名為 Node Package Manager，是 Node.js 的套件（package）管理工
 
 <img src="https://juststickers.in/wp-content/uploads/2014/08/NPM.jpg" width="300">
 
-這邊舉個例子假如我想使用 Google 的 Firebase 第三方函式庫鍵入 `npm install firebase` 他就會幫你直接安裝起來了
+這邊舉個例子假如我想使用 Google 的 Firebase 第三方函式庫鍵入 `npm install firebase` 他就會幫你直接安裝起來了
 ```
 npm install firebase
 ```
 
 ##### 1. 安裝 npm
 
-安裝 Node.js 會自動內建 npm，所以第一步驟先去安裝 [Node.js](https://nodejs.org/en/) ，這裡有兩個版本分別為穩定版和最新版，這可以具你的喜好安裝，作者是安裝最新的版本。
+安裝 Node.js 會自動內建 npm，所以第一步驟先去安裝 [Node.js](https://nodejs.org/en/) ，這裡有兩個版本分別為穩定版和最新版，這可以具你的喜好安裝，作者是安裝最新的版本。
 
 若要檢查 Node.js 是否正確安裝，可以使用以下的指令：
 ```
@@ -35,7 +35,7 @@ npm -v
 
 <img src="/images/posts/web/img1061113-1.png">
 
-再來就是初始化你的專案囉 `npm init -y` ， -y 的意思就是省略一些提問快速初始化，若還是不了解可以用 `npm init` 試試就知道了！ 
+再來就是初始化你的專案囉 `npm init -y` ， -y 的意思就是省略一些提問快速初始化，若還是不了解可以用 `npm init` 試試就知道了！ 
 
 ```
 npm init -y
