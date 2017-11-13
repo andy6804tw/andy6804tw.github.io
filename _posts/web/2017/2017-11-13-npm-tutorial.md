@@ -31,7 +31,7 @@ npm -v
 
 ##### 2. 初始化專案
 
-首先在你本機目錄下新增一個空的資料夾，再用 Visual Code 打開資料夾與內建終端機
+首先在你本機目錄下新增一個空的資料夾，再用 Visual Studio Code 打開資料夾與內建終端機
 
 <img src="/images/posts/web/img1061113-1.png">
 
