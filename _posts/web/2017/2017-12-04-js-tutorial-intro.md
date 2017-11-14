@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[JS學習筆記] 介紹歷史與發展'
-categories: Web
+categories: Web, 2018 IT邦鐵人賽
 description: 前言與介紹
 keywords: JavaScript, ES6
 ---
