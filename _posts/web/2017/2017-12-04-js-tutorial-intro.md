@@ -25,7 +25,7 @@ Airbnb 開發團隊在撰寫 JavaScript 部分規定了大量的寫作風格與�
   第一個單字以小寫字母開始，第二個單字的首字母大寫，例如：firstName、lastName。
 
 ## JavaScript 歷史與發展
-各位先前可能聽過 ECMAScript 若不知道也沒關係，ES6的出現就他有關係，在1995年時 Netscape(網景)公司與 Sun(昇陽)公司合作 設計一個網頁程式語言名為 JavaScript 名稱屬 Sun(昇陽)公司擁有，後來被Oracle(甲骨文)公司所收購。1996年11月，網景公司將 JavaScript 提交給歐洲計算機製造商協會(ECMA)進行標準。
+各位先前可能聽過 ECMAScript 若不知道也沒關係，ES6的出現就他有關係，在1995年時 Netscape(網景)公司與 Sun(昇陽)公司合作 設計一個網頁程式語言名為 JavaScript 名稱屬 Sun(昇陽)公司擁有，後來被Oracle(甲骨文)公司所收購。1996年11月，網景公司將 JavaScript 提交給歐洲計算機製造商協會(ECMA)進行標準。
 
 ## 規格與版本
 - ECMA-262的第一個版本於1997年6月被 ECMA 組織採納
