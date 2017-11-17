@@ -17,3 +17,7 @@ https://dotblogs.com.tw/explooosion/2016/07/18/010601
 
 ES6
 http://blog.jsdc.tw/2016/08/20/node_v6_and_es6
+
+
+陣列
+https://coldfunction.com/p/6p
