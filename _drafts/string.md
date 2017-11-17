@@ -6,3 +6,14 @@ http://blog.kdchang.cc/2016/11/05/how-to-establish-modern-front-end-development-
 
 JS中的關係比較與相等比較運
 http://eddychang.me/blog/javascript/101-equality-relational-comparison.html
+
+Error
+http://es6.ruanyifeng.com/#docs/class-extends
+
+資料庫
+http://note.drx.tw/2012/12/mysql-syntax.html
+http://expressjs.com/zh-tw/guide/database-integration.html
+https://dotblogs.com.tw/explooosion/2016/07/18/010601
+
+ES6
+http://blog.jsdc.tw/2016/08/20/node_v6_and_es6
