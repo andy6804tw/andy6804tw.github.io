@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[JS學習筆記] 正規表達式'
-categories: '2018IT邦鐵人賽'
+categories: 'web'
 description: 正規表達式介紹
 keywords: JavaScript
 ---
