@@ -1,0 +1,44 @@
+---
+layout: post
+title: '[JS學習筆記] 使用 nodemon 取代 node 啟動程式'
+categories: '2018IT邦鐵人賽'
+description: nodemon 自動化部屬程式
+keywords: JavaScript, nodemon
+---
+
+## 什麼是 nodemon？
+在我們開發 node.js 時執行程式碼必須都要使用 node 指令來執行程式碼例如：`node index.js` ，但是如果你今天正在開發階段必須一直修修改改並且頻繁地測試內容，豈不是要一直重複著些指令嗎？從今天開始你可以使用 nodemon 的自動化 reload 幫你省去這些不必要麻煩的動作！
+
+[官方](https://nodemon.io/)是這麼解釋的 nodemon 是一個公用程序，它會監視你的程式碼有無的任何更改並自動重新啟動服務，這時只要刷新你的瀏覽器就能看到改動，此外 nodemon 使用 npm 進行安裝，只需使用 nodemon 取代 node 執行你的程式碼，就能輕鬆的開發 node.js。
+
+## nodemon 功能
+- 自動重啟應用程式
+- 持續偵測你的預設程式
+- 默認支持node＆coffeescript，但是易於運行任何可執行文件（比如python，make等）
+- 可以忽略特定文件或目錄
+- 觀察指定的目錄資料夾
+- 與服務器應用程序或一次運行公用程序和 REPLs 一起使用
+- 可在 node 中被存取使用
+- 有完整的開源碼分享在 [GitHub](https://github.com/remy/nodemon#nodemon) 上
+
+## 安裝
+nodemon 使用 npm 進行安裝，你可以安裝在全域也可以安裝在專案的devDependencies 本地目錄中，以下指令，兩者挑一即可，作者是習慣把常用的安裝一次在全域中，所以會挑選第一種方法。
+
+```
+npm install nodemon -g   // 安裝於全域
+npm install --save-dev nodemon // 安裝於專案資料夾中
+```
+
+
+## 使用
+新增一個檔案名為 `index.js` 在裡面可以先隨便寫個 console.log 好測試，原本執行檔案輸入只六 `node index.js` 現在只要改成 nodemon 即可。
+
+```
+nodemon index.js
+```
+
+其實你輸入 `nodemon` 也會執行 index.js 這支檔案，因為它會自動抓取預設路徑，但你今天取別的名字時就要根據檔名去執行它囉。
+
+<img src="/images/posts/it2018/img1061216-1.png" width="600">
+
+<img src="/images/posts/it2018/img1061216-2.png" width="600">
