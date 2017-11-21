@@ -48,6 +48,7 @@ brew update
 >ps. 安裝 Homebrew 前先確認是否有安裝 Xcode 若有請先去更新它，因為 Homebrew 是用 Ruby 攥寫並且需要在有 Ruby 環境下使用，然而安裝 Xcode 時會自帶 Ruby 所以 Xcode 也要保持最新狀態
 
 ##### 2. 安裝 Yarn
+- macOS用戶
 
 ```
 brew install yarn
@@ -63,6 +64,13 @@ brew install yarn --without-node
 
 ```
 brew upgrade yarn
+```
+
+- Windows用戶
+直接利用 npm 就能裝起來囉
+
+```
+npm install yarn --g
 ```
 
 安裝結束後來測試是否安裝成功！
