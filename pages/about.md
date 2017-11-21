@@ -8,13 +8,9 @@ menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+歡迎來到 10's blog
 
-仰慕「优雅编码的艺术」。
-
-坚信熟能生巧，努力改变人生。
-
-## 联系
+## 聯繫
 
 {% for website in site.data.social %}
 * {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})
