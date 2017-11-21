@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[JS學習筆記] 正規表達式'
-categories: 'web'
+categories: 'Web'
 description: 正規表達式介紹
 keywords: JavaScript
 ---
