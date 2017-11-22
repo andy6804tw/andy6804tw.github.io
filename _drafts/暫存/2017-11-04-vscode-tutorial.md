@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[JS學習筆記] 安裝Visual Studio Code與擴充套件設定'
-categories: '2018IT邦鐵人賽'
+categories: '2018iT邦鐵人賽'
 description: IDE介紹
 keywords: IDE
 ---
