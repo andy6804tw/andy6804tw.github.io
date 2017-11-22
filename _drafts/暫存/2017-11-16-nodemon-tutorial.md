@@ -14,15 +14,15 @@ keywords: JavaScript, nodemon
 ## nodemon 功能
 - 自動重啟應用程式
 - 持續偵測你的預設程式
-- 默認支持node＆coffeescript，但是易於運行任何可執行文件（比如python，make等）
+- 默認支持 node＆coffeescript，但是易於運行任何可執行文件（比如python，make等）
 - 可以忽略特定文件或目錄
 - 觀察指定的目錄資料夾
 - 與服務器應用程序或一次運行公用程序和 REPLs 一起使用
-- 可在 node 中被存取使用
+- 可在 node 中被存取使用
 - 有完整的開源碼分享在 [GitHub](https://github.com/remy/nodemon#nodemon) 上
 
 ## 安裝
-nodemon 使用 npm 進行安裝，你可以安裝在全域也可以安裝在專案的devDependencies 本地目錄中，以下指令，兩者挑一即可，作者是習慣把常用的安裝一次在全域中，所以會挑選第一種方法。
+nodemon 使用 npm 進行安裝，你可以安裝在全域也可以安裝在專案的 devDependencies 本機目錄中，以下指令，兩者挑一即可，作者是習慣把常用的安裝一次在全域中，所以會挑選第一種方法。
 
 ```
 npm install nodemon -g   // 安裝於全域
@@ -31,14 +31,16 @@ npm install --save-dev nodemon // 安裝於專案資料夾中
 
 
 ## 使用
-新增一個檔案名為 `index.js` 在裡面可以先隨便寫個 console.log 好測試，原本執行檔案輸入只六 `node index.js` 現在只要改成 nodemon 即可。
+新增一個檔案名為 `index.js` 在裡面可以先隨便寫個 console.log() 好測試，原本執行檔案輸入指令 `node index.js` 現在只要改成 nodemon 即可。
 
 ```
 nodemon index.js
 ```
 
-其實你輸入 `nodemon` 也會執行 index.js 這支檔案，因為它會自動抓取預設路徑，但你今天取別的名字時就要根據檔名去執行它囉。
+其實你輸入 `nodemon` 也會執行 index.js 這支檔案，因為它會自動抓取預設路徑，但你今天取別的名字時就要根據檔名去執行它囉。
 
 <img src="/images/posts/it2018/img1061216-1.png" width="600">
+
+若檔案變動會自動重啟，這時網頁重新整理就會立即看出結果，如果你覺得手動去刷新網頁這個動作也是多餘的太麻煩你可以試試搭配 `gulp-webserver` 來刷新你的網頁，可以參考這個 [GitHub](https://github.com/andy6804tw/gulp_tutorial) 教學。
 
 <img src="/images/posts/it2018/img1061216-2.png" width="600">
