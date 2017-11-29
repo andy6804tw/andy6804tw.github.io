@@ -54,14 +54,14 @@ $ npm install eslint-config-airbnb-base eslint-plugin-import eslint --save-dev
 ```
 5. 接下來使用 Visual Studio Code 的看過來，請記得到擴充套件內下載SLint的擴充套件才會即時顯示錯誤哦
 
-<img src="/images/posts/web/img1061026-1.png">
+<img src="/images/posts/it2018/img1061221-1.png">
 
 ## 結果
 
 最後你可以發現你的程式碼出現紅紅的底線囉！他代表你的程式碼不符合規範哦叫你馬上修正，你可以按下左邊燈泡點選 Fix all 它會一次幫你修正所有對問題，是不是很方便～此外最下面終端機中點選問題可以詳細知道所有的問題，例如要空白、結尾不能有分號、最後一行要換行......等，懶得看也沒關係，他只是提醒你某行程式碼寫這樣不符合規範，程式碼還是可以執行滴。
 
-<img src="/images/posts/web/img1061026-2.png">
-<img src="/images/posts/web/img1061026-3.png">
+<img src="/images/posts/it2018/img1061221-2.png">
+<img src="/images/posts/it2018/img1061221-3.png">
 
 
 最後附上程式碼 clone 下來 再npn i 就可以執行囉！喜歡的話按顆星星吧～ [Source Code](https://github.com/andy6804tw/ESLint_tutorial)

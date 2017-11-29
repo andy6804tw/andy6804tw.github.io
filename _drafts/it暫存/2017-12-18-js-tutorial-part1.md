@@ -21,7 +21,7 @@ for (let i = 0; i < 10; i += 1) {
 console.log(i); // ReferenceError: i is not defined
 ```
 
-<img src="/images/posts/it2018/img1061211-1.png">
+<img src="/images/posts/it2018/img1061217-1.png">
 
 這邊來解釋上述的程式由於迴圈內的變數只有區域特性，跑出迴圈後就不會再使用到它了，所以這邊就只用 let 做變數宣告就行了，所以迴圈結束後再呼叫 i 會出現 i is not defined 的錯誤，此外 Airbnb 也建議別使用 i++ 雖然我也不解，聽說是效率上問題？最後 ES6 有多行字串功能眼細的讀者可以發現我是使用 \` 裡面可以直接使用 `${}` 來包入變數，以前的話還要用 + 相當麻煩。
 
@@ -34,7 +34,7 @@ const mName = 'Andy Tsai';
 mName = 'Tsai Andy'; // TypeError: Assignment to constant variable.
 console.log(mName);
 ```
-<img src="/images/posts/it2018/img1061211-2.png">
+<img src="/images/posts/it2018/img1061217-2.png">
 
 由於我是宣告 const 常數故 mName 變數初始化後並不能再給值變動內容，所以第二行就會出現 `TypeError` 的錯誤。
 

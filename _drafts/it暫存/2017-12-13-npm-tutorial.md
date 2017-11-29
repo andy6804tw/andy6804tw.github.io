@@ -33,7 +33,7 @@ npm -v
 
 首先在你本機目錄下新增一個空的資料夾，再用 Visual Studio Code 打開資料夾與內建終端機
 
-<img src="/images/posts/web/img1061113-1.png">
+<img src="/images/posts/web/img1061213-1.png">
 
 再來就是初始化你的專案囉 `npm init -y` ， -y 的意思就是省略一些提問快速初始化，若還是不了解可以用 `npm init` 試試就知道了！ 
 
@@ -41,7 +41,7 @@ npm -v
 npm init -y
 ```
 
-<img src="/images/posts/web/img1061113-2.png">
+<img src="/images/posts/web/img1061213-2.png">
 
 初始完成後你會發現資料夾多了一個叫 package.json 的檔案，它是一種 CommonJS 規定用來描述包的文件，是一個包含 json 格式的說明文件，裡面可以定義相依的相關套件以及應用程式的資訊，簡單來說這隻檔案裡面會存你安裝什麼套件以及一些相關程式設定，你把這檔案分享給別人他再 `npm install` 就會把你原本所安裝的套件安裝回來了。
 

@@ -16,18 +16,18 @@ Visual Studio Code 由 2015 年微軟所開發的一個開源軟體，它同時�
 ## 安裝
 Visual Studio Code 多種作業系統首先到[官網](https://code.visualstudio.com/)下載安裝，此外若有遇到 bug 你可以到他們的 [GitHub](https://github.com/Microsoft/vscode/) 提交 issues 就會很快地被處理了。
 
-<img src="/images/posts/it2018/img1061204-1.png">
+<img src="/images/posts/it2018/img1061211-1.png">
 
 ## 環境設定
 #### 1. Path安裝code指令
 這個指令設定是結合電腦內建的終端機，在終端機輸入 `code .` 就會自動幫你把資料夾專案開啟，首先在鍵盤按下 `command + shift + p` 再輸入 path 點選第一個就設定完成囉！之後你就可以在終端機移入你要開啟的資料夾再鍵入 `code .` 系統就會自動幫你開啟該目錄專案在 VS Code 上了。
 
-<img src="/images/posts/it2018/img1061204-2.png">  
+<img src="/images/posts/it2018/img1061211-2.png">  
 
 #### 2. config設定
 在畫面左上角點選 `喜好設定 => 設定` 或是點選快速鍵 `command + ,` 也能快速叫出設定檔，開啟之後如下圖，左邊為全部的設定參數查詢，若有需要更改可以點選左邊的一支筆做編輯，此時右邊的畫面就是你自己客製化的設定檔了，他使以 json 格式做編輯，在這邊你可以依據你喜好填入你的設定值，下面我也分享我自己的設定可以直接貼上，其中最推薦 autoSave 他會自動幫你儲存檔案不需再手動的存檔，以及 formatOnPaste 當你複製貼上網路上的程式碼時難免會跑版格式，此設定就是幫你貼上時自動排版你的程式碼。
 
-<img src="/images/posts/it2018/img1061204-3.png"> 
+<img src="/images/posts/it2018/img1061211-3.png"> 
 
 ```js
 {
@@ -55,9 +55,11 @@ Visual Studio Code 多種作業系統首先到[官網](https://code.visualstudio
 - vscode-icons
   - 幫你 VS Code 檔案與資料夾 icon 美化
 
-<img src="/images/posts/it2018/img1061204-4.png"> 
+<img src="/images/posts/it2018/img1061211-4.png"> 
 
 #### vscode-icons 啟用
 這邊先講 vscode-icons 如何設定，其餘插件可以先安裝好，後面文章會逐一教你如何使用，vscode-icons 下載後請選擇上方工具列 `前往 => 命令選擇區` 或是鍵盤按下 `command + shift + p` 輸入 `icon` 並點選第一個命令啟用。
 
-<img src="/images/posts/it2018/img1061204-5.png"> 
+<img src="/images/posts/it2018/img1061211-5.png"> 
+
+<img src="/images/posts/it2018/img1061211-6.png"> 

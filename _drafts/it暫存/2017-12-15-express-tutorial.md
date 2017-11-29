@@ -39,13 +39,13 @@ express --version
 express -f 專案名稱
 ```
 
-<img src="/images/posts/it2018/img1061222-1.png">
+<img src="/images/posts/it2018/img1061215-1.png">
 
 ## install package
 
 初始化完成後必須使用 `npm install` 或 `yarn install` 來安裝 package.json 內所指定的套件，要安裝什麼套件 express-generator 都自動幫你寫好了，由於這些模組都非常的大所以要透過指令去把他安裝回來，之後會產出一個叫 node_modules 的資料夾，總之你可以把 package.json 檔案想成是一個軟體清單，所有會用到的套件都會列在裡面。
 
-<img src="/images/posts/it2018/img1061222-2.png">
+<img src="/images/posts/it2018/img1061215-2.png">
 
 ## 解析資料夾內容
 
@@ -73,7 +73,7 @@ express -f 專案名稱
 
 `bin/www` 是整個程式的進入點，點進去你可以發現他的 port 設為 3000 代表 web server 監聽埠號 3000 port，其他相關的 middleware 例如：body-parser、morgan 以及 router 都寫在 `app.js` 中被 www 啟動時所 import 進去，至於前端畫面是 public 與 views 這兩個資料夾管理，今天我們著重在 router 這部分。
 
-<img src="/images/posts/it2018/img1061222-3.png">
+<img src="/images/posts/it2018/img1061215-3.png">
 
 #### - 解析 routes/index.js
 
@@ -101,7 +101,7 @@ module.exports = router;
 
 修改檔案後就可以使用 `node ./bin/www` 或 `npm start` 來啟動專案了，至於後者指令為什麼可以啟動，你可以查看 package.json 的檔案裡面的 scripts 有設定好指令相對路徑，所以在 package.json 中你可以依據你的習慣設定你自己專屬的快捷鍵。
 
-<img src="/images/posts/it2018/img1061222-4.png" width="350">
+<img src="/images/posts/it2018/img1061215-4.png" width="350">
 
 ```
 node ./bin/www
@@ -110,5 +110,5 @@ npm start
 
 最後你可以到瀏覽器輸入 `localhost:3000` 與 `localhost:3000/test` 來查看內容。
 
-<img src="/images/posts/it2018/img1061222-5.png" width="350">
-<img src="/images/posts/it2018/img1061222-6.png" width="350">
+<img src="/images/posts/it2018/img1061215-5.png" width="350">
+<img src="/images/posts/it2018/img1061215-6.png" width="350">

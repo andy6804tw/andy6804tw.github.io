@@ -39,8 +39,8 @@ nodemon index.js
 
 其實你輸入 `nodemon` 也會執行 index.js 這支檔案，因為它會自動抓取預設路徑，但你今天取別的名字時就要根據檔名去執行它囉。
 
-<img src="/images/posts/it2018/img1061216-1.png" width="600">
+<img src="/images/posts/it2018/img1061223-1.png" width="600">
 
 若檔案變動會自動重啟，這時網頁重新整理就會立即看出結果，如果你覺得手動去刷新網頁這個動作也是多餘的太麻煩你可以試試搭配 `gulp-webserver` 來刷新你的網頁，可以參考這個 [GitHub](https://github.com/andy6804tw/gulp_tutorial) 教學。
 
-<img src="/images/posts/it2018/img1061216-2.png" width="600">
+<img src="/images/posts/it2018/img1061223-2.png" width="600">

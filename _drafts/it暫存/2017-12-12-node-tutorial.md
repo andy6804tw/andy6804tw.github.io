@@ -51,10 +51,10 @@ server.listen('3000', function () {
 ```
 之後在終端機輸入 node index.js 啟動檔案
 
-<img src="/images/posts/web/img1061112-1.png">
+<img src="/images/posts/it2018/img1061212-1.png">
 
 顯示出來 console.log 的內容了！ 接著試著在網頁上輸入 localhost:3000 你會發現你寫的 Hello world 回應在網頁上了。
 
-<img src="/images/posts/web/img1061112-2.png">
+<img src="/images/posts/web/img1061212-2.png">
 
 此外在開發上為了減低開發時間以及提升效率，所以 Node.js 延伸出很多框架供使用者做開發，例如: 被官方認同的 Express 框架、Sails.js (node.js mvc)、Koa、Socket Stream ......等
