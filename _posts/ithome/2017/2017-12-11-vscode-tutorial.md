@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JS學習筆記] 安裝Visual Studio Code與擴充套件設定'
+title: '[Node.js打造API] 安裝 Visual Studio Code 與擴充套件設定'
 categories: '2018iT邦鐵人賽'
 description: IDE介紹
 keywords: IDE
@@ -8,13 +8,13 @@ keywords: IDE
 
 
 ## 介紹 Visual Studio Code
-大家好歡迎來到這一系列的文章，為了維持後面文章的統一性我在這邊特別寫一篇編輯器的安裝與推薦的擴充套件與環境設定，打造一個方便的開發環境，為什麼我會選擇它呢？原因在於 Visual Studio Code 有強大的編輯功能，因為是開源的專案所以更新速度頻繁擴充套件的資源也很豐富，而且內建終端機與版本控制整個開發過程在同一個視窗就能完成。市面上的編輯器有很多例如： [Visual Studio Code](https://code.visualstudio.com/)、[Sublime Text](https://www.sublimetext.com/)、[Atom](https://atom.io/)、[vim](https://vim.sourceforge.io/download.php)、[Notepad++](https://notepad-plus-plus.org/zh/) ......等，各位可以依據自己的喜好安裝一個自己適合的編輯環境。
+大家好歡迎來到這一系列的文章，為了維持後面文章的統一性我在這邊特別寫一篇編輯器的安裝與推薦的擴充套件與環境設定，打造一個方便的開發環境，為什麼我會選擇它呢？原因在於 Visual Studio Code 有強大的編輯功能，因為是開源的專案所以更新速度頻繁擴充套件的資源也很豐富，而且內建終端機與版本控制整個開發過程在同一個視窗就能完成。市面上的編輯器有很多例如： [Visual Studio Code](https://code.visualstudio.com/)、[Sublime Text](https://www.sublimetext.com/)、[Atom](https://atom.io/)、[Vim](https://vim.sourceforge.io/download.php)、[Notepad++](https://notepad-plus-plus.org/zh/) ......等，各位可以依據自己的喜好安裝一個自己適合的編輯環境。
 
 Visual Studio Code 由 2015 年微軟所開發的一個開源軟體，它同時支援 Windows、Linux 和 macOS 作業系統的開源文字編輯器。它支援偵錯，內建了Git 版本控制功能，同時也具有開發環境功能，例如代碼補全、代碼片段、代碼重構等。
 
 
 ## 安裝
-Visual Studio Code 多種作業系統首先到[官網](https://code.visualstudio.com/)下載安裝，此外若有遇到 bug 你可以到他們的 [GitHub](https://github.com/Microsoft/vscode/) 提交 issues 就會很快地被處理了。
+Visual Studio Code 多種作業系統首先到[官網](https://code.visualstudio.com/)下載安裝，此外若有遇到 bug 你可以到他們的 [GitHub](https://github.com/Microsoft/vscode/) 提交 issues 就會很快地被處理囉！當然也可以許願，最近看到 Atom 更新了[遠端共筆](https://teletype.atom.io/) (Code together in real time with Teletype) 的功能，近期也有人在 VS Code issues 上許願希望這功能可以趕快出來一定方便，說個題外話聽說終端機 (Terminal) 功能就是台灣人上去許願出來的。
 
 <img src="/images/posts/it2018/img1061211-1.png">
 
@@ -62,4 +62,4 @@ Visual Studio Code 多種作業系統首先到[官網](https://code.visualstudio
 
 <img src="/images/posts/it2018/img1061211-5.png"> 
 
-<img src="/images/posts/it2018/img1061211-6.png"> 
+<img src="/images/posts/it2018/img1061211-6.png" width="400"> 
