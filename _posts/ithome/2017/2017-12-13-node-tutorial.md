@@ -51,11 +51,11 @@ server.listen('3000', function () {
 ```
 之後在終端機輸入 node index.js 啟動檔案
 
-<img src="/images/posts/it2018/img1061212-1.png">
+<img src="/images/posts/it2018/img1061213-1.png">
 
 顯示出來 console.log 的內容了！ 接著試著在網頁上輸入 localhost:3000 你會發現你寫的 Hello world 回應在網頁上了。
 
-<img src="/images/posts/web/img1061212-2.png">
+<img src="/images/posts/it2018/img1061213-2.png">
 
 ## 總結
 
