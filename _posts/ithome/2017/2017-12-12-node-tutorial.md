@@ -1,14 +1,14 @@
 ---
 layout: post
-title: '[Node.js新手] Node.js 入門介紹'
-categories: Web
+title: '[Node.js打造API] Node.js 入門介紹'
+categories: '2018iT邦鐵人賽'
 description: Node.js 入門介紹
 keywords: Node.js
 ---
 
 
 ## 何謂 Node.js
-Node.js是以JavaScript語言為基礎，是一個開放的原始碼(Open Source)的應用程式框架        (Application Framework)。
+Node.js 是以 JavaScript 語言為基礎，是一個開放的原始碼 (Open Source) 的應用程式框架 (Application Framework)。
 
 <img src="https://camo.githubusercontent.com/dfe125b1579e723de45a206328df7e0705ed9f9f/68747470733a2f2f6e6f64656a732e6f72672f7374617469632f696d616765732f6c6f676f732f6e6f64656a732e706e67" width="300">
 
@@ -20,7 +20,7 @@ Node.js 是一個高效能、易擴充的網站應用程式開發框架 (Web App
  - 第三方模組支援
  - 入門簡單
  
-##### 1. 安裝 Node.js
+####  1. 安裝 Node.js
 
 安裝 [Node.js](https://nodejs.org/en/) ，這裡有兩個版本分別為穩定版和最新版，這可以具你的喜好安裝，作者是安裝最新的版本。
 
@@ -29,9 +29,9 @@ Node.js 是一個高效能、易擴充的網站應用程式開發框架 (Web App
 node -v
 ```
 
-##### 2. 第一支 Node.js 程式
+####  2. 第一支 Node.js 程式
 
-作者是使用 VS code 來做開發，各位可以使是自己喜歡的編譯器來實作，編譯器來實作，首先開啟資料夾新增一個index.js的檔案，這支檔案就來實作我們第一個 web server。
+作者是使用 VS Code 來做開發，各位可以使是自己喜歡的編譯器來實作，編譯器來實作，首先開啟資料夾新增一個  index.js 的檔案，這支檔案就來實作我們第一個 web server。
 
 ```js
 //透過http模組啟動web server服務
@@ -57,4 +57,6 @@ server.listen('3000', function () {
 
 <img src="/images/posts/web/img1061212-2.png">
 
-此外在開發上為了減低開發時間以及提升效率，所以 Node.js 延伸出很多框架供使用者做開發，例如: 被官方認同的 Express 框架、Sails.js (node.js mvc)、Koa、Socket Stream ......等
+## 總結
+
+在開發上為了減低開發時間以及提升效率，所以 Node.js 延伸出很多框架供使用者做開發，例如: 被官方認同的 Express 框架、Sails.js (node.js mvc)、Koa、Socket Stream ......等

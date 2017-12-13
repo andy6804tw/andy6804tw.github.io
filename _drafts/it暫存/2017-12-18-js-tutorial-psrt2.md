@@ -96,8 +96,11 @@ console.log(sum) // 15
 
 
 ## 函式(function)
+箭頭函式在 JavaScript 中改寫原本 function 的撰寫方式。除了較短的語法外，它們在保持this  關鍵字範圍方面也有優勢 [參見這裡](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this)，此外在 ESLint 中官方也建議使用箭頭函式取代傳統寫法。
 
-函式又稱方法，用於程式碼過多重複時定義一個方法來去重複呼叫他來解省我們的開發效率，以下為範例
+函式 (function) 又稱方法 (method)，用於程式碼過多重複時定義一個方法來去重複呼叫他來解省我們的開發效率，以下為範例：
+
+#### 原本寫法
 
 ```js
 // 使用有名稱的函式
@@ -111,12 +114,53 @@ const sum = function(a, b) {
 }
 ```
 
-函式在 ES6 當中有個箭頭函式的表達式，在 ESLint 中官方也建議使用箭頭函式取代傳統寫法。
+#### 變成
 
 ```js
 const sum = (x, y) => {
   return x + y;
 };
-console.log(sum(1, 3)); // 4
+
+console.log(sum(1, 3)); 
 
 ```
+> output: 4
+
+
+### 撰寫方式
+
+##### 1. 當你在宣告時若沒有傳入值(arguments)，必須放空括號。
+
+```js
+const callMe = () => { 
+    console.log('Max!');
+}
+```
+
+##### 2. 當只有一個傳入值(arguments)，可以省略括號。
+
+```js
+const callMe = name => { 
+    console.log(name);
+}
+```
+
+##### 3. 當函式有回傳時可濃縮一行
+
+```js
+const doubleNum = num => num * 2;
+
+console.log(doubleNum(5));
+```
+
+相等於
+
+```js
+const doubleNum = (num) => {
+  return num * 2;
+};
+console.log(doubleNum(5));
+
+```
+
+> output: 10
