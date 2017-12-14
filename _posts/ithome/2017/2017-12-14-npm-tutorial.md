@@ -1,8 +1,8 @@
 ---
 layout: post
 title: '[Node.js新手] npm 套件管理工具'
-categories: Web
-description: npm管理工具介紹
+categories: '2018iT邦鐵人賽'
+description: 'npm管理工具介紹'
 keywords: Node.js, npm
 ---
 
@@ -16,7 +16,7 @@ npm 全名為 Node Package Manager，是 Node.js 的套件（package）管理工
 npm install firebase
 ```
 
-##### 1. 安裝 npm
+#### 1. 安裝 npm
 
 安裝 Node.js 會自動內建 npm，所以第一步驟先去安裝 [Node.js](https://nodejs.org/en/) ，這裡有兩個版本分別為穩定版和最新版，這可以具你的喜好安裝，作者是安裝最新的版本。
 
@@ -29,7 +29,7 @@ node -v
 npm -v
 ```
 
-##### 2. 初始化專案
+#### 2. 初始化專案
 
 首先在你本機目錄下新增一個空的資料夾，再用 Visual Studio Code 打開資料夾與內建終端機
 
