@@ -92,6 +92,6 @@ npm uninstall --save [package]	|yarn remove [package]|移除dependencies某套�
 npm uninstall --save-dev [package]	|yarn remove [package]|移除devDependencies某套件
 rm -rf node_modules && npm install	|yarn upgrade |更新node_modules
 
-這邊列出最常見以及我最常用的指令，若要看更多請看[這篇](https://yarnpkg.com/en/docs/migrating-from-npm)
+這邊列出最常見以及我最常用的指令，若要看更多請看[這裡](https://yarnpkg.com/en/docs/migrating-from-npm)
 
 [Yarn GitHub](https://github.com/yarnpkg/yarn)
