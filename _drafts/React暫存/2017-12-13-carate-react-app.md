@@ -20,7 +20,7 @@ Create React app 是由 Facebook 自己所開源的 start kit 在 [GitHub](https
 
 #### 2. 初始化專案
 
-```bbash
+```bash
 create-raect-app [專案名稱]
 cd [專案名稱]
 ```
@@ -39,7 +39,7 @@ yarn start
 
 <img src="/images/posts/react/img1061213-2.png">
 
-## Understanding the Folder Structure
+## 了解專案架構
 
 ```bash
 ┌── node_modules
