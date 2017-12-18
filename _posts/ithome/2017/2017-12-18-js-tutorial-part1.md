@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JS學習筆記] JavaScript基礎篇(1)'
+title: '[Node.js打造API] JavaScript基礎篇(1)'
 categories: '2018iT邦鐵人賽'
 description: 變數與常數、資料類型
 keywords: JavaScript, ES6

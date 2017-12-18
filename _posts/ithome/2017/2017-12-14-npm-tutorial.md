@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js新手] npm 套件管理工具'
+title: '[Node.js打造API] npm 套件管理工具'
 categories: '2018iT邦鐵人賽'
 description: 'npm管理工具介紹'
 keywords: Node.js, npm

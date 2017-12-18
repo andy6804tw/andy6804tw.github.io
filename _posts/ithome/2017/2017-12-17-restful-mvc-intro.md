@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JS學習筆記] RESTful API與MVC名詞介紹'
+title: '[Node.js打造API] RESTful API與MVC名詞介紹'
 categories: '2018iT邦鐵人賽'
 description: RESTful、MVC解釋
 keywords: RESTful,MVC

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JS學習筆記] 用Yarn取代npm加速開發'
+title: '[Node.js打造API] 用Yarn取代npm加速開發'
 categories: '2018iT邦鐵人賽'
 description: 
 keywords: JavaScript, ES6
