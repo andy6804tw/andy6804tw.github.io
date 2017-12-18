@@ -51,6 +51,9 @@ keywords: CSS
 ```
 <img src="/images/posts/web/img1061218-3.png">
 
+<p data-height="265" data-theme-id="0" data-slug-hash="rpxyYv" data-default-tab="html" data-user="andy6804tw" data-embed-version="2" data-pen-title="2 columns" class="codepen">See the Pen <a href="https://codepen.io/andy6804tw/pen/rpxyYv/">2 columns</a> by Yi Lin Tsai  (<a href="https://codepen.io/andy6804tw">@andy6804tw</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 [範例程式碼](https://codepen.io/andy6804tw/pen/rpxyYv)
 
 ## 3&4 columns
@@ -89,4 +92,9 @@ keywords: CSS
 
 ```
 
+<p data-height="265" data-theme-id="0" data-slug-hash="ypePeL" data-default-tab="html" data-user="andy6804tw" data-embed-version="2" data-pen-title="3 columns" class="codepen">See the Pen <a href="https://codepen.io/andy6804tw/pen/ypePeL/">3 columns</a> by Yi Lin Tsai  (<a href="https://codepen.io/andy6804tw">@andy6804tw</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 [範例程式碼](https://codepen.io/andy6804tw/pen/ypePeL)
+
+
