@@ -29,7 +29,7 @@ keywords: CSS
 }
 ```
 
-## 容器置中
+## 容器(水平)置中
 
 在網頁設計上會用 `div` 當容器把裡面內容包起來，這邊要示範容器置中。
 
@@ -71,3 +71,47 @@ chrome右鍵檢查，可以發現右下腳有個框框有 margin、border、padd
 
 
 [範例程式碼](https://codepen.io/andy6804tw/pen/eyJvZe)
+
+## 容器(垂直+水平)置中
+
+若今天想將標題內文放置一塊 div 標籤內的正中間也就是垂直水平置中，有兩種方法，首先 html 標籤都一樣，建立一個最外層容器 `<div class=flex>` 內文有 `<h1>` 和 `<p>` 標籤文字。
+
+```html
+<div class="flex">
+  <div>
+    <h1>content content</h1>
+    <p>content content</p>
+  </div>
+</div>
+```
+
+##### 方法1.
+
+CSS3 彈性盒子，又稱flexbox，是為了適應不同螢幕尺寸和顯示設備而生的佈局模式。針對許多應用而言，不用 floats 的彈性盒子模型會比塊狀模型（block model）易用，彈性容器的邊緣也不會與內容的邊緣重疊。
+
+```css
+.flex{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:600px;
+  height:600px;
+  background-color:#eee;
+}
+```
+
+##### 方法2.
+第二個方法是將內層標籤直接 `margin:auto` 自動平分區塊。
+
+```css
+.flex{
+  display:flex;
+  width:600px;
+  height:600px;
+  background-color:#eee;
+}
+
+.flex div{
+  margin:auto;
+}
+```
