@@ -115,3 +115,5 @@ CSS3 彈性盒子，又稱flexbox，是為了適應不同螢幕尺寸和顯示�
   margin:auto;
 }
 ```
+
+<img src="/images/posts/web/img1061218-5.png">
