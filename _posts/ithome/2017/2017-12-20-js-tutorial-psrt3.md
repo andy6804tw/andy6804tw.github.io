@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[JS學習筆記] JavaScript基礎篇(3)'
-categories: '2018IT邦鐵人賽'
+title: '[Node.js打造API] JavaScript基礎篇(3)'
+categories: '2018iT邦鐵人賽'
 description: '陣列物件介紹'
 keywords: JavaScript, ES6
 ---

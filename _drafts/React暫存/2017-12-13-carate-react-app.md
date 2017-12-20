@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[React從零開始] 輕鬆使用 Create React app'
+title: '[React學習筆記] 輕鬆使用 Create React app'
 categories: 'React'
 description: 'Create React app 使用介紹'
 keywords: React.js
