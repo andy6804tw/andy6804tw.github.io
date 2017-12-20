@@ -1,19 +1,19 @@
 ---
 layout: post
-title: '[React從零開始] state 與按鈕觸發事件'
+title: '[React學習筆記] 父子元件傳遞函式'
 categories: 'React'
 description: '狀態 state 的使用'
 keywords: React.js
 ---
 
 
-## state 與按鈕觸發事件
+# 兩個元件傳遞函式
+父函式可以跟子函式共用傳遞方法，由以下例子可以發現 `<Person/>` 中多了 `click={this.call}` 的 props 傳遞到子元件中，在遊子元件中的標籤渲染做 `<p onClick={props.click}/>` 的觸發。
 
-接連上一例子我們再加入 Button 來新增狀態事件，值得一提的是 `<button>` 在 JSX 當中的 onClick 事件 `C` 為大寫，此外要改變state，必須使用setState()，以下例子是利用按鈕點擊來修改 state 的內容。
+- 主元件 app.js
 
-- 主元件 App.js
-
-```js
+```jsx
+// app.js
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
@@ -43,7 +43,10 @@ class App extends Component {
       <div className="App">
         <h1>Hello World! React</h1>
         <button onClick={this.call}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+        <Person 
+        name={this.state.persons[0].name} 
+        age={this.state.persons[0].age}
+        click={this.call}/>
         <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>Hobby is coding</Person>
       </div>
 
@@ -54,20 +57,22 @@ class App extends Component {
 export default App;
 ```
 
-- 子元件 Person.js (未更動)
+- 子元件 Person.js
 
-```js
+```jsx
+// Person.js
 import React from 'react';
 
 const person = (props) => {
   return (
       <div>
-        <p> I'm {props.name} and I'am {props.age} yesrs old.</p>
+        <p onClick={props.click}> I'm {props.name} and I'am {props.age} yesrs old.</p>
         <p>{props.children}</p>
       </div>
   )
 };
 
 export default person;
-
 ```
+
+https://github.com/andy6804tw/create-react-app/tree/Part3

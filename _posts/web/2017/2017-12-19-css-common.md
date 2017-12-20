@@ -7,6 +7,7 @@ keywords: CSS
 ---
 
 ## 常見的 CSS 屬性
+其實前端開發中常用的 HTML、CSS 只有固定幾種，其餘比較特別例外的都可以上網查詢，在這邊整理出一些比較基礎的 CSS 屬性。
 
 - display
 - position

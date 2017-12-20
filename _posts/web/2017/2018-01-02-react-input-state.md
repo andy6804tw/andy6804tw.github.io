@@ -1,16 +1,17 @@
 ---
 layout: post
-title: '[React從零開始] input呼叫事件變動state資料'
+title: '[React學習筆記] input呼叫事件變動state的資料'
 categories: 'React'
 description: '狀態 state 的使用'
 keywords: React.js
 ---
 
-這個範例是在 Person 這個元件中新增一個 `input` 標籤並使用 `onChange` 監聽事件並觸發 nameChange 函式，你可以發現該函式有個傳入值叫 event 此外要取得裡面的值為 `event.target.value` ，最後觸發此事件直接 `this.nameChange` 就行了。
+## 前言
+這個範例是在 Person 這個元件中新增一個 `input` 標籤並使用 `onChange` 監聽事件並呼叫 nameChange 函式，你可以發現該函式有個傳入值叫 event 此外要取得裡面的值為 `event.target.value` ，最後觸發此事件直接 `this.nameChange` 就行了。
 
 - 主元件 App.js (在 Person 加入 changed 傳入 props)
 
-```js
+```jsx
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
@@ -67,7 +68,7 @@ export default App;
 
 - 子元件 Person.js (新增input)
 
-```js
+```jsx
 import React from 'react';
 
 const person = (props) => {
