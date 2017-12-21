@@ -7,7 +7,6 @@ keywords: JavaScript, ES6
 ---
 
 ## Exports & Imports (Modules)
-
 在撰寫 API 過程中你會將很多分支檔案拆開寫，一方面是減少過長的程式碼另一方面是日後好管理。你必須要先匯出分支檔(export)再經由主檔案中被引入(import)，以下有個簡單例子，第一個分支檔 person.js 將函式 person 匯出，第二支分支檔將函式 clean 和變數 bastData 匯出 (另一種匯出寫法) ，最後再主檔案 index.js 引入被呼叫使用。
 
 - 分支檔 person.js、utility.js
