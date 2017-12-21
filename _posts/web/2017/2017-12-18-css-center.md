@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[CSS學習筆記] 如何版面置中'
-categories: 'Web'
+categories: 'CSS'
 description: '置中'
 keywords: CSS
 ---

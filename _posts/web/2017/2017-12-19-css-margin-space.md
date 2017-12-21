@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[CSS學習筆記] 解決div或img多餘的空白'
-categories: 'Web'
+categories: 'CSS'
 description: '解決div或img多餘的空白'
 keywords: CSS
 ---

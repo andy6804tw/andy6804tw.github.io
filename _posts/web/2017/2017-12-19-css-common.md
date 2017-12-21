@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[CSS學習筆記] CSS幾個常用的屬性'
-categories: 'Web'
+categories: 'CSS'
 description: 'CSS幾個常用的屬性'
 keywords: CSS
 ---
