@@ -11,6 +11,7 @@ keywords: JavaScript, ES6
 在撰寫 API 過程中你會將很多分支檔案拆開寫，一方面是減少過長的程式碼另一方面是日後好管理。你必須要先匯出分支檔(export)再經由主檔案中被引入(import)，以下有個簡單例子，第一個分支檔 person.js 將函式 person 匯出，第二支分支檔將函式 clean 和變數 bastData 匯出 (另一種匯出寫法) ，最後再主檔案 index.js 引入被呼叫使用。
 
 - 分支檔 person.js、utility.js
+
 ```js
 // person.js 分支檔1
 const person ={
@@ -27,6 +28,7 @@ export const bastData = 10;
 ```
 
 - 主檔 index.js
+
 ```js
 // index.js
 //default export
@@ -40,11 +42,13 @@ import {clean as c} from './utility.js';
 import * as c from './utility.js';
 
 ```
+
 ### 四種不同寫法
 
 1. export default{ } 集中匯出
 
 - 分支檔 utility.js
+
 ```js
 //utility.js
 
@@ -61,6 +65,7 @@ export default { app1, app2 };
 ```
 
 - 主檔 index.js
+
 ```js
 //index.js
 import app from './utility';
@@ -75,6 +80,7 @@ app.app2();
 此寫法可以注意觀察主檔 index.js，使利用萬用字元 `*` 表示該檔內所有變數引入。 
 
 - 分支檔 utility.js
+
 ```js
 //utility.js
 export const app1 = () => {
@@ -87,6 +93,7 @@ export const app2 = () => {
 ```
 
 - 主檔 index.js
+
 ```js
 //index.js
 import * as app from './utility';
@@ -95,11 +102,13 @@ import * as app from './utility';
 app.app1();
 app.app2();
 ```
+
 3. 單個變數匯出，並分別引入
 
 此寫法在主檔 index.js 引入時在大括號內著名是要引入哪個變數。
 
 - 分支檔 utility.js
+
 ```js
 //utility.js
 export const app1 = () => {
@@ -112,6 +121,7 @@ export const app2 = () => {
 ```
 
 - 主檔 index.js
+
 ```js
 //index.js
 import { app1 } from './utility';
@@ -126,6 +136,7 @@ app2();
 此寫法與第三種相類似差別在於引入進來的變數給予重新命名。
 
 - 分支檔 utility.js
+
 ```js
 //utility.js
 export const app1 = () => {
@@ -138,6 +149,7 @@ export const app2 = () => {
 ```
 
 - 主檔 index.js
+
 ```js
 //index.js
 import { app1 as App1 } from './utility';
