@@ -12,9 +12,19 @@ keywords: CSS
 <img src="/images/posts/web/img1061219-2.png">
 
 
-- css
+
+- css(方法一)
+
 ```css
 body{ margin: 0; padding: 0; }
+```
+
+- css(方法二)
+
+```css
+img{
+  display: block;
+}
 ```
 
 ## 移除 img 底部的空白
