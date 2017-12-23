@@ -1,7 +1,7 @@
 ---
 layout: post
-title: '[JS學習筆記] Webpack 與 babel 轉譯'
-categories: '2018IT邦鐵人賽'
+title: '[Node.js打造API] Webpack 與 babel 轉譯'
+categories: '2018iT邦鐵人賽'
 description: 'Webpack+babel'
 keywords: JavaScript, ES6
 ---
