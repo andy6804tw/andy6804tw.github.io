@@ -27,7 +27,7 @@ yarn init -y
 ```
 由於我是下載最新版本的 node.js 所以他有黃字警告我，版本可能不相容但沒關係若有問題還是可以用 `npm` 去代替操作，若還沒下載的朋友建議勸下載穩定版的 node.js。
 
-<img src="/images/posts/it2018/img1061222-1.png">
+<img src="/images/posts/it2018/img1061223-1.png">
 
 #### 2. 安裝 Webpack 與 babel
 
@@ -137,18 +137,18 @@ server.listen('3000', function () {
 
 第一步： 先鍵入 `yarn build` ，這個動作會啟動 `webpack -w` w 代表的是 watch 就是值持續監聽有變動時會同步更新，看見綠綠一片恭喜你成功囉！
 
-<img src="/images/posts/it2018/img1061222-2.png">
+<img src="/images/posts/it2018/img1061223-2.png">
 
 第二步： 使用 Visual Studio Code 的使用者可以在終端機 ＋ 新增另一個終端機(原本的不用關)，並鍵入 `yarn start`，這個動作會啟動 `nodemon dist/index.bundle.js` 也就是執行打包後的檔案囉！ 若不知道或還沒安裝 nodemon 的朋友請先看看上一篇文章裡面有安裝教學
 。
 
-<img src="/images/posts/it2018/img1061222-3.png">
+<img src="/images/posts/it2018/img1061223-3.png">
  
  成功後會發現 conelog 出 `server start on 3000 port` ，這時就開啟瀏覽器輸入 `localhost:3000` 來看看結果囉！
 
- <img src="/images/posts/it2018/img1061222-4.png">
+ <img src="/images/posts/it2018/img1061223-4.png">
 
 ## 結語
 最後各位可能有個疑問那就是 `build:prod` 是什麼還沒用到欸？ 這個指令是跟 `build:prod` 一樣差別在於壓縮，各位可以試試看會發現喘出來的 `index.bundle` 變成只有一行而且檔案確實也變小了，這道指令適合在開發成產品成產品時來使用。
 
-<img src="/images/posts/it2018/img1061222-5.png">
+<img src="/images/posts/it2018/img1061223-5.png">
