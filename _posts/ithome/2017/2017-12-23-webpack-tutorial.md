@@ -152,3 +152,5 @@ server.listen('3000', function () {
 最後各位可能有個疑問那就是 `build:prod` 是什麼還沒用到欸？ 這個指令是跟 `build:prod` 一樣差別在於壓縮，各位可以試試看會發現喘出來的 `index.bundle` 變成只有一行而且檔案確實也變小了，這道指令適合在開發成產品成產品時來使用。
 
 <img src="/images/posts/it2018/img1061223-5.png">
+
+範例程式碼：https://github.com/andy6804tw/webpack_tutorial
