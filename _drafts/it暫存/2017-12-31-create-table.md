@@ -17,13 +17,13 @@ keywords:
 #### 1. 建立資料庫(Database)
 前幾篇文章已經教你如何下載與安裝 Sequel Pro ，環境設定好了那就開始建立資料庫與欄位囉！首先我們是要做一個部落格貼文 API 那我們就建立一個名為 `Community` 的 Database，點選左上角的 `Choose Database -> Add Database` 輸入資料庫名稱與選擇文字編碼的方式，這邊選擇萬國碼 `UTF-8` 這樣資料才能被接受儲存中文字。
 
-<img src="/images/posts/it2018/img1070101-1.png">
-<img src="/images/posts/it2018/img1070101-2.png">
+<img src="/images/posts/it2018/img1061231-1.png">
+<img src="/images/posts/it2018/img1061231-2.png">
 
 #### 2. 建立資料表(table)
 一個部落格貼文一定會有文章以及用戶，所以我們就分別建立文章 (Articles) 與 用戶(Users) 的資料表(table)，新增的方式點選介面最左下角的 `+` 號來新增 table 分別建立 Articles 與 Users。
 
-<img src="/images/posts/it2018/img1070101-3.png">
+<img src="/images/posts/it2018/img1061231-3.png">
 
 ##### 文章(Articles)   
 
@@ -39,7 +39,7 @@ article_content|text|文章內容
 article_created_time|datetime|文章發佈時間
 article_updated_time|datetime|文章更新時間
 
-<img src="/images/posts/it2018/img1070101-4.png">
+<img src="/images/posts/it2018/img1061231-4.png">
 
 ##### 用戶(Users)  
 
@@ -54,4 +54,4 @@ user_password|varchar(255)|用戶密碼
 user_created_time|datetime|用戶新增時間
 user_updated_time|datetime|用戶更新時間
 
-<img src="/images/posts/it2018/img1070101-5.png">
+<img src="/images/posts/it2018/img1061231-5.png">
