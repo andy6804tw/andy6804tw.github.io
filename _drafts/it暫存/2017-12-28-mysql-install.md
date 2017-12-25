@@ -91,7 +91,7 @@ SELECT * FROM Article WHERE Uid IN (SELECT Id FROM Member WHERE Status = 1)
   - InfoGrid
   - AllegroGrph
 
-<img src="/images/posts/it2018/img1061227-4.png">
+<img src="/images/posts/it2018/img1061229-4.png">
 
 想知道更詳細可以參考[這篇](https://www.ithome.com.tw/news/92507)裡面寫得非常詳細。
 
@@ -103,11 +103,11 @@ SELECT * FROM Article WHERE Uid IN (SELECT Id FROM Member WHERE Status = 1)
 
 mac 的讀者可以到[這裡](https://dev.mysql.com/downloads/mysql/)來下載 MySQL Community Server 點選第一個安裝，安裝後會有個小視窗跳出來像下面這樣，這是你的 MySQL root 密碼要截圖記住，忘記就麻煩了，下一篇教學就會教你如何用圖象化軟體和你的 MySQL 做連線，安裝完成後可以到系統的偏好設定會發現多一個 MySQL 的圖示，點進去可以查看是否有正常運作。
 
-<img src="/images/posts/it2018/img1061227-1.jpg" width="400">
-<img src="/images/posts/it2018/img1061227-2.png" width="600">
+<img src="/images/posts/it2018/img1061229-1.jpg" width="400">
+<img src="/images/posts/it2018/img1061229-2.png" width="600">
 
 ##### 2.Windows
 
 Windows 的讀者可以到[這裡](https://dev.mysql.com/downloads/windows/installer/)來下載 MySQL Installer 這個安裝檔附有很多安裝包可以自己選擇要安裝哪些套件，其中我們只選擇安裝 MySQL Server 就好，記得安裝之前先依他的只是先行安裝 Visual C++ 才能繼續以下安裝，安裝完成後他會要求你設定名稱與密碼。
 
-<img src="/images/posts/it2018/img1061227-3.jpg" width="600">
+<img src="/images/posts/it2018/img1061229-3.jpg" width="600">

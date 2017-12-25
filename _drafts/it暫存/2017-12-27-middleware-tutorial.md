@@ -24,7 +24,7 @@ keywords: Express, MVC, Router, middleware
 
 body-parser 是一個 HTTP 請求解析的中介軟體，使用這個插件可以解析 JSON、Raw、text、XML、URL-encoded 格式的請求，你可以在 Postman 上看到這些格式，僅設妳今天 POST 東西到 body 時，後端必須要靠 body-parser 來解析你的資料。
 
-<img src="/images/posts/it2018/img1061226-1.png">
+<img src="/images/posts/it2018/img1061227-1.png">
 
 ##### 1.安裝 body-parser
 
@@ -45,7 +45,7 @@ import bodyParser from 'body-parser';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 ```
-<img src="/images/posts/it2018/img1061226-2.png">
+<img src="/images/posts/it2018/img1061227-2.png">
 
 
 ## 跨來源資源共享 cors
@@ -73,8 +73,8 @@ import cors from 'cors';
 app.use(cors());
 ```
 
-<img src="/images/posts/it2018/img1061226-3.png">
-<img src="/images/posts/it2018/img1061226-4.png">
+<img src="/images/posts/it2018/img1061227-3.png">
+<img src="/images/posts/it2018/img1061227-4.png">
 
 當然你也可以在每個路由中手動設定存取權限的標頭檔，此種方法就可以不用使用 cors 但很麻煩要在每個路由中設定 `res.header`。
 
@@ -113,4 +113,4 @@ app.use(morgan('dev'));
 
 `yarn build` 和 `yarn start` 後開啟瀏覽器輸入 `http://127.0.0.1:3000/` 再回來看終端機上你可以發現真的多出 HTTP request logger 紀錄了，每當你呼一次 API 後台就會記錄你的存取狀態是不是很方便呢！
 
-<img src="/images/posts/it2018/img1061226-5.png">
+<img src="/images/posts/it2018/img1061227-5.png">

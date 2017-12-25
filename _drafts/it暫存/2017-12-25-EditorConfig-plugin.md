@@ -47,7 +47,7 @@ keywords: IDE, pliuin
 ## 安裝插件
 這邊用 Visual Studio Code 來做示範，到擴充插件地方搜尋edit config 下載這兩個，第一個是讓你 IDE 可以讀取到 `.editorconfig` 檔，第二個是 `.editorconfig` 檔的產生器在專案目資料夾下按下預設熱鍵 (Ctrl + Shift + P or Cmd + Shift + P) 系統會在資料夾建立此檔案
 
-<img src ="/images/posts/it2018/img1061224-1.png">
+<img src ="/images/posts/it2018/img1061225-1.png">
 
 ## 自定義規範
 以下是我的 `.editorconfig` ，各位可以參考看看
