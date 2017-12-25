@@ -1,20 +1,21 @@
 ---
 layout: post
-title: '[JS學習筆記] Editor Config自訂編輯設定'
-categories: '2018IT邦鐵人賽'
-description: Editor Config設定介紹
+title: '[Node.js打造API] Editor Config自訂編輯設定'
+categories: '2018iT邦鐵人賽'
+description: 'Editor Config設定介紹'
 keywords: IDE, pliuin
 ---
 
 ## 前言
-
 在團隊開發中勢必要有一個寫 code 規範來應付日漸膨脹的專案，除非你是單打獨鬥，保持的個人統一的規格，畢竟人多手雜每個人的開發環境與習慣都不太一樣，使用的編輯器也五花八門，像是今年很流行的 [Visual Studio Code](https://code.visualstudio.com/) 或是 [Sublime Text](https://www.sublimetext.com/) 與 [Atom](https://atom.io/)，你永遠不確定你的開發團隊善於哪個 IDE 雖然團隊有硬性制定一個明文的規範，但若是規範上百條的標準時豈不是要一一閱讀與檢查嗎？
 
 <img src="https://www.masterzendframework.com/images/posts/consistent-editing-with-editorconfig.jpg" width="450">
 
 [圖片來源](https://www.masterzendframework.com/consistent-editing-with-editorconfig/)
 
-這時 Editor Config 就是大家統一格式的好插件，Editor Config 可以橫跨許多 IDE 編輯器你只要在你的專案資料夾中加入 `.editorconfig` 你可以很快的開始設定專案中檔案的風格，包含像是縮排、tab 的寬度以及 EOL 字元，只要編輯器安裝此插件認得 `.editorconfig` 這支檔案就會自動套用了。
+## 介紹 Editor Config
+
+若有以上問題這時 Editor Config 就是大家統一格式的好插件，Editor Config 可以橫跨許多 IDE 編輯器你只要在你的專案資料夾中加入 `.editorconfig` 你可以很快的開始設定專案中檔案的風格，包含像是縮排、tab 的寬度以及 EOL 字元，只要編輯器安裝此插件認得 `.editorconfig` 這支檔案就會自動套用了。
 
 `.editorconfig` 是一個 INI 格式的檔案，是由 section 跟 properties 組成的設定格式，下列來做個名詞解釋：
 
@@ -52,7 +53,7 @@ keywords: IDE, pliuin
 ## 自定義規範
 以下是我的 `.editorconfig` ，各位可以參考看看
 
-```
+```config
 # http://editorconfig.org
 root = true
 
