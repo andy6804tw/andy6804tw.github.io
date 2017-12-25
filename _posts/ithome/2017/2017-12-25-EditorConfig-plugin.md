@@ -1,13 +1,13 @@
 ---
 layout: post
-title: '[Node.js打造API] Editor Config自訂編輯設定'
+title: '[Node.js打造API] Editor Config自訂編輯與設定'
 categories: '2018iT邦鐵人賽'
 description: 'Editor Config設定介紹'
 keywords: IDE, pliuin
 ---
 
 ## 前言
-在團隊開發中勢必要有一個寫 code 規範來應付日漸膨脹的專案，除非你是單打獨鬥，保持的個人統一的規格，畢竟人多手雜每個人的開發環境與習慣都不太一樣，使用的編輯器也五花八門，像是今年很流行的 [Visual Studio Code](https://code.visualstudio.com/) 或是 [Sublime Text](https://www.sublimetext.com/) 與 [Atom](https://atom.io/)，你永遠不確定你的開發團隊善於哪個 IDE 雖然團隊有硬性制定一個明文的規範，但若是規範上百條的標準時豈不是要一一閱讀與檢查嗎？
+在團隊開發中勢必要有一個寫 code 規範來應付日漸膨脹的專案，除非你是單打獨鬥，保持的個人統一的規格，畢竟人多手雜每個人的開發環境與習慣都不太一樣，使用的編輯器也五花八門，像是今年很流行的 [Visual Studio Code](https://code.visualstudio.com/) 或是 [Sublime Text](https://www.sublimetext.com/) 與 [Atom](https://atom.io/)，你永遠不確定你的開發團隊善於哪個 IDE 雖然團隊有硬性制定一個明文的規範，但若是規範上百條的標準時豈不是要慢慢閱讀與檢查嗎？
 
 <img src="https://www.masterzendframework.com/images/posts/consistent-editing-with-editorconfig.jpg" width="450">
 
