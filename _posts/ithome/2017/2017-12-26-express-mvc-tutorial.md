@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JS學習筆記] 使用Express建立路由'
+title: '[Node.js打造API] 使用Express建立路由'
 categories: '2018iT邦鐵人賽'
 description: 使用 joi 驗證變數並建立第一個路由
 keywords: Express, MVC, Router, joi
