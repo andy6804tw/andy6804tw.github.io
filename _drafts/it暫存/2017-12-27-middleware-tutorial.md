@@ -6,7 +6,7 @@ description: '新增middleware(body-parser、cors、morgan)'
 keywords: Express, MVC, Router, middleware
 ---
 
-## 這節你將會學到
+## 本文你將會學到
 - 了解 middleware 運作方式
 - 幫你專案加入常用的 middleware 中介軟體
   - body-parser

@@ -6,7 +6,7 @@ description: 使用 joi 驗證變數並建立第一個路由
 keywords: Express, MVC, Router, joi
 ---
 
-## 這節將會學到
+## 本文你將會學到
 - 如何安裝 Express
 - 使用 Express 建立路由
 - 建置一個 MVC 中的 Module 與 Controller 環境

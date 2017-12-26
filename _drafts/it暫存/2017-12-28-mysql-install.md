@@ -6,7 +6,7 @@ description: 'MySQL 安裝'
 keywords: Express, MVC, Router, middleware
 ---
 
-## 本章節會學到
+## 本文你將會學到
 - 了解資料庫型態
 - 如何在自己本機端安裝 MySQL 環境
 

@@ -6,6 +6,11 @@ description: Editor Config設定介紹
 keywords: IDE, pliuin
 ---
 
+## 本文你將會學到
+- 了解Postman能拿來做啥
+- 使用Postman來測試API
+- 安裝JSONView插件
+
 ## 前言
 當你寫好一支 API 時要馬上測試看看你寫的是否能夠正常運作，GET 比較好處理直接在瀏覽器輸入路徑就能立即觀看結果，那當你要 POST(新增)、PUT(修改)、DELETE(刪除)時該怎麼辦呢？總不會要自己寫個表單輸入資料再用 ajax、axios、fetch 之類的請求方式將資料送出吧！？那這樣就太麻煩又沒效率了！所以我今天就來介紹各位如何利用 Postman 來測試你的 API。
 

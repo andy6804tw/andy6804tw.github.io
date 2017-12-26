@@ -71,7 +71,7 @@ joi 就好比是一個驗證器，你可以自己規範 schema 來限制資料�
 
     // 建立每個變數 joi 驗證規則
     const envVarSchema = Joi.object().keys({
-      NODE_ENV: Joi.string().default('development').allow(['development', 'production']), // 字串且預設值為development 並只允許三種參數
+      NODE_ENV: Joi.string().default('development').allow(['development', 'production']), // 字串且預設值為development 並只允許兩種參數
       PORT: Joi.number().default(8080), // 數字且預設值為 8080
       VERSION: Joi.string() // 字串
     }).unknown().required();

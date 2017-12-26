@@ -6,7 +6,7 @@ description: '安裝 MySQL GUI 工具'
 keywords: MySQL, Sequel Pro
 ---
 
-## 這節你將會學到
+## 本文你將會學到
 - 了解管理 MySQL GUI 有哪些工具
 - 下載與安裝 Sequel Pro
 - 本機與資料庫建立連線
