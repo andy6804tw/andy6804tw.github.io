@@ -20,7 +20,7 @@ keywords: JavaScript, ES6
 舉例：
 > 192.123.45.6:3000
 
-<img src="/images/posts/it2018/img1070107-1.png" width="550">
+<img src="/images/posts/it2018/img1070108-1.png" width="550">
 
 
 #### 方法二(使用第三方軟體 ngrok)
