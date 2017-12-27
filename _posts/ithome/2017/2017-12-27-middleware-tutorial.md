@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JS學習筆記] 新增 middleware(body-parser、cors、morgan)'
+title: '[Node.js打造API] 新增 middleware(body-parser、cors、morgan)'
 categories: '2018iT邦鐵人賽'
 description: '新增middleware(body-parser、cors、morgan)'
 keywords: Express, MVC, Router, middleware
@@ -36,7 +36,7 @@ yarn add body-parser
 
 ##### 2.設定 body-parser 的 middleware
 
-還記得 express.js 這個檔案嗎？先前有提到他是管理所有 middleware 中介軟體的所有設定，所以我們今天就要在這個檔案內做設定，由於現階段還沒正式開始寫 API 所以這篇教學並不會馬上測試結果，等後面幾篇寫好 POST 的 API我們就可以馬上來試囉。
+還記得 express.js 這個檔案嗎？先前有提到他是管理所有 middleware 中介軟體的所有設定，所以我們今天就要在這個檔案內做設定，由於現階段還沒正式開始寫 API 所以這篇教學並不會馬上測試結果，等後面幾篇寫好 POST 的 API 我們就可以馬上來試囉。
 
 ```js
 import bodyParser from 'body-parser';
@@ -72,8 +72,12 @@ import cors from 'cors';
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
 ```
+- 有加跨來源資源共享
 
 <img src="/images/posts/it2018/img1061227-3.png">
+
+- 無加跨來源資源共享
+
 <img src="/images/posts/it2018/img1061227-4.png">
 
 當然你也可以在每個路由中手動設定存取權限的標頭檔，此種方法就可以不用使用 cors 但很麻煩要在每個路由中設定 `res.header`。
@@ -114,3 +118,5 @@ app.use(morgan('dev'));
 `yarn build` 和 `yarn start` 後開啟瀏覽器輸入 `http://127.0.0.1:3000/` 再回來看終端機上你可以發現真的多出 HTTP request logger 紀錄了，每當你呼一次 API 後台就會記錄你的存取狀態是不是很方便呢！
 
 <img src="/images/posts/it2018/img1061227-5.png">
+
+範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/tree/V4.0.0
