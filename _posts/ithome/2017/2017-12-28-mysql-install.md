@@ -67,7 +67,7 @@ SELECT * FROM Member WHERE Id IN (1, 3, 4)
 SELECT * FROM Article WHERE Uid IN (SELECT Id FROM Member WHERE Status = 1)
 ```
 
-##### 2.非關聯性資料庫(MySQL)
+##### 2.非關聯性資料庫(NoSQL)
 
 非關聯性資料庫故名意思就是沒有關聯性的他所存在的資料，有分為四大類 Key-Value資料庫、記憶體資料庫、文件資料庫、圖學資料庫，其中最常見的就是一個鍵(key)搭配一個值(value)，Google 的 Firebase Database 就是儲存非關聯性的資料，下面來為各位做整理。
 
@@ -97,9 +97,9 @@ SELECT * FROM Article WHERE Uid IN (SELECT Id FROM Member WHERE Status = 1)
 
 ## 安裝 MySQL
 
-廢話不多說這裡來教各位如何在你的電腦建置 MySQL 環境，Mac OS X 和 Windows 的安裝方式不同所以我分開講，由於我電腦已經安裝過了所以我這邊就只教你如何去安裝他。
+廢話不多說這裡來教各位如何在你的電腦建置 MySQL 環境，macOS 和 Windows 的安裝方式不同所以我分開講，由於我電腦已經安裝過了所以我這邊就只教你如何去安裝他。
 
-##### 1.Mac OS X
+##### 1.macOS
 
 mac 的讀者可以到[這裡](https://dev.mysql.com/downloads/mysql/)來下載 MySQL Community Server 點選第一個安裝，安裝後會有個小視窗跳出來像下面這樣，這是你的 MySQL root 密碼要截圖記住，忘記就麻煩了，下一篇教學就會教你如何用圖象化軟體和你的 MySQL 做連線，安裝完成後可以到系統的偏好設定會發現多一個 MySQL 的圖示，點進去可以查看是否有正常運作。
 
