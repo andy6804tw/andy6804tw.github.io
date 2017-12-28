@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[JS學習筆記] MySQL 安裝'
+title: '[Node.js打造API] 安裝 MySQL 環境'
 categories: '2018iT邦鐵人賽'
 description: 'MySQL 安裝'
-keywords: Express, MVC, Router, middleware
+keywords: MySQL
 ---
 
 ## 本文你將會學到
@@ -91,23 +91,26 @@ SELECT * FROM Article WHERE Uid IN (SELECT Id FROM Member WHERE Status = 1)
   - InfoGrid
   - AllegroGrph
 
-<img src="/images/posts/it2018/img1061229-4.png">
+<img src="/images/posts/it2018/img1061228-4.png">
 
 想知道更詳細可以參考[這篇](https://www.ithome.com.tw/news/92507)裡面寫得非常詳細。
 
 ## 安裝 MySQL
 
-廢話不多說這裡來教各位如何在你的電腦建置 MySQL 環境，mac OS 和 Windows 的安裝方式不同所以我分開講，由於我電腦已經安裝過了所以我這邊就只教你如何去安裝他。
+廢話不多說這裡來教各位如何在你的電腦建置 MySQL 環境，Mac OS X 和 Windows 的安裝方式不同所以我分開講，由於我電腦已經安裝過了所以我這邊就只教你如何去安裝他。
 
-##### 1.mac OS
+##### 1.Mac OS X
 
 mac 的讀者可以到[這裡](https://dev.mysql.com/downloads/mysql/)來下載 MySQL Community Server 點選第一個安裝，安裝後會有個小視窗跳出來像下面這樣，這是你的 MySQL root 密碼要截圖記住，忘記就麻煩了，下一篇教學就會教你如何用圖象化軟體和你的 MySQL 做連線，安裝完成後可以到系統的偏好設定會發現多一個 MySQL 的圖示，點進去可以查看是否有正常運作。
 
-<img src="/images/posts/it2018/img1061229-1.jpg" width="400">
-<img src="/images/posts/it2018/img1061229-2.png" width="600">
+<img src="/images/posts/it2018/img1061228-1.jpg" width="400">
+<img src="/images/posts/it2018/img1061228-2.png" width="600">
 
 ##### 2.Windows
 
 Windows 的讀者可以到[這裡](https://dev.mysql.com/downloads/windows/installer/)來下載 MySQL Installer 這個安裝檔附有很多安裝包可以自己選擇要安裝哪些套件，其中我們只選擇安裝 MySQL Server 就好，記得安裝之前先依他的只是先行安裝 Visual C++ 才能繼續以下安裝，安裝完成後他會要求你設定名稱與密碼。
 
-<img src="/images/posts/it2018/img1061229-3.jpg" width="600">
+<img src="/images/posts/it2018/img1061228-3.jpg" width="600">
+
+## 結語
+今天先到這邊把自己電腦本機端的 MySQL 安裝好，明天將教各位如何使用 GUI 圖像化介面的安裝連線設定。
