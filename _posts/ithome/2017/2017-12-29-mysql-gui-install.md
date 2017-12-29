@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JS學習筆記] 安裝 MySQL GUI 工具'
+title: '[Node.js打造API] 安裝 MySQL GUI 工具'
 categories: '2018iT邦鐵人賽'
 description: '安裝 MySQL GUI 工具'
 keywords: MySQL, Sequel Pro
@@ -16,22 +16,30 @@ keywords: MySQL, Sequel Pro
 
 Sequel Pro 是一款在 mac 上運行 MySQL 資料庫管理的一套圖像化軟體，此外他是開源的所以妳可以免費的使用它，且能夠快速的直接訪問本地和遠程服務器上的MySQL數據庫，那 Windows 的用戶只好安裝 Workbench 囉。
 
-## 安裝 Sequel Pro
+## macOS 用戶
+
+### 安裝 Sequel Pro
 
 ##### 1.下載
 
 首先到[官方](http://www.sequelpro.com/)下載與安裝
 
-<img src="/images/posts/it2018/img1061228-1.png">
+<img src="/images/posts/it2018/img1061229-1.png">
 
 ##### 2.打開 Sequel Pro 新增連線
 
 打開軟體後我們就建立第一個連線庫吧！請依序地填上連線庫的名稱、主機位置、用戶帳號及密碼，帳號通常預設是 root 密碼就是當時安裝 MySQL 所產生的，主機位置就是自己本機 localhost 也就是 127.0.0.1 ，旁邊的 Test Connection 就是測試看看是否能夠正常連線萬一密碼或設定值輸入錯誤就會發先無法連線的問題哦所以要確認清楚資訊，測試正常連線後點選旁邊的 Save Changes 記住你的登入資訊，最後就 Connect 進入完成連線囉！
 
-<img src="/images/posts/it2018/img1061228-2.png">
+<img src="/images/posts/it2018/img1061229-2.png">
 
 ## 介紹功能與操作
 
 假如是第一次安裝後打開裡面是空的，這邊我自己建一個簡單的表格向各位說明所有功能，首先紅色框框是選擇你本機端所有的資料庫 Schema 點擊下去第一個選項也可以立即新增一個 Schema ，黃色框框就是你目前的 Schema 有哪些 Table 都會依序陳列在左方最下方為創立資訊，旁邊藍色框框就是你目前 Table 所有欄位設定，在這區域你可以對你的資料表欄位做新增修改移除，右上方綠色框框有非常多功能第一個 Structure 就是你目前資料表的結構，Content 就是你資料表內的所有值組依序地條列出來，Relations 就是你資料庫內的所有關聯，Tiggers 就是你所有資料表的出發程序，Table Info 就是你資料表的一些基本設定像是文字選擇 UTF-8 Unicode ，最後一個 Query 就是可以對你的資料庫做查詢語法。
 
-<img src="/images/posts/it2018/img1061228-3.jpg">
+<img src="/images/posts/it2018/img1061229-3.jpg">
+
+## Windows 用戶
+
+Windows 用戶請安裝 Workbench。
+
+<img src="/images/posts/it2018/img1061229-4.png">

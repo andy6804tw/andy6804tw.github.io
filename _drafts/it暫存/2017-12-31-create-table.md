@@ -21,11 +21,11 @@ keywords:
 <img src="/images/posts/it2018/img1061231-2.png">
 
 #### 2. 建立資料表(table)
-一個部落格貼文一定會有文章以及用戶，所以我們就分別建立文章 (Articles) 與 用戶(Users) 的資料表(table)，新增的方式點選介面最左下角的 `+` 號來新增 table 分別建立 Articles 與 Users。
+一個部落格貼文一定會有文章以及用戶，所以我們就分別建立文章 (Article) 與 用戶(User) 的資料表(table)，新增的方式點選介面最左下角的 `+` 號來新增 table 分別建立 Article 與 User。
 
 <img src="/images/posts/it2018/img1061231-3.png">
 
-##### 文章(Articles)   
+##### 文章(Article)   
 
 文章的欄位分別有主鍵 `文章id(article_id)` 以及外來鍵 `用戶id(user_id)` 對應到用戶這樣才能知道是誰發的文，此外還有 `文章標題(article_title)`、`文章標籤(article_tag)`、`文章內容(article_content)`、`文章發佈時間(article_created_time)`、`文章更新時間(article_updated_time)`，這邊要特別注意的是發佈與更新時間的型態要設為 `datetime` 時間格式，並且 `article_created_time` 在 `Default` 預設值位置要填上 `CURRENT_TIMESTAMP` 代表系統會自動寫入你當時的時間戳記，另外 `article_updated_time` 在 `Extra` 的欄位要選擇 `on update CURRENT_TIMESTAMP` 表示系統會自動寫入你變動資料的時間。               
 
@@ -41,7 +41,7 @@ article_updated_time|datetime|文章更新時間
 
 <img src="/images/posts/it2018/img1061231-4.png">
 
-##### 用戶(Users)  
+##### 用戶(User)  
 
 用戶的欄位分別有主鍵`用戶id(user_id)`、`用戶姓名(user_name)`、`用戶信箱(user_mail)`、`用戶密碼(user_password)`、`用戶新增時間(user_created_time)`、`用戶更新時間(user_updated_time)`，這邊要一樣要注意的是發佈與更新時間的型態要設為 `datetime` 時間格式，並且 `user_created_time` 在 `Default` 預設值位置要填上 `CURRENT_TIMESTAMP` 代表系統會自動寫入你當時的時間戳記，另外 `user_updated_time` 在 `Extra` 的欄位要選擇 `on update CURRENT_TIMESTAMP` 表示系統會自動寫入你變動資料的時間。               
 
