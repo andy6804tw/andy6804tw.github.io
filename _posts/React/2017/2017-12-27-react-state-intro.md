@@ -71,7 +71,7 @@ export default person;
 
 ##  按鈕呼叫函式修改 state
 
-接連上一例子我們再加入 Button 來新增狀態事件，值得一提的是 `<button>` 在 JSX 當中的 onClick 事件 `C` 為大寫，此外要改變 state，必須使用 `setState()`，以下例子是利用按鈕點擊來修改 state 的內容。
+接連上一例子我們再加入 Button 來新增狀態事件，值得一提的是 `<button>` 在 JSX 當中的 onClick 事件 `C` 為大寫，此外要改變 state，必須使用 `setState()`，以下例子是利用按鈕點擊來修改 state 的內容。
 
 - 主元件 App.js
 

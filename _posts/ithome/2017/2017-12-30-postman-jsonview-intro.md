@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[JS學習筆記] 測試API的好工具'
+title: '[Node.js打造API] 測試API的好工具'
 categories: '2018IT邦鐵人賽'
-description: Editor Config設定介紹
+description: 
 keywords: IDE, pliuin
 ---
 
@@ -26,7 +26,7 @@ Postman 他是一個能夠模擬 HTTP Request 的工具能夠讓你簡單快速�
 
 ### 測試
 
-安裝後即可開啟應用程式，就來立即測試吧！我這邊提供一個環境保護署的即時空氣品質 [API](https://opendata.epa.gov.tw/webapi/api/rest/datastore/355000000I-000259?sort=SiteName&offset=0&limit=1000)，直接複製網址到 Postman 的網址列上並選擇 GET 方法點選右邊 Send，最後結果就會回傳到 Body 以及其他資訊像是狀態碼 200 表示成功、回傳時間、Headers 狀態資訊......等都可以在 Postman 上一覽無遺，此外你可以選擇回傳格式像是 JSON、XML 等格式。
+安裝後即可開啟應用程式，就來立即測試吧！我這邊提供一個環境保護署的即時空氣品質 [API](http://opendata2.epa.gov.tw/AQI.json)，直接複製網址到 Postman 的網址列上並選擇 GET 方法點選右邊 Send，最後結果就會回傳到 Body 以及其他資訊像是狀態碼 200 表示成功、回傳時間、Headers 狀態資訊......等都可以在 Postman 上一覽無遺，此外你可以選擇回傳格式像是 JSON、XML 等格式。
 
 最後來介紹其他功能，左邊的 History 可以查看你測試的歷史，旁邊的 Collections 是將你的測試 API 儲存的地方你可以將他們建立資料夾分類，並且可以將整個資料夾匯出與匯入，最右邊的 Save 可以將你現在的資料做儲存。
 
@@ -35,6 +35,14 @@ Postman 他是一個能夠模擬 HTTP Request 的工具能夠讓你簡單快速�
 
 ## 其他 Chrome 擴充套件推薦
 ### JSONView
-這邊我要介紹一個套件就是 JSONView 他能夠將你網頁呈現出來的 JSON 格式做漂亮的排版顯示，個人覺得很方便推薦給大家，一樣在Chrome線上應用程式商店搜尋 [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) 就可以找到它囉。
+這邊我要介紹一個套件就是 JSONView 他能夠將你網頁呈現出來的 JSON 格式做漂亮的排版顯示，個人覺得很方便推薦給大家，一樣在Chrome線上應用程式商店搜尋 [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc) 就可以找到它囉，安裝後打開[API](http://opendata2.epa.gov.tw/AQI.json)看看結果。
 
 <img src="/images/posts/it2018/img1061230-4.png">
+
+- 安裝前
+
+<img src="/images/posts/it2018/img1061230-5.png">
+
+- 安裝後
+
+<img src="/images/posts/it2018/img1061230-6.png">
