@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Node.js打造API] 測試API的好工具'
-categories: '2018IT邦鐵人賽'
+categories: '2018iT邦鐵人賽'
 description: 
 keywords: IDE, pliuin
 ---
