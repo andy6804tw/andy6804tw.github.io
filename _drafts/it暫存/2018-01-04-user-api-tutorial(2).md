@@ -18,19 +18,19 @@ keywords: api
 
 #### article.module.js
 
-傳入值 `insertValues` 是使用者要修改的資料為一個物件 Object 型態，這個變數是由 `article.controller.js` 傳過來的，此外旁邊多了一個 `productId` 這個就是你要修改的 id 用在 WHERE 語句供修改哪筆資料。
+傳入值 `insertValues` 是使用者要修改的資料為一個物件 Object 型態，這個變數是由 `article.controller.js` 傳過來的，此外旁邊多了一個 `userId` 這個就是你要修改的 id 用在 WHERE 語句供修改哪筆資料。
 
 ```js
 // article.module.js
 ...略
 /* Article PUT 修改 */
-const modifyArticle = (insertValues, productId) => {
+const modifyArticle = (insertValues, userId) => {
   return new Promise((resolve, reject) => {
     connectionPool.getConnection((connectionError, connection) => { // 資料庫連線
       if (connectionError) {
         reject(connectionError); // 若連線有問題回傳錯誤
       } else { // Article資料表修改指定id一筆資料
-        connection.query('UPDATE Article SET ? WHERE article_id = ?', [insertValues, productId], (error, result) => {
+        connection.query('UPDATE Article SET ? WHERE article_id = ?', [insertValues, userId], (error, result) => {
           if (error) {
             console.error('SQL error: ', error);// 寫入資料庫有問題時回傳錯誤
             reject(error);
@@ -60,10 +60,10 @@ import articleModule from '../modules/article.module';
 /* Article PUT 修改 */
 const articlePut = (req, res) => {
   // 取得修改id
-  const articleId = req.params.article_id;
+  const userId = req.params.article_id;
   // 取得修改參數
   const insertValues = req.body;
-  articleModule.modifyArticle(insertValues, articleId).then((result) => {
+  articleModule.modifyArticle(insertValues, userId).then((result) => {
     res.send(result); // 回傳修改成功訊息
   }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
 };
@@ -101,19 +101,19 @@ router.route('/:article_id').put(articleCtrl.articlePut);
 ## 刪除Article
 
 #### article.module.js
-刪除作法也跟修改差不多也是要有傳入 id 名為 productId 的參數，使用 `DELETE` 刪除資料表 Article 內的某一筆值組。
+刪除作法也跟修改差不多也是要有傳入 id 名為 userId 的參數，使用 `DELETE` 刪除資料表 Article 內的某一筆值組。
 
 ```js
 // article.module.js
 ...略
 /* Article  DELETE 刪除 */
-const deleteArticle = (productId) => {
+const deleteArticle = (userId) => {
   return new Promise((resolve, reject) => {
     connectionPool.getConnection((connectionError, connection) => { // 資料庫連線
       if (connectionError) {
         reject(connectionError); // 若連線有問題回傳錯誤
       } else { // Article資料表刪除指定id一筆資料
-        connection.query('DELETE FROM Article WHERE article_id = ?', productId, (error, result) => {
+        connection.query('DELETE FROM Article WHERE article_id = ?', userId, (error, result) => {
           if (error) {
             console.error('SQL error: ', error);// 資料庫存取有問題時回傳錯誤
             reject(error);
@@ -132,7 +132,7 @@ const deleteArticle = (productId) => {
 ```
 
 #### article.controller.js
-這邊主要是接收刪除的id利用 `req.params.article_id` 儲存到變數 `articleId` 中在丟入 module 內的 `deleteArticle` 刪除函式執行的帶回傳。
+這邊主要是接收刪除的id利用 `req.params.article_id` 儲存到變數 `userId` 中在丟入 module 內的 `deleteArticle` 刪除函式執行的帶回傳。
 
 ```js
 // article.controller.js
@@ -141,8 +141,8 @@ import articleModule from '../modules/article.module';
 /* Article  DELETE 刪除 */
 const articleDelete = (req, res) => {
   // 取得刪除id
-  const articleId = req.params.article_id;
-  articleModule.deleteArticle(articleId).then((result) => {
+  const userId = req.params.article_id;
+  articleModule.deleteArticle(userId).then((result) => {
     res.send(result); // 回傳刪除成功訊息
   }).catch((err) => { return res.send(err); }); // 失敗回傳錯誤訊息
 };
