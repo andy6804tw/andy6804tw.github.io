@@ -106,6 +106,8 @@ route 是設定每條 api request 的地方，由於是要新增資料所以這�
 import express from 'express';
 import articleCtrl from '../controllers/article.controller';
 
+const router = express.Router();
+
 router.route('/').post(articleCtrl.articlePost); /** 新增 Article 值組 */
 
 export default router;
@@ -192,6 +194,8 @@ const articleGet = (req, res) => {
 // article.route.js
 import express from 'express';
 import articleCtrl from '../controllers/article.controller';
+
+const router = express.Router();
 
 router.route('/')
   .get(articleCtrl.articleGet) /** 取得 Article 所有值組 */
