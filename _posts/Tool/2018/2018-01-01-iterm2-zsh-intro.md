@@ -16,7 +16,7 @@ keywords: tool, iterm2
 <img src="/images/posts/tool/2018/img1070101-1.png" width="600">
 
 #### 2. 使用 Homebrew 來安裝
-如果以下指令不能執行的話執行這段指令看看 `brew tap caskroom/cask`。
+如果以下指令不能執行的話先執行這段指令看看 `brew tap caskroom/cask`。
 
 ```bash
 brew cask instal iterm2 
@@ -50,7 +50,7 @@ brew cask install font-hack-nerd-font
 <img src="/images/posts/tool/2018/img1070101-3.png">
 
 ## 安裝 zsh
-Z Shell 是一種Unix shell，它可以用作為交互式的登錄shell，也是一種強大的shell腳本命令解釋器。Zsh可以認為是一種Bourne shell的擴展，帶有數量龐大的改進，包括一些bash、ksh、tcsh的功能，一樣用 homebrew來ㄞ安裝。
+Z Shell 是一種 Unix shell，它可以用作為交互式的登錄shell，也是一種強大的 shell 腳本命令解釋器。 zsh 可以認為是一種 Bourne shell 的擴展，帶有數量龐大的改進，包括一些 bash、ksh、tcsh 的功能，一樣用 homebrew 來安裝。
 
 ```bash
 brew install zsh
@@ -77,7 +77,7 @@ vi  ~/.zshrc
 ```
 
 ##### 2. 套用主題
-進去設定檔後可以發現有 `ZSH_THEME="robbyrussell"` 這是 zsh 的預設風格，將設定值改為 `agnoster`，若你想要其他主題也可以到[這裡](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)找一個適合你的。
+進去設定檔後可以看到 `ZSH_THEME="robbyrussell"` 這是 zsh 的預設風格，將設定值改為 `agnoster`，若你想要其他主題也可以到[這裡](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)找一個適合你的。
 
 ```bash
 ## 使用agnoster主題預設為robbyrussell
@@ -85,13 +85,54 @@ ZSH_THEME="agnoster"
 ## 隱藏用戶名稱(user@hostname)
 DEFAULT_USER=`id -un`
 ```
-<img src="/images/posts/tool/2018/img1070101-5.png" width="550">
+<img src="/images/posts/tool/2018/img1070101-5.png" width="600">
 
-編輯結束後按下 `esc` 再鍵入 `:wq!` 退出編輯模式，重新開啟 iterm 或是鍵入 `exec $SHELL` 就會立即套用囉。
+編輯結束後按下 `esc` 再鍵入 `:wq!` 退出編輯模式，重新開啟終端機或是鍵入 `exec $SHELL` 就會立即套用囉。
 
 ```bash
-## 立即套用
+// 立即套用
 exec $SHELL
 ```
 
 <img src="/images/posts/tool/2018/img1070101-9.png" width="550">
+
+### 下載powerlevel9k主題
+powerlevel9k 風格是承襲 agnoster ，不同的地方是新增了一些小功能像是版控資訊、電池狀態、硬碟狀況、ip位置、時間、還有小圖icon ...等讓使用者自行設定。
+
+##### 1. 安裝 powerlevel9k
+由於 powerlevel9k 並非 oh-my-zsh 內建主題，所以要再下載至 `.oh-my-zsh/custom/themes/powerlevel9k` 的資料夾當中。
+
+```bash
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+```
+
+##### 2. 套用 powerlevel9k 主題
+
+首先開啟設定檔案 `vi  ~/.zshrc`。
+
+```bash
+## 使用 vim 編輯 .zshrc 設定檔
+vi  ~/.zshrc
+```
+
+```bash
+# 使用powerlevel9k主題亦可選擇使用agnoster或預設robbyrussell
+ZSH_THEME="powerlevel9k/powerlevel9k"
+# 隱藏用戶名稱(user@hostname)
+DEFAULT_USER=`id -un`
+# 含有icon的字型
+POWERLEVEL9K_MODE='nerdfont-complete'
+# command line 左邊想顯示的內容(資料夾路徑、資料夾讀寫狀態、版本控制資訊)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs) # <= left prompt 設了 "dir"
+# command line 右邊想顯示的內容(狀態、時間)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+```
+
+編輯結束後按下 `esc` 再鍵入 `:wq!` 退出編輯模式，重新開啟終端機或是鍵入 `exec $SHELL` 就會立即套用囉，最後結果如下圖是不是更有質感了呢！
+
+```bash
+// 立即套用
+exec $SHELL
+```
+
+<img src="/images/posts/tool/2018/img1070101-10.png" width="600">
