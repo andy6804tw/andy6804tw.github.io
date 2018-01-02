@@ -14,6 +14,11 @@ keywords:
 ## 前言
 前幾篇文章一步步的帶你從零開始建立環境，然而上篇文章中也完成了資料庫欄位的設計，此篇就教導你如何將所設定資料庫和 API 做連線吧！
 
+## 事前準備
+今天要繼續實作的程式是延續 [[Node.js打造API] 設定joi與config dotenv環境參數](https://ithelp.ithome.com.tw/articles/10195267) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/tree/V5.0.0
+
 ## 建立資料庫全域變數
 說到全域變數就離不開 joi + dotenv 和 `config.js` 這支檔案了，所有有關全域變數初始化設定都在 `config.js` 裡面，要養成習慣把常用到的變數與私有不被修改的值集中管理，這也是 MVC 架構的一個精髓，方便明確又好管理維護。
 
