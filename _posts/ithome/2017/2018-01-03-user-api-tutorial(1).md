@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[Node.js打造API] Article新增、顯示'
+title: '[Node.js打造API] Article文章(GET與POST)'
 categories: '2018iT邦鐵人賽'
-description: '教導如何攥寫新增、顯示'
+description: '教導如何撰寫新增、顯示'
 keywords: api
 ---
 
@@ -12,10 +12,15 @@ keywords: api
 - 使用Postman測試POST與GET
 
 ## 前言
-昨天已經將資料庫欄位都建立好了，今天開始要教導各位如何使用 JavaScript 與 MySQL 串接資料庫欄位並實作新增(INSERT)、修改(UPDATE)、刪除(DELETE)、顯示(SELECT)，由於比較複雜所以拆開兩部分來教學，這篇先以新增、顯示實作，在開始之前請先分別建立 `article.controller.js` 在 `controllers` 資料夾以及建立 `article.module.js` 在 `modules` 資料夾還有建立 `article.route.js` 在 `routes` 資料夾，今天實作會動到這三支新檔案以及原有的 `index.route.js`。
+昨天已經將資料庫欄位都建立好了，今天開始要教導各位如何使用 JavaScript 與 MySQL 串接資料庫欄位並實作新增(INSERT)、修改(UPDATE)、刪除(DELETE)、顯示(SELECT)，由於比較複雜所以拆開兩部分來教學，這篇先以新增、顯示實作，在開始之前請先分別建立 `article.controller.js` 在 `controllers` 資料夾以及建立 `article.module.js` 在 `modules` 資料夾還有建立 `article.route.js` 在 `routes` 資料夾，今天實作會動到這三支新檔案以及原有的 `index.route.js`。
+
+## 事前準備
+今天要繼續實作的程式是延續 [[Day-23] API與資料庫連線設定](https://ithelp.ithome.com.tw/articles/10195493) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/tree/V6.0.0
 
 ## 設定路由
-`index.route.js` 是管理所有路由的地方，而 `article.route.js` 路由裡有新增、修改、刪除、顯示的路徑，所有有關 article  的請求動作都在這裡面。在 `index.route.js` 中首先引入(import) `article.route` 的檔案儲存為一個名為 `article` 的變數，然後新增一個路由路徑為 `/article` ，後面的參數 `article` 表示引用 `article.route.js` 內所有的路由動作(GET、POST、PUT、DELETE)。
+`index.route.js` 是管理所有路由的地方，而 `article.route.js` 路由裡有新增、修改、刪除、顯示的路徑，所有有關 article  的請求動作都在這裡面。在 `index.route.js` 中首先引入(import) `article.route` 的檔案儲存為一個名為 `article` 的變數，然後新增一個路由路徑為 `/article` ，後面的參數 `article` 表示引用 `article.route.js` 內所有的路由動作(GET、POST、PUT、DELETE)。
 
 - index.route.js
 
@@ -35,7 +40,7 @@ router.use('/article', article);
 
 #### article.module.js
 
-module 檔案是最終與資料庫做存取的地方，傳入值 `insertValues` 是使用者要新增的資料為一個物件 Object 型態，這個變數是由 `article.controller.js` 傳過來的。
+module 檔案是最終與資料庫做存取的地方，傳入值 `insertValues` 是使用者要新增的資料為一個物件 Object 型態，這個變數是由 `article.controller.js` 傳過來的。
 
 `connection.query()` 是一個方法，能夠直接在裡面撰寫 sql 語法來做資料庫的存取，此寫法是用 ES6 的 Promise ，你可以把 Promise 當作是 Call back 的進化版，能夠將一件事情做完最後回傳結果由 then 來接收，接收的動作是在 controller 完成，然而 module 的功用是將資料庫資料撈取出來並存成 json 格式經由 `resolve()` 傳出結果，若有錯誤的話訊息會經由 `reject()` 傳出。
 
@@ -208,3 +213,6 @@ export default router;
 將程式碼 `yarn build` 再 `yarn start` 後開啟 Postman 在網址列輸入 `localhost:3000/api/article` 並選擇 GET 請求方式，最後按下 Send 送出查看底下結果，若有回傳 JSON 恭喜你表示撈取成功。
 
 <img src="/images/posts/it2018/img1070103-3.png">
+
+
+範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/tree/V7.0.0
