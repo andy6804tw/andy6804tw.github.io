@@ -15,7 +15,7 @@ keywords: api
 昨天已經將資料庫欄位都建立好了，今天開始要教導各位如何使用 JavaScript 與 MySQL 串接資料庫欄位並實作新增(INSERT)、修改(UPDATE)、刪除(DELETE)、顯示(SELECT)，由於比較複雜所以拆開兩部分來教學，這篇先以新增、顯示實作，在開始之前請先分別建立 `article.controller.js` 在 `controllers` 資料夾以及建立 `article.module.js` 在 `modules` 資料夾還有建立 `article.route.js` 在 `routes` 資料夾，今天實作會動到這三支新檔案以及原有的 `index.route.js`。
 
 ## 事前準備
-今天要繼續實作的程式是延續 [[Day-23] API與資料庫連線設定](https://ithelp.ithome.com.tw/articles/10195493) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+今天要繼續實作的程式是延續 [[Node.js打造API] API與資料庫連線設定](https://ithelp.ithome.com.tw/articles/10195493) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
 
 程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/tree/V6.0.0
 
