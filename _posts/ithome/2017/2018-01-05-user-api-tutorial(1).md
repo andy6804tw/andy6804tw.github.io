@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[Node.js打造API] User新增、顯示'
+title: '[Node.js打造API] (實作)User用戶(GET與POST)'
 categories: '2018iT邦鐵人賽'
-description: '教導如何攥寫新增、顯示'
+description: '教導如何撰寫新增、顯示'
 keywords: api
 ---
 
@@ -13,6 +13,11 @@ keywords: api
 
 ## 前言
 前兩天已經將 Article 文章的部分做完新增、刪除、修改以及顯示，今天開始要實作另一個資料表用戶，已經熟悉的讀者可以試著先自己做做看，若還是不熟悉的沒關係可以一起照著文章來做。
+
+## 事前準備
+今天要繼續實作的程式是延續 [[Node.js打造API] 實作Article文章(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V8.0.0
 
 ## 設定路由
 在主路由 `index.route.js` 內新增一個 user 的路由，所以到現在目前主路由裡面有兩個路徑分別為 user 和 article。
@@ -131,7 +136,7 @@ export default router;
 
 #### user.module.js
 
-顯示的意思就是將資料表裡的所有值組撈出來，整個架構跟 POST 一樣只差別在 Query 方式不同，首先也是先動最底層的檔案 `user.module.js` 建立一個名為 selectUser 的箭頭函式並使用 sql 語法中的 SELECT 將 Article 所有欄位的值組全數撈出來。
+通常用戶不會做一個 API把全部資料顯示出來，想說當練習在示範一次，之後會再帶各位實作登入的路徑，首先也是先動最底層的檔案 `user.module.js` 建立一個名為 selectUser 的箭頭函式並使用 sql 語法中的 SELECT 將 Article 所有欄位的值組全數撈出來。
 
 ```js
 // user.module.js
@@ -206,3 +211,6 @@ export default router;
 將程式碼 `yarn build` 再 `yarn start` 後開啟 Postman 在網址列輸入 `localhost:3000/api/user` 並選擇 GET 請求方式，最後按下 Send 送出查看底下結果，若有回傳 JSON 恭喜你表示撈取成功。
 
 <img src="/images/posts/it2018/img1070105-3.png">
+
+
+範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/tree/V9.0.0

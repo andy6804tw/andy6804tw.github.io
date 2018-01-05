@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js打造API] 實作Article文章(PUT與DELETE)'
+title: '[Node.js打造API] (實作)Article文章(PUT與DELETE)'
 categories: '2018iT邦鐵人賽'
 description: '教導如何攥寫修改、刪除'
 keywords: api
@@ -172,3 +172,5 @@ export default router;
 將程式碼 `yarn build` 再 `yarn start` 後，開啟Postman在網址列輸入 `http://127.0.0.1:3000/api/article/1` 並選擇 DELETE 請求方式，完成後按下 Send 送出後即可發現有刪除成功訊息。
 
 <img src="/images/posts/it2018/img1070104-3.png">
+
+範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/tree/V8.0.0

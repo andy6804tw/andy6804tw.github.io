@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js打造API] 實作Article文章(GET與POST)'
+title: '[Node.js打造API] (實作)Article文章(GET與POST)'
 categories: '2018iT邦鐵人賽'
 description: '教導如何撰寫新增、顯示'
 keywords: api
