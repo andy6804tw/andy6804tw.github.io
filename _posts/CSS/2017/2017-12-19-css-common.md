@@ -68,7 +68,7 @@ position 主要來調整位置，在不同狀況下可以調整任何的屬性�
 - padding (留白部分)
 - wifth / height (寬高)
 
-<img src="/images/posts/web/img1061219-1.png">
+<img src="/images/posts/css/2017/img1061219-1.png">
 
 ### background
 

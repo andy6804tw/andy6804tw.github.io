@@ -9,7 +9,7 @@ keywords: CSS
 ## 修改元素位置
 在 posioion 屬性中有 relative 相對位置跟 static 差別在於 relative 是可以做上下左右移動的修改屬性有 top、left、right、bottom，以上都是跟 position 共用的，今天的例子是將圖片向上位移，但他只能將圖片位移相對位置而已下面依附的內容則原封不動，如下圖：
 
-<img src="/images/posts/web/img1061221-2.png" width="400">
+<img src="/images/posts/css/2017/img1061221-2.png" width="400">
 
 ```css
 .container img{
@@ -20,7 +20,7 @@ keywords: CSS
 
 你可以發現下面文字依然保持原地不會跟著向上移動，所以這邊有另一個方法就是使用 margin 使用負的能將圖片和底下元素一起向上移動。
 
-<img src="/images/posts/web/img1061221-3.png" width="400">
+<img src="/images/posts/css/2017/img1061221-3.png" width="400">
 
 ```css
 .container img{

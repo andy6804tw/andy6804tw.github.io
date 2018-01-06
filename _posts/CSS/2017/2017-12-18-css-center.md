@@ -35,7 +35,7 @@ keywords: CSS
 
 chrome右鍵檢查，可以發現右下腳有個框框有 margin、border、padding及長寬尺寸，這方形區域我們稱它 box model (區塊模型)，你可以發現 container 右邊有橘色的 margin，因為 div 預設 `display:block` ，block 就是暫居整行的元素，像盒子依樣裝滿，我們現在要處理置中，就是將橘色部分切半左右平分，使用 `margin:0 auto` 上下 0 左右自動平分。
 
-<img src="/images/posts/web/img1061218-1.png">
+<img src="/images/posts/css/2017/img1061218-1.png">
 
 - padding
   - 區塊留白地方、間隔
@@ -67,7 +67,7 @@ chrome右鍵檢查，可以發現右下腳有個框框有 margin、border、padd
 }
 ```
 
-<img src="/images/posts/web/img1061218-2.png">
+<img src="/images/posts/css/2017/img1061218-2.png">
 
 
 [範例程式碼](https://codepen.io/andy6804tw/pen/eyJvZe)
@@ -116,4 +116,4 @@ CSS3 彈性盒子，又稱flexbox，是為了適應不同螢幕尺寸和顯示�
 }
 ```
 
-<img src="/images/posts/web/img1061218-5.png">
+<img src="/images/posts/css/2017/img1061218-5.png">

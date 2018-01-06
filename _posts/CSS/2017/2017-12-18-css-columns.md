@@ -49,7 +49,7 @@ keywords: CSS
   background-color: #ccc;
 }
 ```
-<img src="/images/posts/web/img1061218-3.png">
+<img src="/images/posts/css/2017/img1061218-3.png">
 
 <p data-height="265" data-theme-id="0" data-slug-hash="rpxyYv" data-default-tab="html" data-user="andy6804tw" data-embed-version="2" data-pen-title="2 columns" class="codepen">See the Pen <a href="https://codepen.io/andy6804tw/pen/rpxyYv/">2 columns</a> by Yi Lin Tsai  (<a href="https://codepen.io/andy6804tw">@andy6804tw</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -79,7 +79,7 @@ keywords: CSS
 
 先看下面這張圖，你有沒有發現別段文字也跟著上一個容器的文繞格式所影響而網上遞補，這種情況稱為 `float collapse` ，為了解決這個問題所以在每個區塊 `float` 後最尾端建立一個 `div` 標籤名為 `clearfix` ，在此 css 中設定 `clear:both` ，他跟 float 視為一組的，告訴網頁這個地方停止 float 並清除狀態， both 意思是將兩邊做清除，你也可以改成 `clear:left`
 
-<img src="/images/posts/web/img1061218-4.png">
+<img src="/images/posts/css/2017/img1061218-4.png">
 
 ```html
 <div class="clearfix"></div>

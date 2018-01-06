@@ -116,6 +116,6 @@ const person = (props) => {
 export default person;
 ```
 
-<img src="/images/posts/web/img1061225-1.png">
+<img src="/images/posts/react//2017/img1061225-1.png">
 
 範例程式碼：https://github.com/andy6804tw/create-react-app/tree/Part1

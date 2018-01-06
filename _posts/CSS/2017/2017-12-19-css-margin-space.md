@@ -9,7 +9,7 @@ keywords: CSS
 ## 處理四周空白
 在設計網頁時你未發現元件標籤的四周有預留一些小空白，如下圖，這些空白要如何去除呢？這要往 `body` 下手去處理，原因是預設 `body` 四周圍本身就有預留一些 `margin` 空隙，所以將 `body` 的 `margin` 歸零就可以囉。
 
-<img src="/images/posts/web/img1061219-2.png">
+<img src="/images/posts/css/2017/img1061219-2.png">
 
 
 
@@ -31,7 +31,7 @@ img{
 
 上述問題解決後你會發現圖片底部往往都會多個空白，如下圖，為了應對此問題整理出以下幾個解決方法。
 
-<img src="/images/posts/web/img1061219-3.png">
+<img src="/images/posts/css/2017/img1061219-3.png">
 
 - html
 
