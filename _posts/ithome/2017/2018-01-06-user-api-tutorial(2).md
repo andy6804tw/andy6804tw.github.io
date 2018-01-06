@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js打造API] User修改、刪除'
+title: '[Node.js打造API] User用戶(PUT與DELETE)'
 categories: '2018iT邦鐵人賽'
 description: '教導如何攥寫修改、刪除'
 keywords: api
@@ -12,7 +12,12 @@ keywords: api
 - 使用Postman測試PUT與DELETE
 
 ## 前言
-。
+這篇文章是 User 的第二部份實作修改和刪除，這幾天的內容比較複雜也許會比較難吸收若還是不了解的讀者歡迎在底下留言問題，我會很樂意地幫你解答哦！
+
+## 事前準備
+今天要繼續實作的程式是延續 [[Node.js打造API] 實作Article文章(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V9.0.0
 
 ## 修改user
 
@@ -51,7 +56,7 @@ const modifyUser = (insertValues, userId) => {
 ```
 
 #### user.controller.js
-這邊比較特別的是由於修改資料時要指定是哪一筆值組要修改所以勢必要有id，這邊使用 `req.params` 方式將網址上的 id 參數讀取下來(例如:http://127.0.0.1:3000/api/user/1)後面的1代表就是你要修改的id值。
+`user_id` 為要被修改的用戶 id，這邊使用 `req.params` 方式將網址上的 id 參數讀取下來(例如:http://127.0.0.1:3000/api/user/1)後面的1代表就是你要修改的 id 值。
 
 ```js
 // user.controller.js
@@ -71,7 +76,7 @@ const userPut = (req, res) => {
 ```
 
 #### user.route.js
-這支檔案就是要指定你的路徑，因為是修改所以使用 put 請求，有發現到賢面路徑跟 GET 與 POST 不同嗎？是這樣的由於修改資料要取得修改的id所以這邊在網址上要求 `:user_id` 加個冒號代表有個 `req.params` 功能。
+路由檔案就是要指定你的路徑，因為是修改所以使用 put 請求，此外你會發現他的路徑跟 GET 與 POST 不一樣，原因我們必須要在 api 網址上取得修改的 id 當然你也可以利用 `req.body` 傳遞參數取得 id 值。
 
 ```js
 // user.route.js
@@ -132,7 +137,7 @@ const deleteUser = (userId) => {
 ```
 
 #### user.controller.js
-這邊主要是接收刪除的id利用 `req.params.user_id` 儲存到變數 `userId` 中在丟入 module 內的 `deleteuser` 刪除函式執行的帶回傳。
+這邊主要是接收刪除的 id 利用 `req.params.user_id` 儲存到變數 `userId` 中，最後再丟入 module 內的 `deleteuser` 刪除函式執行的帶回傳。
 
 ```js
 // user.controller.js
@@ -150,7 +155,7 @@ const userDelete = (req, res) => {
 ```
 
 #### user.route.js
-加上刪除的路徑並使用 `delete` 請求方式。
+加上刪除的路徑並使用 `delete` 請求方式，跟修改的路徑一樣。
 
 ```js
 import userCtrl from '../controllers/user.controller';
@@ -167,3 +172,6 @@ export default router;
 將程式碼 `yarn build` 再 `yarn start` 後，開啟Postman在網址列輸入 `http://127.0.0.1:3000/api/user/1` 並選擇 DELETE 請求方式，完成後按下 Send 送出後即可發現有刪除成功訊息。
 
 <img src="/images/posts/it2018/img1070106-3.png">
+
+
+範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V10.0.0
