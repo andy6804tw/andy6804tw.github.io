@@ -15,7 +15,7 @@ keywords: api
 前兩天已經將 Article 文章的部分做完新增、刪除、修改以及顯示，今天開始要實作另一個資料表用戶，已經熟悉的讀者可以試著先自己做做看，若還是不熟悉的沒關係可以一起照著文章來做。
 
 ## 事前準備
-今天要繼續實作的程式是延續 [[Node.js打造API] 實作Article文章(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+今天要繼續實作的程式是延續 [[Node.js打造API] (實作)Article文章(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
 
 程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V8.0.0
 

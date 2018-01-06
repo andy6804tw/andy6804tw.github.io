@@ -15,7 +15,7 @@ keywords: api
 昨天已經將 Article 的新增和顯示實作出來了，今天就來繼續實作修改及實作，基本上整個流程跟昨日差不多，重點還是處理 article 路由底下的內容分別為 `article.module.js`、`article.controller.js`、`article.route.js`。
 
 ## 事前準備
-今天要繼續實作的程式是延續 [[Node.js打造API] Article文章(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+今天要繼續實作的程式是延續 [[Node.js打造API] (實作)Article文章(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
 
 程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V7.0.0
 

@@ -15,7 +15,7 @@ keywords: api
 這篇文章是 User 的第二部份實作修改和刪除，這幾天的內容比較複雜也許會比較難吸收若還是不了解的讀者歡迎在底下留言問題，我會很樂意地幫你解答哦！
 
 ## 事前準備
-今天要繼續實作的程式是延續 [[Node.js打造API] 實作Article文章(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+今天要繼續實作的程式是延續 [[Node.js打造API] (實作)User用戶(GET與POST)](https://andy6804tw.github.io/2018/01/03/user-api-tutorial(1)/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
 
 程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V9.0.0
 
