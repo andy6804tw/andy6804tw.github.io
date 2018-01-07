@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[Node.js打造API] (實作)使用者登入與密碼加密'
+title: '[Node.js打造API] (實作)使用者密碼加密'
 categories: '2018iT邦鐵人賽'
-description: 'forever運行'
+description: '使用bcrypt加密密碼'
 keywords: api
 ---
 
