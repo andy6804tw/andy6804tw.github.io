@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js打造API] User用戶(PUT與DELETE)'
+title: '[Node.js打造API] (實作)User用戶(PUT與DELETE)'
 categories: '2018iT邦鐵人賽'
 description: '教導如何攥寫修改、刪除'
 keywords: api
