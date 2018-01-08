@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js打造API] (實作)使用者密碼加密'
+title: '[Node.js打造API] (實作)bcrypt將使用者密碼加密'
 categories: '2018iT邦鐵人賽'
 description: '使用bcrypt加密密碼'
 keywords: api
@@ -8,11 +8,15 @@ keywords: api
 
 ## 本文你將會學到
 - 了解[bcrypt](https://github.com/kelektiv/node.bcrypt.js)加密運作方式
-- 新增使用者時將密碼加密寫入資料庫
-- 實作登入帳密驗證的API
+- 實作將密碼加密後再寫入資料庫
 
 ## 前言
 在設計資料庫時要考慮到資料的安全性，假使資料庫被駭所有的使用者密碼都被看光光，所以當我們寫入資料庫前要先將用戶密碼加密才是正確的做法，而使用的加密方法是使用 [bcrypt](https://github.com/kelektiv/node.bcrypt.js) 這個套件，他是目前星星數最多且持續維護中的專案，裡面有提供同步和非同步的加密方式。
+
+## 事前準備
+今天要繼續實作的程式是延續 [[Node.js打造API] (實作)使用 joi 驗證POST資料](https://andy6804tw.github.io/2018/01/07/post-joi/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V11.0.0
 
 ## 介紹 bcrypt 加密
 bcrypt 能夠將一個字串做雜湊加密，其中有個參數叫 `saltRounds` 是在密碼學中的加鹽(salt)，加鹽的意思是在要加密的字串中加特定的字符，打亂原始的字符串，使其生成的散列結果產生變化，其參數越高加鹽次數多越安全相對的加密時間就越長。
@@ -69,7 +73,7 @@ yarn add bcrypt
   console.log(bcrypt.compareSync(testPassword, myHash)); // false
 ```
 
-## User POST 增加 bcrypt
+## User POST 添加 bcrypt
 上面已經將整個 bcrypt 加密過程與原理介紹完了，先在要開始實做將 bcrypt 加入 User POST 中。
 
 ##### 1. 安裝 bcrypt
@@ -132,3 +136,6 @@ TRUNCATE TABLE User
 在 Postman 的網址列輸入 `localhost:3000/api/user` 並選擇 GET 請求方式，最後再點選 Send 送出。你會發現密碼真的被加密成功了！
 
 <img src="/images/posts/it2018/img1070108-4.png">
+
+
+範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V12.0.0
