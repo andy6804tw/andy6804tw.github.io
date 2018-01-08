@@ -137,5 +137,18 @@ TRUNCATE TABLE User
 
 <img src="/images/posts/it2018/img1070108-4.png">
 
+## 解析加密字串
+加密後的 bcrypt 分為四個部分：
+- Bcrypt
+  - 該字串為 UTF-8 編碼，並且包含一個終止符
+- Round
+  - (回合數)每增加一次就家被雜湊次數，預設10次
+- Salt
+  - (加鹽)128 bits 22個字元
+- Hash
+  - (雜湊)138 bits 31個字元
+
+<img src="/images/posts/it2018/img1070108-5.png">
+
 
 範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V12.0.0
