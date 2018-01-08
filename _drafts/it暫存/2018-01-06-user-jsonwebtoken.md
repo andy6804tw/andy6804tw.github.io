@@ -28,3 +28,6 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJBbmR5MTAiLCJ1c2VyX21haWw
 ```
 
 流程： 使用者登入 -> 產生 API Token -> 進行 API 路徑存取時先 JWT 驗證 -> 驗證成功才允許訪問該 API
+
+
+https://yami.io/jwt/
