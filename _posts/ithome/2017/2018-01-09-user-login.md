@@ -14,6 +14,10 @@ keywords: api
 ## 前言
 上一篇已經學會如何將密碼加密並寫入資料庫，今天就來實作登入的 API，首先請各位思考一下登入時前端使用者輸入信箱與密碼，後端 API 就去資料庫撈取信箱與密碼是否吻合，這個流程沒問題，但前端使用者輸入的密碼要怎麼去確認資料庫加密後的密碼兩者是否相同呢？還記得上一篇有提到 bcrypt 的驗證機制能夠將加密後字串與原未加密字串做驗證，廢話不多說就來開始吧！
 
+## 事前準備
+今天要繼續實作的程式是延續 [[Node.js打造API] (實作)bcrypt將使用者密碼加密](https://andy6804tw.github.io/2018/01/08/user-bcrypt/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V12.0.0
 
 ## 使用者登入
 
@@ -134,3 +138,4 @@ router.route('/login').post(userCtrl.userLogin); /** User 登入 */
 <img src="/images/posts/it2018/img1070109-5.png">
 <img src="/images/posts/it2018/img1070109-6.png">
 
+範例程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V13.0.0
