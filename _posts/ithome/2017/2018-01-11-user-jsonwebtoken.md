@@ -11,7 +11,13 @@ keywords: api
 - 實作使用者登入並取得一組 API Token
 
 ## 前言
-為什麼要有 API Token 呢？各位可以想想若今天我要存取特別資料例如交易紀錄或是發文紀錄，這些資料都有獨特性也就是這些資料只有你能做存取與修改，所以在訪問某些重要的 API 前就必須要有一個 Token 來驗證你是否有權限來訪問裡面的資料，那我們該怎去實作呢？早期作法就是使用 Session 並且生成一個 Session 的 Token 我們稱 SessionID，所謂 SessionID 就是一個既不會重複，又不容易被找到規律以免被仿造的字符串，你可以自己隨機產生一組字串，可能用當下時間戳記、年、月、日、時、分、秒來當種子搭配英文26個字母外加標點符號經亂數搗亂後所產生的一組字串可能長度30、20之類的，每次訪問某特別 API 前就由 SessionID 來做 Token 驗證，但這不是今天的重點！今天要用一個比較新的方法而且更方便更快速的來產生我們要的 API Token 就是 JWT ！
+為什麼要有 API Token 呢？各位可以想想若今天我要存取特別資料例如交易紀錄或是發文紀錄，這些資料都有獨特性也就是這些資料只有你能做存取與修改，所以在訪問某些重要的 API 前就必須要有一個 Token 來驗證你是否有權限來訪問裡面的資料，那我們該怎去實作呢？早期作法就是使用 Session 並且生成一個 Session 的 Token 我們稱 SessionID，所謂 SessionID 就是一個既不會重複，又不容易被找到規律以免被仿造的字符串，你可以自己隨機產生一組字串，可能用當下時間戳記、年、月、日、時、分、秒來當種子搭配英文26個字母外加標點符號經亂數用亂後所產生的一組字串可能長度30、20之類的，每次訪問某特別 API 前就由 SessionID 來做 Token 驗證，但這不是今天的重點！今天要用一個比較新的方法而且更方便更快速的來產生我們要的 API Token 就是 JWT ！
+
+## 事前準備
+今天要繼續實作的程式是延續 [[Node.js打造API] (實作)自定義API Error拋出錯誤訊息](https://andy6804tw.github.io/2018/01/10/api-error/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V14.0.0
+
 
 ## 何謂 JWT
 JWT 是 JSON Web Token 的縮寫，通常用來解決身份認證的問題，JWT 是一個很長的 base64 字串在這字串中分為三個部分別用點號來分隔，第一個部分為 `Header` ，裡面分別儲存型態和加密方法，通常系統是預設 `HS256` 雜湊演算法來加密，官方也提供許多演算法加密也可以手動更改加密的演算法，第二部分為 payload，它和 Session 一樣，可以把一些自定義的數據存儲在 `Payload` 裡例如像是用戶資料，第三個部分為 `Signature`，做為檢查碼是為了預防前兩部分被中間人偽照修改或利用的機制。
@@ -28,7 +34,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJBbmR5MTAiLCJ1c2VyX21haWw
 
 <img src="/images/posts/it2018/img1070111-1.png">
 
-流程： 使用者登入 -> 產生 API Token -> 進行 API 路徑存取時先 JWT 驗證 -> 驗證成功才允許訪問該 API
+>流程： 使用者登入 -> 產生 API Token -> 進行 API 路徑存取時先 JWT 驗證 -> 驗證成功才允許訪問該 API
 
 
 ## 安裝 jsonwebtoken
@@ -62,7 +68,7 @@ resolve(Object.assign({ code: 200 }, { message: '登入成功', token })); // �
 ```
 
 ## 登入測試
-將程式碼 `yarn build` 再 `yarn start` 後，開啟Postman在網址列輸入 `http://127.0.0.1:3000/api/user/login` 並選擇 POST 請求方式，接下來是要放入修改的內容，`Body > raw > 選擇 JSON(application/json)`，將信箱與密碼用 JSON 格式送出。
+將程式碼 `yarn build` 再 `yarn start` 後，開啟Postman在網址列輸入 `http://127.0.0.1:3000/api/user/login` 並選擇 POST 請求方式，將信箱與密碼用 JSON 格式儲存並放在 `Body > raw > 選擇 JSON(application/json)` 欄位中。
 
 **登入成功**
 
@@ -76,3 +82,4 @@ resolve(Object.assign({ code: 200 }, { message: '登入成功', token })); // �
 ```
 
 <img src="/images/posts/it2018/img1070111-3.png">
+<img src="/images/posts/it2018/img1070111-4.png">
