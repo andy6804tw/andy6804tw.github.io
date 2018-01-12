@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js打造API] (實作)使用JWT訪問API內容(1)'
+title: '[Node.js打造API] (實作)使用JWT來存取API內容(上)'
 categories: '2018iT邦鐵人賽'
 description: 'JSON Web Token'
 keywords: api
@@ -12,10 +12,18 @@ keywords: api
 - 實作一個API撈取並顯示自己所發佈過的文章
 
 ## 前言
-做天已經完成了使用者登入並取得一組 API Token 的 JWT ，今天就來實作利用 JWT 的身份驗證來存取 API 內容，若對 JWT 能夠做什麼還是很模糊的沒關係，我這邊舉一個最常見的例子就是買飲料，相信各位有到連鎖飲料店購買飲料過例如像是星巴克，結帳後店員會給你一張收據上面有你的取單編號，等你取飲料的時候店員會要求查看你手上的單號確保你是顧客，上面各個例子可以完整的對應到我們的實作，JWT 就是你的取單編號，而店員做檢查的動作就像要存取某個 API 時要用 JWT 來做驗證道理一樣。
+做天已經完成了使用者登入並取得一組 API Token 的 JWT ，今天就來實作利用 JWT 的身份驗證來存取 API 內容，若對 JWT 能夠做什麼還是很模糊的沒關係，我這邊舉一個最簡單的例子就是買飲料，相信各位都有到連鎖飲料店購買的經驗，像是在星巴克結帳後店員會給你一張收據上面有你的取單編號，等你取飲料的時候店員會要求查看你手上的單號確保你是顧客，上面各個例子可以完整的對應到我們的實作，JWT 就是你的取單編號，而店員做檢查的動作就像要存取某個 API 時要用 JWT 來做驗證道理一樣。
+
+## 事前準備
+今天要繼續實作的程式是延續 [[Node.js打造API] (實作)用JWT取代傳統Session來驗證使用者身份](https://andy6804tw.github.io/2018/01/11/user-jsonwebtoken/) 的專案繼續實作，想跟著今天的實作可以先下載下面的整包程式，記得要先 `yarn install` 將整個依賴的軟體安裝回來。
+
+程式碼：https://github.com/andy6804tw/RESTful_API_start_kit/releases/tag/V15.0.0
+
 
 ## 修改 article.module.js
 在 `article.module.js` 中新增一個 `selectPersonalArticle` 的函式並使用 ES6 的 Promise 寫法，我們用 `jwt.verify()` 方法來做 JWT 驗證，在此方法中有三個參數，第一參數為你的 API Token 也就是 JWT 而變數 `token` 是由 `article.controller.js` 中傳過來的，第二個參數為 `Signature` 簽署密碼為字串型態記得要與當時登入時所簽署的密碼一樣否則會出問題，第三個參數為 function callback 也就是回傳結果，其中 err 為錯誤訊息、payload 為 JWT 解密後儲存的資料，還記得當時候是把用戶姓名、信箱跟用戶 id 一同寫進去 payload 中並使用 `Object.assign()`  加密產生 JWT。
+
+利用 `jwt.verify()` 解密驗證後會 callback 一個錯誤 err 與 payload，今天先完成 JWT 驗證並回傳 payload 裡的資料就好，撈取資料庫的語法我們明天再來給他完成，怕一次寫太多 code 大家會沒辦法吸收。
 
 ```js
 // article.module.js
@@ -67,18 +75,20 @@ const articlePersonalGet = (req, res) => {
 // article.route.js
 import articleCtrl from '../controllers/article.controller';
 ...略
+/** 利用 Middleware 取得 Header 中的 Rearer Token */
 const ensureToken = (req, res, next) => {
   const bearerHeader = req.headers.authorization;
   if (typeof bearerHeader !== 'undefined') {
-    const bearer = bearerHeader.split(' ');
-    const bearerToken = bearer[1];
-    req.token = bearerToken;
-    next();
+    const bearer = bearerHeader.split(' '); // 字串切割
+    const bearerToken = bearer[1]; // 取得 JWT
+    req.token = bearerToken; // 在response中建立一個token參數
+    next(); // 結束 Middleware 進入 articleCtrl.articlePersonalGet
   } else {
-    res.status(403).send(Object.assign({ code: 403 }, { message: '您尚未登入！' }));
+    res.status(403).send(Object.assign({ code: 403 }, { message: '您尚未登入！' })); // Header 查無 Rearer Token
   }
 };
 
+/** 取得某用戶 Article 所有值組 */
 router.get('/personal', ensureToken, articleCtrl.articlePersonalGet);
 ...略
 ```
@@ -99,7 +109,7 @@ router.get('/personal', ensureToken, articleCtrl.articlePersonalGet);
 
 
 #### 2. JWT驗證並訪問API內容
-在 Postman 網址列輸入 `http://127.0.0.1:3000/api/article/personal` 後選擇 GET 並點選 Headers 並將 Key 放上 Authorization Value 放上 Bearer+JWT，如下，至於為啥需要加前綴這篇文章先不提。
+在 Postman 網址列輸入 `http://127.0.0.1:3000/api/article/personal` 後選擇 GET 並點選 Headers 並將 Key 放上 Authorization Value 放上 Bearer+JWT，如下，至於為啥需要加前綴這篇文章先不解釋，簡單來說你可以把它當作是 HTTP Authorization 的其中一個規範。
 
 ```
 Key: Authorization
@@ -109,6 +119,13 @@ Value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiO
 <img src="/images/posts/it2018/img1070112-3.png">
 
 **JWT驗證成功並取得Payload資料**
+
+Payload 裡面存有信箱、姓名和 id 以及狀態資料 exp 為過期時間而 iat 為建立時間，兩者皆以時間戳記表示。
+
+- expiresIn(exp) 
+  - Token 過期時間
+- issued at(iat) 
+  - Token 建立時間
 
 <img src="/images/posts/it2018/img1070112-4.png">
 
@@ -120,7 +137,7 @@ Value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiO
 
 **JWT過期**
 
-JWT是有時效性的，還記得我們當時設定 expiresIn(exp) 為 15 分鐘，若過期他會顯示錯誤訊息，這些錯誤訊息是 JWT 自己產生的當然你也可以將錯誤資訊改寫並放入 API Error 這邊為了維持程式可讀性就不示範了。
+JWT是有時效性的，還記得我們當時設定 expiresIn(exp) 為 15 分鐘，若過期他會顯示錯誤訊息，這些錯誤訊息是 JWT 自己產生的當然你也可以將錯誤資訊改寫並放入 API Error ，由於 API Error 並非本篇重點所以在這邊就不再實作了，有興趣的讀者可以試著自己寫看囉！。
 
 <img src="/images/posts/it2018/img1070112-6.png">
 
