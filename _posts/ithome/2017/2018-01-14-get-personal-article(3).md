@@ -10,6 +10,7 @@ keywords: api
 - 了解 JWT 和 Bearer Token 的關係與 OAuth 2.0
 - 了解 HTTP Authentication 中有哪些 schemes
 - 客戶端向後端出示API Token的三種方式
+- Authenticate 的 API Error 錯誤訊息
 
 <img src="https://i.ytimg.com/vi/CPbvxxslDTU/maxresdefault.jpg">
 [圖片來源](https://www.youtube.com/watch?v=CPbvxxslDTU)
