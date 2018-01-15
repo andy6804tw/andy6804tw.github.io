@@ -21,3 +21,7 @@ http://blog.jsdc.tw/2016/08/20/node_v6_and_es6
 
 陣列
 https://coldfunction.com/p/6p
+
+
+## 自動化測試
+https://medium.com/@yurenju/%E8%87%AA%E5%8B%95%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%A6-tdd-%E8%88%87-bdd-464519672ac5
