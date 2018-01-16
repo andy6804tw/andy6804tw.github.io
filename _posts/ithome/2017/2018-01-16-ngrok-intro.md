@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js打造API] 使用 ngrok 讓外網也能連接'
+title: '[Node.js打造API] 使用 ngrok 讓外網連接你的 API'
 categories: '2018iT邦鐵人賽'
 description: 控制流程、程式區塊、迴圈、箭頭涵式
 keywords: JavaScript, ES6
@@ -20,7 +20,7 @@ keywords: JavaScript, ES6
 舉例：
 > 192.123.45.6:3000
 
-<img src="/images/posts/it2018/img1070108-1.png" width="550">
+<img src="/images/posts/it2018/img1070116-1.png" width="550">
 
 
 #### 方法二(使用第三方軟體 ngrok)
@@ -73,4 +73,4 @@ ngrok 做為一個轉發的伺服器，他可以把外界的請求轉發到你�
   ngrok http 8080
   ```
 
-<img src="/images/posts/it2018/img1070108-2.png">
+<img src="/images/posts/it2018/img1070116-2.png">
