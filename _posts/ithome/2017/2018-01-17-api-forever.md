@@ -6,7 +6,7 @@ description: 'forever運行'
 keywords: api
 ---
 
-本文你將會學到
+## 本文你將會學到
 - 了解 forever 運作原理
 - 使用 forever 讓 API 不間斷運行
 
@@ -30,11 +30,11 @@ yarn add -g forever
 forever start  dist/index.bundle.js
 ```
 
-<img src="/images/posts/it2018/img1070109-1.png">
+<img src="/images/posts/it2018/img1070117-1.png">
 
 在瀏覽器輸入 `http://localhost:3000/` 確實有在運作。
 
-<img src="/images/posts/it2018/img1070109-2.png">
+<img src="/images/posts/it2018/img1070117-2.png">
 
 ##### 2. 監聽並自動重啟
 這個指令是會偵測你的程式若有變動他會馬上重新 reload 並重新執行程式，有點類似 nodemon，其中 w 代表 watch 的意思。
@@ -50,7 +50,7 @@ forever start -w  dist/index.bundle.js
 forever list
 ```
 
-<img src="/images/posts/it2018/img1070109-3.png">
+<img src="/images/posts/it2018/img1070117-3.png">
 
 ##### 4. 重新載入程式
 forever 不是萬能的也有會掛掉的時候，所以者時就可以 `forever restart [程式位置]` 重新來啟動他。
@@ -59,7 +59,7 @@ forever 不是萬能的也有會掛掉的時候，所以者時就可以 `forever
 forever restart dist/index.bundle.js
 ```
 
-<img src="/images/posts/it2018/img1070109-4.png">
+<img src="/images/posts/it2018/img1070117-4.png">
 
 ##### 5. 關閉已啓動的程式
 若要中斷 forever 運作輸入 `forever stop [程式位置]`，就能立即中止程式執行。
@@ -68,7 +68,7 @@ forever restart dist/index.bundle.js
 forever stop dist/index.bundle.js
 ```
 
-<img src="/images/posts/it2018/img1070109-5.png">
+<img src="/images/posts/it2018/img1070117-5.png">
 
 ##### 6. 關閉所有已啓動的程式
 輸入 `forever stopall` 即可停止所有 forever 背景所有的監聽排程。
