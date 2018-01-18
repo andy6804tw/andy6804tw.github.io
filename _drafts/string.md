@@ -25,3 +25,7 @@ https://coldfunction.com/p/6p
 
 ## 自動化測試
 https://medium.com/@yurenju/%E8%87%AA%E5%8B%95%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%A6-tdd-%E8%88%87-bdd-464519672ac5
+
+
+## 面試履歷
+https://blog.m157q.tw/posts/2016/01/22/how-to-write-a-resume-for-programming-jobs/
