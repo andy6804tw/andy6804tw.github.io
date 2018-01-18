@@ -6,7 +6,7 @@ description: 'forever運行'
 keywords: api
 ---
 
-本文你將會學到
+## 本文你將會學到
 - 了解 Google Cloud Platform 
 - 開通一年的$300美元試用額度帳戶
 
@@ -52,11 +52,11 @@ GCP的服務主要分為以下幾類。
 ## 申請免費試用
 申請時會先要你選擇填選地區，之後會要在你填入帳戶類型、稅務資訊、地址與金融卡或信用卡卡號，這些都為必填，放心在適用的期間都不會被扣到帳戶裡任何一毛錢，一年後適用期結束也不會自動幫你扣款而是會先幫你停用目前的主機，雖然說是一年300美元任你試用但還是有些[限制](https://cloud.google.com/free/docs/always-free-usage-limits)。
 
-<img src="/images/posts/it2018/img1070111-1.png">
+<img src="/images/posts/it2018/img1070118-1.png">
 
 
 
-<img src="/images/posts/it2018/img1070111-2.png">
+<img src="/images/posts/it2018/img1070118-2.png">
 
 ## 結論
 題外話 Google 自家的 Firebase 也推出 hosting 的服務，也可以很簡單的方式把靜態網頁部屬到到 Firebase 上，並且能夠擁有 https 加密協定，甚至還可以綁定自己的網址，只能說 Google 太強大了！總之天下沒有白吃的午餐若 GCP 的試用期到了還是得乖乖付錢囉。
