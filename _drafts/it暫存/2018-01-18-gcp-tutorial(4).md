@@ -47,14 +47,14 @@ git checkout master
 npm install
 ```
 
-##### 2. 建立 dotenv 環境變數
+##### 3. 建立 dotenv 環境變數
 我們使用 linux 指令中的 `cp` 將一個環境變數 `.example.env` 範本複製一份新的並命名為 `.env`
 
 ```bash
 cp .example.env .env
 ```
 
-##### 3. 修改 `.env` 內容
+##### 4. 修改 `.env` 內容
 使用 vim 編輯模式進入 `.env` 隱藏檔裡，把 `MYSQL_HOST` 修改成自己 GCP 中雲端資料庫(Cloud SQL) 所提供的連線 IP 位址。
 
 ```bash
@@ -64,11 +64,14 @@ vim .env
 <img src="/images/posts/it2018/img1070121-5.png">
 <img src="/images/posts/it2018/img1070121-1.png">
 
-##### 4. deploy 專案並啟動
+##### 5. deploy 專案並執行
 使用 `webpack` 後會自己產生一個 dist 資料夾，最後再鍵入 `npm run start` 來執行它。
 
 ```bash
 webpack
 npm run start
 ```
+
+執行成功後在瀏覽器輸入 `[外部 IP]:3000/api/article` =>  `` 
+
 <img src="/images/posts/it2018/img1070121-2.png">

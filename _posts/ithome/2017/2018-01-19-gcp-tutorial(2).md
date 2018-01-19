@@ -91,4 +91,5 @@ npm run start
 建立完成後返回 Compute Engine 後點選 VM 執行個體詳細資料並進入編輯，並在網路標記中新增一個剛剛所建立的網路標記 `nodejs-1-tcp-3000` ，之後儲存等待幾分後再將網頁重新整理就可成功監聽 3000 PORT 了。
 
 <img src="/images/posts/it2018/img1070119-13.png">
+
 <img src="/images/posts/it2018/img1070119-14.png">
