@@ -1,0 +1,74 @@
+---
+layout: post
+title: '[Node.js打造API] Google Cloud Platform(4)-API測試'
+categories: '2018iT邦鐵人賽'
+description: ''
+keywords: api
+---
+
+## 本文你將會學到
+- 使用 git 將專案引入到 VM 虛擬機中
+- 在 VM 上測試執行API
+
+## 前言
+昨天已經將 Cloud SQL 部署完成了，今天就來驗收整個成果吧！
+
+## 執行VM個體
+在左邊的選單目錄中進入 `Compute Engine > VM執行個體`，進入後點選 `在瀏覽器視窗中開啟`。
+
+<img src="/images/posts/it2018/img1070121-3.png">
+
+##### 1. clone 專案至 VM
+
+>若先前已經 clone 此專案的讀者可以直接跳到步驟二
+
+將專案 `git clone` 下來，之後進入該專案資料夾，進入後再輸入 `npm install` 把node_modules下載回來，基本上就是這三步驟將 GitHub 上的專案移下載至 VM 中。
+
+```bash
+#把專案下載到VM
+git clone https://github.com/andy6804tw/RESTful_API_start_kit.git
+#進入專案資料夾
+cd RESTful_API_start_kit
+#把node_modules下載回來
+npm install
+```
+
+<img src="/images/posts/it2018/img1070121-4.png">
+
+##### 2.進入主分支
+
+>步驟一完成的讀者可以直接跳到步驟三
+
+若先前已 clone 此專案的讀者，先進入該專案底下的資料夾，之後再進入 `master` 主分支，隨後鍵入 `npm install` 確保所有的 node.js 套件已安裝。
+
+```bash
+cd RESTful_API_start_kit
+git checkout master
+npm install
+```
+
+##### 2. 建立 dotenv 環境變數
+我們使用 linux 指令中的 `cp` 將一個環境變數 `.example.env` 範本複製一份新的並命名為 `.env`
+
+```bash
+cp .example.env .env
+```
+
+##### 3. 修改 `.env` 內容
+使用 vim 編輯模式進入 `.env` 隱藏檔裡，把 `MYSQL_HOST` 修改成自己 GCP 中雲端資料庫(Cloud SQL) 所提供的連線 IP 位址。
+
+```bash
+vim .env
+```
+
+<img src="/images/posts/it2018/img1070121-5.png">
+<img src="/images/posts/it2018/img1070121-1.png">
+
+##### 4. deploy 專案並啟動
+使用 `webpack` 後會自己產生一個 dist 資料夾，最後再鍵入 `npm run start` 來執行它。
+
+```bash
+webpack
+npm run start
+```
+<img src="/images/posts/it2018/img1070121-2.png">
