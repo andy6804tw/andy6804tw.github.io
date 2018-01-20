@@ -40,3 +40,6 @@ GCP 有提供雲端 MySQL 資料庫的服務，且提供的資料庫基礎架構
 <img src="/images/posts/it2018/img1070120-8.png">
 <img src="/images/posts/it2018/img1070120-9.png">
 
+## 結論
+實作到今天我們已經完成了GCP的虛擬機與雲端資料庫的建置了～
+明天我們就來驗收兩邊的成果吧！
