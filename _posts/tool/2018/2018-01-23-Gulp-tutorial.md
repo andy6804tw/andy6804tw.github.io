@@ -7,7 +7,7 @@ keywords: Node.js, Gulp
 ---
 
 ## 何謂Gulp 
-隨著前端世界的演進衍伸出許多語言框架像是光 CSS 就有 LESS、SCSS、Sass、Stylus、PostCSS，HTML 有 Haml、hbs、pug、Slim、Markdown，而 JavaScrypt 則有 CoffeeScript、LiveScrypt、TypeScrypt、Bable，對於這些程式碼的打包其實非常的重要而 gulp 就是在做這件事，此外與 gulp 相類似的打包工具就是 grunt，grunt 對於資深的工程是一定不陌生，他是最古老的打包工具近幾年 gulp 出現使用者慢慢轉移使用 gulp 了，而在 2018 年 1 月 gulp 也終於正式釋出地4版了。
+隨著前端世界的演進衍伸出許多語言框架像是光 CSS 就有 LESS、SCSS、Sass、Stylus、PostCSS，HTML 有 Haml、hbs、pug、Slim、Markdown，而 JavaScrypt 則有 CoffeeScript、LiveScrypt、TypeScrypt、Bable，對於這些程式碼的打包其實非常的重要而 gulp 就是在做這件事，此外與 gulp 相類似的打包工具就是 grunt，grunt 對於資深的工程是一定不陌生，他是最古老的打包工具近幾年 gulp 出現使用者慢慢轉移使用 gulp 了，而在 2018 年 1 月 gulp 也終於正式釋出第4版了。
 
 ## 安裝 gulp-cli
 在 gulp 的 [GitHub](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) 的官方文件中有提到要使用4.0.0版本前若你的本機先前已安裝過 gulp 的 global 全域必須先移除並重新安裝 `gulp-cli`，想知道更多可參考[這篇](https://medium.com/gulpjs/gulp-sips-command-line-interface-e53411d4467)。 
