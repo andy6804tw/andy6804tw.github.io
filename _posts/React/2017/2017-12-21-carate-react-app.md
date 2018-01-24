@@ -21,7 +21,7 @@ Create React app 是由 Facebook 自己所開源的 start kit 在 [GitHub](https
 #### 2. 初始化專案
 
 ```bash
-create-raect-app [專案名稱]
+create-react-app [專案名稱]
 cd [專案名稱]
 ```
 
