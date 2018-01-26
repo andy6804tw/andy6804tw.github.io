@@ -29,3 +29,11 @@ https://medium.com/@yurenju/%E8%87%AA%E5%8B%95%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%
 
 ## 面試履歷
 https://blog.m157q.tw/posts/2016/01/22/how-to-write-a-resume-for-programming-jobs/
+
+## Bot
+https://simonhsu.blog/2017/01/25/%E4%B8%8D%E5%BF%85%E7%9C%9F%E7%9A%84%E6%9E%B6%E7%AB%99%E4%B9%9F%E8%83%BD-5-%E5%88%86%E9%90%98%E5%AF%A6%E6%A9%9F%E9%AB%94%E9%A9%97-line-bot-message-api-%E6%87%89%E7%94%A8-by-node-js-ngrok/
+
+
+## GCP 
+ssl憑證
+https://sammy197.tw/4076/gwp-%E5%9C%A8google-cloud-platform%E8%A3%A1%E4%BD%BF%E7%94%A8ssl%E6%86%91%E8%AD%89/
