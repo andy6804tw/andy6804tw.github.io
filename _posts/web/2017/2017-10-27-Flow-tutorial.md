@@ -78,6 +78,6 @@ $ babel src -d dist
 ```
 筆者開發環境是使用VScode記得安裝 Flow Language Support的擴充套件才會即時顯示錯誤哦
 
-<img src="/images/posts/web/img1061027-1.png">
+<img src="/images/posts/web/2017/img1061027-1.png">
 
 最後附上程式碼 clone 下來 再npn i 安裝 package 就可以執行囉！喜歡的話按顆星星吧～ [Source Code](https://github.com/andy6804tw/Flow_tutorial)
