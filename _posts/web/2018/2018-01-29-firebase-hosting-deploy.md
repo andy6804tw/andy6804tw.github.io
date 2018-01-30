@@ -32,8 +32,8 @@ firebase login
 ##### 3.初始化專案
 登入成功且確認身份後就可以為我們的專案做初始化的動作，首先他會問你要使用哪種功能這邊就選擇 Hosting，接著它會問你要加入在哪個專案中，若是首次使用可以在 Firebase 中新建一個專案或是選擇 create a new project，選擇完成後系統會在根目錄下自動生成 `firebase.json` 與 `.firebaserc` 設定檔。
 
-<img src="/images/posts/web/2018/img1060129-1.png" width="600">
-<img src="/images/posts/web/2018/img1060129-2.png" width="300">
+<img src="/images/posts/web/2018/img1070129-1.png" width="600">
+<img src="/images/posts/web/2018/img1070129-2.png" width="300">
 
 ```bash
 firebase init
@@ -65,8 +65,8 @@ firebase init
 firebase deploy  
 ``` 
 
-<img src="/images/posts/web/2018/img1060129-3.png">
+<img src="/images/posts/web/2018/img1070129-3.png">
 
 發布完成後 Firebase 會自動產生網址連結，而且 Google 還很佛心得幫你用好了 HTTPS 安全性佳，此外還可以使用自己的網域更改 DNS 轉址的服務，這麼棒的服務不用真是可惜啊～下一篇就來教各位如何使用自己的網域綁定 DNS 吧。
 
-<img src="/images/posts/web/2018/img1060129-4.png">
+<img src="/images/posts/web/2018/img1070129-4.png">
