@@ -37,3 +37,11 @@ https://simonhsu.blog/2017/01/25/%E4%B8%8D%E5%BF%85%E7%9C%9F%E7%9A%84%E6%9E%B6%E
 ## GCP 
 ssl憑證
 https://sammy197.tw/4076/gwp-%E5%9C%A8google-cloud-platform%E8%A3%A1%E4%BD%BF%E7%94%A8ssl%E6%86%91%E8%AD%89/
+
+srv
+https://forum.gamer.com.tw/Co.php?bsn=18673&sn=789461
+
+https://www.4rbj4.com/230
+
+https://opensertkblog.wordpress.com/2017/05/03/%E3%80%90%E5%9C%96%E6%96%87%E6%95%99%E5%AD%B8%E3%80%912017%E6%9C%80%E6%96%B0%E7%89%88-%E5%BB%BA%E8%A8%AD%E5%9F%BA%E6%9C%AC%E4%BC%BA%E6%9C%8D%E5%99%A8-%E9%96%8B%E6%9C%8D%E6%95%99%E5%AD%B8%EF%BC%88-3/
+
