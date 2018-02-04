@@ -95,3 +95,6 @@ ReactDOM.render(<App/>, document.querySelector('#app'));
 #### CSS Modules
 
 <img src="/images/posts/react/2018/img1070202-3.png">
+
+
+參考：https://github.com/andy6804tw/create-react-app/tree/Part8
