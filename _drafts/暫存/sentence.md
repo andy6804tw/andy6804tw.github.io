@@ -18,11 +18,22 @@ http://www.hexschool.com/2017/06/12/2017-06-12-skill_tree/
 ### 寫爛 CODE 是學程式必經之路
 ### 程式寫不好，是不是我沒天份？
 跟自己比較就好，勿豎立對手、寫程式不一定要資工背景
+### 前端必備能力
+- HTML、CSS 網頁版型是基礎功
+  - 會考慮到各螢幕解析度，設計桌面、平版、手機都能夠自適應的網頁版型
+  - 開發前詢問產品 TA 族群習性，瀏覽器兼容性需要滿足哪些特殊條件
+  - 提供給企劃、設計師更好的網頁操作流程之可行性建議，優化使用者體驗。
+Bootstrap、jQuery、JavaScript、AJAX/API
+[關鍵字能力](https://www.facebook.com/hexschool/photos/a.610345345781449.1073741828.608977889251528/671392703010046/?type=3&theater)
+[JS題庫](https://docs.google.com/forms/d/e/1FAIpQLSeBrQ9NspE3_6MCk2Fi0rMfu3baVcnNrPIEhvKz5ZsB3pwnNw/viewform?c=0&w=1)
+### Git、Github 是首要必學之路
+為你自己的 CODE 把關嚴謹性，自己一人也是要養成版控的習慣
+- [連猴子都懂的 Git 入門](https://backlog.com/git-tutorial/tw/)
+- [30 天精通版本控制](https://github.com/doggy8088/Learn-Git-in-30-days)
+- [為你自己學 Git](https://gitbook.tw/?utm_source=hexschool&utm_campaign=IT)
 ### 
 ### 
-### 
-### 
-### 
+###
 ### 
 ### 
 ### 
