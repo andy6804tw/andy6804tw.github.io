@@ -26,6 +26,7 @@ http://www.hexschool.com/2017/06/12/2017-06-12-skill_tree/
 Bootstrap、jQuery、JavaScript、AJAX/API
 [關鍵字能力](https://www.facebook.com/hexschool/photos/a.610345345781449.1073741828.608977889251528/671392703010046/?type=3&theater)
 [JS題庫](https://docs.google.com/forms/d/e/1FAIpQLSeBrQ9NspE3_6MCk2Fi0rMfu3baVcnNrPIEhvKz5ZsB3pwnNw/viewform?c=0&w=1)
+[前端求職懶人包](https://quip.com/D59vAxcgG8Qc)
 ### Git、Github 是首要必學之路
 為你自己的 CODE 把關嚴謹性，自己一人也是要養成版控的習慣
 - [連猴子都懂的 Git 入門](https://backlog.com/git-tutorial/tw/)
