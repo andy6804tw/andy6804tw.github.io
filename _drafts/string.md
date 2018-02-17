@@ -72,3 +72,7 @@ https://ithelp.ithome.com.tw/articles/10195879
 
 ## imgur
 http://blog.codylab.com/imgur-imgbed/
+
+
+## async 教學
+http://blog.csdn.net/marujunyy/article/details/8695205
