@@ -32,7 +32,19 @@ Bootstrap、jQuery、JavaScript、AJAX/API
 - [連猴子都懂的 Git 入門](https://backlog.com/git-tutorial/tw/)
 - [30 天精通版本控制](https://github.com/doggy8088/Learn-Git-in-30-days)
 - [為你自己學 Git](https://gitbook.tw/?utm_source=hexschool&utm_campaign=IT)
-### 
+### 前端面試包
+https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/Translations/Chinese-Traditional
+https://www.facebook.com/notes/raven-chen/%E9%9D%A2%E8%A9%A6-interview/777918558923906
+
+「請問公司的部門架構怎麼樣？技術部門協作流程是？」
+「前端主要會負責哪些項目？」
+「你們如何考量個人績效，是否會影響到福利與年終？」
+「有在做版本控制嗎？」
+「技術部門都用哪些技術、工具、服務？」
+「你們寫單元測試嗎？」
+「你們有持續整合(CI)嗎？」
+
+
 ### 
 ###
 ### 
