@@ -45,12 +45,16 @@ https://www.4rbj4.com/230
 
 https://opensertkblog.wordpress.com/2017/05/03/%E3%80%90%E5%9C%96%E6%96%87%E6%95%99%E5%AD%B8%E3%80%912017%E6%9C%80%E6%96%B0%E7%89%88-%E5%BB%BA%E8%A8%AD%E5%9F%BA%E6%9C%AC%E4%BC%BA%E6%9C%8D%E5%99%A8-%E9%96%8B%E6%9C%8D%E6%95%99%E5%AD%B8%EF%BC%88-3/
 
+route all traffic to 80 to 8000 which is where bouncy runs
 如果有需要用上domain的話，可以執行下面的 commad 把預設的 80 port 轉址到專案的 port :
 ```
 sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port xxxx
 
 ref: http://www.checkme.tw/wordpress/deploy-google-cloud-platform-node-js/
 ```
+
+- bouncy
+  - https://stackoverflow.com/questions/19254583/how-do-i-host-multiple-node-js-sites-on-the-same-ip-server-with-different-domain
 
 
 ## 聊天機器人
