@@ -18,7 +18,7 @@ keywords: api
 將 forever 安裝在全域環境下方便每次呼叫執行
 
 ```bash
-yarn add -g forever
+yarn add global forever
 ```
 
 ## 基本指令
