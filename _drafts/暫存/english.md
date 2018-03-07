@@ -13,3 +13,10 @@ https://www.facebook.com/catchyenglish/?hc_ref=ARSv2feuBj79fkvptR6RXhgwZCRWGzynK
 ## 我不太舒服
 - I'm not feeling well.
 https://goo.gl/8WZ49v
+
+## 不舒服
+- I am not feeling well.
+- I have a headache. (頭痛)
+-  I have a runny nose. (流鼻涕)
+- My node is stuffed. (鼻塞)
+- I have sore throat. (喉嚨痛)

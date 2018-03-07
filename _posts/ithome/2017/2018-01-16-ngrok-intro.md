@@ -2,7 +2,7 @@
 layout: post
 title: '[Node.js打造API] 使用 ngrok 讓外網連接你的 API'
 categories: '2018iT邦鐵人賽'
-description: 控制流程、程式區塊、迴圈、箭頭涵式
+description: 
 keywords: JavaScript, ES6
 ---
 
@@ -28,6 +28,12 @@ keywords: JavaScript, ES6
 ngrok 做為一個轉發的伺服器，他可以把外界的請求轉發到你指定的 Port，使用的背景原理是連接到 [ngrok](https://ngrok.com/product) 雲端伺服器，將你本機指定的地址公開，再將由 ngrok 一串公開的網址來存取內容。他的優點是快速而且還提供了 https 的服務讓你使用上更安全，甚至你還可以設置密碼保護。
 
 <img src="https://ngrok.com/static/img/demo.png">
+
+##### 其他
+下面兩套也可以試試看。
+
+https://forwardhq.com/
+https://pagekite.net/
 
 ### 安裝
 
