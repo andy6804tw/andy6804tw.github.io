@@ -25,7 +25,7 @@ Badge 是一個標籤元件，像是一個訊息未讀右上角會有一個未�
 <h3>Example heading <span class="badge badge-info">New</span></h3>
 ```
 
-<img src="/images/posts/css/2018/1070113-1.png">
+<img src="/images/posts/css/2018/img1070113-1.png">
 
 ## badge 圓角化
 在 class 加入 `badge-pill` 就能將 badge 圓角化 pill 的中文意思是膠囊藥丸，就像膠囊一樣的感覺。
@@ -35,7 +35,7 @@ Badge 是一個標籤元件，像是一個訊息未讀右上角會有一個未�
 <span class="badge badge-secondary badge-pill">new</span>
 ```
 
-<img src="/images/posts/css/2018/1070113-2.png">
+<img src="/images/posts/css/2018/img1070113-2.png">
 
 
 參考：https://v4-alpha.getbootstrap.com/components/badge/
