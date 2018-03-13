@@ -85,3 +85,7 @@ https://stackoverflow.com/questions/41204042/nodejs-loop-async-parallel-callback
 
 ## CSS 命名
 https://www.youtube.com/watch?v=DX5PUZd3oPw
+
+
+## dom learn
+https://codepen.io/davidicus/pen/trhme
