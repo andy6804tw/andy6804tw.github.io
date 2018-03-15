@@ -5,7 +5,6 @@ categories: 'Web'
 description: 
 keywords:
 ---
-
 ## 前言
 雲端虛擬伺服器提供一個靜態 ip `35.224.176.88` 然而預設是監聽 80 PORT，若今天我寫一支程式監聽 8000 PORT 就必須要像下面這樣輸入：
 
