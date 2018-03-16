@@ -65,3 +65,6 @@ git push
 此外最上有有個小圖點擊下去可以複製圖片的網址，你可以將它放到你的 README.md 檔案中，讓大家知道你的程式碼測試後是沒問題的。
 
 [![Build Status](https://travis-ci.org/andy6804tw/Mocha-Chai-tutorial.svg?branch=master)](https://travis-ci.org/andy6804tw/Mocha-Chai-tutorial)
+
+
+範例程式碼：https://github.com/andy6804tw/Mocha-Chai-tutorial
