@@ -89,3 +89,9 @@ https://www.youtube.com/watch?v=DX5PUZd3oPw
 
 ## dom learn
 https://codepen.io/davidicus/pen/trhme
+
+
+## 計算程式覆蓋率
+https://ithelp.ithome.com.tw/articles/10080981
+Istanbul: https://www.youtube.com/watch?v=uDmdlmdVhL8
+Istanbul (nyc): https://www.youtube.com/watch?v=Vw72LgG5AQc
