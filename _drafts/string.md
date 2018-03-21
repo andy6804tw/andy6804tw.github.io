@@ -91,7 +91,6 @@ https://www.youtube.com/watch?v=DX5PUZd3oPw
 https://codepen.io/davidicus/pen/trhme
 
 
-## 計算程式覆蓋率
-https://ithelp.ithome.com.tw/articles/10080981
-Istanbul: https://www.youtube.com/watch?v=uDmdlmdVhL8
-Istanbul (nyc): https://www.youtube.com/watch?v=Vw72LgG5AQc
+## DEV ops
+http://sigmundtzeng.blogspot.tw/2016/02/github-javascript-nodejs-console-ci.html
+http://blog.amowu.com/2015/04/devops-continuous-integration-delivery-docker-circleci-aws-beanstalk.html#code-review-with-github-flow
