@@ -85,6 +85,11 @@ http.createServer(function (req, res) {
 forever start ./api2/index.js
 ```
 
+## 設定 DNS
+這個步驟也很重要，首先到你網域所註冊的地方或是 DNS 所代管的地方，我這邊是使用 CloudFlare 平台，基本上任何平台做的事情都一樣，我們要新增 DNS 並使用 A 紀錄 填上你所想要的子域名，最後指向的 IP 為你雲端伺服器的靜態 IP 位址。
+
+<img src="/images/posts/web/2018/img1070314-3.jpg">
+
 ## 測試
 最後一步我們利用 forever 來啟動 bouncy 這隻檔案吧！
 
