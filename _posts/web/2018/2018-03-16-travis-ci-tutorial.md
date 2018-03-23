@@ -9,6 +9,10 @@ keywords:
 ## 前言
 [Travis CI](https://travis-ci.org/)是提供 GitHub 專案持續整合的服務平台，且支援各種程式語言，間單來說使用 Travis CI 之後只要更新(Push)專案到 GitHub 就會自動進行測試，本篇教學就以 Node.js 下去做示範教學。
 
+想了解更多的可以參考下面這篇我覺得寫的不錯
+
+https://hackernoon.com/continuous-integration-circleci-vs-travis-ci-vs-jenkins-41a1c2bd95f5
+
 ## 教學
 通常 Travis CI 都搭配 mocha 做單元測試，本篇主要是教你如何部署 Travis CI 與 GitHub 連動，還沒寫好單元測試的朋友請先來看這篇教學哦！
 

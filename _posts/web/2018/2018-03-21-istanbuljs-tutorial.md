@@ -93,3 +93,6 @@ Function Coverage 就是以函式為單位，架設我有 10 個 function，只�
 
 ## 結論
 一般做完單元測試後會在計算程式覆蓋率，此用意是為了讓使用這專案的人了解此專案是正常可運作的，並把結果上傳至 GitHub 中讓大家知道，下一篇就教各位如何使用 `coveralls` 搭配 Travis-CI 自動化的呈現程式覆蓋率。
+
+
+範例程式碼：https://github.com/andy6804tw/Mocha-Chai-tutorial
