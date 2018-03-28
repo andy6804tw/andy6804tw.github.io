@@ -43,7 +43,7 @@ npm init -y
 
 <img src="/images/posts/it2018/img1061214-2.png">
 
-初始完成後你會發現資料夾多了一個叫 package.json 的檔案，它是一種 CommonJS 規定用來描述包的文件，是一個包含 json 格式的說明文件，裡面可以定義相依的相關套件以及應用程式的資訊，簡單來說這隻檔案裡面會存你安裝什麼套件以及一些相關程式設定，你把這檔案分享給別人他再 `npm install` 就會把你原本所安裝的套件安裝回來了。
+初始完成後你會發現資料夾多了一個叫 [package.json](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc4) 的檔案，它是一種 CommonJS 規定用來描述包的文件，是一個包含 json 格式的說明文件，裡面可以定義相依的相關套件以及應用程式的資訊，簡單來說這隻檔案裡面會存你安裝什麼套件以及一些相關程式設定，你把這檔案分享給別人他再 `npm install` 就會把你原本所安裝的套件安裝回來了。
 
 
 
