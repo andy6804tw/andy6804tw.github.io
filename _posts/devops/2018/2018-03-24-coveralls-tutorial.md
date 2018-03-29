@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Node.js] 計算程式覆蓋率並整合到 coveralls'
-categories: 'Web'
+categories: 'DevOps'
 description: 
 keywords:
 ---

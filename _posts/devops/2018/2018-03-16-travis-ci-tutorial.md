@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Node.js] mocha 單元測試並整合 Travis-CI'
-categories: 'Web'
+categories: 'DevOps'
 description: 
 keywords:
 ---

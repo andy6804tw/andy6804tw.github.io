@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Node.js] 使用 istanbuljs/nyc 計算程式覆蓋率'
-categories: 'Web'
+categories: 'DevOps'
 description: 
 keywords:
 ---
