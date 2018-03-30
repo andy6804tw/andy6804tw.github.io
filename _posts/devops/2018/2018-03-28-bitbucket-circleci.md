@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js] 使用Bitbucket與CircleCI做多版本單元測試'
+title: '[Node.js] 使用 Bitbucket 與 CircleCI 做多版本單元測試'
 categories: 'DevOps'
 description: 'npm管理工具介紹'
 keywords: Node.js, npm
@@ -19,8 +19,8 @@ keywords: Node.js, npm
 ### 與 Bitbucket 專案連動
 首先進入[CircleCI](https://circleci.com/)與你的 Bitbucket 連動，再選擇你要執行自動化測試的專案，選擇後會到另一個初始化的畫面，你必須在裡面設定系統與執行環境，我們今天所測試的專案是 Node.js 所以程式語言請選他。
 
-<img src="/images/posts/devops/2018/img1070329-1.png">
-<img src="/images/posts/devops/2018/img1070329-2.png">
+<img src="/images/posts/devops/2018/img1070328-1.png">
+<img src="/images/posts/devops/2018/img1070328-2.png">
 
 ## 在專案裝加入設定檔
 在專案最外層建立 `.circleci` 資料夾並新增 `config.yml` 檔案(所以檔案路徑為 `.circleci/config.yml`)，之後寫入設定檔這邊是要求執行 Node.js 7、8、9 版本的容器測試，並直行單元測試 `yarn test` (必須先將測試寫好)。
@@ -96,8 +96,8 @@ jobs:
 ## 測試
 完成設定檔後就可以試著把專案 push 到 Bitbucket 囉！上傳至 Bitbucket 後在來到 CircleCI 主控頁面可以發現它會自動地幫你跑測試，測試成功後是綠色的若失敗則為紅色。
 
-<img src="/images/posts/devops/2018/img1070329-4.png">
-<img src="/images/posts/devops/2018/img1070329-3.png">
+<img src="/images/posts/devops/2018/img1070328-4.png">
+<img src="/images/posts/devops/2018/img1070328-3.png">
 
 
 範例程式碼：https://bitbucket.org/ab24627375/circle-ci-demo/src/9eaf15b2f1287957ec67ad88c16b91fe8bdac0e7?at=master
