@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Node.js] mocha 單元測試並整合 Travis-CI'
+title: '[Node.js] GitHub 使用 Travis-CI 自動化單元測試'
 categories: 'DevOps'
 description: 
 keywords:

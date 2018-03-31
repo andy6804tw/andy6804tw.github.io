@@ -14,7 +14,7 @@ keywords:
 在開始時做之前尚未註冊 [Docker Hub](https://hub.docker.com/explore/)  的讀者可以先去註冊，在此平台中免費只提供一個私有專案，若還需要的的就必須付費。
 
 ### 1. Build Image(製作映像檔)
-我們使用 [docker-node-demo](https://github.com/andy6804tw/docker-node-demo) 當作範例來製作 Image，若對 Dockerfile 還很陌生的讀者可以先來參考這篇文章。
+我們使用 [docker-node-demo](https://github.com/andy6804tw/docker-nodejs-tutorial) 當作範例來製作 Image，若對 Dockerfile 還很陌生的讀者可以先來參考這篇文章。
 
 在專案目錄下跑 `docker build -t User_Name/專案名稱 .` (注意後面有`.`)就會根據 Dockerfile build 出你自己的 image，因為要上傳到 Docker Hub，所以在 build 時要加上自己的帳號名稱。
 
@@ -61,7 +61,7 @@ docker push User_Name/專案名稱
 
 
 ### 2. 選擇專案
-連動成功後首先來選擇哪個 repo 建立 Automated Build，我們一樣使用這個範例 [docker-node-demo](https://github.com/andy6804tw/docker-node-demo) 各位可以 Fork 此專案至你們的 GitHub 來跟著此教學示範。 
+連動成功後首先來選擇哪個 repo 建立 Automated Build，我們一樣使用這個範例 [docker-node-demo](https://github.com/andy6804tw/docker-nodejs-tutorial) 各位可以 Fork 此專案至你們的 GitHub 來跟著此教學示範。 
 
 <img src="/images/posts/devops/2018/img1070330-4.png">
 
@@ -75,6 +75,6 @@ docker push User_Name/專案名稱
 
 以下是範例程式碼歡迎各位 Fork
 
-GitHub: https://github.com/andy6804tw/docker-node-demo
+GitHub: https://github.com/andy6804tw/docker-nodejs-tutorial
 
-Docker Hub: https://hub.docker.com/r/andy6804tw/docker-node-demo/
+Docker Hub: https://hub.docker.com/r/andy6804tw/docker-nodejs-tutorial
