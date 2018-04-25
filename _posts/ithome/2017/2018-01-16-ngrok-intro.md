@@ -80,3 +80,7 @@ https://pagekite.net/
   ```
 
 <img src="/images/posts/it2018/img1070116-2.png">
+
+
+還有更多方法可參考：
+https://www.pluralsight.com/guides/exposing-your-local-node-js-app-to-the-world
