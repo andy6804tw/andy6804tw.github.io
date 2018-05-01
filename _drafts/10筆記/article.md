@@ -5,3 +5,5 @@
 - [Making Your Code Beautiful](https://hackernoon.com/presenting-your-code-beautifully-fdbab9e6fb68)
 
 - [The Non-Secret Formula for Writing Better Code](https://hackernoon.com/the-non-secret-formula-for-writing-better-code-e41d1ff38682)
+
+- [Good code Vs Bad code](https://medium.com/@navdeepsingh_2336/good-code-vs-bad-code-35624b4e91bc)
