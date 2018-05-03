@@ -56,7 +56,8 @@ https://www.facebook.com/notes/raven-chen/%E9%9D%A2%E8%A9%A6-interview/777918558
 我們生活在都市中，科技進步也伴隨著我們也必須隨之成長，國中、高中、大學一直讀書，在這種高度緊張步調快速的生活中，身心靈進入到低潮是很常見的，就連我也不例外。
 ### 程序員的鄙視
 https://vinta.ws/blog/695
-### 
+### 放棄這幾件事(雞湯)
+https://medium.com/@zdravko/13-things-you-should-give-up-if-you-want-to-be-successful-1ecb7d62e558
 ### 
 ### 
 ### 
