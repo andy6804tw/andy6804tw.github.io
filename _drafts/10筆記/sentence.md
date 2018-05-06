@@ -46,7 +46,8 @@ https://www.facebook.com/notes/raven-chen/%E9%9D%A2%E8%A9%A6-interview/777918558
 「技術部門都用哪些技術、工具、服務？」
 「你們寫單元測試嗎？」
 「你們有持續整合(CI)嗎？」
-
+# 23 Things That Will Help You Create a Powerful Morning Routine
+https://medium.com/thrive-global/23-things-that-will-help-you-create-a-powerful-morning-routine-c51ddec7a53c
 
 ## 工作 
 ### 主動提出建置時程
