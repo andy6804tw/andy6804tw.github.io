@@ -83,5 +83,3 @@ HashKey=5294y06JbISpM5x9&MerchantID=2000132&MerchantTradeNo=i51j9qojw60k2slt3an0
 - 將手機放置在你不容易拿到的地方
 當你在工作時將你手機放到伸手不易取得的位置並關閉網路和訊息通知。
 
-
-
