@@ -39,6 +39,18 @@ var localTime = moment.utc('2018-03-21 05:44:44').local().format('YYYY-MM-DD HH:
 console.log(localTime)
 ```
 
+## 取得時間戳記
+
+```js
+// 10位準確到秒(2種方法)
+moment().unix()
+moment().format('X')
+
+// 13位準確到毫秒
+moment().format('x')
+```
+
+
 ## 時間格式
 
 | 格式代碼 | 說明 |
