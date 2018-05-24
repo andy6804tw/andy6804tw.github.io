@@ -1,7 +1,13 @@
 
-urban 城市的
-
-
+spice 香料
+span 
+distinguished 卓越的
+delicate 嬌弱的
+dub 把...叫做
+cultivation 種植
+vibrant 活力的
+reproduction 再生
+culinary 烹飪的
 
 
 
