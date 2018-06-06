@@ -9,6 +9,11 @@ vibrant 活力的
 reproduction 再生
 culinary 烹飪的
 
+pagant 選美小姐
+evaluate 為……鑑定
+controversy 爭論
+assess 估定(財產)
+misjudge 對……判斷不公
 
 
 HashKey=5294y06JbISpM5x9&MerchantID=2000132&MerchantTradeNo=i51j9qojw60k2slt3an0&MerchantTradeDate2018/05/04 09:01:01&PaymentType=aio&TotalAmount=123&TradeDesc=non&ItemName=vvv&ReturnURL=https://www.ecpay.com.tw/Content/files/gw_p500.pdf&ChoosePayment=ALL&EncryptType=1&HashIV=v77hoKGq4kWxNNIS
@@ -89,3 +94,6 @@ HashKey=5294y06JbISpM5x9&MerchantID=2000132&MerchantTradeNo=i51j9qojw60k2slt3an0
 - 將手機放置在你不容易拿到的地方
 當你在工作時將你手機放到伸手不易取得的位置並關閉網路和訊息通知。
 
+
+
+F D J A L I ? K D H 
