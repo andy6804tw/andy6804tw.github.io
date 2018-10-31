@@ -10,3 +10,6 @@
 
 ## React
 - [React 電子書](https://github.com/anniesnoopymd/reactjs101)
+
+## Git
+- [Git電子書](https://xinhe.gitbooks.io/nutc-jack-lab-frontend-tutorial/content/)
