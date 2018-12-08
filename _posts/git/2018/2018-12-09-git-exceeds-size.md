@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[Git筆記] exceeds GitHub's file size 解決'
+title: '[Git筆記] exceeds GitHub file size 解決'
 categories: Git
-description: exceeds GitHub's file size solution
-keywords: exceeds GitHub's file size
+description: 
+keywords: 
 ---
 
 ## 前言
