@@ -13,3 +13,8 @@
 
 ## Git
 - [Git電子書](https://xinhe.gitbooks.io/nutc-jack-lab-frontend-tutorial/content/)
+
+
+## Deep learnig
+
+- [JS CNN](https://buzzorange.com/techorange/2018/12/25/neural-networks-in-javascript/?fbclid=IwAR3RHVHKKk5igbzuqmRy_b74BvZc-7AbdnRGUQNJvbXKBo5S_kBpole7-nI)
