@@ -11,15 +11,17 @@ keywords: git,remote,origin
 
 ## 解決方法
 
-1. Change the URI (URL) for a remote Git repository
+1 . Change the URI (URL) for a remote Git repository
+
 第一個方法直接用指令修改 remote 遠端數據庫的位置(URL)
 
 ```bash
 git remote set-url origin git://new.url.here
 ```
 
-2. Delete remove origin
-使用指令刪除舊有的 remote
+2 . Delete remove origin
+
+第二個方法是使用指令刪除舊有的 remote
 
 To remove a remote:
 ```bash
