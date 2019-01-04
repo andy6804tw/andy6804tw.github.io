@@ -1,9 +1,9 @@
 ---
 layout: post
-title: '[Git筆記] exceeds GitHub file size 解決'
+title: '[Git筆記] 如何移除 remote origin'
 categories: Git
 description: 
-keywords: 
+keywords: git,remote,origin
 ---
 
 ## 前言
