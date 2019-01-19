@@ -10,6 +10,7 @@
 
 ## React
 - [React 電子書](https://github.com/anniesnoopymd/reactjs101)
+- [React JS Crash Course - 2019](https://www.youtube.com/watch?v=sBws8MSXN7A)
 
 ## Git
 - [Git電子書](https://xinhe.gitbooks.io/nutc-jack-lab-frontend-tutorial/content/)
