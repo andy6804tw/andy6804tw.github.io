@@ -7,7 +7,7 @@ keywords:
 ---
 
 ## 前言
-之前有一篇[[Linux系統] 利用iptable轉發PORT號]('./../2018/2018-03-14-linux-iptable.md)已經說明如何在雲端虛擬機利用 `iptable` 轉監聽的 PORT 號。這一篇是要教你如何在實體機的 Linux 系統上做相同的事情，其實做法一樣也是利用 `iptable` 只是因為實體機可能會自己連到自己所以要做 OUTPUT 的規則，把從本機連到自己。
+之前有一篇[[Linux系統] 利用iptable轉發PORT號]('./../2018/2018-03-14-linux-iptable.md)已經說明如何在雲端虛擬機利用 `iptable` 轉監聽的 PORT 號。這一篇是要教你如何在實體機的 Linux 系統上做相同的事情，其實做法一樣也是利用 `iptable` 只是因為實體機可能會自己連到自己所以要做 OUTPUT 的規則，把從本機連到自己。
 
 
 ## 將 80 PROT 轉向 8000 PORT
