@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Linux系統] 實體機利用iptable轉發PORT號'
-categories: 'Web'
+categories: 'Other'
 description: 
 keywords:
 ---
