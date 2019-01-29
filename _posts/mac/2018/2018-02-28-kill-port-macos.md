@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[mac系統] 清除系統上被佔用的Port'
-categories: 'Linux'
+categories: 'Mac'
 description:
 keywords: 
 ---
