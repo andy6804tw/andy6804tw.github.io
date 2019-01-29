@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '使用 SSH 金鑰與 GitHub 連線'
-categories: 'Other'
+categories: 'Git'
 description:
 keywords: 
 ---
