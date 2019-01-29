@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[mac系統] 清除系統上被佔用的Port'
+title: '[Mac系統] 清除系統上被佔用的Port'
 categories: 'Mac'
 description:
 keywords: 
