@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Linux系統] 利用iptable轉發PORT號'
-categories: 'Other'
+categories: 'Linux'
 description: 
 keywords:
 ---

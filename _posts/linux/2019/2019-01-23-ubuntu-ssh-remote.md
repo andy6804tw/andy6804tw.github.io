@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Linux系統] ubuntu利用SSH安全加密連線遠程登錄'
-categories: 'Other'
+categories: 'Linux'
 description: 
 keywords:
 ---
@@ -18,7 +18,7 @@ ssh–secure shell(SSH)，提供安全的遠程登錄。缺點只在於他是個
 dpkg -l | grep ssh
 ```
 
-![](/images/posts/other/2019/img1080123-01.png)
+![](/images/posts/linux/2019/img1080123-01.png)
 
 ubuntu 通常會默認安裝 `openssh-client`，若無則使用以下指令安裝:
 
@@ -39,7 +39,7 @@ dpkg -l | grep ssh
 ```
 安裝好後你會發現多了 `openssh-server`
 
-![](/images/posts/other/2019/img1080123-02.png)
+![](/images/posts/linux/2019/img1080123-02.png)
 
 最後確認ssh-server是否啟動了：
 
@@ -47,7 +47,7 @@ dpkg -l | grep ssh
 ps -e | grep ssh
 ```
 
-![](/images/posts/other/2019/img1080123-03.png)
+![](/images/posts/linux/2019/img1080123-03.png)
 
 如果看到sshd那說明ssh-server已經啟動了。
 如果沒有則可以輸入以下指令啟動：
@@ -65,4 +65,4 @@ sudo service ssh start
 ssh username@192.168.1.2 
 ```
 
-![](/images/posts/other/2019/img1080123-04.png)
+![](/images/posts/linux/2019/img1080123-04.png)
