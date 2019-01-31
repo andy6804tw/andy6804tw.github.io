@@ -48,7 +48,7 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 
 
 #### 2. 進入 MySQL 服務
-透過以下指令進入 `MySQL` 服務，中間的 root 即是你的資料庫的 `user` 名稱，輸入資後會要求你輸入密碼。若你當初安裝資料庫時系統沒提示你建立資料庫密碼的話別擔心，請參考這篇，那篇會教你如何查詢你的資料庫的 `user` 和 `password`。
+透過以下指令進入 `MySQL` 服務，中間的 root 即是你的資料庫的 `user` 名稱，輸入資後會要求你輸入密碼。若你當初安裝資料庫時系統沒提示你建立資料庫密碼的話別擔心，請參考[這篇](https://andy6804tw.github.io/2019/01/31/ubuntu-mysql-password/)，那篇會教你如何查詢你的資料庫的 `user` 和 `password`。
 
 ```bash
 mysql -u root -p
@@ -57,6 +57,8 @@ mysql -u root -p
 輸入完成後看到 `mysql>` 就表示你成功進入`MySQL` 服務。
 
 ![](/images/posts/linux/2019/img1080129-02.png)
+
+忘記密碼傳送門：https://andy6804tw.github.io/2019/01/31/ubuntu-mysql-password/
 
 #### 3. 執行授權命令
 在 `MySQL` 環境下執行授權命令(授權給遠程任何電腦登錄資料庫)，輸入以下指令：
