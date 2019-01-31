@@ -104,7 +104,7 @@ export default {
 
 #### article.route.js
 
-route 是設定每條 api request 的地方，由於是要新增資料所以這邊使用 post 請求方式將資料上傳到資料庫，後面的參數就是指定執行 articleCtrl 中的 articlePost 函式。
+route 是設定每條 api request 的地方，由於是要新增資料所以這邊使用 post 請求方式將資料上傳到資料庫，後面的參數就是指定執行 userCtrl 中的 userPost 函式。
 
 ```js
 // article.route.js
@@ -113,7 +113,7 @@ import articleCtrl from '../controllers/article.controller';
 
 const router = express.Router();
 
-router.route('/').post(articleCtrl.articlePost); /** 新增 Article 值組 */
+router.route('/').post(userCtrl.userPost); /** 新增 User 值組 */
 
 export default router;
 ```
@@ -193,7 +193,7 @@ const articleGet = (req, res) => {
 
 #### article.route.js
 
-在 route 新增今日第二個實作的 request 為 get ，後面放上 `article.controller` 中的 articlePost 函式。
+在 route 新增今日第二個實作的 request 為 get ，後面放上 `article.controller` 中的 articleGet 函式。
 
 ```js
 // article.route.js
