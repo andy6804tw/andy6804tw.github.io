@@ -12,7 +12,7 @@ keywords:
 ```
 ERROR 1010 (HY000): Error dropping 2019@002dfml@002dcompetition@002dtw (can't rmdir './2019@002dfml@002dcompetition@002dtw', errno: 17)
 ``` 
-可能的原因有很多，像我的電腦在建立資料庫時名稱為 `2019-fml-competition-tw`，錯誤訊息顯示 `2019@002dfml@002dcompetition@002dtw` ，顯然是 `-` 字串在 mac系統上出現字元符號的問題(建議改用底線)。
+可能的原因有很多，像我的電腦在建立資料庫時名稱為 `2019-fml-competition-tw`，錯誤訊息顯示 `2019@002dfml@002dcompetition@002dtw` ，顯然是 `-` 字串在 mac系統上出現字元符號的問題(建議改用底線)。
 
 ## 解決方法
 進入 MySql 的目錄資料夾當中，直接把資料庫對應的文件目錄刪除掉。
