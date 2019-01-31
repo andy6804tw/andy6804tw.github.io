@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Mac系統] 啟動mysql 失敗 “Warning:The /usr/local/mysql/data directory is not owned by the 'mysql' or '_mysql' ”'
+title: '[Mac系統] 啟動MySQL失敗解決'
 categories: 'Mac'
 description:
 keywords: 
