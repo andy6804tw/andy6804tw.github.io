@@ -3,6 +3,8 @@
 
 - [ES6 tips and tricks ](https://medium.freecodecamp.org/make-your-code-cleaner-shorter-and-easier-to-read-es6-tips-and-tricks-afd4ce25977c)
 
+- [網站如何開始使用 ES6 / ES2015 模組化技術進行前端開發](https://blog.miniasp.com/post/2019/01/29/How-to-get-start-with-ES6-ES2015-Modules-with-Parcel.aspx)
+
 ## Node.js
 - [What exactly is Node.js?](https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5)
 
