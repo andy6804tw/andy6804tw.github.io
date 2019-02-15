@@ -76,3 +76,16 @@ forever stop dist/index.bundle.js
 ```bash
 forever stopall
 ```
+
+##### 7. 使用 uid 設定服務名稱
+由於使用 forever 執行當有很多個程序執行時若用 `forever list` 會很難看出哪一條是執行哪個程式，所以可以使用 `--uid` 來設定服務名稱類是一個 tag 標籤。
+
+```bash
+forever --uid "app1" start app.js
+```
+
+若要結束
+
+```bash
+forever stop app1
+```
