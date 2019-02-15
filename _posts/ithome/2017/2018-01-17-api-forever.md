@@ -68,6 +68,12 @@ forever restart dist/index.bundle.js
 forever stop dist/index.bundle.js
 ```
 
+也可以使用 id 來刪除終止服務
+
+```bash
+forever stop 38282
+```
+
 <img src="/images/posts/it2018/img1070117-5.png">
 
 ##### 6. 關閉所有已啓動的程式
