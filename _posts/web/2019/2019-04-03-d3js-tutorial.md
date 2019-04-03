@@ -42,7 +42,7 @@ keywords:
 </body>
 </html>
 ```
-![](../../../images/posts/web/2019/img20190403-1.png)
+![](/images/posts/web/2019/img20190403-1.png)
 
 ## Data Binding
 這邊我們使用一個方法將陣列中的資料全部渲染出來，一樣我們建立 `ul` 列表的標籤，接著使用剛所學到的`select()` 來設定 `ul` 內容 。 `data()` 可以放入陣列型態的資料接著就很像 ES6 的 map 可以將所有的內容走訪一遍並印出來。這邊使用 `append()` 來新增標籤內容。
@@ -74,4 +74,4 @@ keywords:
 </html>
 ```
 
-![](../../../images/posts/web/2019/img20190403-2.png)
+![](/images/posts/web/2019/img20190403-2.png)
