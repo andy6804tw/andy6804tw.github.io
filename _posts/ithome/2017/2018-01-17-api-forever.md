@@ -15,10 +15,14 @@ keywords: api
 
 ## 安裝forever
 
-將 forever 安裝在全域環境下方便每次呼叫執行
+將 forever 安裝在全域環境下方便每次呼叫執行，可以選擇 npm 或 yarn 來安裝。
 
 ```bash
 yarn add global forever
+```
+
+```bash
+sudo npm install forever -g
 ```
 
 ## 基本指令
