@@ -41,7 +41,7 @@ brew cask instal iterm2
 我們要來安裝包含 icon 的字體之後安裝 zsh 才能正常顯示不會破圖，所以現在就下載 nerd font 吧！首先下第一行指令建立字型的資料夾，才能用 homebrew 安裝字型，brew 上面也有很多字型可以挑，其中我是使用 `hack-nerd-font`。
 
 ```bash
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts  
 brew cask install font-hack-nerd-font
 ```
 
@@ -136,3 +136,4 @@ exec $SHELL
 ```
 
 <img src="/images/posts/tool/2018/img1070101-10.png" width="600">
+
