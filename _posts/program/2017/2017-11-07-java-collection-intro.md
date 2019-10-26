@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Java筆記] Collection 介紹'
-categories: Java
+categories: Program
 description: java 容器介紹
 keywords: java, collection, list, set, map
 ---
@@ -10,7 +10,7 @@ keywords: java, collection, list, set, map
 在Java中可以幫我們處理一筆資料的除了陣列外，就非Collection API中的元件莫屬了。集合(Collection)就是設計來群組多個資料物件使用，存放在集合中的物件則可以稱為這個集合的元素(Elements)。
 在程式運作中，有時候會需要有地方可以暫時儲存產生出來的物件，我們稱之為 Container(容器)。然而在java.util.Collection介面中定義了所有集合最基本的存取方式如下圖:
 
-<img src="https://4.bp.blogspot.com/-_KrKx7Va-aE/WETl0TU49iI/AAAAAAAAApA/zCTijC7nZUIhP1YbS_BKoUn-IN7oYQGeACLcB/s1600/java-collection.jpg" width="620">
+<img src="https://4.bp.blogspot.com/-_KrKx7Va-aE/WETl0TU49iI/AAAAAAAAApA/zCTijC7nZUIhP1YbS_BKoUn-IN7oYQGeACLcB/s1600/program-collection.jpg" width="620">
 
 ## 解析 Collection 介面
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[Java筆記] 詳解 Collection-List'
-categories: Java
+categories: Program
 description: java 容器list介紹
 keywords: java, collection, list
 ---
