@@ -30,3 +30,40 @@ export PATH="/anaconda3/bin":$PATH
 ![](/images/posts/mac/2019/img1080925-3.png)
 
 
+## 後記
+因為安裝 Anaconda 時會自動幫你在預設內建的終端機安裝環境路變數，因此你也可以進入 `.bash_profile` 來複製環境變數的設定內容。並貼到 `.zshrc` 中。
+
+```bash
+open ~/.bash_profile
+```
+
+
+```
+# added by Anaconda3 2019.10 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/yilin/opt/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/Users/yilin/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/yilin/opt/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/Users/yilin/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
+```
+
+接著打開 `.zshrc` 並貼上
+
+```bash
+open ~/.zshrc
+```
+
+最後要重新啟動 `iTerm`
+```bash
+source ~/.zshrc
+```
