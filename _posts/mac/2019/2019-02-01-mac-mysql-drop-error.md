@@ -24,7 +24,7 @@ sudo rm -rf /usr/local/mysql/data/資料庫名稱
 因此我的電腦要刪除的話後面加上我要刪除的資料庫名稱
 
 ```bash
-sudo rm -rf /usr/local/mysql/data/2019@002dfml@002dcompetition@002dtw
+sudo rm -rf /usr/local/mysql/data/xxx@002dxxx@002dcxxx@002dxxx
 ```
 
 移除後再刷新查看資料庫，你就會發現該資料庫已經不見了。
