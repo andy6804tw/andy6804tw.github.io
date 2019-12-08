@@ -92,3 +92,5 @@ MVC 一種軟體架構模式，把系統分成三個種核心，分別為:Model,
 
 ## 結論
 本篇文章解釋了 RESTful API 定義與規範，可以讓開發者了解其功能性，此外建立良好的 MVC 架構有助於日後程式開發的茁壯，直覺、簡單、快速才是一個良好的 API 設計。
+
+後記: 可以參考[restful-webapi-design-guide](https://www.footmark.info/programming-language/design/restful-webapi-design-guide/)
