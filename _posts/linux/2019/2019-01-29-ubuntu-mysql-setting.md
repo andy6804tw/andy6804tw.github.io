@@ -76,7 +76,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '你的密碼' WITH GRAN
 flush privileges;  
 ```
 
-> 注意在 `MySQL` 服務中美個指令結尾要有分號！
+> 注意在 `MySQL` 服務中每個指令結尾要有分號！
 
 #### 5. 退出 MySQL 服務
 退出下 `exit` 關鍵字即可結束 `MySQL` 服務。
