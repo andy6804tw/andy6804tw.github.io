@@ -22,6 +22,7 @@
 ## Deep learnig
 
 - [JS CNN](https://buzzorange.com/techorange/2018/12/25/neural-networks-in-javascript/?fbclid=IwAR3RHVHKKk5igbzuqmRy_b74BvZc-7AbdnRGUQNJvbXKBo5S_kBpole7-nI)
+- [深度學習課程](https://github.com/AllanYiin/DeepBelief_Course4_Examples)
 
 
 ## coursera
