@@ -153,7 +153,7 @@ yarn start
 <img src="/images/posts/it2018/img1061226-3.png">
 
 如果都正常執行沒跑出紅色一長串錯誤訊息代表恭喜你成功拉！之後可以立馬到瀏覽器上測試成果囉～
-
+ 
 ```
 localhost:3000
 ```
