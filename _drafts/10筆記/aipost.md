@@ -13,3 +13,9 @@
 來聽一下 udemy 熱門課程講師 Kirill Eremenko 在 5 分鐘內告訴你為何現在是開始學習人工智慧的最好時機
 
 ### 2020/03/14 [日本YouTuber開發「CPU料理」，烤肉、煮咖哩大成功😂](https://www.4gamers.com.tw/news/detail/42339/japan-youtuber-cooked-curry-and-bbq-on-amd-cpu)
+
+Python機器學習電子書下載
+https://www.justinwu.com.tw/電子書下載/python-機器學習/
+Python深度學習電子書下載
+https://www.justinwu.com.tw/…/python-程式語言tensorflow程式設計教學徹…/
+
