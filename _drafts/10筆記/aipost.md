@@ -18,4 +18,3 @@ Python機器學習電子書下載
 https://www.justinwu.com.tw/電子書下載/python-機器學習/
 Python深度學習電子書下載
 https://www.justinwu.com.tw/…/python-程式語言tensorflow程式設計教學徹…/
-
