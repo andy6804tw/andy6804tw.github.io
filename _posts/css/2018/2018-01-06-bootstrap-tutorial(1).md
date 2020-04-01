@@ -214,9 +214,3 @@ Bootstrap 規定了幾種不同的尺寸，小於 576px 稱為 Extra small devic
 ```
 
 <img src="/images/posts/css/2018/img1070106-14.gif">
-
-
-> 版主10在2020年首次開設YouTube頻道，嘗試拍攝教學。喜歡的歡懇請訂閱就是最大的支持～如果想學其他什麼內容也歡迎許願XD
-
-<a href="https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A">
-    <img src="https://media0.giphy.com/media/KFnSuizdGVCtkVFOXM/source.gif" width="15%"></a>

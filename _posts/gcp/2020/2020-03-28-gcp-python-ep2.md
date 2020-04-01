@@ -25,8 +25,3 @@ keywords:
 
 在類型欄位將臨時更改為靜態就行囉！補充一下，把臨時IP開啟成靜態IP會額外收取一些費用哦！不過這樣做也帶給你方便，不用每次重開起VM時都重新設定新的外部IP。
 ![](/images/posts/gcp/2020/img1090328-5.png)
-
-> 版主10在2020年首次開設YouTube頻道，嘗試拍攝教學。喜歡的歡懇請訂閱就是最大的支持～如果想學其他什麼內容也歡迎許願XD
-
-<a href="https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A">
-    <img src="https://media0.giphy.com/media/KFnSuizdGVCtkVFOXM/source.gif" width="15%"></a>
