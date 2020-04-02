@@ -7,6 +7,9 @@ keywords:
 ---
 
 ## 本文擬將會學到
+- 在 GCP 中將臨時外部IP改為靜態IP位置
+
+## 前言
 使用GCP服務每一個虛擬主機都會配置一個臨時的外部IP，為什麼是臨時呢？臨時有什麼壞處？簡單來說臨時的IP在的主機被關閉後再重啟時，GCP會釋放掉原本的IP位置並另外配置一個新的臨時IP給你。如果你的服務是在監聽原本部署好的IP位置，卻因為重啟必須要在改一次IP豈不是麻煩。因此這篇文章教你如何將臨時外部IP改為靜態IP位置。
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nWDTNKKVTSQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
