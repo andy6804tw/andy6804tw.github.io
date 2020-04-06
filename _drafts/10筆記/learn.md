@@ -35,3 +35,11 @@
 
 
 [AirTable線上API](https://airtable.com/)
+
+
+## Free Hosting
+[roast.io、Neocities、GitHub Pages、GCS](https://www.minwt.com/website/server/21596.html)
+
+[netlify](https://blog.alantsai.net/posts/2018/07/migrate-blog-to-ssg-demo-devops-8-netlify-free-static-site-hosting-service)
+
+[Surge](https://www.minwt.com/website/server/17359.html)

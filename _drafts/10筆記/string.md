@@ -96,9 +96,5 @@ http://sigmundtzeng.blogspot.tw/2016/02/github-javascript-nodejs-console-ci.html
 http://blog.amowu.com/2015/04/devops-continuous-integration-delivery-docker-circleci-aws-beanstalk.html#code-review-with-github-flow
 
 
-## surge 靜態部署
-https://www.minwt.com/website/server/17359.html
-
-
 ## codepen 作者
 https://codepen.io/u-ways/
