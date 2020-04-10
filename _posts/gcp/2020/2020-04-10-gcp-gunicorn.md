@@ -55,3 +55,25 @@ sudo gunicorn -w 1 -b 0.0.0.0:80 run:app
 ```
 sudo gunicorn -w 1 -b 0.0.0.0:80 run:app --daemon
 ```
+
+## 結束背景執行
+這裡提供兩種停止背景執行服務的方法：
+
+### 1. 查詢 Pid 並移除
+首先輸入以下指令查詢 Gunicorn 背景有哪些服務正在運行中。  
+
+```
+ps -ef | grep gunicorn
+```
+
+由下圖可以看到剛剛執行的 `run.py` 有一個主程序和一個子程序， 主程序的 Pid 為 12705。
+![](/images/posts/gcp/2020/img1090410-2.png)
+
+使用 `kill` 指令刪除指定 Pid 隨之子程序也會跟著移除。
+
+```
+sudo kill -9 12705
+```
+
+### 2. 重新啟動VM
+這種方法最簡單直接重新開機即可。
