@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[GCP教學-Python] #5 將API背景執行'
+title: '[GCP教學-Python] #5 使用Gunicorn將API背景執行'
 categories: 'GCP'
 description:
 keywords: 
