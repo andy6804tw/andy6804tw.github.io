@@ -14,6 +14,8 @@
 
 ### 2020/03/14 [日本YouTuber開發「CPU料理」，烤肉、煮咖哩大成功😂](https://www.4gamers.com.tw/news/detail/42339/japan-youtuber-cooked-curry-and-bbq-on-amd-cpu)
 
+### 2020/04/5 https://www.ithome.com.tw/news/137004
+
 Python機器學習電子書下載
 https://www.justinwu.com.tw/電子書下載/python-機器學習/
 Python深度學習電子書下載
