@@ -38,3 +38,6 @@ https://www.youtube.com/watch?v=sk5jk6_LrPM
 3. 0.05 0.13
 4. 0.5 0.3 90%
 ```
+
+# Text and Image animations effect | preset pack 2 for Premiere Pro
+https://www.youtube.com/watch?v=QLq1cpyvgG4
