@@ -17,6 +17,13 @@
 ### 2020/04/5 https://www.ithome.com.tw/news/137004
 ### 2020/04/6 https://mp.weixin.qq.com/s/_GJE0ZqykUGeT7GzIij7SQ
 ### 2020/04/20 https://www.techbang.com/posts/77775-turn-the-coronavirus-structure-into-music-with-ai-helping-scientists-discover-details-missing-from-the-microscope   
+### 2020/05/01
+因應COVID-19 疫情，Springer 開放近400本電子書提供免費下載~
+傳送門👉 https://bit.ly/3cWSW1a
+📄 Python打包下載👉 https://bit.ly/2KDno46
+📄 書單一覽👉 https://hackmd.io/@schau/H13rjd8FI
+
+
 
 Python機器學習電子書下載
 https://www.justinwu.com.tw/電子書下載/python-機器學習/
