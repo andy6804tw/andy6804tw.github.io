@@ -23,6 +23,10 @@
 📄 Python打包下載👉 https://bit.ly/2KDno46
 📄 書單一覽👉 https://hackmd.io/@schau/H13rjd8FI
 
+### 2020/05/05
+一位中國博士把整個CNN都給可視化了，可交互有細節，每次卷積ReLU池化都清清楚楚
+https://mp.weixin.qq.com/s/aSWT4ClkY0exaB59InaThQ
+
 
 
 Python機器學習電子書下載
