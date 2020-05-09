@@ -27,6 +27,10 @@
 一位中國博士把整個CNN都給可視化了，可交互有細節，每次卷積ReLU池化都清清楚楚
 https://mp.weixin.qq.com/s/aSWT4ClkY0exaB59InaThQ
 
+### 2020/05/09
+這篇論文搜集了一萬一千篇與 COVID-19 相關的論文摘要上「逐句」標註了Background、Purpose、Method、Contribution、Other，共計近十七萬個 label 與斷了句的摘要最後整合為「CODA-19」dataset 釋出。
+Paper: https://arxiv.org/abs/2005.02367
+Dataset: https://github.com/windx0303/CODA-19
 
 
 Python機器學習電子書下載
