@@ -32,6 +32,9 @@ https://mp.weixin.qq.com/s/aSWT4ClkY0exaB59InaThQ
 Paper: https://arxiv.org/abs/2005.02367
 Dataset: https://github.com/windx0303/CODA-19
 
+### 2020/05/11
+[跟 Google 學如何 Code Review - 精華摘要與團隊反思](https://www.notion.so/Google-Code-Review-a275c5f3e017467a9b667e21c9521e39)
+
 
 Python機器學習電子書下載
 https://www.justinwu.com.tw/電子書下載/python-機器學習/
