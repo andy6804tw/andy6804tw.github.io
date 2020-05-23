@@ -36,8 +36,3 @@ Dataset: https://github.com/windx0303/CODA-19
 [跟 Google 學如何 Code Review - 精華摘要與團隊反思](https://www.notion.so/Google-Code-Review-a275c5f3e017467a9b667e21c9521e39)
 
 
-Python機器學習電子書下載
-https://www.justinwu.com.tw/電子書下載/python-機器學習/
-Python深度學習電子書下載
-https://www.justinwu.com.tw/…/python-程式語言tensorflow程式設計教學徹…/
- 
