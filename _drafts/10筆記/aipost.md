@@ -35,4 +35,7 @@ Dataset: https://github.com/windx0303/CODA-19
 ### 2020/05/11
 [跟 Google 學如何 Code Review - 精華摘要與團隊反思](https://www.notion.so/Google-Code-Review-a275c5f3e017467a9b667e21c9521e39)
 
-
+### 2020/05/30
+這兩個網站都有提供AI入門教學，適合對於想踏入AI的人觀看哦。雖然都是英文但有蠻多寶可以挖的！內容以深度學習部分居多。
+https://www.deeplearning.ai/ai-for-everyone/
+https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
