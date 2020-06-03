@@ -39,3 +39,6 @@ Dataset: https://github.com/windx0303/CODA-19
 這兩個網站都有提供AI入門教學，適合對於想踏入AI的人觀看哦。雖然都是英文但有蠻多寶可以挖的！內容以深度學習部分居多。
 https://www.deeplearning.ai/ai-for-everyone/
 https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
+
+## 2020/06/03
+https://www.facebook.com/nckutsoc.tw/
