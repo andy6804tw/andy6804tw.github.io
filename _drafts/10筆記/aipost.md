@@ -40,5 +40,5 @@ Dataset: https://github.com/windx0303/CODA-19
 https://www.deeplearning.ai/ai-for-everyone/
 https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
 
-## 2020/06/03
+## 2020/06/06
 https://www.facebook.com/nckutsoc.tw/
