@@ -44,4 +44,4 @@ https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
 https://www.facebook.com/nckutsoc.tw/
 
 ## 2020/06/10
-[Facebook 發佈了 TransCoder AI 可以將一種程式語言轉換到另一種程式語言](https://venturebeat.com/2020/06/08/facebooks-transcoder-ai-converts-code-from-one-programming-language-into-another/)
+[Facebook 發佈了 TransCoder AI 可以將一種程式語言轉換到另一種程式語言](https://venturebeat.com/2020/06/08/facebooks-transcoder-ai-converts-code-from-one-programming-language-into-another/) 
