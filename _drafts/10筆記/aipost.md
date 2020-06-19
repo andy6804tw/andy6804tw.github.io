@@ -45,3 +45,16 @@ https://www.facebook.com/nckutsoc.tw/
 
 ## 2020/06/10
 [Facebook 發佈了 TransCoder AI 可以將一種程式語言轉換到另一種程式語言](https://venturebeat.com/2020/06/08/facebooks-transcoder-ai-converts-code-from-one-programming-language-into-another/) 
+
+## 2020/06/19
+[【人工智慧學校】不怕被取代！藝術家正在培養與 AI 協作的能力](https://www.inside.com.tw/article/20118-AI-can-help)
+[深度學習於自然語言生成之應用—以法律文件分析為例]()
+課程主題：深度學習於自然語言生成之應用—以法律文件分析為例
+講師：國立中興大學 范耀中老師
+時間：6月22號 (星期一) 下午三點
+轉播網址：https://www.youtube.com/watch?v=tylsuYQPDyA&feature=youtu.be
+
+## 2020/06/27
+[修圖檢測](https://buzzorange.com/techorange/2019/06/20/ai-reverse-photoshop/)
+https://arxiv.org/abs/1906.05856
+https://github.com/peterwang512/FALdetector
