@@ -58,3 +58,6 @@ https://www.facebook.com/nckutsoc.tw/
 [修圖檢測](https://buzzorange.com/techorange/2019/06/20/ai-reverse-photoshop/)
 https://arxiv.org/abs/1906.05856
 https://github.com/peterwang512/FALdetector
+
+## 2020/07/07
+[PyTorch E-book](https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf)
