@@ -61,3 +61,6 @@ https://github.com/peterwang512/FALdetector
 
 ## 2020/07/07
 [PyTorch E-book](https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf)
+
+## 2020/07/08
+[Paper資源整理](https://www.ycc.idv.tw/latest_ai_info.html)
