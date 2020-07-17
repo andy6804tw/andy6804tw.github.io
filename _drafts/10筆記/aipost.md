@@ -66,3 +66,6 @@ https://github.com/peterwang512/FALdetector
 
 ## 2020/07/08
 [Paper資源整理](https://www.ycc.idv.tw/latest_ai_info.html)
+
+## 2020/07/17
+[AI影像辨識應用多，動植物也能做辨識！](https://makerpro.cc/2020/07/use-ai-for-animals-and-plants-identification/)
