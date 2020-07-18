@@ -20,3 +20,5 @@
 [le-mugs](http://le-mugs.com/) lukesnowden/FSVS
 
 [Python Academy](https://edu.csdn.net/topic/python115?utm_source=eduxy_blogfeed_xtk)
+
+[天堂遊戲](http://www.paradise-soft.com/index.html)
