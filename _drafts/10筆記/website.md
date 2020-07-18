@@ -18,3 +18,5 @@
 [Top 10 Creative Templates in html and css](https://www.youtube.com/watch?v=mgGNTDT-i68)
 
 [le-mugs](http://le-mugs.com/) lukesnowden/FSVS
+
+[Python Academy](https://edu.csdn.net/topic/python115?utm_source=eduxy_blogfeed_xtk)
