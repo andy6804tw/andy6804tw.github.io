@@ -1,10 +1,10 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: Coding is My Life
+keywords: andy6804tw
 comments: true
-menu: 关于
+menu: 關於
 permalink: /about/
 ---
 
