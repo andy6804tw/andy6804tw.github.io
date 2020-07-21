@@ -48,3 +48,5 @@ chmod u+x *.sh
 ```
 
 ![](/images/posts/linux/2020/img1090721-02.png)
+
+GitHub: [Source Code](https://github.com/1010code/remove-shell)
