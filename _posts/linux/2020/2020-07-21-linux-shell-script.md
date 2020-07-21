@@ -26,6 +26,8 @@ chmod是權限管理命令change the permissions mode of a file的縮寫。 `chm
 ## 簡單範例
 因為寫程式每次編譯新專案時要把舊的檔案刪除，手動去刪又很麻煩。因此可以寫一個腳本來專門刪除指定資料夾。建立一個 `run_remove.sh` 來執行 `rm` 指令。
 
+![](/images/posts/linux/2020/img1090721-01.png)
+
 ```
 #!/bin/bash
 
@@ -44,3 +46,4 @@ chmod u+x *.sh
 ./run_remove.sh      
 ```
 
+![](/images/posts/linux/2020/img1090721-02.png)
