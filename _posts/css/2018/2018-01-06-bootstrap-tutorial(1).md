@@ -153,10 +153,9 @@ keywords: CSS
 #### 水平垂直置中
 
 ```html
-  <div class="row justify-content-center align-items-center">
-    <div class="col-4"><span>1</span></div>
-    <div class="col-4"><span>2</span></div>
-  </div>
+<div class="row justify-content-center align-items-center">
+  <div class="col-4"><span>1</span></div>
+  <div class="col-4"><span>2</span></div>
 </div>
 ```
 
