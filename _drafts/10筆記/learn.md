@@ -44,3 +44,6 @@
 [netlify](https://blog.alantsai.net/posts/2018/07/migrate-blog-to-ssg-demo-devops-8-netlify-free-static-site-hosting-service)
 
 [Surge](https://www.minwt.com/website/server/17359.html)
+
+## Worepress
+[YouTube教學](https://www.youtube.com/watch?v=KKBCMcTdGT0&list=PLDepuQozr79oviDNKhldRC9ZFSMO9B01y&index=6)
