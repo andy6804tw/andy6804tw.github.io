@@ -69,3 +69,7 @@ https://github.com/peterwang512/FALdetector
 
 ## 2020/07/17
 [AI影像辨識應用多，動植物也能做辨識！](https://makerpro.cc/2020/07/use-ai-for-animals-and-plants-identification/)
+
+## 2020/08/15
+Google 推出了機器學習一系列的課程，總時數約 15 小時，包含 40 個以上的練習作業、25 堂課，重點是全部的上課影片皆有中文哦～
+[Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
