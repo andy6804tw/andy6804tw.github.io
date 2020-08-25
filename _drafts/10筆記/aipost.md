@@ -80,3 +80,4 @@ https://www.facebook.com/datasci.info/
 Stanford的CS231n是現今想要入門Deep Learning跟Computer Vision領域的經典課程，有來自各個Stanford老師群們淺顯易懂的授課，搭配扎實的實做作業。可惜課程的內容只有cover到兩三年前以前的techniques，最近到University of Michigan的Justin Johnson教授，也是CS231n的前任老師，在2019的秋季開設了一門Deep Learning for Computer Vision，號稱是CS231n的進化版，除了在基礎內容全部refresh外，也加入了許多最近DL的新進展，例如Transformers、Video、以及3D Computer Vision，作業也全部搭配有Pytorch + Google Colab的實作，現在已經全部上線可以免費學習了，有興趣的讀者可以參考：
 Website: https://web.eecs.umich.edu/~justincj/teaching/eecs498/
 Video: https://www.youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r
+ 
