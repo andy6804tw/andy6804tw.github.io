@@ -61,3 +61,5 @@ function doPost(e) {
 Postman 是一個能夠模擬 HTTP Request 的工具能夠讓你簡單快速的測試你的 API。此工具內建包含很多 HTTP 的請求方式，例如常見的的 GET(取得)、POST(新增)、PUT(修改)、DELETE(刪除)。GAS 發布後會給你一串 API 網址，這個網址就能拿來做存取。
 
 ![](/images/posts/web/2020/img20200804-5.png)
+
+![](/images/posts/web/2020/img20200804-7.png)
