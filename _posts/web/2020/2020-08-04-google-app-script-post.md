@@ -10,6 +10,8 @@ keywords:
 ## 前言
 此篇教學使用 Google App Script，將前端的表單資料寫入雲端硬碟中的 Google Sheets 當中。透過此方法我們就不需要建立後端資料庫來儲存這些表單資料。
 
+![](https://i.imgur.com/uEvWR8o.png)
+
 ## 建立 Google 雲端試算表
 首先開啟[雲端硬碟](https://drive.google.com/)建立一個空白的試算表。在空白處點選右鍵即可新增一個Excel試算表。
 
