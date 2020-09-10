@@ -84,3 +84,8 @@ Video: https://www.youtube.com/playlist?list=PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r
 ## 2020/08/28
 分享一個大數據演講提供線上直播，8月31號 (星期一) 下午二點。直撥網址屆時會在FB貼文中公布哦～
 https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnckutsoc.tw%2Fposts%2F1081593895571934&width=500
+
+## 2020/09/10
+告別 RNN，迎來 TCN https://www.chainnews.com/zh-hant/articles/902780300579.htm
+
+查看最新paper＆code https://paperswithcode.com/
