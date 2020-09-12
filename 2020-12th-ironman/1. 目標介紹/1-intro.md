@@ -7,3 +7,8 @@ AI 與機器學習技術正在蓬勃發展中，你能想像AI 人工智慧曾�
 Python 是近幾年高速成長並且逐漸普及的程式語言，也可以說是最容易使用的程式語言之一。主要在於它的語法是簡化而不複雜的，同時強調自然語言，更貼近使用者的習慣。
 
 https://aiacademy.tw/article-5-reasons-learning-python/
+
+
+
+
+https://explained.ai/
