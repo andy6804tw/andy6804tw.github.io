@@ -34,6 +34,8 @@
 | [[Day-6] 非監督式學習 k-means分群]()  | [Video]()  | [PDF](./6.非監督式學習k-means分群/6.非監督式學習k-means分群.pdf)  | -  |
 | [[Day-7] 非監督式學習-降維(1)]()  | [Video]()  | [PDF](./7.非監督式學習-降維(1)/7.非監督式學習-降維(1).pdf)  | -  |
 | [[Day-8] 非監督式學習-降維(2)]()  | [Video]()  | [PDF](./8.非監督式學習-降維(2)/8.非監督式學習-降維(2).pdf)  | -  |
+| [[Day-9] Linear Regression]()  | [Video]()  | [PDF](./9.Linear Regression/9.Linear Regression.pdf)  | -  |
+| [[Day-10] Logistic regression]()  | [Video]()  | [PDF](./10.Logistic regression/10.Logistic regression.pdf)  | -  |
 
 
 ## 關於作者
