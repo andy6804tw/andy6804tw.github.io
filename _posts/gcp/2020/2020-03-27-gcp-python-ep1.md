@@ -118,3 +118,6 @@ pip -V
 ```
 
 ![](/images/posts/gcp/2020/img1090327-9.png)
+
+
+Reference: https://cloud.google.com/python/setup?hl=zh-tw#linux
