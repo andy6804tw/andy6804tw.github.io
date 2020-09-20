@@ -38,6 +38,8 @@
 | [[Day-10] Logistic Regression]()  | [Video]()  | [PDF](./10.Logistic-Regression/10.Logistic-Regression.pdf)  | -  |
 | [[Day-11] KNN(分類器)]()  | [Video]()  | [PDF](./11.KNN(分類器)/11.KNN(分類器).pdf)  | -  |
 | [[Day-12] KNN(迴歸器)]()  | [Video]()  | [PDF](./12.KNN(迴歸器)/12.KNN(迴歸器).pdf)  | -  |
+| [[Day-13] SVM(分類器)]()  | [Video]()  | [PDF](./13.SVM(分類器)/13.SVM(分類器).pdf)  | -  |
+| [[Day-14] SVR(迴歸器)]()  | [Video]()  | [PDF](./14.SVR(迴歸器)/14.SVR(迴歸器).pdf)  | -  |
 
 
 ## 關於作者
