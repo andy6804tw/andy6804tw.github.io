@@ -13,3 +13,5 @@
 - [GitHub actions](https://medium.com/@milkmidi/%E6%B7%B1%E5%85%A5%E4%BD%86%E4%B8%8D%E6%B7%BA%E5%87%BA-%E5%A6%82%E4%BD%95%E7%94%A8-github-actions-%E8%87%AA%E5%8B%95%E7%99%BC%E4%BD%88-gh-pages-8183464dfe84)
 
 - [如何提升你的程式可讀性之實務技巧](https://blog.niclin.tw/2020/02/29/readable-code-1/)
+
+- [機器學習技術債](https://ithelp.ithome.com.tw/articles/10245624)
