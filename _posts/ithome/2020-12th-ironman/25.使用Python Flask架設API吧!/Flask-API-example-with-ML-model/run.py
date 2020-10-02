@@ -1,6 +1,5 @@
-
-import model
 import numpy as np
+import model
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -8,17 +7,9 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route('/')
 def index():
-    return 'hello !'
-
-
-@app.route('/test', methods=['GET'])
-def getResult():
-    input = np.array([[5.5, 2.4, 2.7, 1.]])
-    result = model.predict(input)
-    return jsonify({'result': str(result)})
+    return 'hello!!'
 
 @app.route('/predict', methods=['POST'])
 def postInput():
@@ -29,11 +20,11 @@ def postInput():
     x3=insertValues['petalLengthCm']
     x4=insertValues['petalWidthCm']
     input = np.array([[x1, x2, x3, x4]])
-    # 進行預測
+
     result = model.predict(input)
 
-    return jsonify({'result': str(result)})
+    return jsonify({'return': str(result)})
+
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80, debug=True)
-
+    app.run(host='0.0.0.0', port=3000, debug=True)
