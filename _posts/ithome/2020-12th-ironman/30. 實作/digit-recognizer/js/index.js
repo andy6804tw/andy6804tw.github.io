@@ -36,7 +36,7 @@ function findMaxIndex(result){
       maxValue=arr[i]
     }
   }
-  return maxIndex;
+  return {predNum: maxIndex, prob: maxValue};
 }
 
 async function predict(imgElement) {
@@ -45,13 +45,16 @@ async function predict(imgElement) {
   // 強制將圖片縮小到 28*28 像素
   const smalImg = tf.image.resizeBilinear(tfImg, [28, 28]);
   // 將 tensor 設為浮點型態，且將張量攤平至一為矩陣。此時 shape 為 [1, 784]
-  const tensor = smalImg.reshape([1, -1]);
+  let tensor = smalImg.reshape([1, -1]);
+  // 將所有數值除以255
+  tensor=tensor.div(tf.scalar(255));
   // 預測 
   const pred = model.predict(tensor);
   const result = pred.dataSync();
   // 取得 one hot encoding 陣列中最大的索引
-  console.log(findMaxIndex(result));
-  document.getElementById('resultValue').innerHTML=findMaxIndex(result);
+  const {predNum, prob} = findMaxIndex(result);
+  console.log(predNum, prob);
+  document.getElementById('resultValue').innerHTML=predNum;
   return tfImg;
 }
 
