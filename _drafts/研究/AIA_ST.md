@@ -6,3 +6,12 @@
 - [Attention is All You Need : Transformer模型](https://www.hrwhisper.me/deep-learning-attention-is-all-you-need-transformer/)
 
 - [Attention Is All You Need：基於注意力機制的機器翻譯模型](https://medium.com/@cyeninesky3/attention-is-all-you-need-%E5%9F%BA%E6%96%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%A9%9F%E5%88%B6%E7%9A%84%E6%A9%9F%E5%99%A8%E7%BF%BB%E8%AD%AF%E6%A8%A1%E5%9E%8B-dcc12d251449)
+
+
+## Demo
+[]()
+
+
+## GAN
+[This AI Learned to “Photoshop” Human Faces](https://www.youtube.com/watch?v=dvzlvHNxdfI&ab_channel=TwoMinutePapers)
+[IMAGE INPAINTING](https://www.nvidia.com/research/inpainting/)
