@@ -88,4 +88,4 @@ https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F
 ## 2020/09/10
 告別 RNN，迎來 TCN https://www.chainnews.com/zh-hant/articles/902780300579.htm
 
-查看最新paper＆code https://paperswithcode.com/
+查看最新paper＆code https://paperswithcode.com/ 
