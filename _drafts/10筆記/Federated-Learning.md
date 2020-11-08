@@ -45,3 +45,9 @@ Google 在 Android 的 Google Gboard 鍵盤中，採用了橫向聯盟式學習�
 
 [Federated Learning Youtube](https://www.youtube.com/watch?v=xJkY3ehX_MI)
 [Federated Learning slideshare](https://www.slideshare.net/Hadoop_Summit/federated-learning-137561677)
+
+[TensorFlow Federated (TF Dev Summit ‘19)](https://www.youtube.com/watch?v=1YbPmkChcbo)
+
+[聯邦學習QA](https://www.ithome.com.tw/news/138577)
+
+[AIA MLOPS](https://drive.google.com/file/d/13hblrOdk2g1n7GBH8rbMtx0rIwNujlb1/view)
