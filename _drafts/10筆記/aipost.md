@@ -89,3 +89,5 @@ https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F
 告別 RNN，迎來 TCN https://www.chainnews.com/zh-hant/articles/902780300579.htm
 
 查看最新paper＆code https://paperswithcode.com/ 
+
+🔥 更多AI最夯趨勢，《知勢》報哩災 I https://facebook.com/AI.KnowlEdge.tw/
