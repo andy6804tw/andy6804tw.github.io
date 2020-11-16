@@ -145,3 +145,5 @@ Google 在 Android 的 Google Gboard 鍵盤中，採用了橫向聯盟式學習�
 [聯合學習QA](https://www.ithome.com.tw/news/138577)
 
 [AIA MLOPS](https://drive.google.com/file/d/13hblrOdk2g1n7GBH8rbMtx0rIwNujlb1/view)
+
+[federated 漫畫](https://federated.withgoogle.com/)
