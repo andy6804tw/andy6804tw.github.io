@@ -58,9 +58,25 @@ Google 在 Android 的 Google Gboard 鍵盤中，採用了橫向聯盟式學習�
 > https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf
 
 #### Monitoring system
-在客戶發現問題之前我們就已經發現系統問題
+在客戶發現問題之前我們就已經發現系統問題，或是客戶提交test檢測。
+
+以下討論兩個 MLOPS 兩個重要環節：
 
 ### 資料如何有效率的處理？
+第一個面臨的問題是標籤該如何取得，因爲時間成本大導致資料無法所有都蒐集到。使用 data summary來代表整個資料集。一個常見的方式就是集群演算法。透過群心附近隨機抽樣幾筆出來表示這區域所有的資料，接著使用群集的技巧自動分群標記剩下的資料。
+
+![](https://i.imgur.com/Fpukwlm.png)
+
+## 為何模型犯錯？
+當我們今天模型犯錯時，我們會想知道為什麼模型犯錯。這是在做 MLOPS 會使用到的工具。其原因如下：
+
+- 資料看過但學錯
+- 資料尚未看過
+
+模型的解釋性，在影像部分可以使用 Grad-CAM 來判斷模型的解釋性。回歸模型可採用 SHAP 來判斷是哪一個特徵造成最後的結果判別以及特徵重要程度。
+
+## Federated Learning
+
 
 ## Reference
 [Advances and Open Problems in Federated Learning](https://arxiv.org/abs/1912.04977?fbclid=IwAR1G1Uq_y0whcQDplpRNqPZAuv2an8mQhFkxUrS9f4-4hO4rs7_VsJ2dG60)
