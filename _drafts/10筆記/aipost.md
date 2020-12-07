@@ -95,3 +95,4 @@ https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F
 
 [【工程師隱身術】200 行 TensorFlow.js 程式碼，讓你從視訊會議的畫面中「消失」](https://buzzorange.com/techorange/2020/03/10/tensorflow-js-invisible/?fbclid=IwAR38wC4ph7u0Yfj8f91nHCJPaZj6pIzQUHT0ywB8YsbMVFfa93NDlKF8qz0)
   
+[圖像分割漲點技巧！](https://bangqu.com/v15Mh9.html?fbclid=IwAR3dRRI5TK01j4LaywVwqzyOa0vq893Hxz2_ZS0NirByg6tTbsZ2wz1Z9N8)
