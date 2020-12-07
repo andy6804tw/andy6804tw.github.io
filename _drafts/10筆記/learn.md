@@ -27,7 +27,7 @@
 - [深度學習課程](https://github.com/AllanYiin/DeepBelief_Course4_Examples)
 - [neoml](https://github.com/neoml-lib/neoml)
 - [Distilling the Knowledge in a Neural Network](https://www.itread01.com/content/1547235795.html)
-
+- [免費jupyter notebook](https://deepnote.com/project/8eb80ec5-2abd-4609-af7e-d22fda8829c1#%2Fexample.ipynb)
 
 ## coursera
 
