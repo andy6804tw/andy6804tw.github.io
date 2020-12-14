@@ -14,8 +14,10 @@
 - 星際效應: 電影講述一組太空人通過穿越蟲洞為人類尋找新家園的冒險故事。透過五維空間主角能夠與任何時間的女兒溝通，以拯救地球。
 - 出神入化：變魔術偷錢
 
+# Hacker
+- [黑客(2016) Hacker](https://www.youtube.com/watch?v=WuW8Nnzas78): 描述一個移民家庭男孩加入黑網，遇到一位女子加入進行銀行犯罪。殊不知原來是要將黑網頭頭繩之以法。男主角最終才知道女子真實身份。
 
 AI 電影 https://www.finereport.com/tw/data-analysis/huati-1.html 
-
+駭客電影 https://kknews.cc/zh-tw/news/x3ea9o.html
  
 teawithtiya
