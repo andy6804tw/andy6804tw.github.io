@@ -7,6 +7,8 @@
 
 - [Attention Is All You Need：基於注意力機制的機器翻譯模型](https://medium.com/@cyeninesky3/attention-is-all-you-need-%E5%9F%BA%E6%96%BC%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%A9%9F%E5%88%B6%E7%9A%84%E6%A9%9F%E5%99%A8%E7%BF%BB%E8%AD%AF%E6%A8%A1%E5%9E%8B-dcc12d251449)
 
+- [18篇「AAAI2021」最新論文搶先看](https://bangqu.com/WqBD2g.html?fbclid=IwAR2XR2M9fzGpCNEUTnkbsQCEQdloQfwkLFk7YmOn8puqiTU3DvGS1MhM8-k)
+
 
 ## Demo
 []() 
