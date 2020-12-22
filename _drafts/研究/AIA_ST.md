@@ -17,3 +17,6 @@
 ## GAN
 [This AI Learned to “Photoshop” Human Faces](https://www.youtube.com/watch?v=dvzlvHNxdfI&ab_channel=TwoMinutePapers)
 [IMAGE INPAINTING](https://www.nvidia.com/research/inpainting/)
+
+## autoencoder
+[item](https://github.com/Gowthamkar6/Reconstruction-of-images-using-convolutional-autoencoder/blob/master/Autoencoders_task.ipynb)
