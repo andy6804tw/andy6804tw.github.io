@@ -26,3 +26,12 @@
 
 ## tool
 [Interfaces for your ML Models](https://www.gradio.app/)
+
+## paper pool
+[reddit](https://www.reddit.com/user/TheInsaneApp/)
+[reddit](https://www.reddit.com/r/learnmachinelearning/)
+
+
+
+
+[程式寫好重要](https://www.reddit.com/r/ProgrammerHumor/comments/ix00oi/communication_gap_in_software_projects_via/)
