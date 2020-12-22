@@ -15,6 +15,7 @@
 
 ## CNN
 [2020 portrait matting](https://github.com/ZHKKKe/MODNet)
+[line art portraits](https://github.com/vijishmadhavan/ArtLine)
 
 ## GAN
 [This AI Learned to “Photoshop” Human Faces](https://www.youtube.com/watch?v=dvzlvHNxdfI&ab_channel=TwoMinutePapers)
