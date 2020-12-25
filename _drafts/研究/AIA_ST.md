@@ -16,6 +16,7 @@
 ## CNN
 [2020 portrait matting](https://github.com/ZHKKKe/MODNet)
 [line art portraits](https://github.com/vijishmadhavan/ArtLine)
+[One-Class Neural Network in Keras](https://towardsdatascience.com/one-class-neural-network-in-keras-249ff56201c0)
 
 ## GAN
 [This AI Learned to “Photoshop” Human Faces](https://www.youtube.com/watch?v=dvzlvHNxdfI&ab_channel=TwoMinutePapers)
@@ -25,6 +26,9 @@
 [item](https://github.com/Gowthamkar6/Reconstruction-of-images-using-convolutional-autoencoder/blob/master/Autoencoders_task.ipynb)
 [How To Perform Data Compression Using Autoencoders?](https://medium.com/edureka/autoencoders-tutorial-cfdcebdefe37)
 
+
+## Good repo
+[DL algorithm](https://github.com/cerlymarco/MEDIUM_NoteBook)
 ## tool
 [Interfaces for your ML Models](https://www.gradio.app/)
 
