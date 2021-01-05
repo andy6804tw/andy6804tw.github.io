@@ -23,6 +23,8 @@
 [IMAGE INPAINTING](https://www.nvidia.com/research/inpainting/)
 
 ## autoencoder
+Auto-Encoder是利用神經網絡來做特徵提取或者特徵降維的，可以將encoder的結果用於後續的其他任務。
+
 [item](https://github.com/Gowthamkar6/Reconstruction-of-images-using-convolutional-autoencoder/blob/master/Autoencoders_task.ipynb)
 [How To Perform Data Compression Using Autoencoders?](https://medium.com/edureka/autoencoders-tutorial-cfdcebdefe37)
 
