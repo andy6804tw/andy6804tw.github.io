@@ -4,6 +4,13 @@
 [opencv-rect-conventions](https://stackoverflow.com/questions/57068928/opencv-rect-conventions-what-is-x-y-width-height)
  
 
+```py
+# 使用 Image load image
+img = Image.open(img_path).convert('L')
+img = img.resize((128, 128))
+img = np.array(img).reshape(1,128,128,1)
+```
+
 ## CNN
 [One class classification 背景類別隨機爬蟲蒐集](https://stackoverflow.com/questions/57309958/one-class-classification-using-keras-and-python)
 [One-Class Neural Network in Keras VGG](https://towardsdatascience.com/one-class-neural-network-in-keras-249ff56201c0)
@@ -16,3 +23,4 @@
 
 ## Random
 - 主題色: #493732
+4e342d
