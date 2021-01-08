@@ -2,7 +2,8 @@
 ## CV
 [Get the real bounding box of a rectangle shaped mask](https://stackoverflow.com/questions/61403755/get-the-real-bounding-box-of-a-rectangle-shaped-mask)
 [opencv-rect-conventions](https://stackoverflow.com/questions/57068928/opencv-rect-conventions-what-is-x-y-width-height)
- 
+[Feature Matching + Homography to find Objects](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_feature_homography/py_feature_homography.html)
+[A Detailed Guide to the Powerful SIFT](https://www.analyticsvidhya.com/blog/2019/10/detailed-guide-powerful-sift-technique-image-matching-python/)
 
 ```py
 # 使用 Image load image
