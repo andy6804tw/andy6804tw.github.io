@@ -20,6 +20,7 @@ img = np.array(img).reshape(1,128,128,1)
 ## Web
 [Camera view](https://codepen.io/7696122/pen/gOOLNPG)
 [Instagram View](https://codepen.io/MrNaceja/pen/XWXZZRj)
+[Clone do Instagram](https://codepen.io/wgbn/pen/exxYwP)
 
 
 ## Random
