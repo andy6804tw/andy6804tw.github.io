@@ -23,6 +23,10 @@ img = np.array(img).reshape(1,128,128,1)
 [Clone do Instagram](https://codepen.io/wgbn/pen/exxYwP)
 [instagram - stories page](https://codepen.io/mouraggui/pen/QWbpjJa)
 [ig story firebase](https://codepen.io/rsnappd/pen/gOOmwwd)
+
+## App Script
+[get cell value in Google Sheets using apps script](https://blog.gsmart.in/google-sheet-script-get-cell-value/)
+[GAS Get Json](http://blog.katrina.tw/2018/08/apps-script-http-json.html)
   
 ## Random
 - 主題色: #493732
