@@ -50,3 +50,6 @@ Auto-Encoder是利用神經網絡來做特徵提取或者特徵降維的，可�
 ## 待研究清單
 [OneClass SVM：異常檢測任務](https://cyeninesky3.medium.com/oneclass-svm-異常檢測任務-anomaly-detection-的算法理解與實踐-cf5f0bbb01c0)
 [時間卷積網絡 (TCN)](https://cyeninesky3.medium.com/時間卷積網絡-tcn-關於從風控項目當中的學習-11693d762f5) 
+
+
+https://gofile.io/d/Nl997e
