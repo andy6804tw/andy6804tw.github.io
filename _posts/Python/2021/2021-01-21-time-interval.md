@@ -2,7 +2,7 @@
 layout: post
 title: '[Python 常用] 實現 setInterval 定時器圈呼叫函式功能'
 categories: 'Python'
-description: 
+description: 'Python setInterval'
 keywords: 
 ---
 
