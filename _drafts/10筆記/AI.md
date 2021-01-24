@@ -13,3 +13,6 @@
 3. Humanity is plagued by bias, and with machine learning models bias is a similar problem.  (XAI)
 4. In AI, bias can happen when all the data points fit in a certain direction, and you have never seen data outside that context.(XAI)
 5. if you have bad data bias, you’ll get bad, biased outcomes.
+6. Secondly there’s the issue of model drift, where the algorithm is supposed to produce a certain type of result but just starts heading in the wrong direction. (模型學習方向錯誤)
+7. 中國在數據搜集上佔有優勢
+8. 
