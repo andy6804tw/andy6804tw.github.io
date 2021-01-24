@@ -52,3 +52,6 @@
 
 ## Worepress
 [YouTube教學](https://www.youtube.com/watch?v=KKBCMcTdGT0&list=PLDepuQozr79oviDNKhldRC9ZFSMO9B01y&index=6)
+
+## 學習管道
+[尋找程式之路](https://hackmd.io/@lSYt44LVQQmH5gL_FVETOA/SJ2nnPY1O?fbclid=IwAR2V_RdlFOnQqqTuWPTR4mwE9pHGPzZHM1buSIaHQWt4MC_fUoKCDy6-5fM)
