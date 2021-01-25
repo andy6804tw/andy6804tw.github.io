@@ -47,7 +47,7 @@ Auto-Encoder是利用神經網絡來做特徵提取或者特徵降維的，可�
 
 ## 程式技巧
 [程式寫好重要](https://www.reddit.com/r/ProgrammerHumor/comments/ix00oi/communication_gap_in_software_projects_via/)
-
+[尋找程式之路](https://hackmd.io/@lSYt44LVQQmH5gL_FVETOA/SJ2nnPY1O?fbclid=IwAR2V_RdlFOnQqqTuWPTR4mwE9pHGPzZHM1buSIaHQWt4MC_fUoKCDy6-5fM)
 
 ## 待研究清單
 [OneClass SVM：異常檢測任務](https://cyeninesky3.medium.com/oneclass-svm-異常檢測任務-anomaly-detection-的算法理解與實踐-cf5f0bbb01c0)
