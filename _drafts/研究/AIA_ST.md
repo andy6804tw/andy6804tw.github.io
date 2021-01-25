@@ -45,8 +45,7 @@ Auto-Encoder是利用神經網絡來做特徵提取或者特徵降維的，可�
 [Face Recognition From Scratch Using Siamese Networks and TensorFlow](https://medium.com/predict/face-recognition-from-scratch-using-siamese-networks-and-tensorflow-df03e32f8cd0)
 [Siamese Network 孿生連體神經網絡](https://allenlu2007.wordpress.com/2019/05/30/siamese-network-%E5%AD%BF%E7%94%9F%E7%A5%9E%E7%B6%93%E7%B6%B2%E7%B5%A1%EF%BC%9A-%E7%B0%A1%E5%96%AE%E7%A5%9E%E5%A5%87%E7%9A%84%E7%B5%90%E6%A7%8B/)
 
-
-
+## 程式技巧
 [程式寫好重要](https://www.reddit.com/r/ProgrammerHumor/comments/ix00oi/communication_gap_in_software_projects_via/)
 
 
