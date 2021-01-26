@@ -15,3 +15,5 @@
 - [如何提升你的程式可讀性之實務技巧](https://blog.niclin.tw/2020/02/29/readable-code-1/)
 
 - [機器學習技術債](https://ithelp.ithome.com.tw/articles/10245624)
+
+- [專職筆記大全](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
