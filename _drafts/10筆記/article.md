@@ -16,4 +16,6 @@
 
 - [機器學習技術債](https://ithelp.ithome.com.tw/articles/10245624)
 
-- [專職筆記大全](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
+- [轉職筆記大全](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
+
+- [由淺入深的深度學習資源整理](https://leemeng.tw/deep-learning-resources.html)
