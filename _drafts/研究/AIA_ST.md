@@ -21,6 +21,7 @@
 [line art portraits](https://github.com/vijishmadhavan/ArtLine)
 [One-Class Neural Network in Keras](https://towardsdatascience.com/one-class-neural-network-in-keras-249ff56201c0)
 
+
 ## GAN
 [This AI Learned to “Photoshop” Human Faces](https://www.youtube.com/watch?v=dvzlvHNxdfI&ab_channel=TwoMinutePapers)
 [IMAGE INPAINTING](https://www.nvidia.com/research/inpainting/)
