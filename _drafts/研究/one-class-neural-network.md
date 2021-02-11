@@ -13,3 +13,16 @@
 
 ![](https://i.imgur.com/KXzwBYE.png)
 > (a) OC-SVM, maximizing the margin of a hyperplane with respect to the origin. (b) SVDD, finding a hypersphere that encloses the given data. (c) MPM, finding a hyperplane that minimizes the misclassification probability.
+
+
+在過去幾年中物件辨識與偵測的問題隨著深度卷積神蹟網路的出現有大幅的提升，下圖為OC-CNN 網架構圖。分為兩個網路架構，第一個為 VGG16 為基底的特徵萃取網路(4096 embedding)，第二個網路是全連階層的分類器。其中需注意的是 VGG16 預訓練網路的最後三層全連階層捨去，這裡只要取得特徵萃取結果作為 embedding。此外在模型訓練過程中除了取得 VGG16 的萃取特徵外，我們還要產生出相同維度的虛擬資料作為負樣本，負樣本的生成是透過 zero centered Gaussian 產生。此問題為二元分類 1 代表目標種類資料，反之 0 表示負種類資料。
+
+![](https://i.imgur.com/QTKLTRK.png)
+
+## Feature Extractor
+任何一個預訓練的 CNN 模型都可以拿來當成特徵萃取器。此範例是採用 VGG16 並移除最後三層全連接分類器作為特徵萃取。整個神經網路是一個 end to end 可訓練的神經網路。 VGG16 網路也可以自由選擇是否可訓練，但在論文中是將預訓練網路的卷積層凍結起來。
+
+![](https://i.imgur.com/Y1d1I9G.png)
+
+
+## Classfication Network
