@@ -71,3 +71,6 @@ Type-2 fuzzy logic
 - [Deep-Neuro-Fuzzy for image classfication](https://github.com/SonbolYb/Deep-Neuro-Fuzzy)
 - [A Deep Neuro-Fuzzy Network for Image Classification](https://github.com/SonbolYb/Deep-Neuro-Fuzzy)
 - [Hybrid Deep Learning Type-2 Fuzzy Logic Systems For Explainable AI](https://ieeexplore.ieee.org/document/9177817)
+
+## Reference
+- [FUZZY LOGIC PROJECTS](https://phdtopic.com/fuzzy-logic-projects/)
