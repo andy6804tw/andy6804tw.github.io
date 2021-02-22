@@ -73,4 +73,4 @@ Type-2 fuzzy logic
 - [Hybrid Deep Learning Type-2 Fuzzy Logic Systems For Explainable AI](https://ieeexplore.ieee.org/document/9177817)
 
 ## Reference
-- [FUZZY LOGIC PROJECTS](https://phdtopic.com/fuzzy-logic-projects/) 
+- [FUZZY LOGIC PROJECTS](https://phdtopic.com/fuzzy-logic-projects/)
