@@ -64,11 +64,15 @@ Type-2 fuzzy logic
 - And also in Tradition control systems to conventional control systems
 
 ## Paper Submit
+#### Conference
+[IEEE International Conference on Fuzzy Systems](https://ieeexplore.ieee.org/xpl/conhome/8845563/proceeding)
+#### Journal
 [IEEE Transactions on Fuzzy Systems](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=91)
 [International Journal of Fuzzy Systems](https://www.springer.com/journal/40815)
 [International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems](https://www.worldscientific.com/worldscinet/ijufks)
 
 ## Popular Topic
+- [FuFuzzAttention on Session-based Recommender System](https://ieeexplore.ieee.org/document/8858856)
 - [Superpixel-Based Fast Fuzzy C-Means Clustering For Color Image Segmentation](https://ieeexplore.ieee.org/document/8584141)
 - [Fast Training Algorithms For Deep Convolutional Fuzzy Systems With Application To Stock Index Prediction]()
 - [Automatic Fuzzy Clustering Framework For Image Segmentation](https://ieeexplore.ieee.org/document/8788632/)
