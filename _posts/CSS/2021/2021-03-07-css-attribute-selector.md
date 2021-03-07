@@ -1,13 +1,13 @@
 ---
 layout: post
-title: '[CSS學習筆記] CSS Attribute Selectors 技巧'
+title: '[CSS學習筆記] CSS Attribute Selector 技巧'
 categories: 'CSS'
-description: 'CSS Attribute Selectors'
+description: 'CSS Attribute Selector'
 keywords: CSS
 ---
 
 # 前言
-CSS 提供選擇器(Selector) 的方式操控每一個元素，大家可以參考[30個你必須記住的CSS選擇器](https://code.tutsplus.com/zh-hant/tutorials/the-30-css-selectors-you-must-memorize--net-16048)來了解 CSS 選擇器有些好處。其中我們今天要介紹使用 Attribute Selectors 方式來控制 HTML 標籤 `[attribute ="value"]` 選擇器用於選擇具有指定屬性和值的元素。以下範例是選擇所有具有 `target ="_ blank"` 屬性的 `<a>` 元素：
+CSS 提供選擇器(Selector) 的方式操控每一個元素，大家可以參考[30個你必須記住的CSS選擇器](https://code.tutsplus.com/zh-hant/tutorials/the-30-css-selectors-you-must-memorize--net-16048)來了解 CSS 選擇器有些好處。其中我們今天要介紹使用 Attribute Selector 方式來控制 HTML 標籤 `[attribute ="value"]` 選擇器用於選擇具有指定屬性和值的元素。以下範例是選擇所有具有 `target ="_ blank"` 屬性的 `<a>` 元素：
 
 ```css
 a[target="_blank"] {
@@ -37,7 +37,7 @@ a[target="_blank"] {
 </body>
 ```
 
-CSS 部分很簡單，我們先將 `mode-edit` 和 `mode-maker` 隱藏起來 `display: none;`。接下來要透過 Attribute Selectors 來控制 HTML 標籤是否顯現，使用逗號方式可以共用內容當 `[mode="edit"] .mode-edit` 或 `[mode="maker"] .mode-maker` 其中一方成立，就會控制該標籤內的元素是否顯示 `display: block;` 。 `[mode="edit"] .mode-edit` 的意思就是當 body 內的 mode="edit" 時標籤 class="mode-edit" 就會被動觸發 `{ }`  裡面的內容。
+CSS 部分很簡單，我們先將 `mode-edit` 和 `mode-maker` 隱藏起來 `display: none;`。接下來要透過 Attribute Selectors 來控制 HTML 標籤是否顯現，使用逗號方式可以共用內容當 `[mode="edit"] .mode-edit` 或 `[mode="maker"] .mode-maker` 其中一方成立，就會控制該標籤內的元素是否顯示 `display: block;` 。 `[mode="edit"] .mode-edit` 的意思就是當 body 內的 mode="edit" 時標籤 class="mode-edit" 就會被動觸發 `{}`  裡面的內容。
 
 ```css
 <style>
@@ -53,7 +53,7 @@ CSS 部分很簡單，我們先將 `mode-edit` 和 `mode-maker` 隱藏起來 `di
 </style>
 ```
 
-
+接下我們要透過 `JavaScript` 來控制 HTML body 內的 mode，初始狀態 mode=maker，因此只會顯示 `class=mode-maker` 內容。當滑鼠點擊按鈕就會透過 JS 來修改 mode 成 `edit` 模式，並且會觸發 CSS Attribute Selector 來調動畫面。
 
 ```js
 <script>
@@ -67,3 +67,5 @@ CSS 部分很簡單，我們先將 `mode-edit` 和 `mode-maker` 隱藏起來 `di
     document.getElementById('done').addEventListener('click', enableDoneMode);
 </script>
 ```
+
+
