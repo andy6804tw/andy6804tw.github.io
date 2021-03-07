@@ -69,4 +69,4 @@ CSS 部分很簡單，我們先將 `mode-edit` 和 `mode-maker` 隱藏起來 `di
 ```
 
 
- 完整 Code 可以從我的 [GitHub](https://github.com/1010code/css-attribute-selector) 取得！
+ 完整 Code 可以從我的 [GitHub](https://github.com/1010code/css-attribute-selector) 中取得！
