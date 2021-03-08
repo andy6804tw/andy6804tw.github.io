@@ -124,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-
-
 ## Reference
 [Android developer](https://developer.android.com/training/camera/photobasics)
 
