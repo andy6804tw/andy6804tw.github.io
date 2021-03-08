@@ -74,7 +74,7 @@ keywords: Android Developers
 
 
 ## Take a photo with a camera app
-開啟 `MainActivity` 來撰寫核心功能。分別建立 selectedImage 變數來控制 ImageView 顯示的圖片，以及 cameraBtn 按鈕提供點擊開啟內部相機。當點擊按鈕後會立即呼叫 `askCameraPermissions()` 要求使用者同意相機設備存取，當成功取得權限後會呼叫 `openCamera()` 開啟內建的相機。當內建相機拍攝完照片後會將圖片透過 Intent 的方式將影像資料回傳到 `MainActivity`，因此我們要改寫 `onActivityResult` 來接收回傳的影像並將收到的圖片轉成 Bitmap 格式顯示在 ImageView。
+開啟 `MainActivity` 來撰寫核心功能。分別建立 selectedImage 變數來控制 ImageView 顯示的圖片，以及 cameraBtn 按鈕提供點擊開啟內部相機。當點擊按鈕後會立即呼叫 `askCameraPermissions()` 要求使用者同意相機設備存取，當成功取得權限後會立即呼叫 `onRequestPermissionsResult()` 並判斷是否有開啟權限。當權限有打開則呼叫 `openCamera()` 開啟內建的相機，首次開啟權限後第二次執行時判斷已經開啟權限則會直接呼叫 `openCamera()` 開啟內建的相機。當內建相機拍攝完照片後會將圖片透過 Intent 的方式將影像資料回傳到 `MainActivity`，因此我們要改寫 `onActivityResult` 來接收回傳的影像並將收到的圖片轉成 Bitmap 格式顯示在 ImageView。
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -106,6 +106,16 @@ public class MainActivity extends AppCompatActivity {
             openCamera();
         }
 
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == CAMERA_PERM_CODE){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                openCamera();
+            }else {
+                Toast.makeText(this, "Camera Permission is Required to Use camera.", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void openCamera() {
