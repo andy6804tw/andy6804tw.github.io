@@ -43,3 +43,32 @@ Android 的 Toolbar 包含了狀態列(Status Bar)與標題列(Action Bar)。如
 ```xml
 android:theme= "@style/Theme.NoActionBar"
 ```
+
+![](/images/posts/android/2021/img1100309-5.png)
+
+<img src="/images/posts/android/2021/img1100309-4.png" width="250px">
+
+
+顯示 Status Bar 與 Action Bar，但不顯示 Title。
+
+```xml
+<style name="Theme.NoActionBar" parent="Theme.Androidhideactionbarandstatusbar">
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowFullscreen">false</item>
+</style>
+```
+
+<img src="/images/posts/android/2021/img1100309-6.png" width="250px">
+
+顯示 Action Bar 與 Title，但不顯示 Status Bar。
+
+```xml
+<style name="Theme.NoActionBar" parent="Theme.Androidhideactionbarandstatusbar">
+     <item name="windowNoTitle">false</item>
+     <item name="windowActionBar">true</item>
+     <item name="android:windowFullscreen">true</item>
+</style>
+```
+
+<img src="/images/posts/android/2021/img1100309-7.png" width="250px">
