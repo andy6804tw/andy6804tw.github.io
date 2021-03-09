@@ -8,7 +8,7 @@ keywords: Android Developers
 ## 前言
 Android 的 Toolbar 包含了狀態列(Status Bar)與標題列(Action Bar)。如果需要克制會會隱藏必須要先到 `values` 資料夾中的 `themes.xml` 設定好 Toolbar 的樣式。接著打開 `AndroidManifest.xml` ， 更改 application tag 內的 theme 參數。以下教學手把手帶你來將狀態列與標題列隱藏，文章最後會提供此範例程式。
 
-<img src="/images/posts/android/2021/img1100309-1.png" width="250px">
+<img src="/images/posts/android/2021/img1100309-1.png" width="350px">
 
 ## 修改 themes.xml
 最新版的 Android 在主題的架構上有稍微調整，原先主題樣式的配色修改會在 `values.xml` 中設定。最新版本會發現多了 `themes` 資料夾，以及眼尖的朋友可以發現到除了 `values` 資料夾還多了夜間版本的設定 `values-night`
