@@ -1,5 +1,11 @@
+---
+layout: post
+title: '[Android] 隱藏狀態列、標題列'
+categories: 'Android'
+description: 
+keywords: Android Developers
+---
 
-# [Android] 隱藏狀態列、標題列
 
 http://dog0416.blogspot.com/2018/04/android-hide-action-bar-and-status-bar.html
 
