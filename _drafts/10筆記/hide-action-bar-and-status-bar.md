@@ -36,3 +36,10 @@ Android 的 Toolbar 包含了狀態列(Status Bar)與標題列(Action Bar)。如
     </style>
 </resources>
 ```
+
+## 修改 AndroidManifest.xml
+開啟 AndroidManifest.xml，將沒有 Toolbar 的主題樣式套用。
+
+```xml
+android:theme= "@style/Theme.NoActionBar"
+```
