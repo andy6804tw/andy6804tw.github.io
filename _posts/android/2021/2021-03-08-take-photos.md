@@ -137,4 +137,4 @@ public class MainActivity extends AppCompatActivity {
 ## Reference
 [Android developer](https://developer.android.com/training/camera/photobasics)
 
-完整 Code 可以從我的 [GitHub](https://github.com/1010code/Take-photos-Android) 中取得！
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/android-take-photos) 中取得！
