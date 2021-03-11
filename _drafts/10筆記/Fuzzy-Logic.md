@@ -13,6 +13,7 @@
 ## Tutorial
 [Fuzzy Logic Tutorial](https://www.tutorialspoint.com/fuzzy_logic/index.htm)
 [Neuro-Fuzzy System](https://www.youtube.com/watch?v=7C19X6pJEuU)
+[Fuzzy Logic in Artificial Intelligence | Introduction to Fuzzy Logic & Membership Function](https://www.youtube.com/watch?v=xD1c8jTFF78)
 
 ## Research
 Fuzzy Computing with Words
