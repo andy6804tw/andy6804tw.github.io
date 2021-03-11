@@ -21,7 +21,7 @@ keywords: Android Developers
 </manifest>
 ```
 
-## View
+## Layout
 開啟 `activity_main.xml` 加入一個 ImageView 並將 id 命名為 `displayImageView` 與 Button 按鈕 id 命名 `cameraBtn`。
 
 ![](https://i.imgur.com/TmNCpD1.png)
