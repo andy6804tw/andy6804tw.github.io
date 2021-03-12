@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] 內建相機拍照實作'
+title: '[Android] 內建相機拍照實作(1)'
 categories: 'Android'
 description: 
 keywords: Android Developers
@@ -133,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+
+以上範例簡單的開啟內建相機拍照並回傳顯示在APP上，下一個教學將教您使用儲 Storage API 將照片存入手機相簿中。
 
 ## Reference
 [Android developer](https://developer.android.com/training/camera/photobasics)
