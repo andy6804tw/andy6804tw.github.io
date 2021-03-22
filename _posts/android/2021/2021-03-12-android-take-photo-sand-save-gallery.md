@@ -7,7 +7,7 @@ keywords: Android Developers
 ---
 
 ## 前言
-上一篇已經教各位如何開啟內相機拍照並回傳顯示在APP上，這一篇教學將教你照片的儲存。
+上一篇[[Android] 內建相機拍照實作(1)](https://andy6804tw.github.io/2021/03/08/take-photos/)已經教各位如何開啟內相機拍照並回傳顯示在APP上，這一篇教學將教你照片的儲存。
 
 <img src="/images/posts/android/2021/img1100312-1.gif" width="250px">
 
