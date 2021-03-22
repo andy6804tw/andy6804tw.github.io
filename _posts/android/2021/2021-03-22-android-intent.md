@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Android] Intent 跳頁＆傳遞資料'
+title: '[Android] Intent跳頁＆傳遞資料'
 categories: 'Android'
 description: 
 keywords: Android Developers
