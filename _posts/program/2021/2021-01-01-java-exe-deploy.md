@@ -63,3 +63,6 @@ java -jar main.jar
 最後在點選上排工具列的齒輪會先儲存一個 xml 設定檔，這也方便稍後修改設定重新產生 exe 檔，不用重新做設定。接著目錄資料夾底下就會產生出一個exe執行檔囉。
 
 ![](https://i.imgur.com/CnlAtCv.png)
+
+
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/java-exe-deploy) 中取得！
