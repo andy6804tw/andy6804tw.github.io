@@ -82,4 +82,4 @@ float bmi = intent.getExtras().getFloat("BMI_VALUE", 0);
 ## 總結
 Bundle 可對物件進行操作，而 Intent 是不可以。少資料時可以使用 Intent，多筆資料時可以採用 Bundle。但是 Bundle 也還是需要透過Intent 才能完成資料傳遞功能。總之 Bundle 是一種儲存打包資料的方式，而 Intent 主要負責發送。
 
-完整 Code 可以從我的 [GitHub](https://github.com/1010code/android-take-photo-sand-save-gallery) 中取得！
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/android-intent) 中取得！
