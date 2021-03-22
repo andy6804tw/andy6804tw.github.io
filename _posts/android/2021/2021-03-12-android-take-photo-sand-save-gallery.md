@@ -92,6 +92,7 @@ keywords: Android Developers
 ```
 
 ## Take a photo with a camera app and save image to gallery
+注意在 `dispatchTakePictureIntent()` 函式中要修改 `FileProvider.getUriForFile()` 中的 Package 名稱 `com.example.android.fileprovider` 改成自己的與 AndroidManifest.xml 文件中的  `android:authorities`  值相同。
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -209,3 +210,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 完整 Code 可以從我的 [GitHub](https://github.com/1010code/android-take-photo-sand-save-gallery) 中取得！
+
+## 後記
+如果想要實作從相簿讀取照片可以參考這份[範例](https://github.com/1010code/android-camera-gallery)程式。
