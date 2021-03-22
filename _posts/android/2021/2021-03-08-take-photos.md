@@ -134,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-以上範例簡單的開啟內建相機拍照並回傳顯示在APP上，下一個教學將教您使用儲 Storage API 將照片存入手機相簿中。
+以上範例簡單的開啟內建相機拍照並回傳顯示在APP上，下一個教學[[Android] 內建相機拍照實作(2)](https://andy6804tw.github.io/2021/03/12/android-take-photo-sand-save-gallery/)將教您使用儲 Storage API 將照片存入手機相簿中。
+
 
 ## Reference
 [Android developer](https://developer.android.com/training/camera/photobasics)
