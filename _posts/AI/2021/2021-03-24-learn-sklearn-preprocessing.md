@@ -62,7 +62,7 @@ from pickle import load
 myScaler = load(open('scaler.pkl', 'rb'))
 ```
 
-### 驗證載入的Scalar在訓練資料集的轉換
+#### 驗證載入的Scalar在訓練資料集的轉換
 可以發現透過 pickle 載入 scaler.pkl 轉換後的 X_train 平均值與標準差分別為 0 與 1。跟先前一模一樣，此步驟是確保先前 fit 的 StandardScaler參數是否有缺失。
 
 ```py
@@ -84,7 +84,7 @@ StandardScaler 縮放過後資料集 X 的平均值 :  [-0. -0. -0.  0.]
 StandardScaler 縮放過後資料集 X 的標準差 :  [1. 1. 1. 1.]
 ```
 
-### 測試資料進行轉換
+#### 測試資料進行轉換
 我們可以發現以 X_train 為基準的 Scaler 在測試資料集 X_test 中轉換後的平均值與標準差都分別趨近於 0 與 1。
 
 ```py
@@ -105,3 +105,8 @@ print('StandardScaler 縮放過後資料集 X 的標準差 : ', X_test_scaled.st
 StandardScaler 縮放過後資料集 X 的平均值 :  [0.06278075 0.13235251 0.02852705 0.01837713]
 StandardScaler 縮放過後資料集 X 的標準差 :  [1.16263167 1.00446771 1.00963769 0.99513951]
 ```
+
+## 結語
+機器學習模型保存常見的套件有 pickle、joblib 這兩種。pickle 是可移植的，且可以在 Linux 下建立一個 pickle，然後將它傳送到在 Windows 或 Mac OS 下執行的 Python 程式執行。如果內容是複雜物件時，可能會遇到一些問題。joblib 相對的透過二進位編碼，優點是效率很高，讀取速度也相對 pickle 快。如果資料及過於龐大狀態下建議可以採用 joblib 套件進行資料的模型存取。
+
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/learn-sklearn-preprocessing) 中取得！
