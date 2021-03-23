@@ -18,7 +18,7 @@ keywords: sklearn preprocessing
 - X_test、y_test 當作是模型落地後實際場域收到的數值
 
 ## sklearn.preprocessing 資料前處理
-這裡我們使用 Standardization 平均&變異數標準化
+這裡我們使用 Standardization 平均&變異數標準化。我們可以先檢查 X_train 的原先分布狀況，輸入共有四個特徵因此會有四組平均值與標準差。接著我們採用 StandardScaler 來為這些資料進行平均值=0、標準差=-1的資料縮放。可以看到我們先透過 `StandardScaler().fit(X_train)` 以訓練資料集擬合做一個標準化的 `scaler`。接著透過 `scaler.transform(X_train)` 來為我們的目標資料也就是 `X_train` 進行轉換， `X_train_scaled` 即是標準化過後的訓練資料。同樣的我們可以透過 `X_train_scaled` 來查看平均值與標準差，可以發現由於是以 `X_train` 為基準縮放出來的資料所有特徵的平均值都為 0、標準差為 1。
 
 ```py
 from sklearn.preprocessing import StandardScaler
@@ -40,4 +40,68 @@ print('StandardScaler 縮放過後資料集 X_train 的標準差 : ', X_train_sc
 
 StandardScaler 縮放過後資料集 X_train 的平均值 :  [-0. -0. -0.  0.]
 StandardScaler 縮放過後資料集 X_train 的標準差 :  [1. 1. 1. 1.]
+```
+
+## 儲存Scalar
+pickle 是一個 Python 壓縮/保存/提取文件的函式庫。我們可以透過它來儲存擬合好的 Scaler。載入 `pickle` 套件後使用 `dump()` 函式來儲存，輸出以 X_train 為基準的 Scalar。檔名為 `scaler.pkl`。
+
+```py
+from pickle import dump
+
+# save the scaler
+dump(scaler, open('scaler.pkl', 'wb'))
+```
+
+## 載入Scalar
+如果其他檔案需要進行資料前處理可以直接透過 `pickle` 中的 `load()` 函式來載入 `scaler.pkl`。載入以 X_train 為基準的 Scalar，當有新的資料要測試時，資料前處理可以載入先前轉換好的Scalar直接進行transform。
+
+```py
+from pickle import load
+
+# load the scaler
+myScaler = load(open('scaler.pkl', 'rb'))
+```
+
+### 驗證載入的Scalar在訓練資料集的轉換
+可以發現透過 pickle 載入 scaler.pkl 轉換後的 X_train 平均值與標準差分別為 0 與 1。跟先前一模一樣，此步驟是確保先前 fit 的 StandardScaler參數是否有缺失。
+
+```py
+X_train_scaled = myScaler.transform(X_train)
+
+# scaled之後的資料零均值，單位方差  
+print('資料集 X_train 的平均值 : ', X_train.mean(axis=0))
+print('資料集 X_train 的標準差 : ', X_train.std(axis=0))
+
+print('\nStandardScaler 縮放過後資料集 X 的平均值 : ', X_train_scaled.mean(axis=0))
+print('StandardScaler 縮放過後資料集 X 的標準差 : ', X_train_scaled.std(axis=0))
+```
+
+```
+資料集 X_train 的平均值 :  [5.827 3.035 3.742 1.194]
+資料集 X_train 的標準差 :  [0.78049407 0.43066809 1.75272245 0.76181625]
+
+StandardScaler 縮放過後資料集 X 的平均值 :  [-0. -0. -0.  0.]
+StandardScaler 縮放過後資料集 X 的標準差 :  [1. 1. 1. 1.]
+```
+
+### 測試資料進行轉換
+我們可以發現以 X_train 為基準的 Scaler 在測試資料集 X_test 中轉換後的平均值與標準差都分別趨近於 0 與 1。
+
+```py
+X_test_scaled = myScaler.transform(X_test)
+
+# scaled之後的資料零均值，單位方差  
+print('資料集 X_test 的平均值 : ', X_test.mean(axis=0))
+print('資料集 X_test 的標準差 : ', X_test.std(axis=0))
+
+print('\nStandardScaler 縮放過後資料集 X 的平均值 : ', X_test_scaled.mean(axis=0))
+print('StandardScaler 縮放過後資料集 X 的標準差 : ', X_test_scaled.std(axis=0))
+```
+
+```
+資料集 X_test 的平均值 :  [5.876 3.092 3.792 1.208]
+資料集 X_test 的標準差 :  [0.90742713 0.43259219 1.76961465 0.75811345]
+
+StandardScaler 縮放過後資料集 X 的平均值 :  [0.06278075 0.13235251 0.02852705 0.01837713]
+StandardScaler 縮放過後資料集 X 的標準差 :  [1.16263167 1.00446771 1.00963769 0.99513951]
 ```
