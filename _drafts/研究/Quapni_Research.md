@@ -4,6 +4,10 @@
 [opencv-rect-conventions](https://stackoverflow.com/questions/57068928/opencv-rect-conventions-what-is-x-y-width-height)
 [Feature Matching + Homography to find Objects](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_feature_homography/py_feature_homography.html)
 [A Detailed Guide to the Powerful SIFT](https://www.analyticsvidhya.com/blog/2019/10/detailed-guide-powerful-sift-technique-image-matching-python/)
+[使用ARUCO_MARKERS估算物體尺寸](https://chtseng.wordpress.com/2021/02/07/%e4%bd%bf%e7%94%a8aruco_markers%e4%bc%b0%e7%ae%97%e7%89%a9%e9%ab%94%e5%b0%ba%e5%af%b8/)
+[圖像特徵比對(一)-取得影像的特徵點](https://chtseng.wordpress.com/2017/05/06/圖像特徵比對一-取得影像的特徵點/)
+[圖像特徵比對(二)-特徵點描述及比對](https://chtseng.wordpress.com/2017/05/22/圖像特徵比對二-特徵點描述及比對/)
+
 
 ```py
 # 使用 Image load image
