@@ -204,3 +204,5 @@ cmake {
 - [Android studio載入OpenCV 4.3 module](https://hjwang520.pixnet.net/blog/post/404969512-android-studio%E8%BC%89%E5%85%A5opencv-4.3-module)
 - [How to configure OpenCV in Android Studio 4.1 or higher](https://www.youtube.com/watch?v=-0Yx1UzozzQ)
 - [OpenCV Android Installation + SIFT Tutorial 2016 EASY](https://www.youtube.com/watch?v=cLK9CjQ-pNI)
+
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/android-OpenCV-SIFT) 中取得！
