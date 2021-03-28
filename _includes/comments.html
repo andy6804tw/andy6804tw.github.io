@@ -112,9 +112,12 @@
 <script>
   setTimeout(function () {
     var iframeDom = document.getElementsByTagName('iframe');
-    iframeDom[0].style.display = "none";
-    iframeDom[2].style.display = "none";
-    console.log(iframeDom);
-    console.log(iframeDom.length);
-  }, 1000);
+    for(let i=0;i<iframeDom.length;i++){
+      iframeSrc=iframeDom[i].src;
+      iframeTitle=iframeDom[i].title;
+      if(!(iframeSrc.includes('comments'))&&iframeTitle==='Disqus'){
+        iframeDom[i].style.display = 'none';
+      }
+    }
+  }, 3000);
 </script>
