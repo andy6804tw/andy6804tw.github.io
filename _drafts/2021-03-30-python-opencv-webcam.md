@@ -11,7 +11,10 @@ cap = cv2.VideoCapture(0)
 
 while(True):
   ret, frame = cap.read()
+  # 影像縮小
   frame = imutils.resize(frame, width=320)
+  # 鏡像
+  frame = cv2.flip(frame,180)
   cv2.imshow('frame', frame)
   if cv2.waitKey(1) & 0xFF == ord('q'):
     break
