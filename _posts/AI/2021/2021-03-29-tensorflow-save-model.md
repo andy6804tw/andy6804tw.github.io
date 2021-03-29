@@ -5,8 +5,6 @@ categories: 'AI'
 description: Tensorflow Keras save model
 keywords: Tensorflow Keras
 ---
-
-
 # 前言
 Tensorflow 有三種模型儲存方式。第一種是存成 checkpoint 檔(.ckpt)，使用時機是訓練過程中欲保存目前 session 狀態。第二種是存成 pb 檔(.pb)，如果模型架構已確定或是訓練已結束，準備匯出應用時，可以直接存成 pb 檔。第三種是 Keras (目前已合併到 TF2.0) 的 `save()` 直接存成 HDF5 檔(.h5)，HDF 是設計用來儲存和組織大量資料的一組檔案格式，其內容包含了模型架構與權重。本篇文章透過波士頓房價預測資料集，訓練一個 DNN 模型並示範如何匯出與載入 `.pb` 和 `.h5` 模型檔。
 
@@ -55,10 +53,14 @@ model_history = model.fit(x=x_train, y=y_train,
 model.save('./weights/boston_model.h5') 
 ```
 
+![](/images/posts/AI/2021/img1100329-1.png)
+
 #### pb 檔
 ```py
 model.save('./checkpoints/boston_model.pb')
 ```
+
+![](/images/posts/AI/2021/img1100329-2.png)
 
 ## 載入模型
 #### HDF5 檔
@@ -70,3 +72,5 @@ myModel = keras.models.load_model('./weights/boston_model.h5')
 ```py
 myModel = keras.models.load_model('./checkpoints/boston_model.pb')
 ```
+
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/tensorflow-save-model) 中取得！
