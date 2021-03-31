@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '機器學習資料前處理Scaler儲存'
+title: '機器學習資料前處理sklearn scaler模型儲存'
 categories: 'AI'
 description:
 keywords: sklearn preprocessing
