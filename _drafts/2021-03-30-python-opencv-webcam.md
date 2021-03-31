@@ -11,7 +11,7 @@ cap = cv2.VideoCapture(0)
 
 while(True):
   ret, frame = cap.read()
-  # 影像縮小
+  # 影像縮放
   frame = imutils.resize(frame, width=320)
   # 鏡像
   frame = cv2.flip(frame,180)
