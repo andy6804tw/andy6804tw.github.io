@@ -67,8 +67,8 @@ print("峰度(Kurtosis): {:.2f}".format(data['x'].kurt()))
 峰度(Kurtosis): 1.80
 ```
 
-- 中間圖右偏(正偏)，表示有少數幾筆資料很大，故平均 數>中位數，所以偏態係數SK>0。 
-- 右邊圖左偏(負偏)，表示有少數幾筆資料很小，故平均 數<中位數，所以偏態係數SK<0。　 
+- 中間圖右偏(正偏)，表示有少數幾筆資料很大，故平均 數>中位數，所以偏態係數SK>0。
+- 右邊圖左偏(負偏)，表示有少數幾筆資料很小，故平均 數<中位數，所以偏態係數SK<0。
 
 ![](/images/posts/AI/2021/img1100402-3.png)
 ![](/images/posts/AI/2021/img1100402-4.png)
@@ -121,3 +121,5 @@ Shape Of The After Ouliers:  (2897, 1)
 ![](/images/posts/AI/2021/img1100402-6.png)
 
 偏態(Skewness): -0.46
+
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/python-outliers-clean) 中取得！
