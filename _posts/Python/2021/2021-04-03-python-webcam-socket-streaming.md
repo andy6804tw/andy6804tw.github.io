@@ -9,6 +9,9 @@ keywords:
 ## 前言
 最近在實作 YOLOv4 專案，礙於硬體限制我們只能依靠雲端 GPU 來進行運算。因此要進行 Realtime Demo 會受到一些限制。例如要如何將本機的網路攝影機影像傳送到雲端伺服器上面進行辨識呢？本篇文章就透過 TCP Socket 建立一個連線機制，在本機設定一個 Client(客服端) 連線到伺服端(Server)，並同時將每個 Frame 傳送出去。最終伺服端接收到本機的影像並進行辨識，並將結果直接呈現在伺服器上面的 Jupyter Notebook 上。
 
+## YouTube Tutorial
+[<img src="https://github.com/1010code/python-webcam-socket-streaming/raw/main/screenshot/cover.png" width="550px">](https://www.youtube.com/watch?v=MQ8JfdvA7Yk)
+
 ## 什麼是 Socket？
 - 兩個互相溝通的程序之間的任一端點
 - 作為發送和接收的端點
