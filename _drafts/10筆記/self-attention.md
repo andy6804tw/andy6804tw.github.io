@@ -23,4 +23,33 @@ self-attention 要解決什麼問題呢？到目前為止我們所遇到的神�
 
 ![](https://i.imgur.com/LDe7mjQ.png)
 
-第二種可能的輸出是我們一整個 Senquence 只需要輸出一個標籤就好。舉例來說如果是文字的語意分析，透過給定一串文字，來判定這一句話是正面還是負面。或是聽一段聲音判斷是誰講的話。
+第二種可能的輸出是我們一整個 Senquence 只需要輸出一個標籤就好。舉例來說如果是文字的語意分析，透過給定一串文字，來判定這一句話是正面還是負面。或是聽一段聲音判斷是誰講的話。如果是Graph的話，今天我們給予一個分子，接著要預測這個分子是否有毒性。
+
+![](https://i.imgur.com/Mr4anpp.png)
+
+第三種輸出是我們不知道應該輸出多少個標籤，藉由機器自己決定應該要輸出多少標籤。這種任務又稱為 sequence to sequence 的任務。最簡單的例子就是機器翻譯，或是機器對答系統。
+
+![](https://i.imgur.com/aQ8KKaC.png)
+
+## Sequence Labeling(幾個輸入對應幾個輸出)
+Sequence Labeling 要給定 Sequence 裡面的每一個向量都給予一個標籤。最直捷的方法就是建立一個 Fully connected 網路，雖然輸入是一個 sequence，把每個向量分別輸入到全連接層的神經網路裡面，然後各自得到相對應輸出。但這會出現一些問題，如果輸入一個句子辨識詞性，在全連接模型網路無法評估前後文做出比較好的輸出。
+
+![](https://i.imgur.com/U8hViQZ.png)
+
+有沒有可能讓 Fully connected 網路考慮上下文的Context的資訊呢？我們把前後幾個向量串起來一起丟入 Fully connected 網路就可以了。但是我們能考慮整個 input sequence 的資訊嗎？這就要用到 self-attention 這個技術。
+
+self-attention 的運作方式是模型會吃一整個 Sequence 的資訊，輸入幾個向量它就輸出幾個向量。這幾個輸出的向量都是考慮一整個 Sequence 以後才得到的。我們再把這個有考慮整個句子的向量丟入 Fully connected 網路，然後再來決定他應該是什麼樣的結果。有關 self-attention 最知名的相關文章，就是 Attention is all you need。在這篇論文裡 Google 提出了 Transformer 這樣的網路架構。然而 Transformer 裡面一個最重要的 Module 就是 self-attention。最早提出的相關是 self-maching。
+
+![](https://i.imgur.com/AOKB8Vx.png) 
+
+self-attention 的輸入是一串的向量，這些向量可能是整個網路的輸入，也可能是某個 Hidden Layer 的輸出。輸入一排a向量後，self-attention 要輸出涼一排b向量。至於每一個b都是考慮了所有a才生成出來的。
+
+![](https://i.imgur.com/eHrS2zO.png)
+
+接下來要說明怎麼產生 b1 向量。第一個步驟是根據 a1 找出這個 sequence 裡面，跟 a1 相關的其他向量。做 self-attention 的目的就是為了要考慮整個 sequence，但是我們又不希望把整個 sequence 的所有資訊都包在一個 window 裡面。因此我們有特別的機制是根據a1向量，找出整個很長的 sequence 裡面有哪些部分是重要的。每一個向量跟a1的關聯程度我們用一個數值 α 表示，那要如何去計算 a1跟a2~a4的 α 呢？
+
+![](https://i.imgur.com/E1lYpP2.png)
+
+這裡我們就必須要有一個計算 attention 的模組。它就是拿兩個向量作為輸入，然後他就直接輸出 α 那個數值作為兩個向量的關聯程度。計算 α 數值有很多種方法，比較常見的做法就是 dot product，左邊的向量乘上wq矩陣右邊乘上wk矩陣得到q和k向量。之後qk進行 dot product 也就是做 element wise 的相乘在全部相加起來就會得到 α。另一種 Additive 的計算方式是計算得到 qk 並將它串起來進入一個激發函數接著近一個轉換輸出得到 α。
+
+![](https://i.imgur.com/27Y4sNx.png)
