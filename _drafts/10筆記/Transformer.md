@@ -1,5 +1,6 @@
 # 影片課程
-[NTU ML Course](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML20.html)
+[NTU ML Course 2020](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML20.html)
+[NTU ML Course 2021](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)
 [STAT 157, UC Berkeley, Spring, 2019](https://courses.d2l.ai/berkeley-stat-157/index.html)
 
 ## 線上資源
@@ -25,3 +26,5 @@
 
 
  
+ ## 待觀看課程
+ [ML Lecture 14: Unsupervised Learning - Word Embedding](https://www.youtube.com/watch?v=X7PH3NuYW0Q)
