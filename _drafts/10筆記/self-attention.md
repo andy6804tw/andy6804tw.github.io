@@ -53,3 +53,6 @@ self-attention 的輸入是一串的向量，這些向量可能是整個網路�
 這裡我們就必須要有一個計算 attention 的模組。它就是拿兩個向量作為輸入，然後他就直接輸出 α 那個數值作為兩個向量的關聯程度。計算 α 數值有很多種方法，比較常見的做法就是 dot product，左邊的向量乘上wq矩陣右邊乘上wk矩陣得到q和k向量。之後qk進行 dot product 也就是做 element wise 的相乘在全部相加起來就會得到 α。另一種 Additive 的計算方式是計算得到 qk 並將它串起來進入一個激發函數接著近一個轉換輸出得到 α。
 
 ![](https://i.imgur.com/27Y4sNx.png)
+
+## Reference
+[【機器學習2021】自注意力機制 (Self-attention) (上)](https://www.youtube.com/watch?v=hYdO9CscNes)
