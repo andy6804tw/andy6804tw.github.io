@@ -42,7 +42,7 @@ self-attention 的運作方式是模型會吃一整個 Sequence 的資訊，輸�
 
 ![](https://i.imgur.com/AOKB8Vx.png) 
 
-self-attention 的輸入是一串的向量，這些向量可能是整個網路的輸入，也可能是某個 Hidden Layer 的輸出。輸入一排a向量後，self-attention 要輸出涼一排b向量。至於每一個b都是考慮了所有a才生成出來的。
+self-attention 的輸入是一串的向量，這些向量可能是整個網路的輸入，也可能是某個 Hidden Layer 的輸出。輸入一排a向量後，self-attention 要輸出另一排b向量。至於每一個b都是考慮了所有a才生成出來的。
 
 ![](https://i.imgur.com/eHrS2zO.png)
 
