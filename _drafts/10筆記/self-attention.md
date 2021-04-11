@@ -1,4 +1,8 @@
+## 前言
+### 何謂 self-attention
+self-attention 要做的事情就是給定一排向量，得到另一排輸出的向量。
 
+## 教學
 self-attention 要解決什麼問題呢？到目前為止我們所遇到的神經網路的輸入都是一個向量，不管是數值型預測、影像...等。然而輸出可能是一個連續數值(Regression)或是類別(Classfication)。假設我們遇到更複雜的問題，他的輸入是一排向量，而且輸入的向量數目是會改變的呢(sequence的長度數目不一樣)？
 
 ![](https://i.imgur.com/eiJmkK0.png)
@@ -53,6 +57,28 @@ self-attention 的輸入是一串的向量，這些向量可能是整個網路�
 這裡我們就必須要有一個計算 attention 的模組。它就是拿兩個向量作為輸入，然後他就直接輸出 α 那個數值作為兩個向量的關聯程度。計算 α 數值有很多種方法，比較常見的做法就是 dot product，左邊的向量乘上wq矩陣右邊乘上wk矩陣得到q和k向量。之後qk進行 dot product 也就是做 element wise 的相乘在全部相加起來就會得到 α。另一種 Additive 的計算方式是計算得到 qk 並將它串起來進入一個激發函數接著近一個轉換輸出得到 α。
 
 ![](https://i.imgur.com/27Y4sNx.png)
+
+a1*Wq 得到 q1，這邊稱作 query。接下來 a2、a3、a4 都要去把它乘上 wk 得到 k 這個向量，這邊稱作 key。我們把 q1 跟 k2 算 inner product 就會得到 α12，稱之為 a1 對 a2 的 Attention Score。α13 和 α14 計算方式以此類推。其實在一般實作時 q1 也會跟自己算關聯性，因此我們也會將 a1*wk 得到 k1，把 q1 跟 k1 去計算他自己的關聯性 α11。最後我們計算出 α1 跟每一個向量的關聯性後，接下來這邊會做一個 Soft-Max，與分類時所做的 Soft-Max 相同。我們把這裡的所有 α 乘上 Exponential，然後再把 Exponential 的全部加起來做 Normalize 得到 α'。這裡不一定要使用 Soft-Max，我們可以用別的激發函數來取代。得到所有 α' 以後，我們就要根據 α' 去抽取出這個 Sequence 裡面重要的資訊。根據 α 我們已經知道哪些向量是跟 a1 最有關係的。接下來我們要根據這個關聯性(Attention分數)來抽取重要資訊。怎麼抽取重要資訊呢？我們會把 a1 到 a4 這邊每一個向量乘上 wv 得到新的向量，因此對得到 v1~v4 向量。接下來把剛得到的 v1~v4 都去乘上 Attention 的分數(α')，然後再相加起來得到 b1。那你可以想說，如果某一個向量得到的分數越高，比如說 a1 跟 a2 的關聯性很強，他的 α'12 就會很高。那我們做加權和(weighted sum)後得到 b1 的值就可能會比較接近 v2。因此誰的 Attention 分數最大，誰的 v 就會抽取較多資訊。以上說明怎麼從一整個 Sequence 得到 b1。
+
+![](https://i.imgur.com/OYKiRYv.png)
+
+> b1~b4 它們是一次同時被計算出來的
+
+接下來我們從矩陣乘法的角度，再重新看一次 self-attention 是怎麼運作的。a1~a4 分別要產生 qkv 矩陣。a1~a4 分別乘上 wq 得到 q1~q4。我們可以把 a1~a4 合併起來看作是一個矩陣，這個矩陣用 I 來表示。那 I 乘上 wq 就得到另一個矩陣 Q，這個 Q 就是 q1~q4。所以 a1~a4 得到 q1~q4 這一件事情可以由 I 矩陣來表示所有的輸入，乘上另外一個矩陣 wq，那 wq 其實就是網路的參數，最終得到 Q(q1~q4)。K 與 V 的操作方式與 Q 一模一樣。所以每一個 a 怎麼得到 qkv 呢？其實就是把輸入的 Sequence 向量(I)乘上三個不同的矩陣(wq、wk、wv)，就會得到 QKV。
+
+![](https://i.imgur.com/C1R0piq.png)
+
+這些 attention 的分數是怎麼來的？你可以看作是兩個矩陣相乘，一個矩陣的 row 就是 k1~k4 為 K，另一個矩陣他的 column 就是 q1~q4 為 Q。 K*Q 就會得到 attention 的分數。最後我們會在 attention 的分數做一下 normalization 比如說會做 softmax。會針對 A 每一個 column 做 softmax。
+
+![](https://i.imgur.com/w08Ctmb.png)
+
+我們已經計算出來 α' 以後，我們要來計算輸出 b。他的計算方式就是 v1~v4 合併起來成為 V，乘上 A' 第一個 column 就會得到 b1。接下來以此類推A' 第二個 column 就會得到 b2...。所以 A' 矩陣乘上 V 矩陣得到 O 矩陣，O 這個矩陣裡面的每一個 column 就是 self-attention 的輸出，也就是 b1~b4。
+
+![](https://i.imgur.com/dnpJ9py.png)
+
+所以簡單來說我們產生了 q、k、v 然後再根據這個 q 去找出相關的位置，然後再對 v 做加權和。其實這一串操作就是一連串的矩陣乘法而已。以下圖為例 I 是 self-attention 的輸入，是一連串的向量。這個 I 分別乘上三個矩陣 Wq、Wk、Wv，得到 QKV 這三個矩陣。接下來 Q 乘上 K 的轉置，得到 A 矩陣。之後再將 A 矩陣進行 normalization(做softmax) 得到 A'(Attention Matrix)。然後接下來把 A' 再乘上 V 就得到 O 就是 self-attention 這個 layer 的輸出。那你會發現這個 self-attention 做了一個很複雜的操作，但其實 self-attention layer 裡面唯一需要學習的參數就只有 Wq、Wk、Wv 而已。是需要透過我們的訓練資料把他的未知權重找出來。
+
+![](https://i.imgur.com/iTXh5Zp.png)
 
 ## Reference
 [【機器學習2021】自注意力機制 (Self-attention) (上)](https://www.youtube.com/watch?v=hYdO9CscNes)
