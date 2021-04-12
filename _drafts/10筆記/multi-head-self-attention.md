@@ -1,0 +1,3 @@
+# multi-head-self-attention
+
+self-attention 有一個進階的版本叫做 multi-head self-attention。這個 head 的數量為超參數，需要自己去調。那為什麼我們需要比較多的 head 呢？我們在做 self-attention 的時候，就是用 q 去找相關的 k。但是相關這件事情有很多不同的形式，所以也許我們不能只有一個 q。我們應該要有多個 q，不同的 q 負責不同種類的相關性。以下解釋兩個 multi-head 的 self-attention 運作模式。首先跟原本一樣把 a 乘上一個矩陣得到 q，接下來再把 q 乘上另外兩個矩陣，分別得到 q1 跟 q2 代表我們有兩個 head。我們認為這個問題有兩種不同的相關性，所以我們要產生兩種不同的 head 來找兩種不同的相關性。既然 q 有兩個，那 k 與 v 也會有兩個。因此 q k v 得到後各乘上兩個矩陣得到不同的 head。最後 q k v 得到兩組後，計算 self-attention 的方式跟之前一樣。1 那一類的一起做，2 那一類的一起做 self-attention。
