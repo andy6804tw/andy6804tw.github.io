@@ -90,4 +90,3 @@ Type-2 fuzzy logic
 [What is Fuzzy Logic in AI and What are its Applications?](https://www.edureka.co/blog/fuzzy-logic-ai/#fuzzy)
 ## Reference
 - [FUZZY LOGIC PROJECTS](https://phdtopic.com/fuzzy-logic-projects/)
-
