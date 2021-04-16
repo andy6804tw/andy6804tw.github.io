@@ -8,4 +8,8 @@ Seq2seq 模型 Encoder 要做的事情，就是給一排向量輸出另外一排
 
 ![](https://i.imgur.com/5B8pf7h.png)
 
-Encoder 裡面會分成很多的 block，每一個 block 都是輸入一排向量輸出一排向量。
+Encoder 裡面會分成很多的 block，每一個 block 都是輸入一排向量輸出一排向量給另一個 block，直到最後一個 block 輸出最終的 vector sequence。至於每一個 block 其實並不是神經網路的一層。這邊之所以不稱說每一個 block 是一個 layer，是因為每一個 block 裡面的的事情是好幾個 layer 在做的事情。在 Transformer 的 Encoder 裡面，每一個 block 做的事情大約如下。輸入一排向量以後先做一個 self-attention 考慮整個 sequence 的資訊，輸出另一排向量。接下來這一排向量會丟到全連接層的網路，再輸出另外一排向量。此時的向量就是 block 的輸出。
+
+![](https://i.imgur.com/xlZJYjf.png)
+
+事實上在原來的 transformer 裡面他做的事情是更複雜的。輸入一排向量經過 self-attention 後輸出的向量它是考慮所有的輸入以後所得到得結果。在 Transformer 裡面他加入了一個設計，我們不只輸出這個向量，我們同時還要把這個向量加上他的輸入。
