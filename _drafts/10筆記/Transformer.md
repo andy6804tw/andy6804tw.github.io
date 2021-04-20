@@ -20,6 +20,7 @@
 [深度學習中的注意力機制 (一)](https://www.mdeditor.tw/pl/poqR/zh-tw)
 [深度學習中的注意力機制 (二)](https://www.mdeditor.tw/pl/pjyD/zh-tw)
 [深度學習中的注意力機制 (三)](https://www.mdeditor.tw/pl/ggUm/zh-tw)
+[Seq2seq pay Attention to Self Attention: Part 1 (簡報參考)](https://medium.com/@bgg/seq2seq-pay-attention-to-self-attention-part-1-中文版-2714bbd92727)
 
 ## 輪文
 [AAAI21 Informer:最強最快的序列預測神器](https://mp.weixin.qq.com/s/RRv-DVm6SguQ5GC5oruf8Q)
