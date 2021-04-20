@@ -24,3 +24,7 @@
 - [轉職筆記大全](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
 
 - [由淺入深的深度學習資源整理](https://leemeng.tw/deep-learning-resources.html)
+
+
+## 人工智慧
+[2021年DL/ML自學資源統整](https://axk51013.medium.com/2021年dl-ml自學資源統整-52b39d097770)
