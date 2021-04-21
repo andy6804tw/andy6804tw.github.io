@@ -9,7 +9,7 @@ keywords: Android Developers
 ## 前言
 本文將教您如何更改 APP 狀態欄顏色。
 
-<img src="/images/posts/android/2021/img1100405-1.gif" width="250px">
+<img src="/images/posts/android/2021/img1100405-1.png" width="250px">
 
 ## MainActivity.java
 開起 `MainActivity.java` 並加入以下幾行程式碼。透過 `this.getWindow()` 取得視窗物件，接著透過 `window.setStatusBarColor()` 來設定狀態列顏色。
