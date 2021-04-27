@@ -81,6 +81,8 @@ Type-2 fuzzy logic
 - [Deep-Neuro-Fuzzy for image classfication](https://github.com/SonbolYb/Deep-Neuro-Fuzzy)
 - [A Deep Neuro-Fuzzy Network for Image Classification](https://github.com/SonbolYb/Deep-Neuro-Fuzzy)
 - [Hybrid Deep Learning Type-2 Fuzzy Logic Systems For Explainable AI](https://ieeexplore.ieee.org/document/9177817)
+- [Fuzzy Pruning for Compression of Convolutional Neural Networks](https://ieeexplore.ieee.org/document/8858894)
+- [Using Fuzzy Inference system for detection the edges of Musculoskeletal Ultrasound Images](https://ieeexplore.ieee.org/document/8858971)
 
 ## Paper Resource
 [Recent papers in Fuzzy Logic](https://www.academia.edu/Documents/in/Fuzzy_Logic)
