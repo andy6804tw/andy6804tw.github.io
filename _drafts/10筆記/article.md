@@ -28,3 +28,4 @@
 
 ## 人工智慧
 [2021年DL/ML自學資源統整](https://axk51013.medium.com/2021年dl-ml自學資源統整-52b39d097770)
+[機器學習祖師Andrew Ng 3/25 MLops 演講筆記與補充 別再用Model的角度想事情](https://axk51013.medium.com/andrew-ng-3-25-mlops-演講筆記與補充-c9252350e9aa)
