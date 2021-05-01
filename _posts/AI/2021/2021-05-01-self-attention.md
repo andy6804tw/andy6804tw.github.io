@@ -1,3 +1,11 @@
+---
+layout: post
+title: '[學習筆記] 李宏毅課程 Self-Attention 機制解說'
+categories: 'AI'
+description:
+keywords: machine learning 2021 spring ntu
+---
+
 ## 前言
 本篇文章來至於台大李宏毅教授2021機器學習課程影片，記錄了課程重點與摘要。更多課程內容可以從[這裡](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)取得。
 
