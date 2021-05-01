@@ -1,4 +1,6 @@
 ## 前言
+本篇文章來至於台大李宏毅教授2021機器學習課程影片，記錄了課程重點與摘要。更多課程內容可以從[這裡](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)取得。
+
 ### 何謂 self-attention
 self-attention 要做的事情就是給定一排向量，得到另一排輸出的向量。
 
@@ -91,3 +93,7 @@ a1*Wq 得到 q1，這邊稱作 query。接下來 a2、a3、a4 都要去把它乘
 
 ## Reference
 [【機器學習2021】自注意力機制 (Self-attention) (上)](https://www.youtube.com/watch?v=hYdO9CscNes)
+
+[【機器學習2021】自注意力機制 (Self-attention) (下)](https://www.youtube.com/watch?v=gmsMY5kc-zw)
+
+[簡報](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/normalization_v4.pdf)
