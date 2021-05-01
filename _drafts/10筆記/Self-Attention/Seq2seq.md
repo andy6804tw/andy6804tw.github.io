@@ -1,3 +1,10 @@
+---
+layout: post
+title: '[學習筆記] 李宏毅課程 Transformer 機制解說'
+categories: 'AI'
+description:
+keywords: machine learning 2021 spring ntu
+---
 # Seq2seq
 一般的 sequence to sequence 他裡面會分成兩塊，一塊是 Encoder 另一塊是 Decoder 所組成的。Seq2seq 模型起源於 2014 年 9 月，用在翻譯文章被放到 [Arxiv](https://arxiv.org/abs/1409.3215) 上，當時的架構是透過 RNN 的 LSTM 實作。但是現今所提到的 Seq2seq 模型通常是在說含有 self-attention 的 Transformer 架構。
 
