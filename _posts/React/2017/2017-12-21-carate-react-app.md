@@ -6,59 +6,58 @@ description: 'Create React app 使用介紹'
 keywords: React.js
 ---
 
+更新時間: 2021/05/04
 # Create React app
 Create React app 是由 Facebook 自己所開源的 start kit 在 [GitHub](https://github.com/facebookincubator/create-react-app) 上可以下載下來使用，初學習 React 建議從這包工具開始下手，裡面是由官方和一些 React 的社群共同維護的專案包。
 
 ## 下載使用
-在 clone 之前先確保你的電腦已安裝或更新 Node.js，下載完成後安裝 create-react-app 的全域變數。
+在 clone 之前先確保你的電腦已安裝或更新 Node.js，新的版本不需安裝全域指令。如果先前電腦有安裝 `npm install -g create-react-app` 的讀者建議使用前先移除 `npm uninstall -g create-react-app` 確保接下來都是使用最新的內容。
 
-#### 1. 安裝全域變數
-
-```bash
-  yarn global add create-react-app
-  ```
-
-#### 2. 初始化專案
+#### 1. 透過 npm init 初始化專案
+此用法跟初始化 Node.js 的 `package.json` 很相似，用法更簡單。`my-app` 可以自行更改成你要的專案名稱。
 
 ```bash
-create-react-app [專案名稱]
-cd [專案名稱]
+npm init react-app my-app
 ```
 
-#### 3. 測試執行
+> npm init <initializer> is available in npm 6+
 
-開啟你熟悉的編譯器執行程式碼
+輸入上面指令後，會在當前目錄下建立 `my-app` 資料夾。在該資料夾裡，將自動生成初始專案結構，並安裝相關的 dependencies 套件。
+
+#### 2. 測試執行
+開啟你熟悉的編譯器進入該資料夾下並，輸入以下指令執行程式碼。
 
 ```bash
-yarn start
+npm start
 ```
 
 執行後你會發現它會自動幫你逮開瀏覽器並監聽 3000 port，此檔案會持續監聽當你有資料更改時會自動重新 reload 是不是很方便。
 
-<img src="/images/posts/react//2017/img1061213-1.png">
+<img src="/images/posts/react/2017/img1061213-1.png">
 
-<img src="/images/posts/react//2017/img1061213-2.png">
+<img src="/images/posts/react/2017/img1061213-2.png">
 
 ## 了解專案架構
 
 ```bash
-┌── node_modules
-├── public
-│   ├── favicon.ico  // 網頁 icon
-│   ├── index.html 
-│   └── manifest.json // 網頁相關設定
-├── src
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
-│   └── registerServiceWorker.js
-├── .gitignore
-├── package.json // 管理整包來源的檔案
+my-app
 ├── README.md
-└── yarn.lock
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
+    └── setupTests.js
 ```
 
 - index.js 渲染元件
