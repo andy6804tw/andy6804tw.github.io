@@ -104,4 +104,4 @@ a1*Wq 得到 q1，這邊稱作 query。接下來 a2、a3、a4 都要去把它乘
 
 [【機器學習2021】自注意力機制 (Self-attention) (下)](https://www.youtube.com/watch?v=gmsMY5kc-zw)
 
-[簡報](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/normalization_v4.pdf)
+[簡報](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/seq2seq_v9.pdf)
