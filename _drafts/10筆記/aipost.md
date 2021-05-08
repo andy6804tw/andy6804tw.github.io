@@ -98,3 +98,5 @@ https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F
 [圖像分割漲點技巧！](https://bangqu.com/v15Mh9.html?fbclid=IwAR3dRRI5TK01j4LaywVwqzyOa0vq893Hxz2_ZS0NirByg6tTbsZ2wz1Z9N8)
 
 [要欺騙AI判讀影像很簡單，只要寫張紙條給他告訴你是誰就行](https://www.techbang.com/posts/85040-openai-machine-vision-adversarial-typographic-attacka-clip?fbclid=IwAR1op1tLv_fXDU38wnuHG71BGVTF6n1or7WTvykB2V3ug7FjxXTd-UH3q0o)
+
+[台南智慧城市](https://fb.watch/5lOMgVrH3-/)
