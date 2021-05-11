@@ -19,6 +19,8 @@
 - [黑客(2016) Hacker](https://www.youtube.com/watch?v=WuW8Nnzas78): 描述一個移民家庭男孩加入黑網，遇到一位女子加入進行銀行犯罪。殊不知原來是要將黑網頭頭繩之以法。男主角最終才知道女子真實身份。
 - [我是誰：沒有絕對安全的系統](): 德國電影，主角小明被誤認有多重人格。從口證中的故事混淆警察，Clar集團的小明最後把魔王MAX揪出繩之以法。最終也逃出通緝，回歸現實世界與clar成員和女神逍遙法外。
 
+- [玩命直播](): Vee捲入直撥遊戲，與陌生人Ian 他們倆的大冒險直播，從剛開始的好玩刺激，到逐漸走向失控。最終把整個遊戲伺服關閉。
+
 AI 電影 https://www.finereport.com/tw/data-analysis/huati-1.html 
 駭客電影 https://kknews.cc/zh-tw/news/x3ea9o.html
  
