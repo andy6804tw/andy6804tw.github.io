@@ -31,3 +31,4 @@ AI 電影 https://www.finereport.com/tw/data-analysis/huati-1.html
 黃銅茶壺
 隔離島
 阿呆與阿瓜：賤招拆招
+超能絕殺
