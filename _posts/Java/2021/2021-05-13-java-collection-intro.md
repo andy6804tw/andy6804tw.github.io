@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Java筆記] 李宏毅課程 Self-Attention 機制解說'
+title: '[Java筆記] Java Collection 介紹'
 categories: 'Java'
 description:
 keywords: Java Collection
