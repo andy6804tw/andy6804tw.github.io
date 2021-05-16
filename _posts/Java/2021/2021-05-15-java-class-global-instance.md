@@ -3,7 +3,7 @@ layout: post
 title: '[Java筆記] 全域變數 Global instances of class'
 categories: 'Java'
 description:
-keywords: Global instances of class
+keywords:
 ---
 
 ## 前言
