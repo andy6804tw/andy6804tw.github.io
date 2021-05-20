@@ -107,7 +107,7 @@ print(listofzeros)
 myList = ['apple', 'box', 'cat', 'dog']
 ```
 
-#### 方法ㄧ
+#### 方法一
 ```py
 # 方法ㄧ
 for i in range(len(myList)):
