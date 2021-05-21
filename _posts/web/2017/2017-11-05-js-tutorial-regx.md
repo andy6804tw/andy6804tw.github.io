@@ -15,8 +15,8 @@ keywords: JavaScript
 
 | 字元      | 描述        | 字元                 
 |----------|-------------|-------------|
-Email	|[a-zA-Z0-9_]+@[a-zA-Z0-9._]+	|ccc@kmit.edu.tw
-URL	|http://[a-zA-Z0-9./_]+	|http://ccc.kmit.edu.tw/mybook/
+Email	|[a-zA-Z0-9_]+@[a-zA-Z0-9._]+	|andy6804tw@gmail.com
+URL	|https://[a-zA-Z0-9./_]+	|https://andy6804tw.github.io/
 
 ## 表達式一覽
 
