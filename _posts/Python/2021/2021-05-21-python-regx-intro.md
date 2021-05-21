@@ -37,7 +37,11 @@ URL	|https://[a-zA-Z0-9./_]+	|https://andy6804tw.github.io/
 我這邊只列出常見使用到的表達，需要更詳細可以參考[這篇文件](https://www.w3schools.com/python/python_regex.asp)
 
 ## 範例
-看了上面這麼多規則想定霧煞煞，下面就用 Python 語法帶各位逐一解析，這邊會使用到 `re.search(String)` 函示他會回傳比對結果。
+看了上面這麼多規則想定霧煞煞，下面就用 Python 語法帶各位逐一解析，這邊會使用到 `re.search(String)` 函示他會回傳比對結果。在 Python 語言中記得要引入 re 的內建函式庫。
+
+```py
+import re
+```
 
 #### Example 1
 
@@ -94,4 +98,28 @@ print(re.search('[python].+\d', 'pbbb2')) # 回傳 <re.Match object; span=(0, 5)
 print(re.search('[0-9]|[a-z]', '?')) # 回傳 None
 print(re.search('[0-9]|[a-z]', '?100')) # 回傳 <re.Match object; span=(1, 2), match='1'>
 print(re.search('[0-9]|[a-z]', '?abc')) # 回傳 <re.Match object; span=(1, 2), match='a'>
+```
+
+#### Example 5 
+最後一個範例我們要將一個字串中的所有常數提取出來。
+
+```py
+# 方法一
+print(re.findall('[-\d]+', '12and-3or456'))
+```
+
+```py
+# 方法二
+print(re.findall('[^a-z]+', '12and-3or456'))
+```
+
+```py
+# 方法三
+replaced_string = re.sub(r'[a-zA-Z]', ' ', '12and-3or456')
+replaced_string.split()
+```
+
+```py
+# 輸出結果
+['12', '-3', '456']
 ```
