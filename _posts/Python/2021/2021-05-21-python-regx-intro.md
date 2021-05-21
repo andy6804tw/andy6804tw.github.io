@@ -67,3 +67,31 @@ print(re.search('^[0-9]+', 'a123')) # 回傳 None
 print(re.search('\w+', '1abc_d')) # 回傳 <re.Match object; span=(0, 1), match='1'>
 print(re.search('\W+', '1abc_d')) # 回傳 None
 ```
+
+#### Example 3
+
+這個例子是判斷段該字串是否有出現的字母:
+- 第一行檢查該字串是否包含 p 或 v 或 t 或 h 或 o 或 n
+- 第二行是檢查該字串第一個字是否包含 p 或 v 或 t 或 h 或 o 或 n，及第二個字是否包含數字(記住此組合是連續的故b2不符合)
+- 第三行就是解決第二行例子故中間加一個 `.` ，這個帶俵可以讓中間有一個字母隨意
+- 第四行與五可做相對應主要是允許中間有多個隨意字母輸入，第三行緊只能一個字母
+
+```py
+print(re.search('[python]', 'pca')) # 回傳 <re.Match object; span=(0, 1), match='p'>
+print(re.search('[python]\d', 'pb2')) # 回傳 None
+print(re.search('[python].\d', 'pb2')) # 回傳 <re.Match object; span=(0, 3), match='pb2'>
+print(re.search('[python].\d', 'pbbb2')) # 回傳 None
+print(re.search('[python].+\d', 'pbbb2')) # 回傳 <re.Match object; span=(0, 5), match='pbbb2'>
+```
+
+#### Example 4
+
+這個例子是 or 比對判斷，提供兩個正規表示其中一個成立即可:
+- 第一行都沒有數字或字母故回傳 false
+- 第二與第三行分別個出現數字和字母故回傳 true
+
+```py
+print(re.search('[0-9]|[a-z]', '?')) # 回傳 None
+print(re.search('[0-9]|[a-z]', '?100')) # 回傳 <re.Match object; span=(1, 2), match='1'>
+print(re.search('[0-9]|[a-z]', '?abc')) # 回傳 <re.Match object; span=(1, 2), match='a'>
+```
