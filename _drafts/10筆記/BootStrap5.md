@@ -8,7 +8,9 @@
 ## 第一堂筆記
 [筆記1](https://hackmd.io/5n842VpbSeWWLHfV0aBBKQ)
 [筆記2](https://hackmd.io/SE4Odt9lTGaPlqCDoI2xtA)
+[筆記3](https://www.notion.so/fac9867d6703418389b677c9347b44fd#04bf518a5c61471aa33bd6a3dd0c14ce)
 
 
 ## 其他影音
 [伸縮自如的 RWD 排版術](https://www.youtube.com/watch?v=t13Fvg0_xHk&list=PLYrA-SsMvTPN27YtCTQ4zEefHNFgH9EHv&index=3)
+[RWD 網站的 PC 優先與手機優先之寫法介紹](https://youtu.be/g6xbo55ubC0)
