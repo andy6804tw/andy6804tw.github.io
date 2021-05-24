@@ -220,7 +220,7 @@ h1{
 }
 ```
 
-> Ans: 綠色 (element style 權重最大)
+> Ans: 綠色 (element style 權重大於 id)
 
 ### 總結
 最後做個總結，如果要查看 CSS 的觸發結果。先觀察他的權種大小，再看 CSS 的程式先後順序。
