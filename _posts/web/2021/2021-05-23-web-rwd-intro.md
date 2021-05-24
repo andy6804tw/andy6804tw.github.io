@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'RWD 網頁起手式'
+title: '響應式網站設計-RWD入門教學'
 categories: 'Web'
-description: 
-keywords: 
+description: Responsive Web Design
+keywords: RWD
 ---
 
 ## 前言

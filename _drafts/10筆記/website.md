@@ -2,6 +2,7 @@
 - https://www.awwwards.com/
 - https://dribbble.com/
 - https://www.cssdesignawards.com/
+- https://hackmd.io/@hexschool/BJFB1N6DO
 
 [台灣旅行趣](https://taiwan.sharelife.tw/)
 
@@ -26,3 +27,7 @@
 [UI Design](https://codepen.io/oliviale)
 
 [桂冠天竺鼠車車](https://www.laurel-molcar.com/)
+
+[日本抹茶](https://ippukuandmatcha.jp/)
+
+[日本frontage](https://www.frontage.jp/)
