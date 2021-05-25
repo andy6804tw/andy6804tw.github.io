@@ -5,8 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *,*:before,*::after{
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 1140px;
+  height: 200px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin:0 auto;
+}
+.row{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.menu{
+  width: 30%;
+  background: pink;
+}
+.content{
+  width: 70%;
+  background: green;
+}
+@media(max-width:992px){
+  .container{
+    max-width: 940px;
+  }
+}
+@media(max-width:768px){
+  .container{
+    max-width: 720px;
+  }
+  .menu{
+   width: 100%;
+  }
+  .content{
+    width: 100%;
+  }
+}
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="row">
+          <div class="menu">
+            <h2>menu</h2>
+          </div>
+          <div class="content">
+           <h2>content</h2>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
