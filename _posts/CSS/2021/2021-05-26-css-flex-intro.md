@@ -11,6 +11,18 @@ Flex 是一種網頁排版方式，現今大多數網頁都會使用 CSS 的 Fle
 
 ![](/images/posts/css/2021/img1100526-1.png)
 
+Flex 外容器屬性：
+- display
+- flex-direction
+- flex-wrap
+- justify-content
+- align-items
+
+Flex 內元件屬性：
+- flex
+  - flex-grow
+  - flex-shrink
+  - flex-basis
 
 ## 觀察 display: block 特性
 在談談 flex 之前我們先來觀察 block 屬性。在預設的 `<div>` 標籤都是 `display: block` 代表每一個區塊是獨自佔滿一列，並填滿瀏覽器寬或是父元素的寬。如下圖為一個簡單範例，建立三個 `class="item"` 的 `<div>` 標籤，並無設定 item 寬預設會自己繼承父元素(也就是`class="container"`)。因為父元素 `container` 沒有設定寬，因此寬度會自己預設 100% 也就是符合瀏覽器的寬。
