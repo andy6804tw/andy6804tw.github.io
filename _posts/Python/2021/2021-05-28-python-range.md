@@ -9,9 +9,9 @@ keywords:
 ## 前言
 如果你需要 For 迴圈疊代一個數列的話，使用內建 `range()` 函式就很方便。如果需要建立一個有序的數列(ex: 1, 2, 3...)。就不適合用內建 `range()` 函式。那兩者關係為何？本篇文章就會帶給你一些對於 range 的基礎觀念。
 
-## 內建 `range()`
+### 內建 `range()`
 我們可以看一下在內建 `range(start, stop, step)` 函式。裡面有一些參數可以設定:
-- start: 計數從start 開始。默認是從0 開始。例如range（5）等價於range（0， 5）;
+- start: 計數從start 開始。預設是從0 開始。例如range（5）等價於range（0， 5）;
 - stop: 計數到stop 結束，但不包括stop。例如：range（0， 5） 是[0, 1, 2, 3, 4]沒有5
 - step：步長，預設為1。例如：range（0， 5） 等價於range(0, 5, 1)
 
@@ -34,7 +34,7 @@ for i in range(3):
     print(i)
 ```
 
-## 使用其他套件
+### 使用其他套件
 我們可以使用 `numpy` 進行實作。
 
 ```py
