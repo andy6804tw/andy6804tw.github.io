@@ -44,5 +44,5 @@ Flex 可以將內容物的所有元素並排成一列，使用時機是在父元
 
 ## 小結
 `flex-direction` 預設是 `row` 也就是由左至右。如果希望從又到左排版可以使用 `row-reverse`。
-其他範例可以參考[MDN Doc](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
+其他範例可以參考[MDN Doc](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)。
 
