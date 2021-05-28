@@ -2,14 +2,14 @@
 layout: post
 title: '[Python 新手村] 進階用法整理'
 categories: 'Python'
-description: 'Python basic tip about List'
+description: 'Python advance tip'
 keywords: 
 ---
 
 # 前言
 
 ## 串列 (List)
-#### 常數串列轉成字串型態
+常數串列轉成字串型態
 
 ```py
 myLlist = [1, 2, 3]
@@ -17,7 +17,7 @@ newList = [str(i) for i in myLlist]
 newList # ['1', '2', '3']
 ```
 
-#### 字串類型 List 轉成整數List
+字串類型 List 轉成整數List
 
 ```py
 myLlist = ['1', '2', '3']
@@ -25,7 +25,7 @@ newList = [int(i) for i in myLlist]
 newList # [1, 2, 3]
 ```
 
-#### 字串類型 List 轉成字串變數
+字串類型 List 轉成字串變數
 
 ```py
 myLlist = ['1', '2', '3']
@@ -33,7 +33,7 @@ newString = ''.join(myLlist)
 newString # '123'
 ```
 
-#### 字串類型 List 轉成整數變數
+字串類型 List 轉成整數變數
 
 ```py
 myLlist = ['1', '2', '3']
