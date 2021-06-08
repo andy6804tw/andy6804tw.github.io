@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Python TensorFlow2 儲存自定義 Graph 模型並轉成 tfjs'
+title: 'Python TensorFlow2 儲存自定義 Graph 模型並轉成 tfjs'
 categories: 'AI'
 description:
 keywords: Graphing Model Created with Model Subclassing
@@ -63,6 +63,11 @@ net_1 = tf.saved_model.load('checkpoint')
 net_1(np.array([a[0.6, 0.2]], np.float32)).numpy()
 ```
 
+```
+# output
+array([2.0581021], dtype=float32)
+```
+
 ## 轉換成 tensorflowjs
 此步驟將剛剛匯出的 TensorFlow 模型架構與權重轉換成 `Tensorflow.js` 格式。首先我們要安裝 tensorflowjs 套件，請開啟翁端機執行以下指令下載：
 
@@ -83,3 +88,52 @@ tensorflowjs_converter --input_format=tf_saved_model ./checkpoint ./tfjs_model
 ```
 
 ![](/images/posts/AI/2021/img1100607-3.png)
+
+## 前端網頁載入 TensorFlow 模型
+我們這裡需要建立一個靜態網頁，讀取剛剛所匯出的 `tfjs_model` 可以認得的模型架構與權重。此範例程式可以從[這裡](https://github.com/1010code/tefnorflow-graph-model-tutorial/tree/main/web-demo)取得。
+
+### 載入 CDN
+請在網頁的 `index.html` 的 body 內最後一行引入 `TensorFlow.js` 所需的函示庫。另外我們在 body 標籤中加入了 `<body onload="init()">`  onload 事件，代表網頁載入時會觸發 `init()` 函式並進行模型載入的動作。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web-demo</title>
+</head>
+<body onload="init()">
+    
+    <h2>Tensorflow.js load model.</h2>
+    Please press F12 to open Developer tools. And see inference result.
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.7.0"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
+```
+
+### 前端 JavaScript
+我們建立一個 `index.js` 來負責讀取模型以及推論。首先 `init()` 函式負責模型載入初始化。由於我們打包的模型是靜態圖架構，並非大家常見的 Keras 模型。因此載入一定要使用 `tf.loadGraphModel()` 才能成功載入。另外一個 `predict()` 函式是進行模型推論預測的動作。首先建立一個 `tensor` 變數並給予正確的輸入陣列。使用 `model.predict()` 進行預測，此時回傳結果會是一個張量的型態。因此可以透過 `dataSync()` 將預測結果取出來，此時就會得到一個陣列。
+
+```js
+async function init(){
+    model= await tf.loadGraphModel('./tfjs_model/model.json');
+    console.log('load model...');
+    predict();
+}
+
+function predict(){
+    let tensor=tf.tensor([[0.6, 0.2]]);
+    // 預測 
+    const pred = model.predict(tensor);
+    const result = pred.dataSync();
+    console.log(result[0])
+}
+```
+
+![](/images/posts/AI/2021/img1100607-4.png)
+
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/tefnorflow-graph-model-tutorial) 中取得！
