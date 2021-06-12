@@ -16,5 +16,3 @@
 6. Secondly there’s the issue of model drift, where the algorithm is supposed to produce a certain type of result but just starts heading in the wrong direction. (模型學習方向錯誤)
 7. 中國在數據搜集上佔有優勢
 8. 
-
-
