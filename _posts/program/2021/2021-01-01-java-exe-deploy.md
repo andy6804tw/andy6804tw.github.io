@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[JAVA] 使用 javac 編譯並執行'
+title: '[JAVA] Java exe deploy'
 categories: 'Program'
 description: 
 keywords: JAVA .exe
