@@ -7,7 +7,9 @@ keywords: Graphing Model Created with Model Subclassing
 ---
 
 ## 前言
-筆者最近有個專案使用 PyTorch 搭建自定義網路訓練模型，但最近業主想要模型在網頁上推論。這裡提供常見兩種做法，第一種是撰寫 API 將模型部署在伺服器。這種做法優點是快速簡單，直接透過 Python Flask 建立 API。並取得預測結果傳回前端使用者，其缺點是每筆 API Request 都是一筆花費。第二種方式就是將模型放在前端網頁的 JavaScript 中，透過使用者的裝置進行本地預測。如果要用網頁直接呼叫模型預測，最常見做法就是使用 `TensorFlow.js`。當然這也有 Python 與 JavaScript 轉換的坑(看本文就對了)。或是使用 PyTorch 訓練模型，並透過 `ONNX` 轉換格式並在網頁上使用 `onnx.js` 執行。
+筆者最近有個專案使用 PyTorch 搭建自定義網路訓練模型，但最近業主想要模型在網頁上推論。這裡提供常見兩種做法:
+
+第一種是撰寫 API 將模型部署在伺服器。這種做法優點是快速簡單，直接透過 Python Flask 建立 API。並取得預測結果傳回前端使用者，其缺點是每筆 API Request 都是一筆花費。第二種方式就是將模型放在前端網頁的 JavaScript 中，透過使用者的裝置進行本地預測。如果要用網頁直接呼叫模型預測，最常見做法就是使用 `TensorFlow.js`。當然這也有 Python 與 JavaScript 轉換的坑(看本文就對了)。或是使用 PyTorch 訓練模型，並透過 `ONNX` 轉換格式並在網頁上使用 `onnx.js` 執行。
 
 本篇文章將示範 Python TensorFlow 2 使用 `subclassing` 自定義(Graph)神經網路。並將模型打包成 `TensorFlow.js` 提供網頁進行模型載入與預測。
 
