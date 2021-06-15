@@ -162,7 +162,7 @@ RNN 最特別的一點是它有記憶的神經網路。RNN做的內容就是假�
 [科技大觀園-模糊理論](https://scitechvista.nat.gov.tw/c/s9Oc.htm)
 [ANFIS: Adaptive Network-Based. Fuzzy Inference System](https://homepage.iis.sinica.edu.tw/~jdwei/ai2011/PPT/ANFIS.pdf)
 [What is Fuzzy Logic in AI and What are its Applications?](https://www.edureka.co/blog/fuzzy-logic-ai/#fuzzy)
-
+[使用 Python 編寫基於模糊邏輯的 AI 股票預測系統](https://botnotes.net/2021/02/15/fuzzy-stock/)
 
 ## Material
 What is the greatest achievement of fuzzy theory in the all applications area and scientific work?
