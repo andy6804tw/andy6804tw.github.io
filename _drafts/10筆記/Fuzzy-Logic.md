@@ -117,6 +117,14 @@ Modeling Techniques](https://arxiv.org/pdf/cs/0405011.pdf)
 #### Back-propagation fuzzy system
 - [Back-propagation fuzzy system as nonlinear dynamic system identifiers](https://ieeexplore.ieee.org/document/258711)
 
+## Coding
+- [[Python] FuzzyLogicToolBox](https://github.com/Luferov/FuzzyLogicToolBox)
+- [[Python] scikit-fuzzy ](https://github.com/scikit-fuzzy/scikit-fuzzy)
+- [[MATLAB] Fuzzy Logic Toolbox](https://www.mathworks.com/products/fuzzy-logic.html)
+- [[Java] Library for the Fuzzy Markup Language](http://www.uco.es/JFML/)
+- [An ANFIS framework for PyTorch](http://www.cs.nuim.ie/~jpower/fuzz-poster.pdf)
+- [[Java Tool] VisualFMLTool](http://kws.nutn.edu.tw/fml/)
+
 ## Future Research
 ### 使用遷移學習（Transfer Learning）應用於 ANFIS
 由於帶標記的訓練樣本數量有限。比如，處理受試者A領域（target domain）生理訊號的情緒分類問題時，缺少足夠的訓練樣本。同時，與A領域相關的B領域（source domain），擁有大量的訓練樣本(情緒標記)，但B領域與A領域處於不同的特徵空間或樣本服從不同的分佈。這時使用知識遷移（knowledge transfer）是一個不錯的選擇[1]，即把B領域中的知識遷移到A領域中來，提高A領域分類效果，不需要花大量時間去標註A領域數據。遷移學習，做為一種新的學習範式，被提出用於解決這個問題。
