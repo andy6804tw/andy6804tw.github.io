@@ -76,7 +76,9 @@ Encoder 裡面會分成很多的 block，每一個 block 都是輸入一排向�
 
 ![](https://i.imgur.com/4GrIjMj.png)
 
-這個複雜的 Block 其實就是 Bert 模型裡面中的 transformer encoder。你要自行設計 Encoder 架構也行，例如在 On Layer Normalization in the Transformer Architecture 中討論 Layer norm 的位置應該放哪比較好。下圖 (a) 是原始的 Transformer，右圖 (B) 是更換 Layer norm 順序的 Transformer 結果是較好的。
+這個複雜的 Block 其實就是 Bert 模型裡面中的 transformer encoder。你要自行設計 Encoder 架構也行，例如在 [On Layer Normalization in the Transformer Architecture](https://arxiv.org/abs/2002.04745) 中討論 Layer norm 的位置應該放哪比較好。下圖 (a) 是原始的 Transformer，右圖 (B) 是更換 Layer norm 順序的 Transformer 結果是較好的。
+
+另外你可能會想為何要 Layer norm？有更好的方法嗎？這篇 [PowerNorm: Rethinking Batch Normalization in Transformers](https://arxiv.org/abs/2003.07845) 5翁會先討論為何 Batch norm 不如 Layer norm。接下來他提出 Power norm 效果能更好。
 
 ## Reference
 [【機器學習2021】Transformer (上)](https://www.youtube.com/watch?v=n9TlOhRjYoc)
