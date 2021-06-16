@@ -38,6 +38,22 @@ Seq2seq 在自然語言處理的領域使用的非常廣泛。我們可以將所
 
 > [深度學習與人類語言處理 NTU 2020 Spring](https://speech.ee.ntu.edu.tw/~hylee/dlhlp/2020-spring.html)
 
+其實有很多的應用你不覺得他是 Seq2seq 的問題，但你可以硬用 Seq2seq 來解。舉例來說文法頗析，例如給機器一段文字，機器要產生文法的頗析樹。輸出是一個樹狀結構可以把它看成是 Seq2seq，如下圖所示：
+
+![](https://i.imgur.com/2GTag7P.png)
+
+我們可以把文法頗析，當作是一個翻譯問題。參考以下論文。
+
+[Oriol Vinyals, "grammar as a foreign language", arxiv, Dec 2014.](https://arxiv.org/abs/1412.7449)
+
+還有一些任務也可以用 Seq2seq，舉例來說 Multi-label Classfication 這問題會與 Multi-class Classfication 搞混。Multi-class Classfication 是指機器要從數個x欸別當中去找出一個適合的種類作為輸出。但是 Multi-label Classfication 意思是指同一個東西他可以屬於多個類別種類。最常見的問題就是文章分類，輸入一篇文章輸出機器自己判斷有幾個類別。
+
+![](https://i.imgur.com/5FZpsG6.png)
+
+再者就是物件辨識透過 Seq2seq 硬解。
+
+![](https://i.imgur.com/W6MiVna.png)
+
 # Seq2seq
 一般的 sequence to sequence 他裡面會分成兩塊，一塊是 Encoder 另一塊是 Decoder 所組成的。Seq2seq 模型起源於 2014 年 9 月，用在翻譯文章被放到 [Arxiv](https://arxiv.org/abs/1409.3215) 上，當時的架構是透過 RNN 的 LSTM 實作。但是現今所提到的 Seq2seq 模型通常是在說含有 self-attention 的 Transformer 架構。
 
