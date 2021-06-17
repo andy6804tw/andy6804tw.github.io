@@ -4,8 +4,8 @@
 [STAT 157, UC Berkeley, Spring, 2019](https://courses.d2l.ai/berkeley-stat-157/index.html)
 
 ## 線上資源
-[Dive into Deep Learning](https://d2l.ai/chapter_attention-mechanisms/index.html)
-[ai-scholar](https://ai-scholar.tech/en/category/transformer)
+1. [Dive into Deep Learning](https://d2l.ai/chapter_attention-mechanisms/index.html)
+2. [ai-scholar](https://ai-scholar.tech/en/category/transformer)
 
 # 相關文章 
 [Attention Mechanism詳細介紹：原理、分類及應用](https://zhuanlan.zhihu.com/p/31547842)
