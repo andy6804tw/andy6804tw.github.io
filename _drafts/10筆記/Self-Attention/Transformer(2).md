@@ -25,4 +25,8 @@ Decoder 最常見有兩種，首先我們先來看 Autoregressive 的 Decoder。
 
 在討論 Masked Multi-Head Attention 前先看一下原本的 self-attention(圖左架構)。正常的 self-attention 是輸入一排向量輸出另一排向量，這一排向量的每個輸出都必須看過完整的輸入才做決定。也就是說輸出 b1 時必須先看過 a1~a4 資訊，輸出 b2 時也要看過 a1~a4 完整的資訊。當我們轉換成 Decoder 中的 Masked self-attention(圖右架構) 他的不同點在於，不需要完整看全部的 a1~a4 資訊。也就是產生 b1 的時候，我們只能考慮 a1 的資訊。產生 b2 的時候，只能考慮 a1 和 a2 的資訊。以此類推直到產生 b4 時才能考慮所有輸入資訊。
 
-![]()
+![](https://i.imgur.com/fmIAKY4.png)
+
+更具體的說假設我們要產生 b2 時，需要拿 q2 去跟 k1 和 k2 計算 attention。由於是 Masked Multi-Head Attention 因此在計算 b2 時 k3 和 k4 就忽略，因為被遮起來了。為何需要加 masked 呢？因為在 Decoder 是一個一個輸出，因此會先有 a1 再有 a2 ... 直到 a4。而在原來 Encoder 的 self-attention 是一次 a1~a4 整個讀進去。
+
+![](https://i.imgur.com/Sx8s2PE.png)
