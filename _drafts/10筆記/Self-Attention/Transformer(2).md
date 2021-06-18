@@ -60,3 +60,20 @@ Non-autoregressive 的優點是平行化。假設 Autoregressive 要輸出 100 �
 接下來我們來探討 Encoder 和 Decoder 之間是如何傳遞資訊。也就是下圖中紅色那塊 Cross attention，它是連接 Encoder 和 Decoder 之間的橋樑。Cross attention 中有兩個輸入是來自於 Encoder，Decoder 提供一個輸入。
 
 ![](https://i.imgur.com/cJWdsGs.png)
+
+首先 Encoder 輸入一個向量，然後輸出另一個向量 a1~a3。接下來輪到 Decoder 會先輸入一個起始字元(BEGIN) 進入 Self-Attention(Mask) 得到一個輸出向量，此時這個向量會乘上另一個矩陣做轉換得到一個 query(q)。我們會將 Decoder 產生的 q 與 Encoder 的 k1~k3 去計算 attention 分數，並做個 softmax 得到 a'1~a'3。接下來再將 a'1、a'2、a'3 乘上 v1~v3 再把它 waighted sum 加總起來得到 v。此時的 v 就會丟進全連接網路做接下來處理。以上步驟稱為 Cross attention，q 來自於 Decoder k 和 v 來自 Encoder。Decoder 的 q 去 Encoder 中萃取資訊，當作 Decoder 裡面的 FC 網路的輸入。
+
+![](https://i.imgur.com/VBRSVPu.png )
+
+以下論文是最早提出 Cross attention 的方法應用在語音辨識，並使用 Seq2seq 模型並採用 LSTM 架構。
+
+![](https://i.imgur.com/Pcdj3TV.png)
+
+[Listen, attend and spell: A neural network for large vocabulary conversational speech recognition](https://ieeexplore.ieee.org/document/7472621)
+
+Decoder 的每層輸出都是拿 Encoder 最後一層的輸出。在原始論文是這樣沒錯，也有其他論文嘗試不同的 Cross attention 方式。不一定要拿最後一層的 Decoder 做 attention。
+
+![](https://i.imgur.com/KGEw3Tc.png)
+
+[Layer-Wise Multi-View Decoding for Natural Language Generation](https://arxiv.org/abs/2005.08081)
+
