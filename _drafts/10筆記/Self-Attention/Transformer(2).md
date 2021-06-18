@@ -61,7 +61,7 @@ Non-autoregressive 的優點是平行化。假設 Autoregressive 要輸出 100 �
 
 ![](https://i.imgur.com/cJWdsGs.png)
 
-首先 Encoder 輸入一個向量，然後輸出另一個向量 a1~a3。接下來輪到 Decoder 會先輸入一個起始字元(BEGIN) 進入 Self-Attention(Mask) 得到一個輸出向量，此時這個向量會乘上另一個矩陣做轉換得到一個 query(q)。我們會將 Decoder 產生的 q 與 Encoder 的 k1~k3 去計算 attention 分數，並做個 softmax 得到 a'1~a'3。接下來再將 a'1、a'2、a'3 乘上 v1~v3 再把它 waighted sum 加總起來得到 v。此時的 v 就會丟進全連接網路做接下來處理。以上步驟稱為 Cross attention，q 來自於 Decoder k 和 v 來自 Encoder。Decoder 的 q 去 Encoder 中萃取資訊，當作 Decoder 裡面的 FC 網路的輸入。
+首先 Encoder 輸入一個向量，然後輸出另一個向量 a1~a3。接下來輪到 Decoder 會先輸入一個起始字元(BEGIN) 進入 Self-Attention(Mask) 得到一個輸出向量，此時這個向量會乘上另一個矩陣做轉換得到一個 query(q)。我們會將 Decoder 產生的 q 與 Encoder 的 k1~k3 去計算 attention 分數，並做個 softmax 得到 a'1~a'3。接下來再將 a'1、a'2、a'3 乘上 v1~v3 再把它 waighted sum 加總起來得到 v。此時的 v 就會丟進全連接網路做接下來處理。以上步驟稱為 Cross attention，q 來自於 Decoder; k 和 v 來自 Encoder。Decoder 的 q 去 Encoder 中萃取資訊，當作 Decoder 裡面的 FC 網路的輸入。
 
 ![](https://i.imgur.com/VBRSVPu.png )
 
