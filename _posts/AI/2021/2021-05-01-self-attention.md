@@ -81,6 +81,7 @@ a1*Wq 得到 q1，這邊稱作 query。接下來 a2、a3、a4 都要去把它乘
 ![](https://i.imgur.com/Dehd0U8.png)
 
 這些向量 a 可能是整個網路的輸入，也可能是某個 Hidden Layer 的輸出。而 b1~b4 它們是一次同時被計算出來的。
+
 ![](https://i.imgur.com/OYKiRYv.png)
 
 接下來我們從矩陣乘法的角度，再重新看一次 self-attention 是怎麼運作的。a1~a4 分別要產生 qkv 矩陣。a1~a4 分別乘上 wq 得到 q1~q4。我們可以把 a1~a4 合併起來看作是一個矩陣，這個矩陣用 I 來表示。那 I 乘上 wq 就得到另一個矩陣 Q，這個 Q 就是 q1~q4。所以 a1~a4 得到 q1~q4 這一件事情可以由 I 矩陣來表示所有的輸入，乘上另外一個矩陣 wq，那 wq 其實就是網路的參數，最終得到 Q(q1~q4)。K 與 V 的操作方式與 Q 一模一樣。所以每一個 a 怎麼得到 qkv 呢？其實就是把輸入的 Sequence 向量(I)乘上三個不同的矩陣(wq、wk、wv)，就會得到 QKV。
