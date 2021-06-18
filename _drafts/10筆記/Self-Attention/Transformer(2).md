@@ -30,3 +30,33 @@ Decoder 最常見有兩種，首先我們先來看 Autoregressive 的 Decoder。
 更具體的說假設我們要產生 b2 時，需要拿 q2 去跟 k1 和 k2 計算 attention。由於是 Masked Multi-Head Attention 因此在計算 b2 時 k3 和 k4 就忽略，因為被遮起來了。為何需要加 masked 呢？因為在 Decoder 是一個一個輸出，因此會先有 a1 再有 a2 ... 直到 a4。而在原來 Encoder 的 self-attention 是一次 a1~a4 整個讀進去。
 
 ![](https://i.imgur.com/Sx8s2PE.png)
+
+## Autoregressive
+Decoder 必須自己決定輸出 sequence 的長度，因此我們必須在字典中新增結束的符號。下圖為典型的 Autoregressive 的 Decoder 運作模式。當輸入稻作後一個字時 Decoder 看到 Encoder 輸出的 Embedding 以及 Decoder 中的起始字元、機、器、學、習。看到這些資訊以後 Decoder 要知道這個語音辨識結果，已經結束了不需要再產生詞彙了。此時最後輸出的結束字元機率要最高。以上動作就是 Decoder 的 Autoregressive 運作模式。
+
+![](https://i.imgur.com/HV8sqVh.png)
+![]https://i.imgur.com/GQTAMTc.png()
+
+## Non-autoregressive (NAT)
+如下圖所示，Autoregressive 的運作模式是輸入一個起始字元(BEGIN)，輸出 w1。接著再把 w1 當作輸入得到 w2 輸出，直到輸出 END 為止。至於 Non-autoregressive 並非一次產生一個輸出，而是一次把整個句子輸出。他是吃一排 BEGIN Token，假設丟入四個 BEGIN 就會產生四個字的輸出。這裡你可能會有個疑問，通常不是不知道輸出的長度嗎？那這裡我們該如何知道要放多少的 BEGIN Token?最常見的做法是另外訓練一個 Classifier 吃 Encoder 的輸入，輸出是一個數字代表 Decoder 要輸出的長度。另一個方法是輸入一堆 BEGIN Token，假設有 300 個 BEGIN Token 接著從這 300 輸出種尋找是否有結束符號(END)。
+
+- 該如何決定 Non-autoregressive 輸出的長度
+    - 訓令一個神經網路預測輸出長度
+    - 輸入一堆 BEGIN Token，尋找結束符號
+
+Non-autoregressive 的優點是平行化。假設 Autoregressive 要輸出 100 個字的句子，就需要做 100 次的 Decode。但是 Non-autoregressive 的 Decoder 並非如此。NAT 不管句子長度如何都是一個步驟輸入一排 BEGIN Token，就輸出相對應的句子輸出。因此在速度上 NAT 的 Decoder 會跑的比 AT 快。自從有了 self-attention 後， NAT 的 Decoder 算是目前熱門的研究主題。最後一個 NAT 的好處是比較容易去控制輸出長度。
+
+![](https://i.imgur.com/8ZBGMZt.png)
+
+語音合成常見模型的 Encoder:
+- Autoregressive
+    - [Tacotron: Towards End-to-End Speech Synthesis](https://arxiv.org/abs/1703.10135)
+- Non-autoregressive
+    - [FastSpeech: Fast, Robust and Controllable Text to Speech](https://arxiv.org/abs/1905.09263)
+
+因為 NAT 的 Decoder 它的 Performance 往往都不如 AT 的 Decoder，因此近期有很多研究試圖讓 NAT Decoder 的 Performance 越來越好。試圖逼近 AT 的 Decoder。為何 NAT 的 Decoder 訓練結果會比較差呢？這攸關到 Multi-modality 的問題，可以參考這部[影片](https://www.youtube.com/watch?app=desktop&v=jvyKmU4OM3c&feature=youtu.be)。
+
+## Encoder-Decoder
+接下來我們來探討 Encoder 和 Decoder 之間是如何傳遞資訊。也就是下圖中紅色那塊 Cross attention，它是連接 Encoder 和 Decoder 之間的橋樑。Cross attention 中有兩個輸入是來自於 Encoder，Decoder 提供一個輸入。
+
+![](https://i.imgur.com/cJWdsGs.png)
