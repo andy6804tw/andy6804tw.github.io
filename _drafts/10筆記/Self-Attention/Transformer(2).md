@@ -77,3 +77,15 @@ Decoder 的每層輸出都是拿 Encoder 最後一層的輸出。在原始論文
 
 [Layer-Wise Multi-View Decoding for Natural Language Generation](https://arxiv.org/abs/2005.08081)
 
+## Transformer Training
+接下來就要講 Transformer 是如何訓練的。如何讓機器學習到輸入一串音訊，就能吐出一串文字呢？首先需要進行資料標注動作，每一段音訊都要標注相對應的文字。假設我們在 Decoder 輸入一個起始字元，他的輸出的"機"這個字元的機率要越大越好。每次預測出來的一串機率都會與 Ground true 的 one-hot 向量進行 corss entropy 計算，目標使得 loss 越小越好。它的學習方法跟我們常見的分類器非常相似。每次在 Decoder 產生一個中文字的時候，其實就是做一次分類的問題。
+
+![](https://i.imgur.com/LyZkwvg.png)
+
+所以實際上訓練假設知道輸出是`機器學習`，我們在訓練過程中必須告訴 Decoder 四個輸出分別為`機器學習`這四個中文字的 one-hot 向量。我們希望 Decoder 的輸出要與這四個字的 one-hot 向量越接近越好，因此在訓練的時候每一個輸出都會計算 cross entropy。目標是希望這些輸出的 loss 總合要越小越好。除此之外我們還要考慮第五個斷句的符號，目標是輸出四個字後就停止。另外值得一提的是在訓練過程中將每次 Decoder 的輸入給予正確答案，這件事情稱作 Teacher Forcing。
+
+![](https://i.imgur.com/G9yVfga.png)
+
+## 訓練 Seq2seq 的 tips
+### 1. Copy Mechanism
+對很多任務而言
