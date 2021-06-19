@@ -88,4 +88,22 @@ Decoder 的每層輸出都是拿 Encoder 最後一層的輸出。在原始論文
 
 ## 訓練 Seq2seq 的 tips
 ### 1. Copy Mechanism
-對很多任務而言
+對很多任務而言也許 Decoder 沒有必要自己創造輸出，需要做的事情也許是從輸入裡面複製一些東西出來。像這種複製輸入的行為在哪些任務會用上呢？第一個例子是聊天機器人，也許輸入句子有包含未知的人名。Decoder 可以直接參考輸入句子並作適當的輸出。
+
+![](https://i.imgur.com/CXC0SBx.png)
+
+或者是做摘要的時候，模型讀一篇文章要產生整篇文章的重點。通常要訓練讓機器說出合理的句子，基本上要準備百萬篇的資料。這種摘要問題也是屬於 Copy Mechanism 問題，複製輸入文章進行篩選並改寫。
+
+![](https://i.imgur.com/1ode858.png)
+
+> [Get To The Point: Summarization with Pointer-Generator Networks](https://arxiv.org/abs/1704.04368)
+
+早期從輸入的資料有複製能力的模型稱作 Pointer Network，可以參考以下影片資訊。後來有變形稱作 copy network，參考以下論文可以知道 Seq2seq 模型怎麼從輸入複製東西到輸出。
+
+[影片: Pointer Network](https://www.youtube.com/watch?app=desktop&v=VdOyqNQ9aww&feature=youtu.be)
+[Incorporating Copying Mechanism in Sequence-to-Sequence Learning](https://arxiv.org/abs/1603.06393)
+
+### 2. Guided Attention
+對語音辨識或語音合成 Guided Attention 是一個很重要的技術。有時候我們的輸入模型行在輸出中會被 miss 掉，我們能否強迫它將輸入的每一個東西都看過。Guided Attention 要做的就是，要求機器在 attention 的過程是有固定的方式。舉例來說在語音合成時我們想像中的 attention 是由左至右，透過 Guided Attention 可以讓 attention 有固定的樣貌。把 attention 由左至右的限制放進訓練模型裡面，要求機器學到 attention 就應該由左至右。相關的技術有 Montonic Attention 和 Location-aware attention。
+
+![](https://i.imgur.com/gvN7woX.png)
