@@ -20,11 +20,11 @@ self-attention 有一個進階的版本叫做 multi-head self-attention。這個
 
 ![](https://i.imgur.com/4jfotwi.png)
 
-到目前為止你可能會發現 self-attention 的 layer 它少了一個很重要的資訊，就是位置。對 self-attention 而言，輸入 sequence 的 a1~a4 的順序完全沒任何差別，因為他是各自獨立運算。對模型來說 a1 和 a4 的距離並沒有特別遠的意義，所有的位置距離都是一模一樣的。但這樣的的設計可能會發生一些問題，因為有時候位置的資訊也很重要。舉例來說我們在做 POS tagging(詞性標記)，也許你知道動詞比較不容易出現在句首。所以在做 self-attention 的時候，如果你覺得位置的資訊是一個很重要的事情，那你可以將位置的資訊加進去。怎麼把位置的資訊加進去呢？這邊就要用到一個叫做 positional enciding 的技術。為每一個位置設定一個向量，這裡用 ei 表示。每一個不同的位置就有不同的向量，再把 ei 加到 ai 上就可以了。每一個位置都有專屬的 e，希望夠過給予每一個不同位置的 e，模型在處理輸入的時候就能知道他的位置資訊。這裡的 positional 向量是人工設定的。在 attention is all you need 這邊論文 positional vector 是透過 sin cos 的 function 所產生的。這個 positional enciding 能然是一個尚待研究的問題，甚至可以透過資料學習。
+到目前為止你可能會發現 self-attention 的 layer 它少了一個很重要的資訊，就是位置。對 self-attention 而言，輸入 sequence 的 a1~a4 的順序完全沒任何差別，因為他是各自獨立運算。對模型來說 a1 和 a4 的距離並沒有特別遠的意義，所有的位置距離都是一模一樣的。但這樣的的設計可能會發生一些問題，因為有時候位置的資訊也很重要。舉例來說我們在做 POS tagging(詞性標記)，也許你知道動詞比較不容易出現在句首。所以在做 self-attention 的時候，如果你覺得位置的資訊是一個很重要的事情，那你可以將位置的資訊加進去。怎麼把位置的資訊加進去呢？這邊就要用到一個叫做 positional encoding 的技術。為每一個位置設定一個向量，這裡用 ei 表示。每一個不同的位置就有不同的向量，再把 ei 加到 ai 上就可以了。每一個位置都有專屬的 e，希望夠過給予每一個不同位置的 e，模型在處理輸入的時候就能知道他的位置資訊。這裡的 positional 向量是人工設定的。在 attention is all you need 這邊論文 positional vector 是透過 sin cos 的 function 所產生的。這個 positional encoding 能然是一個尚待研究的問題，甚至可以透過資料學習。
 
 ![](https://i.imgur.com/QYpn2J3.png)
 
-positional enciding 可以參考 [[論文] Learning to Encode Position for Transformer with Continuous Dynamical Model](https://arxiv.org/abs/2003.09229) 這篇文獻。裡面比較跟提出新的 positional enciding。如下圖每一個位置都是 row 橫著看，每個 row 代表一個位置 (a) 為透過 sin function 所產生的 (b) 是透過神經網路學習出來的 (c) 為本論文提出的 FLOATER 特別的網路學習 (d) 透過 RNN 學習。
+positional encoding 可以參考 [[論文] Learning to Encode Position for Transformer with Continuous Dynamical Model](https://arxiv.org/abs/2003.09229) 這篇文獻。裡面比較跟提出新的 positional encoding。如下圖每一個位置都是 row 橫著看，每個 row 代表一個位置 (a) 為透過 sin function 所產生的 (b) 是透過神經網路學習出來的 (c) 為本論文提出的 FLOATER 特別的網路學習 (d) 透過 RNN 學習。
 
 ![](https://i.imgur.com/1sNzVDe.png)
 
@@ -40,7 +40,7 @@ Transformer 和 BERT 是大家耳熟能詳的透過 self-attention 在 NLP 上�
 
 ![](https://i.imgur.com/qKrDBTM.png)
 
-以上 self-attention 跟 CNN 的關係可以從一篇論文得知 [[論文] On the Relationship between Self-Attention and Convolutional Layers](https://arxiv.org/abs/1911.03584)。它會用數學的方式嚴謹的方式告訴你，其實 CNN 就是 self-attention 的特例。self-attention 只要設定合適的參數，他會做到跟 CNN 一模一樣的事情。所以 self-attention 只要透過某些設計與限制，它救會變成 CNN。既然 CNN 是 self-attention 的一個子集，self-attention 比較 flexibel。
+以上 self-attention 跟 CNN 的關係可以從一篇論文得知 [[論文] On the Relationship between Self-Attention and Convolutional Layers](https://arxiv.org/abs/1911.03584)。它會用數學的方式嚴謹的方式告訴你，其實 CNN 就是 self-attention 的特例。self-attention 只要設定合適的參數，他會做到跟 CNN 一模一樣的事情。所以 self-attention 只要透過某些設計與限制，它就會變成 CNN。既然 CNN 是 self-attention 的一個子集，self-attention 比較 flexibel。
 
 ![](https://i.imgur.com/OlFoSkK.png)
 
