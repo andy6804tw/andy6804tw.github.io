@@ -50,9 +50,9 @@ Non-autoregressive 的優點是平行化。假設 Autoregressive 要輸出 100 �
 
 語音合成常見模型的 Encoder:
 - Autoregressive
-    - [Tacotron: Towards End-to-End Speech Synthesis](https://arxiv.org/abs/1703.10135)
+    - [[論文] Tacotron: Towards End-to-End Speech Synthesis](https://arxiv.org/abs/1703.10135)
 - Non-autoregressive
-    - [FastSpeech: Fast, Robust and Controllable Text to Speech](https://arxiv.org/abs/1905.09263)
+    - [[論文] FastSpeech: Fast, Robust and Controllable Text to Speech](https://arxiv.org/abs/1905.09263)
 
 因為 NAT 的 Decoder 它的 Performance 往往都不如 AT 的 Decoder，因此近期有很多研究試圖讓 NAT Decoder 的 Performance 越來越好。試圖逼近 AT 的 Decoder。為何 NAT 的 Decoder 訓練結果會比較差呢？這攸關到 Multi-modality 的問題，可以參考這部[影片](https://www.youtube.com/watch?app=desktop&v=jvyKmU4OM3c&feature=youtu.be)。
 
@@ -69,13 +69,13 @@ Non-autoregressive 的優點是平行化。假設 Autoregressive 要輸出 100 �
 
 ![](https://i.imgur.com/Pcdj3TV.png)
 
-[Listen, attend and spell: A neural network for large vocabulary conversational speech recognition](https://ieeexplore.ieee.org/document/7472621)
+[[論文] Listen, attend and spell: A neural network for large vocabulary conversational speech recognition](https://ieeexplore.ieee.org/document/7472621)
 
 Decoder 的每層輸出都是拿 Encoder 最後一層的輸出。在原始論文是這樣沒錯，也有其他論文嘗試不同的 Cross attention 方式。不一定要拿最後一層的 Decoder 做 attention。
 
 ![](https://i.imgur.com/KGEw3Tc.png)
 
-[Layer-Wise Multi-View Decoding for Natural Language Generation](https://arxiv.org/abs/2005.08081)
+[[論文] Layer-Wise Multi-View Decoding for Natural Language Generation](https://arxiv.org/abs/2005.08081)
 
 ## Transformer Training
 接下來就要講 Transformer 是如何訓練的。如何讓機器學習到輸入一串音訊，就能吐出一串文字呢？首先需要進行資料標注動作，每一段音訊都要標注相對應的文字。假設我們在 Decoder 輸入一個起始字元，他的輸出的"機"這個字元的機率要越大越好。每次預測出來的一串機率都會與 Ground true 的 one-hot 向量進行 corss entropy 計算，目標使得 loss 越小越好。它的學習方法跟我們常見的分類器非常相似。每次在 Decoder 產生一個中文字的時候，其實就是做一次分類的問題。
@@ -96,14 +96,25 @@ Decoder 的每層輸出都是拿 Encoder 最後一層的輸出。在原始論文
 
 ![](https://i.imgur.com/1ode858.png)
 
-> [Get To The Point: Summarization with Pointer-Generator Networks](https://arxiv.org/abs/1704.04368)
+[[論文]  Get To The Point: Summarization with Pointer-Generator Networks](https://arxiv.org/abs/1704.04368)
 
 早期從輸入的資料有複製能力的模型稱作 Pointer Network，可以參考以下影片資訊。後來有變形稱作 copy network，參考以下論文可以知道 Seq2seq 模型怎麼從輸入複製東西到輸出。
 
 [影片: Pointer Network](https://www.youtube.com/watch?app=desktop&v=VdOyqNQ9aww&feature=youtu.be)
-[Incorporating Copying Mechanism in Sequence-to-Sequence Learning](https://arxiv.org/abs/1603.06393)
+[[論文] Incorporating Copying Mechanism in Sequence-to-Sequence Learning](https://arxiv.org/abs/1603.06393)
 
 ### 2. Guided Attention
 對語音辨識或語音合成 Guided Attention 是一個很重要的技術。有時候我們的輸入模型行在輸出中會被 miss 掉，我們能否強迫它將輸入的每一個東西都看過。Guided Attention 要做的就是，要求機器在 attention 的過程是有固定的方式。舉例來說在語音合成時我們想像中的 attention 是由左至右，透過 Guided Attention 可以讓 attention 有固定的樣貌。把 attention 由左至右的限制放進訓練模型裡面，要求機器學到 attention 就應該由左至右。相關的技術有 Montonic Attention 和 Location-aware attention。
 
 ![](https://i.imgur.com/gvN7woX.png)
+
+### 3. Beam Search
+這裡舉個例子，假設 Decoder 只能產生兩個字。在第一個時間點只能從 AB 中決定一個，決定 A 後將把當當輸入再進行 AB 選擇。每次 Decoder 都是選擇分數最高的那一個。每次都是找分數最高的稱作 Greedy Decoding，但是貪婪的方法不一定是最佳的。有時候可能在某些地方稍微捨棄選擇比較低的機率，往後的機率都是非常高的。因此可以比較紅色與綠色的走法，綠色的路雖然一開始第一個步驟選了比較差的輸出，但接下來的結果都是非常好的。要如何找出綠色比較好的路線呢？由於組合爆炸問題不可能暴力搜尋解來窮舉，因此有個演算法叫做 Bean Search 它用比較有效的方法找出一個近似解。
+
+![](https://i.imgur.com/ryQXA0e.png)
+
+Beam Search 有時候有用有時候無用。舉例以下論文中要做的是輸入半個句子，模型要完成剩下後面的句子。在此篇論文中表示用 Beam Search 會發生鬼打牆，不斷說出重複的話。如果加入一些隨機性，並依定非常好但結果看是普通。因此有時候 Decoder 沒有找出分數最高的路，反而結果是比較好的。假設一個任務答案非常明確，例如語音辨識，在這種情況下使用 Beam Search 效果較好。如果需要讓機器自己發揮創造力時，使用 Beam Search 可能稍微沒加成效果。另一個隨機的問題是，TTS 在模型訓練與測試時 Decoder 可以稍微加一些雜訊，和出來的聲音才會好。
+
+![](https://i.imgur.com/qqzgpIq.png)
+
+[[論文] The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751)
