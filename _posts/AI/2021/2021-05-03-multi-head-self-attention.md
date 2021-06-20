@@ -24,7 +24,7 @@ self-attention 有一個進階的版本叫做 multi-head self-attention。這個
 
 ![](https://i.imgur.com/QYpn2J3.png)
 
-positional enciding 可以參考 [Learning to Encode Position for Transformer with Continuous Dynamical Model](https://arxiv.org/abs/2003.09229) 這篇文獻。裡面比較跟提出新的 positional enciding。如下圖每一個位置都是 row 橫著看，每個 row 代表一個位置 (a) 為透過 sin function 所產生的 (b) 是透過神經網路學習出來的 (c) 為本論文提出的 FLOATER 特別的網路學習 (d) 透過 RNN 學習。
+positional enciding 可以參考 [[論文] Learning to Encode Position for Transformer with Continuous Dynamical Model](https://arxiv.org/abs/2003.09229) 這篇文獻。裡面比較跟提出新的 positional enciding。如下圖每一個位置都是 row 橫著看，每個 row 代表一個位置 (a) 為透過 sin function 所產生的 (b) 是透過神經網路學習出來的 (c) 為本論文提出的 FLOATER 特別的網路學習 (d) 透過 RNN 學習。
 
 ![](https://i.imgur.com/1sNzVDe.png)
 
@@ -40,11 +40,11 @@ Transformer 和 BERT 是大家耳熟能詳的透過 self-attention 在 NLP 上�
 
 ![](https://i.imgur.com/qKrDBTM.png)
 
-以上 self-attention 跟 CNN 的關係可以從一篇論文得知 [On the Relationship between Self-Attention and Convolutional Layers](https://arxiv.org/abs/1911.03584)。它會用數學的方式嚴謹的方式告訴你，其實 CNN 就是 self-attention 的特例。self-attention 只要設定合適的參數，他會做到跟 CNN 一模一樣的事情。所以 self-attention 只要透過某些設計與限制，它救會變成 CNN。既然 CNN 是 self-attention 的一個子集，self-attention 比較 flexibel。
+以上 self-attention 跟 CNN 的關係可以從一篇論文得知 [[論文] On the Relationship between Self-Attention and Convolutional Layers](https://arxiv.org/abs/1911.03584)。它會用數學的方式嚴謹的方式告訴你，其實 CNN 就是 self-attention 的特例。self-attention 只要設定合適的參數，他會做到跟 CNN 一模一樣的事情。所以 self-attention 只要透過某些設計與限制，它救會變成 CNN。既然 CNN 是 self-attention 的一個子集，self-attention 比較 flexibel。
 
 ![](https://i.imgur.com/OlFoSkK.png)
 
-如果我們今天用不同的資料量訓練 CNN 跟 self-attention 可以發現以下現象。flexibel 的模型需要比較多的資料，如果資料不夠就可能 overfitting(如self-attention)。而比較有限制的模型(如CNN)它適合在資料量較少的時候，比較不會 overfitting。下圖實驗結果來至於 [An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/pdf/2010.11929.pdf)，這個是 Google 所發表的論文把 self-attention 複製到影像上面。把一張影像拆解成 16*16 個 patch。把每一個 patch 就想像成一個 word。下圖橫軸是訓練的影像量從1000萬張圖到3億張。在這實驗中比較了 self-attention 是淺藍色這一條線，與 CNN 是深灰色那條線。你會發現隨著資料量越多 self-attention 的結果就會越來越好。最終在資料最多的時候 self-attention 可以超越 CNN。但在資料量少的時候 CNN 可以比 self-attention 得到更好的結果。那為何會這樣？就可以從 self-attention 跟 CNN 彈性加以解釋，self-attention 彈性較大因此比較需要較多訓練資料，訓練資料較少的時候就會 overfitting。而 CNN 他彈性比較小，在訓練資料比較少的時候結果比較好，但訓練資料多的時候，CNN 沒辦法從更大的訓練資料得到好處。事實上 CNN 跟 self-attention 可以合併使用稱作 [conformer](https://arxiv.org/abs/2005.08100)。
+如果我們今天用不同的資料量訓練 CNN 跟 self-attention 可以發現以下現象。flexibel 的模型需要比較多的資料，如果資料不夠就可能 overfitting(如self-attention)。而比較有限制的模型(如CNN)它適合在資料量較少的時候，比較不會 overfitting。下圖實驗結果來至於 [[論文] An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://arxiv.org/pdf/2010.11929.pdf)，這個是 Google 所發表的論文把 self-attention 複製到影像上面。把一張影像拆解成 16*16 個 patch。把每一個 patch 就想像成一個 word。下圖橫軸是訓練的影像量從1000萬張圖到3億張。在這實驗中比較了 self-attention 是淺藍色這一條線，與 CNN 是深灰色那條線。你會發現隨著資料量越多 self-attention 的結果就會越來越好。最終在資料最多的時候 self-attention 可以超越 CNN。但在資料量少的時候 CNN 可以比 self-attention 得到更好的結果。那為何會這樣？就可以從 self-attention 跟 CNN 彈性加以解釋，self-attention 彈性較大因此比較需要較多訓練資料，訓練資料較少的時候就會 overfitting。而 CNN 他彈性比較小，在訓練資料比較少的時候結果比較好，但訓練資料多的時候，CNN 沒辦法從更大的訓練資料得到好處。事實上 CNN 跟 self-attention 可以合併使用稱作 [[論文] conformer](https://arxiv.org/abs/2005.08100)。
 
 ![](https://i.imgur.com/imz2DZp.png)
 
