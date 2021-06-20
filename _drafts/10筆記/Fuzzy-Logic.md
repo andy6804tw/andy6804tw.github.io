@@ -88,9 +88,8 @@ Type-2 fuzzy logic
 ## Popular Topic
 - [FuFuzzAttention on Session-based Recommender System](https://ieeexplore.ieee.org/document/8858856)
 - [Superpixel-Based Fast Fuzzy C-Means Clustering For Color Image Segmentation](https://ieeexplore.ieee.org/document/8584141)
-- [Fast Training Algorithms For Deep Convolutional Fuzzy Systems With Application To Stock Index Prediction]()
-- [Automatic Fuzzy Clustering Framework For Image Segmentation](https://ieeexplore.ieee.org/document/8788632/)
-- [Deep-Neuro-Fuzzy for image classfication](https://github.com/SonbolYb/Deep-Neuro-Fuzzy)
+- [Fast Training Algorithms For Deep Convolutional Fuzzy Systems With Application To Stock Index Prediction](https://ieeexplore.ieee.org/document/8788632)
+- [Automatic Fuzzy Clustering Framework For Image Segmentation]([https://ieeexplore.ieee.org/document/8788632/](https://ieeexplore.ieee.org/document/8770118))
 - [A Deep Neuro-Fuzzy Network for Image Classification](https://github.com/SonbolYb/Deep-Neuro-Fuzzy)
 - [Hybrid Deep Learning Type-2 Fuzzy Logic Systems For Explainable AI](https://ieeexplore.ieee.org/document/9177817)
 - [Neuro-Fuzzy Classification](https://moscow.sci-hub.se/4238/13084292d69d3c1cdbdc03d08ae588eb/meyer-baese2014.pdf#view=FitH)
@@ -100,22 +99,29 @@ Type-2 fuzzy logic
 
 
 ## Neural Fuzzy Network
-[Neuro-Fuzzy Systems: A Survey](http://cee.uma.pt/morgado/Down/483-343.pdf)
-[Adaptation of Fuzzy Inference System Using Neural Learning](http://www.softcomputing.net/nf_chapter.pdf)
-[Neuro Fuzzy Systems: State-of-the-art
+1. [Neuro-Fuzzy Systems: A Survey](http://cee.uma.pt/morgado/Down/483-343.pdf)
+2. [Adaptation of Fuzzy Inference System Using Neural Learning](http://www.softcomputing.net/nf_chapter.pdf)
+3. [Neuro Fuzzy Systems: State-of-the-art
 Modeling Techniques](https://arxiv.org/pdf/cs/0405011.pdf)
 
 ### 均勻式切割法
 #### ANFIS
-- [ANFIS: Adaptive-Network-based Fuzzy Inference Systems](https://ieeexplore.ieee.org/document/256541/)
+- [J.-S. R. Jang (張智星), "ANFIS: Adaptive-Network-based Fuzzy Inference Systems," IEEE Trans. on Systems, Man, and Cybernetics, vol. 23, pp. 665-685, May 1993. 
+](https://ieeexplore.ieee.org/document/256541/)
 - [好文推薦](http://sirlis.cn/deep-learning-ANFIS/)
 - [An ANFIS framework for PyTorch](http://www.cs.nuim.ie/~jpower/fuzz-poster.pdf)
 
 #### FALCON
-- [Fuzzy adaptive learning control network with on-line neural learning](https://www.sciencedirect.com/science/article/abs/pii/016501149400195D)
+- [C.-T. Lin, "Fuzzy adaptive learning control network with on-line neural learning," Fuzzy Sets and Systems , vol. 71, pp. 25-45, April 1995. 
+](https://www.sciencedirect.com/science/article/abs/pii/016501149400195D)
 
 #### Back-propagation fuzzy system
-- [Back-propagation fuzzy system as nonlinear dynamic system identifiers](https://ieeexplore.ieee.org/document/258711)
+- [Li-Xin Wang 、Jerry M. Mendel , "Back-propagation fuzzy system as nonlinear dynamic system identifiers," IEEE International Conference on Fuzzy Systems, pp. 1409-1418, March 1992. 
+](https://ieeexplore.ieee.org/document/258711)
+
+### 非均勻式切割法
+#### Fuzzy HyperRectangular Composite Neural Network
+- [Mu-Chun Su, "Rule Extraction Using a Novel Class of Fuzzy Degraded Hyperellipsoidal Composite Neural Networks", Lecture Notes in Computer Science, vol 999. Springer, May 2005.](https://tkuir.lib.tku.edu.tw/dspace/retrieve/76948/Rule+extraction+using+a+novel+class+of+fuzzy+degraded+hyperellipsoidal+composite+neural+networks.pdf)
 
 ## Coding
 - [[Python] FuzzyLogicToolBox](https://github.com/Luferov/FuzzyLogicToolBox)
@@ -167,10 +173,10 @@ RNN 最特別的一點是它有記憶的神經網路。RNN做的內容就是假�
 [Recent papers in Fuzzy Logic](https://www.academia.edu/Documents/in/Fuzzy_Logic)
 
 ## Article
-[科技大觀園-模糊理論](https://scitechvista.nat.gov.tw/c/s9Oc.htm)
-[ANFIS: Adaptive Network-Based. Fuzzy Inference System](https://homepage.iis.sinica.edu.tw/~jdwei/ai2011/PPT/ANFIS.pdf)
-[What is Fuzzy Logic in AI and What are its Applications?](https://www.edureka.co/blog/fuzzy-logic-ai/#fuzzy)
-[使用 Python 編寫基於模糊邏輯的 AI 股票預測系統](https://botnotes.net/2021/02/15/fuzzy-stock/)
+- [科技大觀園-模糊理論](https://scitechvista.nat.gov.tw/c/s9Oc.htm)
+- [ANFIS: Adaptive Network-Based. Fuzzy Inference System](https://homepage.iis.sinica.edu.tw/~jdwei/ai2011/PPT/ANFIS.pdf)
+- [What is Fuzzy Logic in AI and What are its Applications?](https://www.edureka.co/blog/fuzzy-logic-ai/#fuzzy)
+- [使用 Python 編寫基於模糊邏輯的 AI 股票預測系統](https://botnotes.net/2021/02/15/fuzzy-stock/)
 
 ## Material
 What is the greatest achievement of fuzzy theory in the all applications area and scientific work?
