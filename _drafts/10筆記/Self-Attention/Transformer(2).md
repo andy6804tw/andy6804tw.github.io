@@ -35,7 +35,7 @@ Decoder 最常見有兩種，首先我們先來看 Autoregressive 的 Decoder。
 Decoder 必須自己決定輸出 sequence 的長度，因此我們必須在字典中新增結束的符號。下圖為典型的 Autoregressive 的 Decoder 運作模式。當輸入稻作後一個字時 Decoder 看到 Encoder 輸出的 Embedding 以及 Decoder 中的起始字元、機、器、學、習。看到這些資訊以後 Decoder 要知道這個語音辨識結果，已經結束了不需要再產生詞彙了。此時最後輸出的結束字元機率要最高。以上動作就是 Decoder 的 Autoregressive 運作模式。
 
 ![](https://i.imgur.com/HV8sqVh.png)
-![]https://i.imgur.com/GQTAMTc.png()
+![](https://i.imgur.com/GQTAMTc.png)
 
 ## Non-autoregressive (NAT)
 如下圖所示，Autoregressive 的運作模式是輸入一個起始字元(BEGIN)，輸出 w1。接著再把 w1 當作輸入得到 w2 輸出，直到輸出 END 為止。至於 Non-autoregressive 並非一次產生一個輸出，而是一次把整個句子輸出。他是吃一排 BEGIN Token，假設丟入四個 BEGIN 就會產生四個字的輸出。這裡你可能會有個疑問，通常不是不知道輸出的長度嗎？那這裡我們該如何知道要放多少的 BEGIN Token?最常見的做法是另外訓練一個 Classifier 吃 Encoder 的輸入，輸出是一個數字代表 Decoder 要輸出的長度。另一個方法是輸入一堆 BEGIN Token，假設有 300 個 BEGIN Token 接著從這 300 輸出種尋找是否有結束符號(END)。
