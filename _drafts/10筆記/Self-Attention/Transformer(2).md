@@ -118,3 +118,10 @@ Beam Search 有時候有用有時候無用。舉例以下論文中要做的是�
 ![](https://i.imgur.com/qqzgpIq.png)
 
 [[論文] The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751)
+
+> 要接受沒有事情是完美的，真正的美也許就在不完美之中。
+
+### 4. Optimizing Evaluation Metrics?
+訓練後的模型評估標準 bleu score 是將 Decoder 先產生一個完整的句子以後在跟正確的一整句答案比較計算。而在訓練的時候使每一個詞分開考慮計算 cross entropy。最小化 cross entropy 真的能最大化 bleu score 嗎？其實不一定，因為它們並無直接相關。因此我們在做驗證時並非拿 cross entropy 最小的當作最佳模型，而是挑 bleu score 最高的。因此在訓練過程中是看 cross entropy，但評估模型時採用 bleu score。那在訓練時可以將 bleu score 當作一個訓練目標嗎？答案是不行，因為他 bleu score 複雜且不可微分。遇到最佳化無法解決的問題，用 RL 硬 train 一發！遇到你無法Optimize 你的 loss function，把它當作是 RL 的 Reward，把 Decoder 當作 Agent。幫這個問題當成強化學習問題，可以解。可以參考以下論文。
+
+[[論文] Sequence Level Training with Recurrent Neural Networks](https://arxiv.org/abs/1511.06732)
