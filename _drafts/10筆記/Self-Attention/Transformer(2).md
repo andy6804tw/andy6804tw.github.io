@@ -125,3 +125,14 @@ Beam Search 有時候有用有時候無用。舉例以下論文中要做的是�
 訓練後的模型評估標準 bleu score 是將 Decoder 先產生一個完整的句子以後在跟正確的一整句答案比較計算。而在訓練的時候使每一個詞分開考慮計算 cross entropy。最小化 cross entropy 真的能最大化 bleu score 嗎？其實不一定，因為它們並無直接相關。因此我們在做驗證時並非拿 cross entropy 最小的當作最佳模型，而是挑 bleu score 最高的。因此在訓練過程中是看 cross entropy，但評估模型時採用 bleu score。那在訓練時可以將 bleu score 當作一個訓練目標嗎？答案是不行，因為他 bleu score 複雜且不可微分。遇到最佳化無法解決的問題，用 RL 硬 train 一發！遇到你無法Optimize 你的 loss function，把它當作是 RL 的 Reward，把 Decoder 當作 Agent。幫這個問題當成強化學習問題，可以解。可以參考以下論文。
 
 [[論文] Sequence Level Training with Recurrent Neural Networks](https://arxiv.org/abs/1511.06732)
+
+### 5. Schdduled Sampling
+這裡我們來討論訓練跟測試所遇到的問題。測試的時候 Decoder 是看到自己的輸出，所以它可能有機會看到自己預測錯的輸出。但是在訓練的時候 Decoder 是完全看到正確的答案，這種不一至的現象稱 expourse bias。假設 Decoder 在訓練時只看正確的東西，那在測試時只要有個錯誤後面就會整個受影響。所以要怎麼解決這個問題？有一個可以思考的方向是，給 Decoder 的輸入加一些錯誤的東西。不要給 Decoder 都是正確的答案，偶爾給他一些錯誤的東西它反而會學得更好。
+
+![](https://i.imgur.com/W2RmT9g.png)
+
+這招叫做 Schdduled Sampling，在還沒有 Transformer 只有 LSTM 的時候就已經有 Schdduled Sampling。但是 Schdduled Sampling 這招會影響到 Transformer 的平行化能力。以下是相關的論文參考。
+
+[[論文] Scheduled Sampling for Sequence Prediction with Recurrent Neural Networks](https://arxiv.org/abs/1506.03099)
+[[論文] Scheduled Sampling for Transformers](https://arxiv.org/abs/1906.07651)
+[[論文] Parallel Scheduled Sampling](https://arxiv.org/abs/1906.04331)
