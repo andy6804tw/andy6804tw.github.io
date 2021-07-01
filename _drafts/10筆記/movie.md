@@ -40,3 +40,17 @@ AI 電影 https://www.finereport.com/tw/data-analysis/huati-1.html
 
 
 絕夜逢生
+
+
+- 協作工具
+影片所提及的生產力工具大多都有使用過，挑選一個適合自己的工具能夠提高我們的工作效率
+
+- 線上活動怎麼辦，線上活動經驗和回饋
+線上每個section時間勿太長
+
+
+
+
+Google AutoML
+Amazon SageMaker
+Autopilot
