@@ -17,3 +17,6 @@
 7. 中國在數據搜集上佔有優勢
 8. 
 
+
+## AI 資源
+[AI基礎理論網站(中文化)](https://brohrer.mcknote.com/zh-Hant/)
