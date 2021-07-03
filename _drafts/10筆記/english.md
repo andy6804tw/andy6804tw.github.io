@@ -6,5 +6,6 @@
 ## 對話常用語句
 1. sorry, say that again.
 2. How's your day going so far.
+3. Rhanks for coming to get me.
 
 瑞比牙醫診所 蘇
