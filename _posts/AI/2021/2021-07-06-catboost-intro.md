@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'CatBoost: 機器學習 boosting 算法神器'
+title: 'CatBoost: 機器學習 boosting 神器介紹'
 categories: 'AI'
 description:
 keywords: Tensorflow
