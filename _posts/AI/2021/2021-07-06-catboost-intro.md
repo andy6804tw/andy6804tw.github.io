@@ -3,7 +3,7 @@ layout: post
 title: 'CatBoost: 機器學習 boosting 神器介紹'
 categories: 'AI'
 description:
-keywords: Tensorflow
+keywords: boosting
 ---
 
 ## 前言
