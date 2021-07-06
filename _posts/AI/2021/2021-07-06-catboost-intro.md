@@ -42,7 +42,6 @@ Parameters:
 - learning_rate: 預設 automatically。
 - depth: 樹的深度，預設6。
 - cat_features: 輸入類別特徵的索引，它會自動幫你處理。
-- one_hot_max_size=2: 对于某些变量进行one-hot编码
 
 [參考](https://catboost.ai/docs/concepts/python-reference_parameters-list.html)
 
@@ -73,6 +72,73 @@ model.fit(X_train,y_train, eval_set=(X_test, y_test), verbose=0, plot=True)
 
 ![](/images/posts/AI/2021/img1100706-3.jpeg)
 
+## 特徵篩選
+訓練過程中會自動從資料中篩選對模型預測有用的特徵，並移除無幫助預測的特徵。
+
+- [參考](https://catboost.ai/docs/concepts/python-reference_catboost_select_features.html)
+
+
+```py
+from catboost import CatBoostRegressor, Pool, EShapCalcType, EFeaturesSelectionAlgorithm
+
+# feature_names = ['F{}'.format(i) for i in range(X_train.shape[1])]
+train_pool = Pool(X_train, y_train, feature_names=boston_dataset.feature_names.tolist())
+test_pool = Pool(X_test, y_test, feature_names=boston_dataset.feature_names.tolist())
+
+model = CatBoostRegressor(random_state=42,
+                         loss_function='RMSE',
+                         eval_metric='RMSE',
+                         use_best_model=True)
+summary = model.select_features(
+    train_pool,
+    eval_set=test_pool,
+    features_for_select='0-12',
+    num_features_to_select=3,
+    steps=2,
+    algorithm=EFeaturesSelectionAlgorithm.RecursiveByShapValues,
+    shap_calc_type=EShapCalcType.Regular,
+    train_final_model=True,
+    logging_level='Silent',
+    plot=False
+)
+summary
+```
+
+由於在訓練將 `num_features_to_select` 設為三，即表示模型訓練時會拿取三個最重要特徵當作做中模型預測方式。我們採用 sklearn 的房價預測資料集，結果可以發現三個最重要特徵為 ['RM', 'PTRATIO', 'LSTAT']。如果你有做 EDA 可以發現這三個特徵與房價的關聯性都很高。
+
+```
+{'selected_features': [5, 10, 12],
+ 'eliminated_features_names': ['DIS',
+  'B',
+  'ZN',
+  'CHAS',
+  'RAD',
+  'INDUS',
+  'CRIM',
+  'AGE',
+  'TAX',
+  'NOX'],
+ 'eliminated_features': [7, 11, 1, 3, 8, 2, 0, 6, 9, 4],
+ 'selected_features_names': ['RM', 'PTRATIO', 'LSTAT']}
+```
+
+## Grid search
+除此之外 CatBoost 提供對模型的指定參數值進行簡單的網格搜索，如果有使用過 sklearn 的 Grid Search 其實他就是一樣的使用方式。
+
+- [參考](https://catboost.ai/docs/concepts/python-reference_catboostregressor_grid_search.html)
+
+```py
+from catboost import CatBoostRegressor
+grid = {'iterations': [100, 150, 200],
+        'learning_rate': [0.03, 0.1],
+        'depth': [2, 4, 6, 8],
+        'l2_leaf_reg': [0.2, 0.5, 1, 3]}
+
+model = CatBoostRegressor(random_state=42,
+                         loss_function='RMSE',
+                         eval_metric='RMSE')
+model.grid_search(grid, X_train,y_train)
+```
 
 ## 自動處理類別型的特徵
 CatBoost 無需對數據特徵進行任何的預處理就可以將類別轉換爲數字。下面程式為一個分類問題的範例，其中輸入特徵的第一個為季節。在機器學習上的認知我們必須將所以字串型資料必須透過標籤編碼方式轉換成數值，然而在 CatBoost 完全不需要。僅需在訓練模型時給予參數 `cat_features = [0]` 即代表資料的第一個特徵需要進行類別轉換。另外輸出葉不一定要編碼後的結果，你也可以丟入文字進行訓練只要加上 `loss_function='MultiClass'` 即可。
