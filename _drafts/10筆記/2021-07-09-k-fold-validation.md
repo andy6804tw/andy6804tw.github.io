@@ -7,7 +7,7 @@ keywords: K-fold Cross-Validation
 ---
 
 ## 前言
-
+交叉驗證又稱為樣本外測試，是資料科學中重要的一環。透過資料間的重複採樣過程，用於評估機器學習模型並驗證模型對獨立測試數據集的泛化能力。在本文中我們細部來介紹每一種 K-Fold 的變型。
 
 
 - K-Fold Cross-Validation
