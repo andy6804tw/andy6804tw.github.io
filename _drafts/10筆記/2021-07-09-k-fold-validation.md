@@ -66,4 +66,6 @@ keywords: K-fold Cross-Validation
 
 ![](/images/posts/AI/2021/img1100709-5.png)
 
+
+
 [[scikit-learn] GroupKFold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupKFold.html#sklearn.model_selection.GroupKFold)
