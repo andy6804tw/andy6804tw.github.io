@@ -78,3 +78,33 @@ so now the AI-FML blockly successfully combine the IEEE 1855 standard FML, which
 
 ## 錄影
 https://drive.google.com/drive/folders/17kyGWfKNdoE13OouZza3jWOk15S8j-NH?usp=sharing
+
+
+## 問題
+In most Fuzzy control case we predict the continue value, which is regression problem.
+And I saw your slide, you use GPS to predict something clsss one two three.
+I'm curious about how to build up classifier with fuzzy system. 
+Can you share any information about How to constuct Fuzzy Classfication in the chat. I'll very appreciate.
+
+Neural network is such a great idea to predict something. like regession and classfication problem. especially in image classifier or object detection
+and nature language processing. This is why many people using NN to solve the big data problem.
+How many neural and hidden layer I thhink is most difficult.
+
+
+I'm very impressed by your present. Here I'm two questions. 
+The first how about the Fuzzy Logic core in your scratch system. The student need to construct the KB and RB in the case of fans control?
+
+I saw your page 4 you introuce Fuzzy classifier with scratch programing.
+I'm curious about how to build up classifier with fuzzy system. 
+
+It’s clear to me now.
+
+using imprecise concepts is great. fuzziness enable construction of human friendly
+
+
+
+
+
+
+I just a quickly look on your sharing link. In this mblock simulation tool. You can add your own custom blocks right?
+And you can write your own script to mblock.
