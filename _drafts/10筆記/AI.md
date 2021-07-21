@@ -20,3 +20,4 @@
 
 ## AI 資源
 [AI基礎理論網站(中文化)](https://brohrer.mcknote.com/zh-Hant/)
+[專題領域Paper with code](https://paperswithcode.com/datasets)
