@@ -65,6 +65,11 @@ positional encoding 可以參考 [[論文] Learning to Encode Position for Trans
 
 [GNN 課程](https://youtu.be/eybCCtNKwzA)
 
+## To Learn More
+其實 self-attention 他有非常多的變形。你可以看這一篇論文[Long Range Arena: A Benchmark for Efficient Transformers](https://arxiv.org/abs/2011.04006)比較了各種不同的 self-attention 的變型。因為 self-attention 最大的問題就是運算量非常的大，所以怎麼樣減少 self-attention 的運算量是一個未來的重點。self-attention 最早是用在 Transformer 上因此廣義的 Transformer 其實就是在說 self-attention。所以日後的 self-attention 變型都稱為 XXformer。我們可以從圖中發現日後的變型雖然運算速度加快，但是預測結果相對降低。到底怎麼樣的 Attention 才能又快又好，這還是個尚待研究的問題。還有另一篇論文[Efficient Transformers: A Survey](https://arxiv.org/abs/2009.06732)也是在探討 self-attention 的變型提供大家參考。
+
+![](https://i.imgur.com/5W6v0Jo.png)
+
 ## Reference
 
 [【機器學習2021】自注意力機制 (Self-attention) (下)](https://www.youtube.com/watch?v=gmsMY5kc-zw)
