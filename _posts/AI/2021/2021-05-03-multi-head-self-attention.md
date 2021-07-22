@@ -28,10 +28,13 @@ positional encoding 可以參考 [[論文] Learning to Encode Position for Trans
 
 ![](https://i.imgur.com/1sNzVDe.png)
 
-Transformer 和 BERT 是大家耳熟能詳的透過 self-attention 在 NLP 上的應用。但是 self-attention 不只能用在 NLP 相關的應用上。比如說在做語音的時候，也能用 self-attention。但是由於聲音訊號資料量太大，造成 sequence 過長不容易訓練。因此在做語音的時候有一招叫做 Truncated self-attention，也就是在做 self-attention 時不需要看整個 sequence，也許看一小範圍左右就好，至於這個範圍要多大就是由人設定。
+## self-attention 應用於語音處理
+[Transformer](https://arxiv.org/abs/1706.03762) 和 [BERT](https://arxiv.org/abs/1810.04805) 是大家耳熟能詳的透過 self-attention 在 NLP 上的應用。但是 self-attention 不只能用在 NLP 相關的應用上。比如說在做語音的時候，也能用 self-attention。但是由於聲音訊號資料量太大，造成 sequence 過長不容易訓練。因此在做語音的時候有一招叫做 [Truncated self-attention](https://arxiv.org/abs/1910.12977)，也就是在做 self-attention 時不需要看整個 sequence，也許看一小範圍左右就好，至於這個範圍要多大就是由人設定。
 
 ![](https://i.imgur.com/YTpfya3.png)
 
+
+## self-attention 與 CNN 比較
 除此之外 self-attention 也能被應用在影像上。其實一張圖片也能看作是一個 vector set。這裡舉個例子假設我們有一張 5*10 解析度的圖片，這張圖片可以看過是一個 5*10*3 的 RGB 張量。我們可以把每一個位置的 pixel 看作是一個三維的向量，那整張圖片其實就是 5*10 個向量。
 
 ![](https://i.imgur.com/6XDNsNF.png)
@@ -48,10 +51,22 @@ Transformer 和 BERT 是大家耳熟能詳的透過 self-attention 在 NLP 上�
 
 ![](https://i.imgur.com/imz2DZp.png)
 
-以下來比較 self-attention 與 RNN。RNN 跟 self-attention 一樣都是要處理輸入是一個 sequence 的情況。
+## self-attention 與 RNN 比較
+以下來比較 self-attention 與 RNN。RNN 跟 self-attention 一樣都是要處理輸入是一個 sequence 的情況。每個 RNN 的 Block 吃上一次的記憶也就是 hidden state 以及當前的輸入。然後再輸出一個東西為隱藏曾輸出，最終進到一個全聯階層網路得到一個輸出。接下來第二個 Block 做一樣事情，輸入上一個時間點的隱藏層狀態以及第二個時間點的輸入。你會發現 RNN 與 self-attention 做的事情也非常像，輸入都是一個序列。self-attention 是輸出另一個序列，這每一個輸出的序列都有完整考慮過每個時間點的輸入。而 RNN 的輸出序列只考慮當前所輸入的內容，並不像 self-attention 一次看過所有輸入。當然可以用雙向的 RNN 也可以表示每個輸出看過了所有的輸入。但是假設我們把 RNN 和 self-attention 的最後一個輸出做比較的話。就算使用雙向的 RNN 兩者還是有差別的。因為若最後一個時間點的 RNN 要考慮到最一開始的輸入，必須將第一個時間點的隱藏狀態儲存慢慢地傳給最後一個並且不能忘記。那對 self-attention 來說只要給一個 query 和 key 就能快速的在序列上非常遠的向量中取到想要的資訊。另外還有更重要的是 RNN 在處理時並不能平行化，要產生第一個時間點的向量才能產上第二個時間的向量。但 self-attention 的優勢他可以平行處理所有的輸出。因此在運算速度上，self-attention 比 RNN 更有效率。如果想更近一步了解 RNN 與 self-attention 的關係可以參考這一篇 [[論文] Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention](https://arxiv.org/abs/2006.16236)。此篇論文會告訴你 self-attention 加上什麼東西以後其實就變成了 RNN。
+
+![](https://i.imgur.com/oslsKWu.png)
+
+[RNN 課程](https://youtu.be/xCGidAeyS4M)
+
+## self-attention 應用於 Graph
+最後 self-attention 其實也能應用在 Graph 上，我們可以將 Graph 看作是一堆向量。如果是一堆的向量就能用 self-attention 來處理。但是 self-attention 應用在 Graph 上有著特別的地方。其中在 Graph 上不僅只有 Node，每一個 Node 可以表示成向量除此之外還有 Edge 的資訊。我們知道哪些 Node 之間是有相連的，也就是哪些向量間彼此間相關。之前我們在做 self-attention 時他的關聯性是透過神經網路所找出來的。那現在 Graph 既然有了 Edge 資訊，那麼關聯性也許就不需要透過機器自動找出來。圖中的所有 Edge 同時暗示著 Node 與 Node 之間的關聯性。所以我們今天將 self-attention 應用在 Graph 上的時候，在做 Attention Matrix 計算時可以只計算有 Edge 相連的 Node 就好。因為這個 Graph 人為經過領域知識建立出來的，那麼專家已經說了這某兩個向量間彼此無關聯。我們就不必另外去學習沒有相連的 Edge 就直接將那些沒連線的位置設為 0，即表示兩點間沒有關聯性。那其實我們將 self-attention 按照剛上述所講的限制用在 Graph 上面時，其實就是一種圖神經網路(GNN)。
+
+![](https://i.imgur.com/WQAoOfk.png)
+
+[GNN 課程](https://youtu.be/eybCCtNKwzA)
 
 ## Reference
 
 [【機器學習2021】自注意力機制 (Self-attention) (下)](https://www.youtube.com/watch?v=gmsMY5kc-zw)
 
-[簡報](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/normalization_v4.pdf)
+[簡報](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf)
