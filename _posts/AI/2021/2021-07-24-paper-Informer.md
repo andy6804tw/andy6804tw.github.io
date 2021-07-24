@@ -52,3 +52,5 @@ keywords: 'Informer: Beyond Efficient Transformer for Long Sequence Time-Series 
 
 ## 總結
 最後我們來回顧一下 Informer 模型，整體來說我們是使用一個 Encoder 和 Decoder 的架構基於 Transformer。論文中提出一個 Probsparse self-attention、 self-attention Distilling 與 Generative-style Decoder。透過這三個技巧解決了 Transformer 對於長時間序列預測所會面臨的問題。
+
+GitHub 程式碼: [zhouhaoyi/Informer2020](https://github.com/zhouhaoyi/Informer2020)
