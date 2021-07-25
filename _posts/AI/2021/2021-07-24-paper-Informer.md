@@ -5,7 +5,6 @@ categories: 'AI'
 description:
 keywords: 'Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting'
 ---
-
 ## 前言
 此篇論文 [Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting](https://arxiv.org/abs/2012.07436) 獲得了 AAAI 2021 的最佳論文。其背景主要是解決長序列預測的問題，以實際的電力變壓器數據進行未來長時間的連續預測。長序列預測通常具有大量的歷史數據，隨著 LSTM 模型預測的輸出越長其運算速度將會越慢且錯誤越大。導致在有限的資源運算下會有比較有長時間的預測。因此本篇論文基於 self-attention 的優點，並改善 Attention 架構所面臨的三大瓶頸並提出了 Informer 模型。
 
