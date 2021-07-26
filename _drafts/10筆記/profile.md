@@ -2,3 +2,5 @@
 - https://vanzytay.github.io/
 - https://shuaizhang.tech/
 - https://terrytangyuan.github.io/about/
+- http://wangshusen.github.io/index.html
+- https://d2l.ai/
