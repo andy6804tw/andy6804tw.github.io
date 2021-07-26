@@ -14,6 +14,14 @@
 [Neural Network Play ground](https://playground.tensorflow.org/) 
  
 
+## AI Tutorial
+### Video
+[CS583: Deep Learning](https://github.com/wangshusen/DeepLearning)
+
+### e-book
+[AI基礎理論網站(中文化)](https://brohrer.mcknote.com/zh-Hant/)
+
+
 ## CV
 [OpenCV 灰階轉彩色(Gray to RGB/BGR)](https://shengyu7697.github.io/blog/2020/03/26/Python-OpenCV-gray-to-rgb/)
 ## CNN
@@ -41,6 +49,7 @@ Auto-Encoder是利用神經網絡來做特徵提取或者特徵降維的，可�
 ## paper pool
 [reddit](https://www.reddit.com/user/TheInsaneApp/)
 [reddit](https://www.reddit.com/r/learnmachinelearning/)
+[專題領域Paper with code](https://paperswithcode.com/datasets)
 
 ## Face Recognition
 [Face Recognition From Scratch Using Siamese Networks and TensorFlow](https://medium.com/predict/face-recognition-from-scratch-using-siamese-networks-and-tensorflow-df03e32f8cd0)
@@ -51,5 +60,3 @@ Auto-Encoder是利用神經網絡來做特徵提取或者特徵降維的，可�
 [OneClass SVM：異常檢測任務](https://cyeninesky3.medium.com/oneclass-svm-異常檢測任務-anomaly-detection-的算法理解與實踐-cf5f0bbb01c0)
 [時間卷積網絡 (TCN)](https://cyeninesky3.medium.com/時間卷積網絡-tcn-關於從風控項目當中的學習-11693d762f5) 
 [SMOTE + ENN : 解決數據不平衡建模的採樣方法]()
-
-https://gofile.io/d/Nl997e 
