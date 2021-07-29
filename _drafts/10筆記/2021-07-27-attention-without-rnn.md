@@ -22,7 +22,7 @@ Transformer 是一種 Seq2seq 的模型，他有一個 Encoder 和 Decoder 並�
 這裡來思考一個問題。當我們把 RNN 去掉只保留 Attention，僅利用 Attention 搭建一個神經網路用來取代 RNN。那我們該怎麼做呢？接下來我們會來詳細討論，從零開始基於 Attention 搭建一個神經網路的整個流程。首先在本篇文章我們先將之前學過的 RNN + Attention 開始入手，再抽取掉 RNN 保留 Attention。然後搭建一個 Attention 與 self-attention 網路層。下一篇文章會再將這些概念組裝起來，搭建一個深度的 Seq2seq 模型。搭出來的模型就是當今最紅的 Transformer。
 
 ## Attention for Seq2Seq Model
-### Attention Ｑ、K、V 計算
+### RNN 的 Attention Ｑ、K、V 計算
 在[前篇](https://andy6804tw.github.io/2021/05/01/rnn-to-attention/)文章有提到 RNN 模型的進化，最終使用 Attention 機制來改善 RNN Seq2seq 的模型。所謂的 Seq2seq 是指有一個 Encoder 和一個 Decoder。Encoder 的輸入是有 m 個時間點的輸入X<sub>1</sub>~X<sub>m</sub>，每個一個輸入都是經過編碼過後的向量。Encoder 把這些輸入的訊息壓縮到隱藏狀態向量 h 中，其最後一個狀態 h<sub>m</sub> 是看過所有的輸入後所壓縮的訊息。Decoder 所做的事情取決於你的任務是什麼，例如文字生成器。在 Decoder 中會依序產生出狀態 s，每個時間點會根據狀態生成一個文字。我們在把輸出的文字作為下一次的輸入x<sup>‘</sup>，如果有 Attention 機制的話還需要計算 context vector(c)。每當計算出一個狀態 s 就要計算一次 c。
 
 ![](/images/posts/AI/2021/img1100727-2.png)
@@ -44,7 +44,7 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 ![](/images/posts/AI/2021/img1100727-6.png)
 
 ### 實際範例 Attention for Seq2Seq Model
-剛剛已經講了 Q、K、V 這三種向量 在 RNN 架構中是如何被計算出來的。我們再回過頭看一下這個例子。首先我們先把 Decoder 目前狀態 s<sub>j</sub> 乘上一個 W<sub>Ｑ</sub> 得到 q<sub>j</sub>。
+剛剛已經講了 Q、K、V 這三種向量 在 RNN 架構中是如何被計算出來的。我們再回過頭看一下這個例子。首先我們先把 Decoder 目前狀態 s<sub>j</sub> 乘上一個 W<sub>Q</sub> 得到 q<sub>j</sub>。
 
 ![](/images/posts/AI/2021/img1100727-7.png)
 
@@ -58,5 +58,8 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 
 接下來計算 Value 向量 v<sub>i</sub>，我們拿 Encoder 第 i 個狀態向量 h<sub>i</sub> 與一個權重 W<sub>V</sub> 做一個線性轉換得到 v<sub>i</sub>。每一個 v<sub>i</sub> 對應一個隱藏狀態 h。最終我們將會得到 m 個 𝛂 與 v，並做加權平均得到一組新的 context vector(c)。c<sub>j</sub> 等於 𝛼<sub>1j</sub> 乘上 v<sub>1</sub> 一直加到 𝛼<sub>mj</sub> 乘上 v<sub>m</sub>。 這種計算分數 𝛼 和 context vector(c) 的方法就是 Transformer 用的機制。
 
-
 ![](/images/posts/AI/2021/img1100727-10.png)
+
+## Attention without RNN
+接下來我們來討論捨棄 RNN 只保留 Attention 的 Transformer，並得到一個 Attention 與 self-attention Layer。
+
