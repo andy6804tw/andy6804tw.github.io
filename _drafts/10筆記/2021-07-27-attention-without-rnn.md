@@ -62,4 +62,3 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 
 ## Attention without RNN
 接下來我們來討論捨棄 RNN 只保留 Attention 的 Transformer，並得到一個 Attention 與 self-attention Layer。
-
