@@ -108,4 +108,4 @@ a1*Wq 得到 q1，這邊稱作 query。接下來 a2、a3、a4 都要去把它乘
 [簡報](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/self_v7.pdf)
 
 ## 下篇文章
-[[學習筆記] 李宏毅課程 Multi-head Self-Attention 機制解說](https://andy6804tw.github.io/2021/05/03/multi-head-self-attention/)
+[[學習筆記] 李宏毅課程 Multi-head Self-Attention 機制解說](https://andy6804tw.github.io/2021/05/03/ntu-multi-head-self-attention/)
