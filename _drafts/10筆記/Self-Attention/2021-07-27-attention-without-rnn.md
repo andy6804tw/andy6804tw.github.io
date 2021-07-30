@@ -19,7 +19,7 @@ Transformer 是一種 Seq2seq 的模型，他有一個 Encoder 和 Decoder 並�
 - Higher accuracy than RNNs on large  datasets.
 
 ## 重新審視 Attention + RNN
-這裡來思考一個問題。當我們把 RNN 去掉只保留 Attention，僅利用 Attention 搭建一個神經網路用來取代 RNN。那我們該怎麼做呢？接下來我們會來詳細討論，從零開始基於 Attention 搭建一個神經網路的整個流程。首先在本篇文章我們先將之前學過的 RNN + Attention 開始入手，再抽取掉 RNN 保留 Attention。然後搭建一個 Attention 與 self-attention 網路層。下一篇文章會再將這些概念組裝起來，搭建一個深度的 Seq2seq 模型。搭出來的模型就是當今最紅的 Transformer。
+這裡來思考一個問題。當我們把 RNN 去掉只保留 Attention，僅利用 Attention 搭建一個神經網路用來取代 RNN。那我們該怎麼做呢？接下來我們會來詳細討論，從零開始基於 Attention 搭建一個神經網路的整個流程。首先在本篇文章我們先將之前學過的 RNN + Attention 開始入手，再抽取掉 RNN 保留 Attention。然後搭建一個 Attention 與 Self-Attention 網路層。下一篇文章會再將這些概念組裝起來，搭建一個深度的 Seq2seq 模型。搭出來的模型就是當今最紅的 Transformer。
 
 ## Attention for Seq2Seq Model
 ### RNN 的 Attention Ｑ、K、V 計算
@@ -61,7 +61,7 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 ![](/images/posts/AI/2021/img1100727-10.png)
 
 ## Attention without RNN
-接下來我們來討論捨棄 RNN 只保留 Attention 的 Transformer，並得到一個 Attention 與 self-attention Layer。
+這一個部分我們來討論捨棄 RNN 只保留 Attention 的 Transformer，並得到一個 Attention 與 Self-Attention Layer。
 
 ### Attention Layer
 首先我們先設計一個 Attention Layer 用於 Seq2seq 模型，一樣包含一個 Encoder 與一個 Decoder。Encoder 的輸入向量是 x<sub>1</sub>~x<sub>m</sub>。Decoder 的輸入是 x’1~x’t。
@@ -97,3 +97,46 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 ![](/images/posts/AI/2021/img1100727-18.png)
 
 ## Self-Attention without RNN
+剛才我們將 Seq2seq 模型剔除了 RNN，並採用 Attention Layer 替代。接下來要來了解 Self-Attention Layer。基本上原理完全一模一樣，我們可以使用 Self-Attention 來取代 RNN。
+
+### Self-Attention Layer
+Self-Attention Layer 並非 Seq2seq 它僅有一個輸入序列，同時可以使用 Attn() 函數表示。此函數跟先前提的方法一模一樣，差別在於函數的輸入都是 X。此外輸出的序列是 c<sub>1</sub>~c<sub>m</sub> 與輸入 x 的虛列長度是一樣的都是 m，每一個 c 向量都對應一個 x 向量。但是必須注意，舉例來說 c<sub>2</sub> 並非只依賴於 x<sub>2</sub>，他是依賴於 x<sub>1</sub>~x<sub>m</sub> 也就是每個輸入都會考慮過才算出 c<sub>2</sub>。
+
+![](/images/posts/AI/2021/img1100727-19.png)
+
+Self-Attention Layer 的原理跟 Attention Layer 完全一模一樣。只差別於輸入不同，在 Self-Attention 中僅有一個輸入序列 x<sub>1</sub>~x<sub>m</sub>。第一步是做三種轉換將 x<sub>i</sub> 映射到 q<sub>i</sub>、k<sub>i</sub>、v<sub>i</sub> 並得到三個向量。權重矩陣依然是 W<sub>Q</sub>、W<sub>K</sub>、W<sub>V</sub> 對輸入 x 做線性轉換。
+
+![](/images/posts/AI/2021/img1100727-20.png)
+
+每個 x 輸入都做了線性轉換後會得到 q、k、v 三個向量。接下來再計算分數向量 𝛼 ，公式還是一樣的。我們將矩陣 K(k<sub>1</sub>~k<sub>m</sub>) 轉置乘上 q<sub>j</sub> 向量然後做 Softmax 得到 m 維向量 𝛼<sub>j</sub>。我們可以從圖中的例子看到 𝛼<sub>1</sub> 依賴於 q<sub>1</sub> 以及所有 k 向量 k<sub>1</sub>~k<sub>m</sub>。
+
+![](/images/posts/AI/2021/img1100727-21.png)
+
+依此類推 𝛼<sub>2</sub> 依賴於 q<sub>2</sub> 以及所有 k 向量 k<sub>1</sub>~k<sub>m</sub>。用同樣的公式計算出所有分數向量 𝛼。總共有 m 個 𝛼 向量，此外每個分數向量都是 m 維的。
+
+![](/images/posts/AI/2021/img1100727-22.png)
+
+現在可以開始計算 context vector。 c<sub>1</sub> 是所有 m  個 v 向量與 𝛼 的加權和。看以下這張圖，c<sub>1</sub> 依賴於分數向量 𝛼<sub>1</sub>，以及所有 m 個 v 向量 v<sub>1</sub>~v<sub>m</sub>。
+
+![](/images/posts/AI/2021/img1100727-23.png)
+
+計算同樣的步驟算出 m 個 c 向量得到 c<sub>1</sub>~c<sub>m</sub>。這 m 個 c 向量就是 Self-Attention Layer 的輸出。其中第 j 個輸出 c<sub>j</sub> 是依賴於矩陣 V、K 以及向量 q<sub>j</sub>。
+因為所有的 c<sub>j</sub> 依賴於所有的 K 與 V，所以 c<sub>j</sub> 依賴於所有 m 個 x 向量 x<sub>1</sub>~x<sub>m</sub>。下圖中每個輸入 x<sub>i</sub> 位置上都對應一個輸出 c<sub>i</sub>，每個 c<sub>i</sub> 並非只關注自己的 x<sub>i</sub> 而是依賴於所有的 x。只要改變任何一個 x 所有的 c<sub>i</sub> 都會發生變化。
+
+![](/images/posts/AI/2021/img1100727-24.png)
+
+我們已經學習了 Self-Attention Layer 的運作機制。輸入是一個序列 x<sub>1</sub>~x<sub>m</sub>，這一個網路曾將有三組權重矩陣分別有 W<sub>Q</sub>、W<sub>K</sub>、W<sub>V</sub>。這三個矩陣能把每個 x 映射到 q、k、v 三個向量。其每一個輸出也是一個序列 c<sub>1</sub>~c<sub>m</sub> 共有 m 個向量，每一個 x 位置上都有對應的 c。
+Attention 與 Self-Attention 都用 Attn() 這個函數來表示，此函數有兩個輸入矩陣。Attention Layer 的輸入是 X 與 X’ 而 Self-Attention 的輸入是兩個相同的 X。
+
+![](/images/posts/AI/2021/img1100727-25.png)
+
+## 小結
+到目前為止已經說明了 Attention 與 Self-Attention Layer，最後做一個小結。Attention 的想法最初在 2015 年由 Bengio 實驗室所發表的論文中。此篇論文使用 Attention 改進 Seq2seq 模型，後來大家發現 Attention 並不局限於 Seq2seq 模型，而是可以使用在所有的 RNN 上。如果僅有一個 RNN 網路，那麼 Attention 就稱為 Self-Attention。Self-Attention 這篇論文於 2016 年被發表，再後來 Google 於 2017 年發表的 Attention Is All You Need 表示根本不需要使用到 RNN。直接單獨使用 Attention 效果會更好。另外此篇論文中提出了 Transformer 模型架構，也就是下篇文章將提到的部分。
+
+## Reference
+[1] Bahdanau, Cho, & Bengio. Neural machine translation by jointly learning to align and  translate. In ICLR, 2015.
+
+[2] Cheng, Dong, & Lapata. Long Short-Term Memory-Networks for Machine Reading. In
+EMNLP, 2016.
+
+[3] Vaswani et al. Attention Is All You Need. In NIPS, 2017.
