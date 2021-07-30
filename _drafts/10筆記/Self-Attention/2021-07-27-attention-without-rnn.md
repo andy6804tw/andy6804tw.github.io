@@ -133,6 +133,8 @@ Attention 與 Self-Attention 都用 Attn() 這個函數來表示，此函數有�
 ## 小結
 到目前為止已經說明了 Attention 與 Self-Attention Layer，最後做一個小結。Attention 的想法最初在 2015 年由 Bengio 實驗室所發表的論文中。此篇論文使用 Attention 改進 Seq2seq 模型，後來大家發現 Attention 並不局限於 Seq2seq 模型，而是可以使用在所有的 RNN 上。如果僅有一個 RNN 網路，那麼 Attention 就稱為 Self-Attention。Self-Attention 這篇論文於 2016 年被發表，再後來 Google 於 2017 年發表的 Attention Is All You Need 表示根本不需要使用到 RNN。直接單獨使用 Attention 效果會更好。另外此篇論文中提出了 Transformer 模型架構，也就是下篇文章將提到的部分。
 
+> 本篇文章內容來至於線上課程 [CS583: Deep Learning](https://github.com/wangshusen/DeepLearning)
+
 ## Reference
 [1] Bahdanau, Cho, & Bengio. Neural machine translation by jointly learning to align and  translate. In ICLR, 2015.
 
@@ -140,3 +142,8 @@ Attention 與 Self-Attention 都用 Attn() 這個函數來表示，此函數有�
 EMNLP, 2016.
 
 [3] Vaswani et al. Attention Is All You Need. In NIPS, 2017.
+
+[Transformer模型(1/2): 剝離RNN，保留Attention](https://www.youtube.com/watch?v=aButdUV0dxI)
+
+[簡報](https://github.com/wangshusen/DeepLearning/blob/master/Slides/10_Transformer_1.pdf)
+
