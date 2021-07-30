@@ -31,11 +31,11 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 
 ![](/images/posts/AI/2021/img1100727-3.png)
 
-每一個  𝛼 對應一個狀態 h，以下我們具體的來看一下分數 𝛼 是如何被計算出來的。分數的計算是 h<sub>i</sub>  和 s<sub>j</sub> 的函數，首先我們必須計算 Q 和 K。把向量 h<sub>i</sub> 乘上一個矩陣 W<sub>K</sub> 得到 k<sub>i</sub>。 另外把向量 s<sub>j</sub> 乘上一個矩陣 W<sub>Q</sub> 得到 q<sub>j</sub>。這裡的矩陣 W<sub>K</sub> 與 W<sub>Q</sub> 是 align() 函數中可以學習的權重，必須經由訓練資料中去學習的。我們必須把 s<sub>j</sub> 這一個向量與 Encoder 中的所有 h 去計算對比。有 m 個 h 向量因此會有 m 個 k，我們可以將 k<sub>1</sub>~k<sub>m</sub> 組成一個 K 矩陣。我們可以發現圖中綠色的 k<sub>i</sub> 向量為 K 的每一行(row)。
+每一個 𝛼 對應一個狀態 h，以下我們具體的來看一下分數 𝛼 是如何被計算出來的。分數的計算是 h<sub>i</sub>  和 s<sub>j</sub> 的函數，首先我們必須計算 Q 和 K。把向量 h<sub>i</sub> 乘上一個矩陣 W<sub>K</sub> 得到 k<sub>i</sub>。 另外把向量 s<sub>j</sub> 乘上一個矩陣 W<sub>Q</sub> 得到 q<sub>j</sub>。這裡的矩陣 W<sub>K</sub> 與 W<sub>Q</sub> 是 align() 函數中可以學習的權重，必須經由訓練資料中去學習的。我們必須把 s<sub>j</sub> 這一個向量與 Encoder 中的所有 h 去計算對比。有 m 個 h 向量因此會有 m 個 k，我們可以將 k<sub>1</sub>~k<sub>m</sub> 組成一個 K 矩陣。我們可以發現圖中綠色的 k<sub>i</sub> 向量為 K 的每一行(col)。
 
 ![](/images/posts/AI/2021/img1100727-4.png)
 
-計算矩陣 K，需要將 K 進行轉置並與 q<sub>j</sub> 進行矩陣相乘的運算。輸出會是一個 m 維的向量。最後再使用一個 Softmax 函數將這些輸出的數值映射到 0~1 之間，並且這 m 個數值加總必為 1。此時的 𝛼<sub>1j</sub>~ 𝛼<sub>mj</sub> 為最終 q<sub>j</sub>  所對輸入有感興趣的地方的分數。
+計算每個分數需要將 K 進行轉置並與 q<sub>j</sub> 進行矩陣相乘的運算。輸出會是一個 m 維的向量。最後再使用一個 Softmax 函數將這些輸出的數值映射到 0~1 之間，並且這 m 個數值加總必為 1。此時的 𝛼<sub>1j</sub>~ 𝛼<sub>mj</sub> 為最終 q<sub>j</sub>  所對輸入有感興趣的地方的分數。
 
 ![](/images/posts/AI/2021/img1100727-5.png)
 
@@ -62,3 +62,24 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 
 ## Attention without RNN
 接下來我們來討論捨棄 RNN 只保留 Attention 的 Transformer，並得到一個 Attention 與 self-attention Layer。
+
+### Attention Layer
+首先我們先設計一個 Attention Layer 用於 Seq2seq 模型，一樣包含一個 Encoder 與一個 Decoder。Encoder 的輸入向量是 x<sub>1</sub>~x<sub>m</sub>。Decoder 的輸入是 x’1~x’t。
+
+![](/images/posts/AI/2021/img1100727-11.png)
+
+這裡我們捨去 RNN 只用 Attention。首先拿 Encoder 的輸入 x<sub>1</sub>~x<sub>m</sub> 來計算 Key 與 Value 向量。於是 x<sub>1</sub> 就被映射成 k<sub>1</sub> 與 v<sub>1</sub>，x2 就被映射成 k<sub>2</sub> 與 v<sub>2</sub>，依此類推我們就得到 m 組的 k 和 v 向量。
+
+![](/images/posts/AI/2021/img1100727-12.png)
+
+然後把 Decoder 的輸入 x’<sub>1</sub>~x’<sub>t</sub> 做一個線性轉換乘上 Wq 得到 Query。若 Decoder 有 t 個輸入向量，則將會有 t 個 query q<sub>1</sub>~q<sub>t</sub>。注意一下目前為止總共出現了三個 W 矩陣，分別為 Encoder 中的 W<sub>K</sub> 和 W<sub>V</sub> 與 Decoder 中的 W<sub>Q</sub>。這些權重都是可以經由訓練資料進行學習的權重。
+
+![](/images/posts/AI/2021/img1100727-13.png)
+
+現在開始計算分數𝛂，拿取 Decoder 中的第一個 q<sub>1</sub> 與所有 Encoder 中 m 個 k 向量做對比。透過 Scaled dot product 計算出每一個輸入的分數，也就是所謂的 Attention 關聯強度。我們將會得到 m 維的向量 𝛂1(𝛂<sub>11</sub>~𝛂<sub>m1</sub>)，裏面代表著每個相對應輸入的注意力程度。
+
+![](/images/posts/AI/2021/img1100727-14.png)
+
+然後再計算 context vector c<sub>1</sub>，需要用到分數向量 𝜶<sub>1</sub> 與所有 m 個 value 向量進行加權和。又可以寫成 V𝜶<sub>1</sub>。
+
+![](/images/posts/AI/2021/img1100727-15.png)
