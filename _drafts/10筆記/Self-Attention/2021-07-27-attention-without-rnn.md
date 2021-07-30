@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Transformer系列] Attention without RNN'
+title: '[學習筆記] Attention without RNN'
 categories: 'AI'
 description:
 keywords: 'Attention without RNN'
@@ -83,3 +83,17 @@ context vector(c) 計算方式是，首先將 Decoder 當前狀態 s<sub>j</sub>
 然後再計算 context vector c<sub>1</sub>，需要用到分數向量 𝜶<sub>1</sub> 與所有 m 個 value 向量進行加權和。又可以寫成 V𝜶<sub>1</sub>。
 
 ![](/images/posts/AI/2021/img1100727-15.png)
+
+接下來重複上述步驟可以得到所有 context vector，每一個 c 對應一個 x’。
+
+![](/images/posts/AI/2021/img1100727-16.png)
+
+假設有七個輸出將會有七個 context vector，分別為 c<sub>1</sub>~c<sub>7</sub> 為最終的輸出。並且可以用 C 表示這些向量。想要計算一個向量 c<sub>j</sub> 要用到所有的 Q、K、V。所以 c<sub>2</sub> 依賴於 x’<sub>2</sub> 以及 Encoder 中所有的輸入，並透過注意力分數來取捨資訊。
+
+![](/images/posts/AI/2021/img1100727-17.png)
+
+我們把 Attention layer 稱之為函數 Attn()，輸入是分別是 Encoder 的 x<sub>1</sub>~x<sub>m</sub> (X)以及 Decoder 的 x’<sub>1</sub>~x’<sub>t</sub> (X’)。除此之外 Attention layer 有三個要學習的權重矩陣 W<sub>Q</sub>、W<sub>K</sub>、W<sub>V</sub>。最後 Attention layer 的輸出是 c<sub>1</sub>~c<sub>t</sub> (C) 共 t 個向量。因此我們可以總結 Attention layer 有兩個輸入 X 與 X‘，以及一個輸出 C，每一個 c 向量對應一個 x’ 向量。
+
+![](/images/posts/AI/2021/img1100727-18.png)
+
+## Self-Attention without RNN
