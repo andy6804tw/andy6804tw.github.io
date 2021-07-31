@@ -119,6 +119,46 @@ dtype: float64
 dtype: float64
 ```
 
-我們可以發現將 `stratify` 設置為目標 (y) 在訓練和測試集中產生相同的分佈。
+我們可以發現將 `stratify` 設置為目標 (y) 在訓練和測試集中產生相同的分佈。因為改變的類別的比例是一個嚴重的問題，可能會使模型更偏向於特定的類別。因此訓練資料的分佈必須要與實際情況越接近越好。
 
-改變的類別的權重是一個嚴重的問題，可能會使模型更偏向於特定的類別。
+## 使用 LabelEcoder 為特徵編碼
+通常我們要將類別的特徵進行編碼直覺會想到 Sklearn 的 [LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)。但是如果一個資料集中有多個特徵是屬於類別型的資料，豈不是很麻煩?必須要一個一個呼叫 LabelEncoder 分別為這些特徵進行轉換。如果你看到這邊有同感的，在這裡要告訴你事實並非如此！我們看看 在官方文件下 LabelEncoder 的描述：
+
+> This transformer should be used to encode target values, i.e. y, and not the input X.
+
+簡待來說 LabelEncoder 只是被用來編碼輸出項 y 而已的！你還在用它來編碼你的每個 x 嗎？（暈
+
+那麼我們該用什麼方法來編碼有順序的類別特徵呢？如果你仔細閱讀有關編碼分類特徵的 Sklearn 用戶指南，你會看到它清楚地說明：
+
+> To convert categorical features to integer codes, we can use the OrdinalEncoder. This estimator transforms each categorical feature to one new feature of integers (0 to n_categories - 1)
+
+看到這邊大家應該知道閱讀官方文件的重要性吧！官方文件中建議 x 項的輸入特徵可以採用 [OrdinalEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html) 一次為所有特徵依序做 Label Encoding。OrdinalEncoder 編碼器的使用方式如下：
+
+```py
+from sklearn.preprocessing import OrdinalEncoder
+enc = OrdinalEncoder()
+X = [['Male', 1], ['Female', 3], ['Female', 2]]
+enc.fit(X)
+
+print(enc.categories_)
+enc.transform([['Female', 3], ['Male', 1]])
+```
+
+```
+[array(['Female', 'Male'], dtype=object), array([1, 2, 3], dtype=object)]
+array([[0., 2.],
+       [1., 0.]])
+```
+
+以上的範例是 X 有三筆資料，每筆資料都有兩個特徵。我們可以發現第一個特徵是性別 Male 與 Female，因此 OrdinalEncoder 會依造字母開頭做排序 Female 編碼為 0 而 Male 編碼為 1。另外第二個特徵為數字 1、2、3，同理依序為他們編碼成 0、1、2。只需閱讀官方文檔和用戶指南，你就可以了解很多關於 Sklearn 的知識！是不是很棒～
+
+## 5. 在沒有交叉驗證的情況下判斷模型性能
+我想大家應該都熟練掌握了 overfitting 這個議題。這是機器學習中一個迫切問題，並已經設計了無數個方法來解決它。最基本的方法是將一部分數據作為測試集來模擬和測量模型在看不見的數據上的性能。但是我們可以調整模型的超參數，直到模型在該特定測試集上達到最高分數，這又意味著某種含義的過度擬合。因此我們可以會將完整數據的另一部分作為`驗證集`再次解決這個問題。模型將在訓練數據上進行訓練，並在驗證集上微調其參數，並在測試集上進行最終評估。
+
+![](/images/posts/AI/2021/img1100708-2.png)
+
+但是將我們寶貴的數據分成三組意味著模型可以學習的數據量更少。此外模型的整體預測性能將取決於那對特定的訓練集和驗證集。因此在進行機器學習時最常使用 K-fold cross-validation 解決上述問題。詳細內容可以參考我的另一篇文章[[機器學習] 交叉驗證 Cross-Validation 簡介](https://andy6804tw.github.io/2021/07/08/cross-validation-intro/)以及[[機器學習] 交叉驗證 K-fold Cross-Validation](https://andy6804tw.github.io/2021/07/09/k-fold-validation/)。根據我們設定的 K 值，可以完整的將數據被分成 K 組 folds，對於每個 folds 每次模型訓練會把 K-1 組作為訓練集，而剩下的被歸類為驗證集。當模型交叉驗證結束後，訓練集所有資料會被完整的訓練。
+
+![](/images/posts/AI/2021/img1100709-1.png)
+
+## 6. 使用準確度作為衡量分類器性能的指標
