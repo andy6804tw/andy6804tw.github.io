@@ -1,16 +1,18 @@
 # 6 個 Sklearn 錯誤悄悄地透露出你是個菜雞
 以下問題沒有錯誤信息—這就是它們的微妙之處...
 
-本文源自[6 Sklearn Mistakes That Silently Tell You Are a Rookie](https://towardsdatascience.com/6-sklearn-mistakes-that-silently-tell-you-are-a-rookie-84fa55f2b9dd)。筆者認為此篇文章內容深深地點出大家在機器學習中無意間所犯的錯誤，故翻譯與引用文章並加入我一些觀點讓大家學習。
+本文源自[6 Sklearn Mistakes That Silently Tell You Are a Rookie](https://towardsdatascience.com/6-sklearn-mistakes-that-silently-tell-you-are-a-rookie-84fa55f2b9dd)。筆者認為此篇文章內容深深地點出大家在機器學習中無意間所犯的錯誤，故引用文章並加入我一些觀點讓大家學習。
 
 ![])(https://miro.medium.com/max/2000/1*QkSqDjnOui89L5U_GzVxMA.jpeg)
 
 Sklearn 很方便也很強大，該套件也集結了各式各樣的機器學習演算法與資料處理相關的工具。當你的語法錯誤的時候，時候 Sklearn 往往會吐出現一片紅色的錯誤訊息或是警告。這些訊息會提示你該如何去修正這些問題，筆者建議直接滑鼠滾到最後一行看錯誤訊息。如果對這些紅字毫無頭緒，通常將這些訊息複製到 Google 也能找到一些相關的解決方式。永遠記住 [Stack Overflow](https://stackoverflow.com/) 是工程師的好夥伴！
 
+![](https://content.presspage.com/uploads/2658/c800_logo-stackoverflow-square.jpg?98978)
+
 但是如果你都沒有收到任何錯誤或警告是代表都沒事嗎？不盡然。雖然 Sklearn 套件都已經幫你包裝好，只要詳細了解超參數的設定以及模型方法的使用基本上是沒問題的。但是一般人往往會犯一些邏輯上的小毛病，雖然表上面上訓練結果非常好但是背後可能造成資料洩漏(data leakage)的疑慮。尤其是在初學階段，因缺乏經驗往往會犯一些無可避免的錯誤。所以這篇文章將點出 6 個機器學習中常犯的隱形錯誤。
 
-## 1. 到處使用 `fit` 或 `fit_transform`
-首先讓我們從最嚴重的錯誤開始，使有關於先前所提到的資料洩漏(data leakage)。資料洩漏是很微妙的，它會在不知不覺中影響模型預測結果。它發生的時機在於你在訓練過程中，不應該將測試的資料的資訊洩漏到訓練過程中。它會造成模型給出一個非常樂觀的結果，即使在交叉驗證中也是如此，但在對實際新數據進行測試時表現會非常地糟糕。
+## 1. 小心使用 `fit` 或 `fit_transform`
+首先讓我們從最嚴重的錯誤開始，使有關於先前所提到的資料洩漏(data leakage)。資料洩漏是很微妙的，它會在不知不覺中影響模型預測結果。其發生的時機在於你在訓練過程中，不應該將測試的資料的資訊洩漏到訓練過程中。它會造成模型給出一個非常樂觀的結果，即使在交叉驗證中也是如此，但在對實際新數據進行測試時表現會非常地糟糕。
 
 資料洩漏最常發生於資料前處理的階段，尤其是當你的訓練集和測試集尚未切割的時候。Sklearn 提供了許多資料前處理的方法，例如: 缺失值補值(imputers)、正規化 (normalizers)、標準化(standardization)以及對數(log) 轉換...等。這些轉換器都會依賴於你輸入資料的分佈，並依照此分佈做相對應的擬合。
 
@@ -122,7 +124,7 @@ dtype: float64
 我們可以發現將 `stratify` 設置為目標 (y) 在訓練和測試集中產生相同的分佈。因為改變的類別的比例是一個嚴重的問題，可能會使模型更偏向於特定的類別。因此訓練資料的分佈必須要與實際情況越接近越好。
 
 ## 使用 LabelEcoder 為特徵編碼
-通常我們要將類別的特徵進行編碼直覺會想到 Sklearn 的 [LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)。但是如果一個資料集中有多個特徵是屬於類別型的資料，豈不是很麻煩?必須要一個一個呼叫 LabelEncoder 分別為這些特徵進行轉換。如果你看到這邊有同感的，在這裡要告訴你事實並非如此！我們看看 在官方文件下 LabelEncoder 的描述：
+通常我們要為類別的特徵進行編碼，直覺會想到 Sklearn 的 [LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)。但是如果一個資料集中有多個特徵是屬於類別型的資料，豈不是很麻煩?必須要一個一個呼叫 LabelEncoder 分別為這些特徵進行轉換。如果你看到這邊有同感的，在這裡要告訴你事實並非如此！我們看看 在官方文件下 LabelEncoder 的描述：
 
 > This transformer should be used to encode target values, i.e. y, and not the input X.
 
