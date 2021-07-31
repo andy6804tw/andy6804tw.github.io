@@ -1,0 +1,122 @@
+# 6 個 Sklearn 錯誤悄悄地透露出你是個菜雞
+以下問題沒有錯誤信息—這就是它們的微妙之處...
+
+本文源自[6 Sklearn Mistakes That Silently Tell You Are a Rookie](https://towardsdatascience.com/6-sklearn-mistakes-that-silently-tell-you-are-a-rookie-84fa55f2b9dd)。筆者認為此篇文章內容深深地點出大家在機器學習中無意間所犯的錯誤，故翻譯與引用文章並加入我一些觀點讓大家學習。
+
+![])(https://miro.medium.com/max/2000/1*QkSqDjnOui89L5U_GzVxMA.jpeg)
+
+Sklearn 很方便也很強大，該套件也集結了各式各樣的機器學習演算法與資料處理相關的工具。當你的語法錯誤的時候，時候 Sklearn 往往會吐出現一片紅色的錯誤訊息或是警告。這些訊息會提示你該如何去修正這些問題，筆者建議直接滑鼠滾到最後一行看錯誤訊息。如果對這些紅字毫無頭緒，通常將這些訊息複製到 Google 也能找到一些相關的解決方式。永遠記住 [Stack Overflow](https://stackoverflow.com/) 是工程師的好夥伴！
+
+但是如果你都沒有收到任何錯誤或警告是代表都沒事嗎？不盡然。雖然 Sklearn 套件都已經幫你包裝好，只要詳細了解超參數的設定以及模型方法的使用基本上是沒問題的。但是一般人往往會犯一些邏輯上的小毛病，雖然表上面上訓練結果非常好但是背後可能造成資料洩漏(data leakage)的疑慮。尤其是在初學階段，因缺乏經驗往往會犯一些無可避免的錯誤。所以這篇文章將點出 6 個機器學習中常犯的隱形錯誤。
+
+## 1. 到處使用 `fit` 或 `fit_transform`
+首先讓我們從最嚴重的錯誤開始，使有關於先前所提到的資料洩漏(data leakage)。資料洩漏是很微妙的，它會在不知不覺中影響模型預測結果。它發生的時機在於你在訓練過程中，不應該將測試的資料的資訊洩漏到訓練過程中。它會造成模型給出一個非常樂觀的結果，即使在交叉驗證中也是如此，但在對實際新數據進行測試時表現會非常地糟糕。
+
+資料洩漏最常發生於資料前處理的階段，尤其是當你的訓練集和測試集尚未切割的時候。Sklearn 提供了許多資料前處理的方法，例如: 缺失值補值(imputers)、正規化 (normalizers)、標準化(standardization)以及對數(log) 轉換...等。這些轉換器都會依賴於你輸入資料的分佈，並依照此分佈做相對應的擬合。
+
+舉例來說，我們在做標準化時(StandardScaler)透過從每筆資料中減去平均值並將其除以標準偏差來獲得縮放後的數據。我們使用 `fit()` 方法在所有資料集 X 上做轉換，並使得轉換器學習每個特徵的整個分佈的平均值和標準差。這些資料轉換後如果再將這些數據拆分為訓練集和測試集，則訓練集會受到污染。因為 StandardScaler 從實際分佈中洩露了測試集重要訊息，一般來說我們不能將測試集的分佈情況與訓練集混在一起。雖然我們希望訓練集的分佈與實際測試集的分佈要越接近越好，因為使得模型表現結果穩定。
+
+雖然我們把測試集與訓練集混在一起並做轉換，這一步驟對我們來說可能沒什麼。但是對於 Sklearn 強大的演算法，可能會透過這個遺漏測試集的分佈的訊息把模型擬合的很好。屆時模型訓練完成後，測試集不夠新穎，無法在實際看不見的數據上測試模型的性能。
+
+最簡單的解決辦法，就是不要使用 `fit()` 一次轉換所有的資料。在做任何資料轉換之前要先確保訓練集與測試集已經完整地被切開。即使切開後也不要再拿測試集呼叫 `fit()` 或 `fit_transform()`，這一樣會導致相同問題發生。因為訓練集和測試集必須進行相同的轉換，依照官方的範例我們必須先使用 `fit_transform()` 在訓練集上進行擬合與轉換。這確保了轉換器僅從訓練集學習，從中找出參數例如平均值與變異數並同時對其進行變換。接著使用 `transform()` 方法在測試資料上進行轉換，根據從訓練數據中學到的訊息進行轉換。
+
+```py
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=44)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+print('The mean value for each feature in the training set: ', scaler.mean_)
+print('The variance for each feature in the training set: ', scaler.var_)
+```
+
+更強大的解決方案是使用 Sklearn 內建的 pipeline，它能夠保護模型免於資料洩漏的問題。此方法能夠確保訓練資料僅參與轉換擬合與模型訓練，而測試資料僅用於計算並驗證模型。
+
+## 2. 僅使用測試集評估模型好壞
+如果你的測試資料 R2 score 得到了 0.85 就代表很好了嗎？不盡然！儘管有高的測試分數通常意味著模型表現佳，但在解釋測試結果時仍有一些重要的注意事項。首先最重要的，無論分數值如何測試集的分數一定要與訓練集相比較才能確保模型訓練好與壞。當你的模型訓練集分數高於測試集的分數，並且兩者都足夠高以滿足專案的目標期望時這代表你訓練了一個好模型。然而這並不意味著訓練和測試分數之間的差異越大越好。舉個例子，若訓練集的 R2 score 為 0.85 測試集為 0.8 即代表模型既不過度擬合(overfit)也不欠擬合(underfit)。但是如果訓練集 0.9 測試集 0.8 的時候，你的模型就是過擬合。其原因是該模型沒有在訓練期間進行泛化，而是記住了一些訓練數據，從而導致測試分數低得多。
+
+在大多數任務中你將會看到許多人使用 tree-based 模型或是集成模型 (ensemble models)。例如在隨機森林演算法當中如果它們的樹深度太深，往往會獲得非常高的訓練分數，從而導致過度擬合。另外也有測試集的分數比訓練集高的情況，若發生此情況時通常都會感覺是不是做錯了什麼。這種情況的主要原因是資料洩漏，也就是上一節我們討論的情況。或是你的測試資料筆數太少，沒辦法足以驗證模型好壞。
+
+另外有時候我們也會得到在訓練集有很好的表現但測試集無敵差的情況。當訓練和測試分數差異很大時，問題往往與測試集有關而不是過度擬合。這時候你可能要檢查資料預處理的方式是否一致(像是取 log 或 scale)，或是只是忘記對測試集做轉換處理。
+
+這裡做一個小結，總之在訓練好模型時請仔細檢查訓練和測試分數之間的差距。並且可以透過此評估方式檢視模型是否過擬合，同時也能進行模型條參或是選擇最佳的資料預處理方式。並為最終的模型做最佳的準備。
+
+## 3. 在分類中生成標籤分佈不均衡的訓練/測試集
+初學者常見的錯誤是忘記使用分層抽樣(stratify)來對訓練集和測試集進行切割。當測試集的分佈盡可能與訓練相同情況下，模型才更有可能得到更準確的預測。在分類的問題中，我們更關心每個類別的資料分佈比例。假設我們有三個標籤的類別，這三個類別的分佈分別有 0.4、0.3、0.3。然而我們在切割資料的時候必須確保訓練集與測試集需要有相同的資料比例分佈。
+
+通常我們都使用 Sklearn 的 `train_test_split` 進行資料切割。在此方法中 Sklearn 提供了一個 `stratify` 參數達到分層隨機抽樣的目的。特別是在原始數據中樣本標籤分佈不均衡時非常有用，一些分類問題可能會在目標類的分佈中表現出很大的不平衡：例如，負樣本與正樣本比例懸殊(信用卡倒刷預測、離職員工預測)。以下用紅酒分類預測來進行示範，首先我們不使用 `stratify` 隨機切割資料。
+
+```py
+from sklearn.datasets import load_wine
+from sklearn.model_selection import train_test_split
+
+X, y = load_wine(return_X_y=True)
+
+# Look at the class weights before splitting
+pd.Series(y).value_counts(normalize=True)
+```
+
+```
+# 全部資料三種類別比例
+1    0.398876
+0    0.331461
+2    0.269663
+dtype: float64
+```
+
+```py
+# Generate unstratified split
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+
+# Look at the class weights of train set
+pd.Series(y_train).value_counts(normalize=True)
+# Look at the class weights of the test set
+pd.Series(y_test).value_counts(normalize=True)
+```
+
+```
+# 訓練集三種類別比例
+1    0.390977
+0    0.330827
+2    0.278195
+dtype: float64
+
+# 測試集三種類別比例
+1    0.511111
+0    0.266667
+2    0.222222
+dtype: float64
+```
+
+從上面切出來的訓練集與測試集可以發現三個類別的資料分佈比例都不同。因此我們可以使用 `stratify` 參數再切割一次。
+
+```py
+# Generate stratified split
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y)
+
+# Look at the class weights of train set
+pd.Series(y_train).value_counts(normalize=True)
+# Look at the class weights of the test set
+pd.Series(y_test).value_counts(normalize=True)
+```
+
+```
+# 訓練集三種類別比例
+1    0.400000
+0    0.333333
+2    0.266667
+dtype: float64
+
+# 測試集三種類別比例
+1    0.398496
+0    0.330827
+2    0.270677
+dtype: float64
+```
+
+我們可以發現將 `stratify` 設置為目標 (y) 在訓練和測試集中產生相同的分佈。
