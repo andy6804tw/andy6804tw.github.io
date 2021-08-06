@@ -64,7 +64,24 @@ X_test: (85443, 30)
 pip install lightgbm
 ```
 
-安裝結束後即可載入 lightgbm 套件並選用 LGBMClassifier 分類器。另外我們可以在建立分類器同時設定模型超參數，這裡我們來示範使用 `is_unbalance=True` 訓練模型。
+安裝結束後即可載入 lightgbm 套件並選用 LGBMClassifier 分類器。另外我們可以在建立分類器同時設定模型超參數，這裡我們來示範使用 `is_unbalance=True` 訓練模型。除此之外模型的超參數有很多，可以由[官方](https://lightgbm.readthedocs.io/en/latest/Parameters.html)文件中查閱。以下幫各位整理常用的方法：
+
+Parameters:
+- num_iterations: 總共迭代的次數，即決策樹的個數。預設值為100。
+- learning_rate: 學習速率，預設0.1。
+- boosting: 選擇 boosting 種類。共四種 gbdt、rf、dart、goss，預設為 gbdt。
+- max_depth: 樹的最大深度，預設值為-1即表示無限制。
+- min_data_in_leaf: 一個子葉中最少數據，可用於處理過擬合。預設20筆。
+- max_bin: 將特徵值放入桶中的最大bins數。預設為255。
+
+Attributes:
+- feature_importances_: 查詢模型特徵的重要程度。
+
+Methods:
+- fit: 放入X、y進行模型擬合。
+- predict: 預測並回傳預測類別。
+- score: 預測成功的比例。
+- predict_proba: 預測每個類別的機率值。
 
 ```py
 import lightgbm as lgb
