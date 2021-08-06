@@ -14,3 +14,110 @@ LightGBM 由微軟團隊於 2017 年所發表的論文 [LightGBM: A Highly Effic
 
 ### 使用 Leaf-wise 建構樹
 LightGBM 使用 leaf-wise tree算法，因此在迭代過程中能更快地收斂；但leaf-wise tree算法較容易過擬合。
+
+### 處理 unbalance 資料
+在使用 LightGBM 做分類器時該如何處理樣本類別分佈不平衡的問題？一個簡單的方法是設定 `is_unbalance=True`，或是 `scale_pos_weight` 注意這兩個參數只能擇一使用。以下我們就使用一個不平衡的資料集，信用卡盜刷預測來做示範。首先我們可以載入 Google 所提供的信用卡盜刷資料集，詳細資訊可以參考[這裡](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)。
+
+```py
+import pandas as pd
+raw_df = pd.read_csv('https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv')
+X=raw_df.drop(columns = ['Class'])
+y=raw_df['Class']
+print('X:', X.shape)
+print('Y:', y.shape)
+```
+
+載入成功後我們可以看到該資料集共有 284807 筆資料，每一筆資料有 30 個特徵。
+```
+X: (284807, 30)
+Y: (284807,)
+```
+
+為了方便檢視實驗結果，我們依照 y 的比例進行訓練集與測試集的切割。這裡值得一提的是，`stratify` 為分層隨機抽樣。特別是在原始數據中樣本標籤分佈不均衡時非常有用，一些分類問題可能會在目標類的分佈中表現出很大的不平衡時例如：負樣本可能比正樣本多幾倍。在這種情況下，建議使用分層抽樣。
+
+```py
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+print('X_train:', X_train.shape)
+print('X_test:', X_test.shape)
+```
+
+輸出結果：
+```
+X_train: (199364, 30)
+X_test: (85443, 30)
+```
+
+訓練集與測試集經由 7:3 的比例下去隨機切割資料。我們可以透過 Pandas 做更近一步的分析，可以發現切割出來的訓練集與測試集在盜刷(1)與非盜刷(0)的資料比例是差不多的。
+
+![](https://i.imgur.com/ZsQZBME.png)
+
+接下來重頭戲出場。我們採用 LightGBM 分類器，若還沒安裝的讀者可以參考以下指令進行安裝。
+
+```
+pip install lightgbm
+```
+
+安裝結束後即可載入 lightgbm 套件並選用 LGBMClassifier 分類器。另外我們可以在建立分類器同時設定模型超參數，這裡我們來示範使用 `is_unbalance=True` 訓練模型。
+
+```py
+import lightgbm as lgb
+model = lgb.LGBMClassifier(is_unbalance=True)
+model.fit(X_train,y_train)
+```
+
+訓練結束後即可使用剛切割好的測試集進行模型評估。我們可以發現準確率高達 94%。
+
+```py
+from sklearn.metrics import accuracy_score
+pred=model.predict(X_test)
+print("Accuracy", accuracy_score(y_test, pred))
+```
+
+輸出結果：
+```
+Accuracy 0.9401706400758401
+```
+
+如果要判斷分類器的好壞，僅使用準確率來評估是一個不好的習慣。我們應該善用混淆矩陣做更近一步的分析，並查看正樣本與負樣本在預測上的表現。首先我們先來寫一個計算混淆矩陣的函式，並用 seaborn 繪製出熱力圖矩陣。
+
+```py
+import seaborn as sns
+import matplotlib.pyplot as plt
+def plot_confusion_matrix(actual_val, pred_val, title=None):
+    confusion_matrix = pd.crosstab(actual_val, pred_val,
+                                   rownames=['Actual'],
+                                   colnames=['Predicted'])
+    
+    plot = sns.heatmap(confusion_matrix, annot=True, fmt=',.0f')
+    
+    if title is None:
+        pass
+    else:
+        plot.set_title(title)
+        
+    plt.show()
+```
+
+在評估模型之前我們先來查看測試集輸出 y 的分佈各是多少。透過 numpy 的 unique 方法可以計算 `y_test` 中每個類別的數量。從輸出結果可以得知，85443 筆測試集中共有 85295 筆是標籤 0(未盜刷)、148 筆是標籤 1(盜刷)。知道這些真實數據的數量後，接下來我們就可以透過混淆矩陣來查看模型是否有將這些盜刷的資料被正確預測出來。
+
+```py
+import numpy as np
+unique, counts = np.unique(y_test, return_counts=True)
+dict(zip(unique, counts))
+```
+
+輸出結果：
+```
+{0: 85295, 1: 148}
+```
+
+`plot_confusion_matrix` 函式建立完成後即可呼叫。此函式有三個輸入，分別為 y_test 實際輸出答案、 pred 模型預測結果、title 圖表標題(預設None)。相對應的變數輸入後即可得到計算好的混淆矩陣。
+
+```py
+plot_confusion_matrix(y_test, pred)
+```
+
+![](https://i.imgur.com/Oujxqxw.png)
+
+![](https://i.imgur.com/9aKlEFt.png)
