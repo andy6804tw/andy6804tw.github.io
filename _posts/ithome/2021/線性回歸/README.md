@@ -154,16 +154,17 @@ Let x<sub>2</sub> = x<sub>1</sub><sup>2</sup> and x<sub>3</sub> = x<sub>1</sub><
 這裡做一個小結。我們可以透過引入轉變過後的 x 作為一個新的特徵來滿足線性假設。此時的回歸方程式就是一個多項式回歸(polynomial regression)。
 
 ## Sklearn 實作多項式回歸
-由於 Sklearn 沒有封裝好的多項式回歸模型可以直接呼叫。不過我們可以透過 `make_pipeline` 將 `PolynomialFeatures` 與 `LinearRegression` 封裝成一個多項式回歸模型，並且使用者可以隨意設定 degree(次數) 值。
+由於 Sklearn 沒有封裝好的多項式回歸模型可以直接呼叫。不過我們可以透過 `make_pipeline` 將 `PolynomialFeatures` 與 `LinearRegression` 封裝成一個多項式回歸模型，並且使用者可以隨意設定 degree(次方)值。
 
-我們可以對原本的特徵進行 PolynomialFeatures 構造新樣本特徵採。
+我們可以對原本的特徵進行 PolynomialFeatures 構造新樣本特徵採。並將轉換後的特徵送到線性回歸模型進行擬合。因此我們可以自定義一個 `PolynomialRegression()` 的函式，使用者可以輸入 degree 大小控制模型的強度。在這個函式中我們使用 Sklearn 的 pipeline 方法將 `PolynomialFeatures` 特徵轉換與 `LinearRegression` 線性回歸模型封裝起來。另外以下範例是透過自訂義的 `make_data()` 函式產生一組隨機的 x 和 y。該函式中可以設定隨機資料的比數，下面程式中我們先隨機建立 100 筆數據。
 
 ```py
+from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.pipeline import make_pipeline
 plt.style.use('seaborn')
 
-#make_pipeline是指可以將多個scikit learn的function一起執行
+# make_pipeline是指可以將多個Sklearn的function一起執行
 def PolynomialRegression(degree=2, **kwargs):
     return make_pipeline(PolynomialFeatures(degree),
                          LinearRegression(**kwargs))
@@ -180,11 +181,15 @@ def make_data(N,err=1,rseed=42):
 X, y = make_data(100)
 ```
 
+訓練資料與測試資料都建立完成後。我們就可以將訓練資料丟入建立好的 `PolynomialRegression()` 並進行數據擬合。下面範例程式中我們演示 degree 等於 1、3、9，並來查看隨著次方數的增長對於模型的擬合程度的影響。
+
 ```py
-#測試資料集
+# 測試資料集
 x_test = np.linspace(-0.1,1.1,500)[:,None]
+# 繪製真實答案的分佈
 plt.scatter(X.ravel(),y,color='black')
-#測試1,3,7的degree
+
+# 測試 1,3,7 的degree
 for degree in [1,3,9]:
     y_test=PolynomialRegression(degree).fit(X,y).predict(x_test)
     plt.plot(x_test.ravel(),y_test,label='degree={}'.format(degree))
@@ -192,5 +197,7 @@ plt.xlim(-0.1,1.0)
 plt.ylim(-2,12)
 plt.legend(loc='best')
 ```
+
+從訓練結果可以發現隨著次方數 degree 的增長模型會變得越複雜。同時對於訓練數據的擬合結果越好。但是這裡必須注意並非越大的 degree 就是越好的，因為隨著模型複雜會有過度擬合的跡象。因此我們必須找出一個適當的 degree 數值並與測試集驗證與評估。目標是訓練集與測試集的 MSE 差距要越小越好。如果我們一昧的追求訓練集的損失最小化，可能會影響到測試集的表現能力導致預測結果變差。
 
 ![](./image/img8-9.png)
