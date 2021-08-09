@@ -1,6 +1,6 @@
  
  # 線性迴歸(Linear Regression)
-線性迴歸是統計上在找多個自變數和依變數之間的關係所建出來的模型。只有一個自變數(x)和一個依變數(y)的情形稱為簡單線性迴歸大於一個自變數(x1,x2,...)的情形稱為多元迴歸。
+線性迴歸是統計上在找多個自變數和依變數之間的關係所建出來的模型。只有一個自變數(x)和一個依變數(y)的情形稱為簡單線性迴歸大於一個自變數(x<sub>1</sub>,x<sub>2</sub>,...)的情形稱為多元迴歸。
 
 一個簡單線性回歸: y=ax+b，其中 b：截距(Intercept)，a：斜率(Slope) 為 x 變動一個單位 y 變動的量，如下圖:
 
@@ -122,6 +122,75 @@ Sklearn 的 LinearRegression 模型也是採用小平方法求解。我們可以
 
 ![](./image/img8-7.png)
 
-多項式回歸中，數據不太具有線性關係，因此應尋找一些非線性曲線去擬合。如下圖，用一條三次曲線去擬合數據，效果更好。
+多項式回歸中，數據不太具有線性關係，因此應尋找一些非線性曲線去擬合。對於以上的數據，原本是只有一個 x 特徵，但是我們可以建構許多新的特徵。如下圖，用一條三次曲線去擬合數據效果更好。我們將三次函數看成 ax<sup>3</sup>+bx<sup>2</sup>+cx+d。這樣就又變成解多元，其我們就是要找出 a、b、c、d 使其損失函數最小。
 
 ![](./image/img8-8.png)
+
+### 線性模型的擴展
+從上述問題中我們可以發現線性回歸在實務上所面臨的問題。首先我們來回顧一下稍早所提到的線性方程式，這組線性方程式說明了每個特徵 x 一次方與目標值是有一個線性的關係。
+
+y = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + β<sub>2</sub>x<sub>2</sub> + ... + β<sub>n</sub>x<sub>n</sub>
+
+接著我們再來看一下另一個例子，比如說特徵 x<sub>1</sub> 與目標值存在著以下的關係。我們發現這組方程式已經不是一個線性關係了，因為他有了 x<sub>1</sub> 的二次方。
+
+y = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + β<sub>2</sub>x<sub>1</sub><sup>2</sup>
+
+那麼該怎麼做我們才能又把它轉換成線性關係呢？這時候我們就可以用一個新的特徵 x<sub>2</sub>。我們讓 x<sub>2</sub> 等於 x<sub>1</sub> 的平方，這樣我們再把 x<sub>2</sub> 帶回原方程式中。此時這兩個特徵 x<sub>1</sub> 與 x<sub>2</sub> 與目標值又回到了線性關係。
+
+Let x<sub>2</sub> = x<sub>1</sub><sup>2</sup>
+
+=> y = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + β<sub>2</sub>x<sub>2</sub>
+
+同樣的我們再來看另一個例子。我們如果引入了 x<sub>1</sub> 的三次方的話，他的方程式如下：
+
+y = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + β<sub>2</sub>x<sub>1</sub><sup>2</sup> + β<sub>3</sub>x<sub>1</sub><sup>3</sup>
+
+同理我們這時一樣可以引入新的特徵 x<sub>2</sub> 等於 x<sub>1</sub> 的二次方，以及 x<sub>3</sub> 等於 x<sub>1</sub> 的三次方。這樣經過一個轉換以後我們的 y 值與所有的特徵間依然存在著線性關係。
+
+Let x<sub>2</sub> = x<sub>1</sub><sup>2</sup> and x<sub>3</sub> = x<sub>1</sub><sup>3</sup>
+
+=> y = β<sub>0</sub> + β<sub>1</sub>x<sub>1</sub> + β<sub>2</sub>x<sub>2</sub> + β<sub>3</sub>x<sub>3</sub>
+
+這裡做一個小結。我們可以透過引入轉變過後的 x 作為一個新的特徵來滿足線性假設。此時的回歸方程式就是一個多項式回歸(polynomial regression)。
+
+## Sklearn 實作多項式回歸
+由於 Sklearn 沒有封裝好的多項式回歸模型可以直接呼叫。不過我們可以透過 `make_pipeline` 將 `PolynomialFeatures` 與 `LinearRegression` 封裝成一個多項式回歸模型，並且使用者可以隨意設定 degree(次數) 值。
+
+我們可以對原本的特徵進行 PolynomialFeatures 構造新樣本特徵採。
+
+```py
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline
+plt.style.use('seaborn')
+
+#make_pipeline是指可以將多個scikit learn的function一起執行
+def PolynomialRegression(degree=2, **kwargs):
+    return make_pipeline(PolynomialFeatures(degree),
+                         LinearRegression(**kwargs))
+
+# 隨機定義新的x,y值
+def make_data(N,err=1,rseed=42):
+    rng=np.random.RandomState(rseed)
+    x = rng.rand(N,1)**2
+    y = 10-1/(x.ravel()+0.1)
+    if err>0:
+        y+=err*rng.randn(N)
+    return x,y
+
+X, y = make_data(100)
+```
+
+```py
+#測試資料集
+x_test = np.linspace(-0.1,1.1,500)[:,None]
+plt.scatter(X.ravel(),y,color='black')
+#測試1,3,7的degree
+for degree in [1,3,9]:
+    y_test=PolynomialRegression(degree).fit(X,y).predict(x_test)
+    plt.plot(x_test.ravel(),y_test,label='degree={}'.format(degree))
+plt.xlim(-0.1,1.0)
+plt.ylim(-2,12)
+plt.legend(loc='best')
+```
+
+![](./image/img8-9.png)
