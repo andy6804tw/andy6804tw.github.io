@@ -11,11 +11,11 @@ GitHub 官方在 2020 年 7 月[宣布](https://github.blog/2020-12-15-token-aut
 
 如果在你的本機操作 Git 指令發生以下錯誤訊息，表示你的電腦尚未進行 token 設定。這篇文章將會幫助你解決這一類問題。
 
-```
-remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+
+> remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
 remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
 fatal: unable to access 'https://github.com/XXX/XXXX.git/': The requested URL returned error: 403
-```
+
 
 ## 解決辦法
 首先開啟 GitHub 並點選選右上角進入 `Settings > Developer settings > Personal access tokens`。之後後點選 `Generate new token` 按鈕建立一個 Personal token。
