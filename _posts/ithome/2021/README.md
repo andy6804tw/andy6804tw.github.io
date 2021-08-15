@@ -43,6 +43,6 @@
 ```
 --專題演講--
 ```
-29. 6 個 Sklearn 錯誤悄悄地透露出你是個菜雞
+29. [6 個 Sklearn 錯誤悄悄地透露出你是個菜雞](https://elitedatascience.com/beginner-mistakes)
 30. 近年來趨勢
 
