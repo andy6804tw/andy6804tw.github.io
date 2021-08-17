@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Git 疑難排解] GitHub Token authentication 設定'
+title: '[Git 疑難排解] GitHub 啟用二階段密碼驗證 Token authentication 設定'
 categories: 'Git'
 description: 'Use token to push some codes to github'
 keywords: 
