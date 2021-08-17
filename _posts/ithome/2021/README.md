@@ -29,7 +29,7 @@
 ```
 --機器學習小撇步報你知--
 ```
-21. Python 可視化神器：Plotly Express
+21. [Python 可視化神器：Plotly Express](https://pub.towardsai.net/matplotlib-is-dead-long-life-to-plotly-express-e1671dce0d18)
 22. 離群值與偏態處理
 23. 交叉驗證 Cross-Validation 簡介
 24. 交叉驗證 K-fold Cross-Validation
