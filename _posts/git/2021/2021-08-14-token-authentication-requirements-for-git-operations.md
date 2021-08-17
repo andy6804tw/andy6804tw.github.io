@@ -1,9 +1,9 @@
 ---
 layout: post
 title: '[Git 疑難排解] GitHub Token authentication 設定'
-categories: Git
-description: 
-keywords: Use token to push some codes to github
+categories: 'Git'
+description: 'Use token to push some codes to github'
+keywords:
 ---
 
 ## 前言
