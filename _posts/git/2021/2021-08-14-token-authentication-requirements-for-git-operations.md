@@ -3,13 +3,13 @@ layout: post
 title: '[Git 疑難排解] GitHub Token authentication 設定'
 categories: 'Git'
 description: 'Use token to push some codes to github'
-keywords:
+keywords: 
 ---
 
 ## 前言
 GitHub 官方在 2020 年 7 月[宣布](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)從 2021 年 8 月 13 起必須透過 token 機制進行 Git 的相關操作。這意味著從即刻起使用者使用終端機進行 Git 操作無法再透過帳號密碼的方式進行存取。基於資安考量此種方式的確可以見少帳密被竊取問題，相對的使用者必須花些時間進行設定。
 
-如果在你的本機操作 Git 指令發生以下錯誤訊息，表示你的電腦尚未進行 token 設定。這篇文章將會幫助你解決這一類問題。
+如果在你的本機操作 Git 指令發生以下錯誤訊息，表示你的電腦尚未進行 token 設定。這篇文章將會幫助你解決這一類問題。
 
 
 > remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
