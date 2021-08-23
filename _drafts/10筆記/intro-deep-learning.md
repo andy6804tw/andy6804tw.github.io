@@ -54,3 +54,7 @@
 甚至有一個理論說。假設任何連續的 function 它的輸入是一個 N 為的向量，輸出是一個 M 維的向量。它都可以用一個隱藏層的神經網路來表示。只要你的這一個隱藏層的神經元夠多，它可以表示成任何的 function。
 
 ![](https://i.imgur.com/nGBUQQZ.png)
+
+
+- [簡報](http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/DL%20(v2).pdf)
+- [影片](https://www.youtube.com/watch?v=Dr-WRlEFefw&feature=youtu.be)
