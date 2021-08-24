@@ -134,5 +134,14 @@ Beam Search 有時候有用有時候無用。舉例以下論文中要做的是�
 這招叫做 Schdduled Sampling，在還沒有 Transformer 只有 LSTM 的時候就已經有 Schdduled Sampling。但是 Schdduled Sampling 這招會影響到 Transformer 的平行化能力。以下是相關的論文參考。
 
 [[論文] Scheduled Sampling for Sequence Prediction with Recurrent Neural Networks](https://arxiv.org/abs/1506.03099)
+
 [[論文] Scheduled Sampling for Transformers](https://arxiv.org/abs/1906.07651)
+
 [[論文] Parallel Scheduled Sampling](https://arxiv.org/abs/1906.04331)
+
+## Reference
+[【機器學習2021】Transformer (上)](https://www.youtube.com/watch?v=n9TlOhRjYoc)
+
+[【機器學習2021】Transformer (下)](https://www.youtube.com/watch?v=N6aRv06iv2g)
+
+[簡報](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2021-course-data/seq2seq_v9.pdf)
