@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[學習筆記] ML Lecture 1: Regression - Case Study'
+title: '[AI學習筆記] ML Lecture 1: Regression - Case Study'
 categories: 'AI'
 description:
 keywords: machine learning ntu

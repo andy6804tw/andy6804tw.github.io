@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[學習筆記] Attention without RNN'
+title: '[AI學習筆記] Attention without RNN'
 categories: 'AI'
 description:
 keywords: 'Attention without RNN'

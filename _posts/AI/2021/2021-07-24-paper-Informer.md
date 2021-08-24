@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[論文導讀] Informer: 基於長時間序列預測的Transformer架構模型'
+title: '[AI論文導讀] Informer: 基於長時間序列預測的Transformer架構模型'
 categories: 'AI'
 description:
 keywords: 'Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting'

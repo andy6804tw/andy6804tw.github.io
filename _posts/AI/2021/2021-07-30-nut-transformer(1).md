@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[學習筆記] 李宏毅課程 Transformer 機制解說 (上)'
+title: '[AI學習筆記] 李宏毅課程 Transformer 機制解說 (上)'
 categories: 'AI'
 description:
 keywords: machine learning 2021 spring ntu

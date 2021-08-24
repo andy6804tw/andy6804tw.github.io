@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[學習筆記] 李宏毅課程 Multi-head Self-Attention 機制解說'
+title: '[AI學習筆記] 李宏毅課程 Multi-head Self-Attention 機制解說'
 categories: 'AI'
 description:
 keywords: machine learning 2021 spring ntu
