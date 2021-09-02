@@ -7,7 +7,7 @@ keywords: Android Developers
 ---
 
 ## 問題
-當你建立的 Android 專案無導入任何 Kotlin 的工具包時，新增一個含有 `.kt` 的頁面將會跳出一煆錯誤訊息。
+當你建立的 Android 專案無導入任何 Kotlin 的工具包時，新增一個含有 `.kt` 的頁面將會跳出一些錯誤訊息。
 
 > Plugin with id 'kotlin-android' not found.
 
