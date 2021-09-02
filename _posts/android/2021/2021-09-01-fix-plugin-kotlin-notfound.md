@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[故障排除] Android 專案 Plugin with id 'kotlin-android' not found 解决方法'
+title: '[故障排除] Android 專案 Plugin with id kotlin-android not found 解决方法'
 categories: 'Android'
 description: 
 keywords: Android Developers
