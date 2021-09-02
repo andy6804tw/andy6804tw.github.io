@@ -1,0 +1,116 @@
+---
+layout: post
+title: '如何將 TensorFlow 迴歸模型透過 TFLite 部署在 Android 裝置'
+categories: 'Android'
+description: 
+keywords: Android Developers
+---
+
+## 前言
+TensorFlow Lite 使用更小的位元大小以及輕量運算量得到更好的效能，對行動裝置以及嵌入式裝置更加的輕量化。佈署 TensorFlow Lite 的時候，首先要把 Python 訓練好的模型透過 TensorFlow Lite Converter 進行轉換成 `.tflite`，就可以將轉換好的模型部署在行動裝置中。
+
+將模型封裝起來部署在手機端有很多好處。首先它可以在設備上進行運算，意味著在沒有網路環境的地方也能正常執行。再來就是省去了資料上雲端傳送來回耗時的問題，資料只會再裝置上，因此不會洩漏的問題。
+
+- TFLite：基於 FlatBuffers 對模型進行優化，可以直接部署到 Android、iOS 等終端設備上。
+
+## 本文中您將學到
+
+- 使用 Python TensorFlow Kears API 訓練一個簡單的迴歸 NN 模型
+- 模型的儲存
+- 將儲存的模型打包成 `.tflite`
+- 將 TFLite 模型放到 Android 手機上
+- 使用 Interpreter 測試 TFLite 模型
+
+## TensorFlow
+TensorFlow 是由 Google 所開源的深度學習套件。它可以被執行在許多種平台上，例如網站或是行動裝置甚至是嵌入式IoT裝置。然而訓練好的 Tensorflow 模型並不能直接部署到這些設備上，必須透過轉換器將模型轉成 `tflite`。
+
+![](https://i.imgur.com/RYvp0ob.png)
+
+## Keras
+很多人都對 TensorFlow 與 Keras 差別摸不著頭緒。簡單來說 Keras 提供一個高階的 API 介面，可以很友善的快速搭建一個 TensorFlow 神經網路。原本這兩個套監視分開獨立維護的，不過在 2019 年 10 月 Google 發布的 TensorFlow 2.0 已經將 Keras 合併到官方的專案當中。這意味著使用 TensorFlow 2.0 以上的版本可以直接夠過 Keras 介面來快速搭建神經網路。
+
+## 建立資料集
+建立一個很簡單乘法器作為我們的迴歸範例。一個輸入對應一個輸出，其輸出為輸入的倍數。舉例來說，輸入 4 其輸出為 8。透過 numpy 快速建立 500 筆資料， X 為輸入特徵，y 為輸出即為輸入的 2 倍數。
+
+```py
+import numpy as np
+
+
+X = np.arange(1, 500, 1)
+y = np.arange(2, 1000, 2)
+```
+
+## 搭建神經網路模型
+Keras 有三種模型搭建的方式，詳細內容可以參考[這篇](https://medium.com/ai-academy-taiwan/%E4%BD%BF%E7%94%A8tensorflow-2-0%E5%89%B5%E5%BB%BAkeras%E6%A8%A1%E5%9E%8B%E7%9A%843%E7%A8%AE%E6%96%B9%E6%B3%95-b87b98832f9)文章。在本範例中使用大家最常見的 Sequential 搭建一層神經網路，其中神經元僅有一個，另外沒有設定 `activation` 預設即為 `linear`。我們也能夠過 `model.summary()` 查看模型描述，可以發現模型有兩個權重分別為 w 與 bias。
+
+```py
+from tensorflow import keras
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense
+
+model = Sequential([Dense(1, input_shape=[1])])
+model.compile(optimizer=keras.optimizers.Adam(learning_rate=2), loss=keras.losses.mean_squared_error)
+model.fit(X, y, epochs=100)
+```
+
+我們將事先準備好的 500 筆資料全部拿來訓練 100 代可以發現 MSE 逐漸下降。
+
+![](/images/posts/android/2021/img1100902-1.png)
+
+## 測試模型
+模型訓練完後即可測試一下，隨機輸入一個數值查看預測結果是不是接近輸入的倍數。
+
+```py
+model.predict([10])
+```
+
+![](/images/posts/android/2021/img1100902-2.png)
+
+## 儲存模型
+打包成 `.h5` 可以將模型儲存起來下次，Python 要執行讀入模型即可立即預測。另外透過 TFLiteConverter 可以將 Python 訓練好的模型打包成 `.tflite` 格式，並提供手機設備進行預測。TensorFlow 提供許多種儲存模型的方法，詳細內容可以參考[這篇](https://andy6804tw.github.io/2021/03/29/tensorflow-save-model/)文章。
+
+```py
+model.save('regression.h5')
+```
+
+接著我們想在其他設備執行訓練好的模型必須透過 `TFLiteConverter` 將模型打包成 `.tflite` 格式。其中我們設定預設的模型量化模式 `tf.lite.Optimize.DEFAULT` 來 Quantization 我們的模型。雖然 Quantized 後的模型在預測上可能會降低準確但是在可接受的範圍，其模型大小和執行性能上相對 Float 模型都有非常大的提升。由於在邊緣設備上資源有限，因此需要在模型大小、執行速度與辨識解析度上找到平衡。詳細模型打包方式也能參閱官方[文件](https://www.tensorflow.org/lite/convert)。
+
+
+```py
+import tensorflow as tf
+model = tf.keras.models.load_model('regression.h5')
+converter =tf.lite.TFLiteConverter.from_keras_model(model)
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+tflite_model = converter.convert()
+open("regression.tflite", "wb").write(tflite_model)
+```
+
+![](/images/posts/android/2021/img1100902-3.png)
+
+## TFLite Interpreter
+我們上一步已經成功打包並壓縮我們的模型並輸出成 `.tflite` 檔案。這一隻檔案我們可以直接經由 Python TensorFlow 函式庫所提供的 [TFLite Interpreter](https://www.tensorflow.org/lite/api_docs/python/tf/lite/Interpreter) 直接載入模型並測試。其中預設的 TFlite interpreter 僅使用 CPU 運算。
+
+```py
+import tensorflow as tf
+import numpy as np
+
+interpreter = tf.lite.Interpreter(model_path='regression.tflite')
+interpreter.allocate_tensors()
+
+input_index = interpreter.get_input_details()[0]["index"]
+output_index = interpreter.get_output_details()[0]["index"]
+
+input_data = np.array([[100]], dtype=np.float32)
+interpreter.set_tensor(input_index, input_data)
+interpreter.invoke()
+
+print(interpreter.get_tensor(output_index))
+```
+
+
+
+
+
+## Reference
+- [How to Deploy TensorFlow Regression Model in Android — TF Lite — Part 1](https://medium.com/@mmohamedrashik/how-to-deploy-tensorflow-regression-model-in-android-tf-lite-part-1-57b769953271)
+- []()
