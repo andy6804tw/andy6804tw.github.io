@@ -118,7 +118,7 @@ print(interpreter.get_tensor(output_index))
 implementation "org.tensorflow:tensorflow-lite:+"
 ```
 
-另外為了避免簽署生成 apk 期間壓縮我們的模型，我們一樣在該檔案內 `android{ }` 中加入以下描述：
+另外為了避免簽署生成 apk 期間壓縮我們的模型，我們需要在該檔案內 `android{ }` 中加入以下描述：
 
 ```
 aaptOptions {
@@ -129,11 +129,11 @@ aaptOptions {
 
 ![](/images/posts/android/2021/img1100902-5.png)
 
-接著建立一個 `assets` 資料夾放入將稍早所轉換好的 `.tflite` 模型，並將此資料夾放在專案資料夾中 `app -> src -> main`
+接著建立一個 `assets` 資料夾放入稍早所轉換好的 `.tflite` 模型，並將此資料夾放在專案資料夾中 `app -> src -> main` 的位置。
 
 ![](/images/posts/android/2021/img1100902-6.png)
 
-我們先處理 layout 畫面，我們建立一個 `EditText` 提供使用者輸入一個數值，並有一個按鈕送(Button)出並觸發模型預測。最後將預測結果顯示在畫面上。
+我們先處理 layout 畫面，首先建立一個 `EditText` 提供使用者輸入數值，並有一個按鈕送(Button)出並觸發模型預測。最後將預測結果顯示在畫面上。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +185,7 @@ aaptOptions {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-接著開啟 `MainActivity` 撰寫主程式，首先建立一個 `initInterpreter()` 函數載入模型並初始化。其中 options 是對模型的一些資源設定，例如我們設定使用 4 個執行緒。以及設定使用 `setUseNNAPI`，Android Neural Networks API (NNAPI) 是一個 Android C API，專門為在邊緣設備上針對機器學習運行計算密集型運算而設計。因為我們在這次範例中使用很簡單的網路層架構，如果是影像辨識專案有使用到許多卷積層相關的 API 那麼該模型是可能無法進行 tflite-android 的 NNAPI 加速的。
+接著開啟 `MainActivity` 撰寫主程式，首先建立一個 `initInterpreter()` 函數載入模型並初始化。其中 options 是對模型的一些資源設定，例如我們設定使用 4 個執行緒。以及設定使用 `setUseNNAPI`，Android Neural Networks API (NNAPI) 是一個 Android C API，專門為在邊緣設備上針對機器學習運行計算密集型運算而設計。因為我們在這次範例中使用很簡單的網路層架構，如果是影像辨識專案有使用到許多卷積層相關的 API 那麼該模型是可能無法進行 tflite-android 的 NNAPI 加速的。`loadModelFile()` 函式負責去讀取 `regression.tflite` 並提供模型初始化。第三個函數是 `doInference()` 負責接收使用者輸入的數值，並丟入模型預測。我們可以發現 TFLite 一樣是透過 `interpreter` 進行模型預測，我們需要事先將輸出的變數建立一個空陣列並且使用 `FloatArray`。
 
 ```kt
 class MainActivity : AppCompatActivity() {
@@ -239,7 +239,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-
+<img src="/images/posts/android/2021/img1100902-7.png" width="250px">
 
 
 ## Reference
