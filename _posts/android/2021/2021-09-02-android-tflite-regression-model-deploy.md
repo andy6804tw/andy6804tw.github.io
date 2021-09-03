@@ -241,7 +241,8 @@ class MainActivity : AppCompatActivity() {
 
 <img src="/images/posts/android/2021/img1100902-7.png" width="250px">
 
+就是這麼簡單，上述步驟以完整的部署一個 TrnsorFlow Regression 模型。雖然近期在官方有提供 TF 2.5 以上使用 [TensorFlow Lite Model Maker](https://www.tensorflow.org/lite/guide/model_maker) 可以有更好的部署體驗。不過這還是屬於實驗階段，筆者呈觀望態度。希望之後等穩定發布後再來研究一下，屆時再來寫篇教學文章。
 
 ## Reference
 - [How to Deploy TensorFlow Regression Model in Android — TF Lite — Part 1](https://medium.com/@mmohamedrashik/how-to-deploy-tensorflow-regression-model-in-android-tf-lite-part-1-57b769953271)
-- []()
+- [How to Deploy TensorFlow Regression Model in Android — TF Lite — Part 2](https://medium.com/@mmohamedrashik/how-to-deploy-tensorflow-regression-model-in-android-tf-lite-part-2-90b9ebb31903)
