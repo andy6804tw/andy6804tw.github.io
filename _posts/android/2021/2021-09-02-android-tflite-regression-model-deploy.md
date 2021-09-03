@@ -107,9 +107,10 @@ interpreter.invoke()
 print(interpreter.get_tensor(output_index))
 ```
 
+## 將 TFlite 模型部署到 Android 手機
+模型一切就緒後緊接著重頭戲就是將模型放到 Android 上讀取並進行預測。首先執行 Android Studio 並開啟一個新專案，其中我們要建立一個 Ktolin 基底的專案。
 
-
-
+![](/images/posts/android/2021/img1100902-4.png)
 
 ## Reference
 - [How to Deploy TensorFlow Regression Model in Android — TF Lite — Part 1](https://medium.com/@mmohamedrashik/how-to-deploy-tensorflow-regression-model-in-android-tf-lite-part-1-57b769953271)
