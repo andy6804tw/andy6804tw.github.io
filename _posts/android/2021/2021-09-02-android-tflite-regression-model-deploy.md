@@ -249,3 +249,7 @@ class MainActivity : AppCompatActivity() {
 ## Reference
 - [How to Deploy TensorFlow Regression Model in Android — TF Lite — Part 1](https://medium.com/@mmohamedrashik/how-to-deploy-tensorflow-regression-model-in-android-tf-lite-part-1-57b769953271)
 - [How to Deploy TensorFlow Regression Model in Android — TF Lite — Part 2](https://medium.com/@mmohamedrashik/how-to-deploy-tensorflow-regression-model-in-android-tf-lite-part-2-90b9ebb31903)
+
+
+
+
