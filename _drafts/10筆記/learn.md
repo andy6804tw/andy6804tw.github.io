@@ -20,6 +20,9 @@
 ## Git
 - [Git電子書](https://xinhe.gitbooks.io/nutc-jack-lab-frontend-tutorial/content/)
 
+## AI Material
+- [Deep Learning Drizzle](https://deep-learning-drizzle.github.io/index.html#mlfund)
+- [Advance ML/DL University Lectures](https://docs.google.com/spreadsheets/d/1KYJ9Z8f76WZGYpT2E5sjr5gL-O35Lpjm-SMmU00fplk/edit#gid=0)
 
 ## Deep learnig
 

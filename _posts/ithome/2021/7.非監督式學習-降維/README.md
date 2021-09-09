@@ -58,27 +58,31 @@ PCA和t-SNE是兩個不同降維的方法，PCA的優點在於簡單若新的點
 
 ## [程式實作]
 
-## 載入相關套件
+## PCA
 
 ```py
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA
+pca = PCA(n_components=2, iterated_power=1)
+train_reduced = pca.fit_transform(X_train)
+
+print('PCA方差比: ',pca.explained_variance_ratio_)
+print('PCA方差值:',pca.explained_variance_)
 ```
 
-## 1) 載入資料集
-我們今天要實作分群分類的問題，因此鳶尾花朵資料集非常適合當作範例。其資料集載入方式在第四天有提過，是一樣的內容！
+![](./image/img7-7.png)
+
+## t-SNE
 
 ```py
-iris = load_iris()
-df_train = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
-                     columns= ['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species'])
-df_train
+from sklearn.manifold import TSNE
+
+tsneModel = TSNE(n_components=2, random_state=42,n_iter=1000)
+train_reduced = tsneModel.fit_transform(X_train)
 ```
 
+![](./image/img7-8.png)
 
+t-SNE 不適用於新資料。PCA 降維可以適用新資料，可呼叫transform() 函式即可。而 t-SNE 則不行。因為演算法的關係在 scikit-learn 套件中的 t-SNE 演算法並沒有transform() 函式可以呼叫。
 
 ## Reference
 - [深入學習主成分分析（PCA）演算法原理及其Python實現](https://www.itread01.com/content/1547122639.html)
