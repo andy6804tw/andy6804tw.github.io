@@ -41,9 +41,9 @@ from sklearn.datasets import load_iris
 
 ```py
 iris = load_iris()
-df_train = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
+df_data = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
                      columns= ['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species'])
-df_train
+df_data
 ```
 
 ## K-Means
