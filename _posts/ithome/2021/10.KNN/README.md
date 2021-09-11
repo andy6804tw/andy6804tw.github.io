@@ -40,5 +40,86 @@ KNN 的缺點是對資料的局部結構非常敏感，因此調整適當的 k �
 
 ![](./image/img10-5.gif)
 
-## []
+## [程式實作]
+## KNN 分類器
+採用鳶尾花朵資料及做為分類範例，使用 Sklearn 建立 k-nearest neighbors(KNN) 模型。以下是 KNN 常見的模型操作參數：
 
+Parameters:
+- n_neighbors: 設定鄰居的數量(k)，選取最近的k個點，預設為5。
+- algorithm: 搜尋數演算法{'auto'，'ball_tree'，'kd_tree'，'brute'}，可選。
+- metric: 計算距離的方式，預設為歐幾里得距離。
+
+Attributes:
+- classes_: 取得類別陣列。
+- effective_metric_: 取得計算距離的公式。
+
+Methods:
+- fit: 放入X、y進行模型擬合。
+- predict: 預測並回傳預測類別。
+- score: 預測成功的比例。
+
+```py
+from sklearn.neighbors import KNeighborsClassifier
+
+# 建立 KNN 模型
+knnModel = KNeighborsClassifier(n_neighbors=3)
+# 使用訓練資料訓練模型
+knnModel.fit(X_train,y_train)
+# 使用訓練資料預測分類
+predicted = knnModel.predict(X_train)
+```
+
+### 使用Score評估模型
+我們可以直接呼叫 `score()` 直接計算模型預測的準確率。
+
+```py
+# 預測成功的比例
+print('訓練集: ',knnModel.score(X_train,y_train))
+print('測試集: ',knnModel.score(X_test,y_test))
+```
+
+我們可以查看訓練好的模型在測試集上的預測能力，下圖中左邊的是測試集的真實分類，右邊的是模型預測的分類結果。從圖中可以發現藍色的 `Setosa` 完整的被分類出來，而橘色與綠色的分佈是緊密相連在交界處分類的結果比較不穩定。但最終預測結果結果在訓練集與測試集都有百分之95以上的準確率。
+
+![](./image/img10-6.png)
+
+## KNN 迴歸器
+KNN 不僅能夠作為分類器，也可以做回歸連續性的數值預測。其預測值為k個最近鄰居的值的平均值。
+
+Parameters:
+- n_neighbors: 設定鄰居的數量(k)，選取最近的k個點，預設為5。
+- algorithm: 搜尋數演算法{'auto'，'ball_tree'，'kd_tree'，'brute'}，可選。
+- metric: 計算距離的方式，預設為歐幾里得距離。
+
+Attributes:
+- classes_: 取得類別陣列。
+- effective_metric_: 取得計算距離的公式。
+
+Methods:
+- fit: 放入X、y進行模型擬合。
+- predict: 預測並回傳預測類別。
+- score: 預測成功的比例。
+
+
+```py
+from sklearn.neighbors import KNeighborsRegressor
+
+# 建立 KNN 模型
+knnModel = KNeighborsRegressor(n_neighbors=3)
+# 使用訓練資料訓練模型
+knnModel.fit(x,y)
+# 使用訓練資料預測
+predicted= knnModel.predict(x)
+```
+
+### 模型評估
+scikit-learn KNN迴歸模型的score函式是R2 score，可作為模型評估依據，其數值越接近於1代表模型越佳。
+除了R2 score還有其他許多回歸模型的評估方法，例如： MSE、MAE、RMSE。
+
+```py
+from sklearn import metrics
+print('R2 score: ', knnModel.score(x, y))
+mse = metrics.mean_squared_error(y, predicted)
+print('MSE score: ', mse)
+```
+
+![](./image/img10-7.png)

@@ -1,0 +1,1 @@
+CatBoost 同樣是基於 Boosting tree 的梯度提升樹模型框架，最大的特點對category 特徵的直接支持，甚至支持字符串類型的特徵。
