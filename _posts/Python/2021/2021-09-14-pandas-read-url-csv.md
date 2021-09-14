@@ -15,8 +15,8 @@ keywords:
 首先將 csv 檔案上傳至 Google 雲端硬碟中。並且右鍵點選取得連結，並將權限開啟`知道連結的使用者`。接著把連結中的 ID 複製下來，如下圖中紅色底線部分。
 
 
-![](/images/posts/python/2021/img1100914-1.png)
-![](/images/posts/python/2021/img1100914-2.png)
+![](/images/posts/Python/2021/img1100914-1.png)
+![](/images/posts/Python/2021/img1100914-2.png)
 
 接著將複製的 ID 貼到程式中的 `id` 變數中。並直接使用 pandas 的 `read_csv()` 方法讀取檔案。 
 
