@@ -42,7 +42,7 @@ raw_dataset = pd.read_csv(url)
 raw_dataset
 ```
 
-## 方法二：透過request下載
+## 方法二：透過 request 下載
 此方法基本上可以被第一種方法取代。他是先過 `request` 套件將指定的網址內容下載並透過 `io` 編碼成 utf-8 格式
 
 ```py
