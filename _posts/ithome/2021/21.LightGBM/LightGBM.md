@@ -19,8 +19,6 @@ LightGBM 使用 leaf-wise tree算法，因此在迭代過程中能更快地收�
 - [Lightgbm基本原理介紹](https://www.twblogs.net/a/5baa44f32b717750855c8ac6)
 
 
-
-
 ## 處理 unbalance 資料
 在使用 LightGBM 做分類器時該如何處理樣本類別分佈不平衡的問題？一個簡單的方法是設定 `is_unbalance=True`，或是 `scale_pos_weight` 注意這兩個參數只能擇一使用。以下我們就使用一個不平衡的資料集，信用卡盜刷預測來做示範。首先我們可以載入 Google 所提供的信用卡盜刷資料集，詳細資訊可以參考[這裡](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)。
 
