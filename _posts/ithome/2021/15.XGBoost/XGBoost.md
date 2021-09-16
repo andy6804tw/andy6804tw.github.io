@@ -26,18 +26,32 @@ XGboost 全名為 eXtreme Gradient Boosting，是目前 Kaggle 競賽中最常�
 
 
 ## XGBoost 優點
+XGBoost 除了可以做分類也能進行迴歸連續性數值的預測，而且效果通常都不差。並透過 Boosting 技巧將許多弱決策樹集成在一起形成一個強的預測模型。
+
 - 利用了二階梯度來對節點進行劃分
 - 利用局部近似算法對分裂節點進行優化
 - 在損失函數中加入了 L1/L2 項，控制模型的複雜度
 - 提供 GPU 平行化運算
 
 
-## Boosting 方法演進
-XGBoost 最初是由陳天奇於 2014 年 3 月發起的一個研究項目。2017 年 1 月，微軟發布了第一個穩定的 LightGBM 版本。2017 年 4 月，俄羅斯的一個領先的科技公司—Yandex，發布開源CatBoost
+## Boosting 方法有哪些
+AdaBoost 是由 Yoav Freund 和 Robert Schapire 於 1995 年提出。所謂的自適應是表示根據弱學習的學習誤差率表現來更新訓練樣本的權重，然後基於調整權重後的訓練集來訓練第二個弱學習器，藉由此方法不斷的迭代下去。
+
+- AdaBoost（Adaptive Boosting)
+    - [AdaBoostClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html)
+    - [AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html#sklearn.ensemble.AdaBoostRegressor)
+
+Gradient Boosting 由 Friedman 於 1999 年提出。其中 GBDT (Gradient Boosting Decision Tree) 的弱學習器僅限於只能使用 CART 決策樹模型，並採用加法模型的前向分步算法來解決分類和回歸問題。
+
+- Gradient Boosting
+    - [GradientBoostingClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)
+    - [GradientBoostingRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html#sklearn.ensemble.GradientBoostingRegressor)
+
+[XGBoost](https://xgboost.readthedocs.io/en/latest/) 最初是由陳天奇於 2014 年 3 月發起的一個研究項目，並在短時間內成為競賽中的熱門的模型。接著於 2017 年 1 月微軟發布了第一個穩定的 [LightGBM](https://lightgbm.readthedocs.io/en/latest/) 版本。它是一個基於 Gradient Boosting 的輕量級的演算法，優點在於使用少量資源、更快的訓練效率得到更好的準確度。另外在同年的 4 月，俄羅斯的一家科技公司 Yandex 發布了 [CatBoost](https://catboost.ai/)，其核心依然使用了 Gradient Boosting 技巧，並為類別型的特徵做特別的轉換並產生新的數值型特徵。
 
 ![](https://i2.kknews.cc/SIG=ou3l2p/ctp-vzntr/152118737146919q6nn0o5n.jpg)
 
-
+接下來的幾天將會介紹 LightGBM 與 CatBoost。
 
 ## Reference
 - [超參數解析](https://medium.com/@pahome.chen/xgboost%E5%85%A5%E9%96%80%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB-e06931b835f5)
