@@ -21,7 +21,7 @@ XGboost 全名為 eXtreme Gradient Boosting，是目前 Kaggle 競賽中最常�
 
 ![](./image/img15-2.png)
 
-## Boosting vs Decision tree
+## Boosting vs. Decision Tree
 這裡再與最一開始所提的決策樹做比較。決策樹通常為一棵複雜的樹，而在 Boosting 是產生非常多棵的樹，但是每一棵的樹都很簡單的決策樹。Boosting 希望新的樹可以針對舊的樹預測不太好的部分做一些補強。最終我們要把所有簡單的樹合再一起才能當最後的預測輸出。
 
 
