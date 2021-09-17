@@ -22,10 +22,11 @@
 ```
 --近期熱門演算法--
 ```
-17. CatBoost: 機器學習 boosting 神器介紹
-18. AutoML
-19. Pycaret
-20. LightGBM
+17. LightGBM
+18. CatBoost: 機器學習 boosting 神器介紹
+19. AutoML
+20. Pycaret
+
 ```
 --機器學習小撇步報你知--
 ```
