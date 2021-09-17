@@ -22,7 +22,7 @@ XGboost 全名為 eXtreme Gradient Boosting，是目前 Kaggle 競賽中最常�
 ![](./image/img15-2.png)
 
 ## Boosting vs. Decision Tree
-這裡再與最一開始所提的決策樹做比較。決策樹通常為一棵複雜的樹，而在 Boosting 是產生非常多棵的樹，但是每一棵的樹都很簡單的決策樹。Boosting 希望新的樹可以針對舊的樹預測不太好的部分做一些補強。最終我們要把所有簡單的樹合再一起才能當最後的預測輸出。
+我們再與最一開始所提的決策樹做比較。決策樹通常為一棵複雜的樹，而在 Boosting 是產生非常多棵的樹，但是每一棵的樹都很簡單的決策樹。Boosting 希望新的樹可以針對舊的樹預測不太好的部分做一些補強。最終我們要把所有簡單的樹合再一起才能當最後的預測輸出。
 
 
 ## XGBoost 優點
@@ -47,11 +47,91 @@ Gradient Boosting 由 Friedman 於 1999 年提出。其中 GBDT (Gradient Boosti
     - [GradientBoostingClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)
     - [GradientBoostingRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html#sklearn.ensemble.GradientBoostingRegressor)
 
-[XGBoost](https://xgboost.readthedocs.io/en/latest/) 最初是由陳天奇於 2014 年 3 月發起的一個研究項目，並在短時間內成為競賽中的熱門的模型。接著於 2017 年 1 月微軟發布了第一個穩定的 [LightGBM](https://lightgbm.readthedocs.io/en/latest/) 版本。它是一個基於 Gradient Boosting 的輕量級的演算法，優點在於使用少量資源、更快的訓練效率得到更好的準確度。另外在同年的 4 月，俄羅斯的一家科技公司 Yandex 發布了 [CatBoost](https://catboost.ai/)，其核心依然使用了 Gradient Boosting 技巧，並為類別型的特徵做特別的轉換並產生新的數值型特徵。
+接下來介紹三個近年三個強大的開源機器學習專案。首先 [XGBoost](https://xgboost.readthedocs.io/en/latest/) 最初是由陳天奇於 2014 年 3 月發起的一個研究項目，並在短時間內成為競賽中的熱門的模型。接著於 2017 年 1 月微軟發布了第一個穩定的 [LightGBM](https://lightgbm.readthedocs.io/en/latest/) 版本。它是一個基於 Gradient Boosting 的輕量級的演算法，優點在於使用少量資源、更快的訓練效率得到更好的準確度。另外在同年的 4 月，俄羅斯的一家科技公司 Yandex 發布了 [CatBoost](https://catboost.ai/)，其核心依然使用了 Gradient Boosting 技巧，並為類別型的特徵做特別的轉換並產生新的數值型特徵。
 
-![](https://i2.kknews.cc/SIG=ou3l2p/ctp-vzntr/152118737146919q6nn0o5n.jpg)
+![](./image/img15-3.png)
 
-接下來的幾天將會介紹 LightGBM 與 CatBoost。
+未來幾天將會介紹 LightGBM 與 CatBoost~
+
+## [程式實作]
+## XGBoost 分類器
+
+Parameters:
+- n_estimators: 總共迭代的次數，即決策樹的個數。預設值為100。
+- max_depth: 樹的最大深度，默認值為6。
+- booster: gbtree 樹模型(預設) / gbliner 線性模型
+- learning_rate: 學習速率，預設0.3。
+- gamma: 懲罰項係數，指定節點分裂所需的最小損失函數下降值。
+
+Attributes:
+- feature_importances_: 查詢模型特徵的重要程度。
+
+Methods:
+- fit: 放入X、y進行模型擬合。
+- predict: 預測並回傳預測類別。
+- score: 預測成功的比例。
+- predict_proba: 預測每個類別的機率值。
+
+```py
+from xgboost import XGBClassifier
+
+# 建立 XGBClassifier 模型
+xgboostModel = XGBClassifier(n_estimators=100, learning_rate= 0.3)
+# 使用訓練資料訓練模型
+xgboostModel.fit(X_train, y_train)
+# 使用訓練資料預測分類
+predicted = xgboostModel.predict(X_train)
+```
+
+### 使用Score評估模型
+我們可以直接呼叫 `score()` 直接計算模型預測的準確率。
+
+```py
+# 預測成功的比例
+print('訓練集: ',xgboostModel.score(X_train,y_train))
+print('測試集: ',xgboostModel.score(X_test,y_test))
+```
+
+輸出結果：
+```
+訓練集:  1.0
+測試集:  0.9333333333333333
+```
+
+大家可以試著與前幾天的決策樹和隨機森林兩個模型相比較。是不是 XGBoost 有著更好的預測結果呢？因為有了 Gradient Boosting 學習機制，大幅提升了預測能力。在學習過程中將預測不好的地方，尤其是橘色 (Versicolour) 與綠色 (Virginica) 交界處有更好的評估能力。
+
+![](./image/img15-4.png)
+
+## XGBoost(回歸器)
+
+Parameters:
+- n_estimators: 總共迭代的次數，即決策樹的個數。預設值為100。
+- max_depth: 樹的最大深度，默認值為6。
+- booster: gbtree 樹模型(預設) / gbliner 線性模型
+- learning_rate: 學習速率，預設0.3。
+- gamma: 懲罰項係數，指定節點分裂所需的最小損失函數下降值。
+
+Attributes:
+- feature_importances_: 查詢模型特徵的重要程度。
+
+Methods:
+- fit: 放入X、y進行模型擬合。
+- predict: 預測並回傳預測類別。
+- score: 預測成功的比例。
+- predict_proba: 預測每個類別的機率值。
+
+```py
+import xgboost as xgb
+
+# 建立 XGBRegressor 模型
+xgbrModel=xgb.XGBRegressor()
+# 使用訓練資料訓練模型
+xgbrModel.fit(x,y)
+# 使用訓練資料預測
+predicted=xgbrModel.predict(x)
+```
+
+![](./image/img15-5.png)
 
 ## Reference
 - [超參數解析](https://medium.com/@pahome.chen/xgboost%E5%85%A5%E9%96%80%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB-e06931b835f5)
