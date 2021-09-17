@@ -102,7 +102,7 @@ print('測試集: ',xgboostModel.score(X_test,y_test))
 
 ![](./image/img15-4.png)
 
-## XGBoost(回歸器)
+## XGBoost (回歸器)
 
 Parameters:
 - n_estimators: 總共迭代的次數，即決策樹的個數。預設值為100。
