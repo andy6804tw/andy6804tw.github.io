@@ -24,7 +24,7 @@
 
 <img src="./image/img6-2.gif" width="300" />
 
-## [程式實作]
+## [程式實作]
 
 ## 載入相關套件
 
@@ -133,3 +133,5 @@ silhouette_scores = [silhouette_score(X, model.labels_)
 ```
 
 ![](./image/img6-6.png)
+
+本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
