@@ -56,7 +56,7 @@ PCA和t-SNE是兩個不同降維的方法，PCA的優點在於簡單若新的點
 - PCA允許線性的轉換
 - t-SNE允許非線性的轉換
 
-## [程式實作]
+## [程式實作]
 
 ## PCA
 
@@ -86,3 +86,5 @@ t-SNE 不適用於新資料。PCA 降維可以適用新資料，可呼叫transfo
 
 ## Reference
 - [深入學習主成分分析（PCA）演算法原理及其Python實現](https://www.itread01.com/content/1547122639.html)
+
+本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
