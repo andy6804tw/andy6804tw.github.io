@@ -22,14 +22,75 @@
 
 ![](./image/img9-3.png)
 
-以下就是一個 Logistic Regression 的運作機制，如果以圖像化表示會長這樣。我們的 function 會有兩組參數，一組是 w 我們稱為 weight，另一個常數 b 稱為 bias。假設我們有兩個輸入特徵，並將這兩個輸入分別乘上 w 再加上 b 就可以得到 z，然後通過一個 sigmoid function 得到的輸出就是 posterior probability。
+以下就是一個邏輯迴歸的運作機制，如果以圖像化表示會長這樣。我們的 function 會有兩組參數，一組是 w 我們稱為 weight，另一個常數 b 稱為 bias。假設我們有兩個輸入特徵，並將這兩個輸入分別乘上 w 再加上 b 就可以得到 z，然後通過一個 sigmoid function 得到的輸出就是 posterior probability。
 
 ![](./image/img9-4.png)
 
-在 Logistic Regression 中我們定義的損失函數是要去最小化的對象是所有訓練資料 cross entropy 的總和。我們希望模型的輸出要跟目標答案要越接近越好。因此我們可以將最小化的目標寫成一個函數：
+在邏輯迴歸中我們定義的損失函數是要去最小化的對象是所有訓練資料 cross entropy 的總和。我們希望模型的輸出要跟目標答案要越接近越好。因此我們可以將最小化的目標寫成一個函數：
 
 ![](./image/img9-5.png)
 
 最後是尋找一組最好的參數，使得 loss 能夠最低。因此這裡採用梯度下降 (Gradient Descent) 來最小化交叉熵 (Cross Entropy)。我們將損失函數對權重求偏導後，可以得到下面的權重更新的式子：
 
 ![](./image/img9-6.png)
+
+## 多元分類邏輯迴歸 (Multinomial Logistic Regression)
+在 Sklearn 中也能使用邏輯迴歸分類器應用在多類別的分類問題上，對於多元邏輯迴歸有 one-vs-rest(OvR) 和 many-vs-many(MvM) 兩種方法。兩者的做法都是將所有類別的資料依序作二元分類訓練。MvM 相較於 OvR 比較精準，但 `liblinear` 只支援 OvR。
+
+- one-vs-rest(OvR): 訓練時把某個類別的資料歸為一類，其他剩餘的資料歸為另一類做邏輯迴歸，因此若有 k 個類別的資料會有 k 個二元分類器。假如有三個類別 A、B、C，首先抽取 A 類別的資料做為正集，B、C 類別資料做為負集; B 類別的資料作為正集，A、C 類別類別資料做為負集; C 類別的資料作為正集，A、B 類別類別資料做為負集。透過這三組訓練集分別進行訓練，然後的得到三個分類器 f1(x)、f2(x)、f3(x)。預測的時候就是把資料丟進三個分類器，查看哪個分類器預測的分數最高就決定該類別。
+- many-vs-many(MvM): 與 OvR 差別在於訓練時每次只會挑兩個類別訓練一個分類器，因此 k 個類別的資料就需要 k(k-1)/2 個二元分類器。假如有三個類別 A、B、C，因此我們會有三組二元分類器分別有 (A、B)、(A、C) 與 (B、C)。訓練完成後當有新資料要預測時，把資料分別對三個二元分類器進行預測，最終多數決的方式得到預測結果。
+
+## [程式實作]
+## 邏輯迴歸 (分類器)
+採用鳶尾花朵資料及做為分類範例。
+
+Parameters:
+- penalty: 正規化l1/l2，防止模型過度擬合。
+- C: 數值越大對 weight 的控制力越弱，預設為1。
+- n_init: 預設為10次隨機初始化，選擇效果最好的一種來作為模型。
+- solver: 優化器的選擇。newton-cg,lbfgs,liblinear,sag,saga。預設為liblinear。
+- multi_class: 選擇分類方式，ovr就是one-vs-rest(OvR)，而multinomial就是many-vs-many(MvM)。預設為 auto，故模型訓練中會取一個最好的結果。
+- max_iter: 迭代次數，預設為100代。
+- class_weight: 若遇資料不平衡問題可以設定balance，預設=None。
+- random_state: 亂數種子僅在solver=sag/liblinear時有用。
+
+Attributes:
+- coef_: 取得斜率。
+- intercept_: 取得截距。
+
+Methods:
+- fit: 放入X、y進行模型擬合。
+- predict: 預測並回傳預測類別。
+- predict_proba: 預測每個類別的機率值。
+- score: 預測成功的比例。
+
+
+```py
+from sklearn.linear_model import LogisticRegression
+
+# 建立Logistic模型
+logisticModel = LogisticRegression(random_state=0)
+# 使用訓練資料訓練模型
+logisticModel.fit(X_train, y_train)
+# 使用訓練資料預測分類
+predicted = logisticModel.predict(X_train)
+```
+
+### 使用Score評估模型
+我們可以直接呼叫 `score()` 直接計算模型預測的準確率。
+
+```py
+# 預測成功的比例
+print('訓練集: ',logisticModel.score(X_train,y_train))
+print('測試集: ',logisticModel.score(X_test,y_test))
+```
+
+輸出結果：
+```
+訓練集:  0.9714285714285714
+測試集:  0.9333333333333333
+```
+
+![](./image/img9-7.png)
+
+我們可以查看訓練好的模型在測試集上的預測能力，下圖中左邊的是測試集的真實分類，右邊的是模型預測的分類結果。
