@@ -42,7 +42,7 @@ KNN 的缺點是對資料的局部結構非常敏感，因此調整適當的 k �
 
 ## [程式實作]
 ## KNN 分類器
-採用鳶尾花朵資料及做為分類範例，使用 Sklearn 建立 k-nearest neighbors(KNN) 模型。以下是 KNN 常見的模型操作參數：
+採用鳶尾花朵資料集做為分類範例，使用 Sklearn 建立 k-nearest neighbors(KNN) 模型。以下是 KNN 常見的模型操作參數：
 
 Parameters:
 - n_neighbors: 設定鄰居的數量(k)，選取最近的k個點，預設為5。
