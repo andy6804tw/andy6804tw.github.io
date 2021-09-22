@@ -19,13 +19,23 @@
 
 - [如何提升你的程式可讀性之實務技巧](https://blog.niclin.tw/2020/02/29/readable-code-1/)
 
-- [機器學習技術債](https://ithelp.ithome.com.tw/articles/10245624)
-
 - [轉職筆記大全](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
 
-- [由淺入深的深度學習資源整理](https://leemeng.tw/deep-learning-resources.html)
 
 
-## 人工智慧
-[2021年DL/ML自學資源統整](https://axk51013.medium.com/2021年dl-ml自學資源統整-52b39d097770)
-[機器學習祖師Andrew Ng 3/25 MLops 演講筆記與補充 別再用Model的角度想事情](https://axk51013.medium.com/andrew-ng-3-25-mlops-演講筆記與補充-c9252350e9aa)
+
+## DeepLearningAI
+- [coursera: Sequence Models (DeepLearningAI 吳恩達)](https://www.coursera.org/learn/nlp-sequence-models?action=enroll)
+
+## D2L(Dive into Deep Learning) Courses
+- STAT 157, UC Berkeley. Alex Smola, Mu Li.
+- Amazon
+- MXNet/TensorFlow/PyTorch
+
+## 其他線上課程
+- [C5W3L08 Attention Model](https://www.youtube.com/watch?v=quoGRI-1l0A)
+- [[Waterloo]CS224NCS480/680 Lecture 19: Attention and Transformer Networks](https://www.youtube.com/watch?v=OyFJWRnt_AY)
+- [[Stanford] CS224N: NLP with Deep Learning | Winter 2019 | Lecture 14 – Transformers and Self-Attention](https://www.youtube.com/watch?v=5vcj8kSwBCY)
+
+## 好文
+- [How Attention works in Deep Learning: understanding the attention mechanism in sequence models](https://theaisummer.com/attention/)
