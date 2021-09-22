@@ -24,13 +24,36 @@
 
 
 
-## DeepLearningAI
-- [coursera: Sequence Models (DeepLearningAI 吳恩達)](https://www.coursera.org/learn/nlp-sequence-models?action=enroll)
+## 1. D2L(Dive into Deep Learning) Courses
 
-## D2L(Dive into Deep Learning) Courses
-- STAT 157, UC Berkeley. Alex Smola, Mu Li.
-- Amazon
+![](https://i.imgur.com/Znqll9R.png)
+
+- Course Info: STAT 157, UC Berkeley.
+- Instructors: Alex Smola, Mu Li.
 - MXNet/TensorFlow/PyTorch
+
+## 2. CS583: Deep Learning
+
+![](https://i.imgur.com/O3PITHo.png)
+
+- Instructors:  Shusen Wang
+- Course Info: CS583, Stevens Institute of Technology
+
+## 3. [DeepLearningAI](https://www.coursera.org/learn/nlp-sequence-models?action=enroll)
+
+![](https://i.imgur.com/OQpxKN4.png)
+
+- coursera
+- Instructors: Andrew Ng
+
+
+## 4. [Machine Learning (Hung-yi Lee, NTU)](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)
+
+![](https://i.imgur.com/fMSpQaF.png)
+
+- Course Info:  ML 2021 Spring, National Taiwan University
+- Instructors: Hung-yi Lee
+
 
 ## 其他線上課程
 - [C5W3L08 Attention Model](https://www.youtube.com/watch?v=quoGRI-1l0A)

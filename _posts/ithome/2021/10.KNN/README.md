@@ -1,10 +1,13 @@
-# KNN
+# 近朱者赤，近墨者黑 - KNN
 ## 今日學習目標
 
 - K-近鄰演算法介紹 
-    - KNN 計算步驟解析
+    - KNN 演算法解析
+    - KNN 於分類器和迴歸器的做法
+    - 比較 KNN 與 k-means 差異
 - 實作 KNN 分類器與迴歸器
-    - 觀察不同 K 值會對分類結果造成什麼影響
+    - 實作 KNN 分類器，觀察不同 k 值會對分類結果造成什麼影響
+    - 實作 KNN 迴歸迴器
 
 ## K-近鄰演算法 (KNN)
 KNN 的全名 K Nearest Neighbor 是屬於機器學習中的 Supervised learning 其中一種算法，顧名思義就是 k 個最接近你的`鄰居`。分類的標準是由鄰居「多數表決」決定的。在 Sklearn 中 KNN 可以用作分類或迴歸的模型。
@@ -31,7 +34,6 @@ KNN 同時也能運用在迴歸問題上面。迴歸模型輸出的結果是一�
 
 ## KNN 度量距離的方法
 要判斷那些是鄰居的話，首先要量化相似度，而歐幾里得距離 (Euclidean distance) 是比較常用的方法來量度相似度。除此之外還有明可夫斯基距離(Sklearn 預設)、曼哈頓距離、柴比雪夫距離、夾角餘弦、漢明距離、傑卡德相似係數 都可以評估距離的遠近。
-
 
 ![](./image/img10-4.png)
 
@@ -83,7 +85,7 @@ print('測試集: ',knnModel.score(X_test,y_test))
 ![](./image/img10-6.png)
 
 ## KNN 迴歸器
-KNN 不僅能夠作為分類器，也可以做回歸連續性的數值預測。其預測值為k個最近鄰居的值的平均值。
+KNN 不僅能夠作為分類器，也可以做迴歸連續性的數值預測。其預測值為k個最近鄰居的值的平均值。
 
 Parameters:
 - n_neighbors: 設定鄰居的數量(k)，選取最近的k個點，預設為5。
@@ -112,8 +114,7 @@ predicted= knnModel.predict(x)
 ```
 
 ### 模型評估
-scikit-learn KNN迴歸模型的score函式是R2 score，可作為模型評估依據，其數值越接近於1代表模型越佳。
-除了R2 score還有其他許多回歸模型的評估方法，例如： MSE、MAE、RMSE。
+Sklearn 中 KNN 迴歸模型的 score 函式是 R2 score，可作為模型評估依據，其數值越接近於1代表模型越佳。除了 R2 score 還有其他許多迴歸模型的評估方法，例如： MSE、MAE、RMSE。
 
 ```py
 from sklearn import metrics
@@ -123,3 +124,5 @@ print('MSE score: ', mse)
 ```
 
 ![](./image/img10-7.png)
+
+本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
