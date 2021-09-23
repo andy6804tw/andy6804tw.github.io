@@ -24,7 +24,7 @@
 
 
 
-## 1. D2L(Dive into Deep Learning) Courses
+## 1. [D2L(Dive into Deep Learning) Courses](https://d2l.ai/chapter_attention-mechanisms/index.html)
 
 ![](https://i.imgur.com/Znqll9R.png)
 
@@ -32,7 +32,7 @@
 - Instructors: Alex Smola, Mu Li.
 - MXNet/TensorFlow/PyTorch
 
-## 2. CS583: Deep Learning
+## 2. [CS583: Deep Learning](https://github.com/wangshusen/DeepLearning)
 
 ![](https://i.imgur.com/O3PITHo.png)
 
