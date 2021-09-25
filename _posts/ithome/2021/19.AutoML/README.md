@@ -17,5 +17,12 @@
 - [AutoKeras](https://autokeras.com/)
 - [talos](https://github.com/autonomio/talos)
 
-## 何謂 AutoML
-自動化機器學習提供了一系列的方法和自動化的學習流程，省去資料科學家在建模上的一些複雜流程，以提高機器學習的效率並加速機器學習的研究。
+## AutoML 扮演的角色
+自動化機器學習提供了一系列的方法和自動化的學習流程，以提高機器學習的效率並加速機器學習的研究。透過 AutoML 集結專家的先驗知識，大幅降低了機器學習建模的困難度。雖然領域專家與 AI 工程師必然扮演重要的角色，但是近年來 `No Code` 無程式碼開發平台形成一股潮流。AI 再也不是需要資訊背景的人才能做的事，目的是讓大家不用透過寫程式也能快速地進行資料探索與建立預測模型。然而近年來許多企業開發了各種需求的 AutoML 平台，如雨後春雨般的出現：
+
+- Google: Cloud AutoML
+- Microsoft: Azure Machine Learning
+- Amazon: SageMaker Autopilot
+- Landing AI: LandingLens
+- Chimes AI: tukey
+
