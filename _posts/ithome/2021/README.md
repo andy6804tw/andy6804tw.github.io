@@ -24,23 +24,28 @@
 ```
 17. LightGBM
 18. CatBoost: 機器學習 boosting 神器介紹
+```
+--自動化機器學習--
+```
 19. AutoML
-20. Pycaret
+20. Auto-Sklearn
+21. lightAutoML
 
 ```
 --機器學習小撇步報你知--
 ```
-21. [Python 可視化神器：Plotly Express](https://pub.towardsai.net/matplotlib-is-dead-long-life-to-plotly-express-e1671dce0d18)
-22. 離群值與偏態處理
-23. 交叉驗證 Cross-Validation 簡介
-24. 交叉驗證 K-fold Cross-Validation
-25. Boruta 特徵篩選利器
-26. optuna 自動調參
+22. [Python 可視化神器：Plotly Express](https://pub.towardsai.net/matplotlib-is-dead-long-life-to-plotly-express-e1671dce0d18)
+23. 離群值與偏態處理
+24. 交叉驗證 Cross-Validation 簡介
+25. 交叉驗證 K-fold Cross-Validation
+~~25. Boruta 特徵篩選利器~~
+26. 自動調參神器: Optuna
 ```
 --AI整合落地--
 ```
-27. 儲存訓練好的模型
-28. 使用Python Flask架設API吧!
+27. 儲存 Sklearn 訓練好的模型
+28. 使用 Python Flask 架設 API 吧!
+29. 使用 Heroku 免費部署機器學習 API
 ```
 --專題演講--
 ```
