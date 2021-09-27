@@ -1,4 +1,17 @@
-LightGBM 是屬於 GDBT 家族中成員之一，相較於先前介紹的 XGBoost 兩者可以拿來做比較。簡單來說從 LightGBM 名字上觀察，我們可以看出它是輕量級(Light)的梯度提升機(GBM)的實例。其相對 XGBoost 來說它具有訓練速度快、記憶體佔用低的特點，因此近幾年 LightGBM 在 Kaggle 上也算是熱門模型一。
+
+
+## 今日學習目標
+- LightGBM 與 XGBoost 比較
+- 了解 LightGBM 優點
+- 實作 LightGBM 處理資料不平衡資料
+    - 信用卡盜刷分類
+
+## 前言
+LightGBM 是屬於 GDBT 家族中成員之一，相較於先前介紹的 XGBoost 兩者可以拿來做比較。簡單來說從 LightGBM 名字上觀察，我們可以看出它是輕量級 (Light) 的梯度提升機 (GBM) 的實例。其相對 XGBoost 來說它具有訓練速度快、記憶體佔用低的特點，因此近幾年 LightGBM 在 Kaggle 上也算是熱門模型一。
+
+![](https://i.imgur.com/ecN4zor.png)
+
+## LightGBM 與 XGBoost 比較
 這兩種演算法都使用貪婪的方法來最小化損失函數的梯度來構建所有的弱學習器。其 tree-based 演算法所面臨的挑戰是如何挑選最佳的葉節點的切割方式，然而 LightGBM 和 XGBoost 分別使用不同的優化技術與方法來識別最佳的分割點。
 
 
@@ -12,12 +25,7 @@ LightGBM 由微軟團隊於 2017 年所發表的論文 [LightGBM: A Highly Effic
 - 支援 GPU 平行運算
 - 能夠處理大規模數據
 
-## 特點
-LightGBM 使用 leaf-wise tree算法，因此在迭代過程中能更快地收斂；但leaf-wise tree算法較容易過擬合。
-
-- [終於有人把XGBoost 和 LightGBM 講明白了，項目中最主流的集成演算法！](https://codingnote.cc/zh-tw/p/22596/)
-- [Lightgbm基本原理介紹](https://www.twblogs.net/a/5baa44f32b717750855c8ac6)
-
+LightGBM 使用 leaf-wise tree 演算法，因此在迭代過程中能更快地收斂。但是 leaf-wise tree 方法較容易過擬合。
 
 ## 處理 unbalance 資料
 在使用 LightGBM 做分類器時該如何處理樣本類別分佈不平衡的問題？一個簡單的方法是設定 `is_unbalance=True`，或是 `scale_pos_weight` 注意這兩個參數只能擇一使用。以下我們就使用一個不平衡的資料集，信用卡盜刷預測來做示範。首先我們可以載入 Google 所提供的信用卡盜刷資料集，詳細資訊可以參考[這裡](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)。
@@ -54,7 +62,7 @@ X_test: (85443, 30)
 
 訓練集與測試集經由 7:3 的比例下去隨機切割資料。我們可以透過 Pandas 做更近一步的分析，可以發現切割出來的訓練集與測試集在盜刷(1)與非盜刷(0)的資料比例是差不多的。
 
-![](https://i.imgur.com/ZsQZBME.png)
+![](./image/img17-1.png)
 
 接下來重頭戲出場。我們採用 LightGBM 分類器，若還沒安裝的讀者可以參考以下指令進行安裝。
 
@@ -141,9 +149,14 @@ plot_confusion_matrix(y_test, pred)
 
 下圖為實際 `is_unbalance=True` 的訓練結果。我們可以發現在測試集中有 148 筆盜刷資料，其中有 124 筆盜刷被成功辨識出來。另外我們可以發現真實答案是沒盜刷的資料居然有 5088 筆被誤判成盜刷。
 
-![](https://i.imgur.com/GkiaEFv.png)
+![](./image/img17-2.png)
 
 我們再來試試將 `is_unbalance` 設為 `False` 並觀察混淆矩陣。可以發現雖然誤判的數量減少了，但是真實答案中有 148 筆盜刷資料僅有 88 筆被成功辨識出來。我們可以猜想模型在大多數狀況都會預測資料未被盜刷的機率較大。
 
-![](https://i.imgur.com/9aKlEFt.png)
+![](./image/img17-3.png)
 
+## Reference
+- [終於有人把XGBoost 和 LightGBM 講明白了，項目中最主流的集成演算法！](https://codingnote.cc/zh-tw/p/22596/)
+- [Lightgbm基本原理介紹](https://www.twblogs.net/a/5baa44f32b717750855c8ac6)
+
+> 本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
