@@ -29,28 +29,26 @@
 ```
 19. AutoML
 20. Auto-Sklearn
-21. lightAutoML
+<!-- 21. lightAutoML -->
+21. 自動調參神器: Optuna
 
 ```
 --機器學習小撇步報你知--
 ```
 22. [Python 可視化神器：Plotly Express](https://pub.towardsai.net/matplotlib-is-dead-long-life-to-plotly-express-e1671dce0d18)
 23. 離群值與偏態處理
-24. 交叉驗證 Cross-Validation 簡介
-25. 交叉驗證 K-fold Cross-Validation
-~~25. Boruta 特徵篩選利器~~
-26. 自動調參神器: Optuna
+24. 過擬合
+25. 交叉驗證 Cross-Validation 簡介
+26. 交叉驗證 K-fold Cross-Validation
+<!-- 25. Boruta 特徵篩選利器 -->
+27. [6 個 Sklearn 錯誤悄悄地透露出你是個菜雞](https://elitedatascience.com/beginner-mistakes)
 ```
 --AI整合落地--
 ```
-27. 儲存 Sklearn 訓練好的模型
-28. 使用 Python Flask 架設 API 吧!
-29. 使用 Heroku 免費部署機器學習 API
+28. 儲存 Sklearn 訓練好的模型
+29. 使用 Python Flask 架設 API 吧!
+30. 使用 Heroku 免費部署機器學習 API
 ```
---專題演講--
-```
-29. [6 個 Sklearn 錯誤悄悄地透露出你是個菜雞](https://elitedatascience.com/beginner-mistakes)
-30. 近年來趨勢
 
 
 
