@@ -1,7 +1,15 @@
+# Auto-sklearn
 
+## 今日學習目標
+- 了解 Auto-sklearn 運作原理
+    - Meta Learning
+    - Bayesian Optimization
+    - Build Ensemble
+- 實作 Auto-sklearn
+    - 採用鳶尾花朵分類器，比較兩種不同版本的 Auto-sklearn。
 
 ## 前言
-Auto-sklearn 採用元學習 (Meta Learning) 選擇模型和超參數優化的方法作為搜尋最佳模型的重點。此 AutoML 套件主要是搜尋所有 Sklearn 機器學習演算法以模型的超參數，並使用貝葉斯優化 (Bayesian Optimization) 與自動整合 (Ensemble Selection) 的架構在有限時間內搜尋最佳的模型。第一版的 Auto-sklearn 於 2015 年發表在 NIPS(Neural Information Processing Systems) 會議上，論文名稱為 [Efficient and Robust Automated Machine Learning](https://proceedings.neurips.cc/paper/2015/file/11d0e6287202fced83f79975ec59a3a6-Paper.pdf)。由別於其他的 AutoML 方法，Auto-sklearn 提出了元學習架構改改善了貝葉斯優化在初始化冷啟動的缺點，並提供一個好的採樣方向更快速尋找最佳的模型。第二個版本於 2020 年發布，論文名稱為 [Auto-Sklearn 2.0: Hands-free AutoML via Meta-Learning](https://arxiv.org/abs/2007.04074)。在新的版本中修改了元學習架構，並不依賴元特徵來選擇模型選擇與調參策略。而是引入了一個元學習策略選擇器，根據資料集中的樣本數量和特徵，訂定了一個模型選擇的策略。
+Auto-sklearn 採用元學習 (Meta Learning) 選擇模型和超參數優化的方法作為搜尋最佳模型的重點。此 AutoML 套件主要是搜尋所有 Sklearn 機器學習演算法以模型的超參數，並使用貝葉斯優化 (Bayesian Optimization) 與自動整合 (Ensemble Selection) 的架構在有限時間內搜尋最佳的模型。第一版的 Auto-sklearn 於 2015 年發表在 NIPS(Neural Information Processing Systems) 會議上，論文名稱為 [Efficient and Robust Automated Machine Learning](https://proceedings.neurips.cc/paper/2015/file/11d0e6287202fced83f79975ec59a3a6-Paper.pdf)。有別於其他的 AutoML 方法，Auto-sklearn 提出了元學習架構改善了貝葉斯優化在初始冷啟動的缺點，並提供一個好的採樣方向更快速尋找最佳的模型。第二個版本於 2020 年發布，論文名稱為 [Auto-Sklearn 2.0: Hands-free AutoML via Meta-Learning](https://arxiv.org/abs/2007.04074)。在新的版本中修改了元學習架構，並不依賴元特徵來選擇模型選擇與調參策略。而是引入了一個元學習策略選擇器，根據資料集中的樣本數量和特徵，訂定了一個模型選擇的策略。
 
 ![](./image/img20-1.png)
 
@@ -13,14 +21,14 @@ Auto-sklearn 採用元學習 (Meta Learning) 選擇模型和超參數優化的�
 ## Auto-sklearn 架構
 Auto-sklearn 可以被拿來處理迴歸和分類的問題。下圖為第一版論文中所繪製的架構圖。我們可以將 Auto-sklearn 切成三個部分，其中第一個是引入元學習機制來模仿專家在處理機器學習的先驗知識。並採用元特徵讓我們更有效率的去決定在新的資料集中該挑選哪一種機器學習模型。接著挑好模型後並透過貝葉斯優化來挑選合適的模型超參數，以及嘗試一些資料前處理與特徵工程。最後挑選幾個不錯的模型並透過鞥體學席的技巧進行模型堆疊，將表現不錯的模型輸出結果做一個加權和或是投票。
 
-- Meta-learning
-- Bayesian optimization
-- Build ensemble 
+- Meta Ｌearning
+- Bayesian Optimization
+- Build Ensemble 
 
 ![](./image/img20-3.png)
 
-### Meta-Learning
-當我們想對新數據集應用分類或回歸時，Auto-sklearn 首先會提取元特徵，並依靠元學習來尋找新資料集與過去經驗中處理過資料集的相似性。
+### Meta Learning
+當我們想對新資料集做分類或回歸時，Auto-sklearn 會先提取元特徵，具有相似元特徵的資料集在同一組超參數應該會有相似的表現。因此透過元特徵可以有效地評估在新資料集上應該使用哪種算法。元學習在這裡的目的是為了要找一個不錯的超參數做初始化，使其在一開始的表現優於隨機的方法。並提供貝葉斯優化有個明確定方向。Auto-sklearn 參考了 OpenML 140 個資料集，並彙整了 38  個元特徵，例如：偏度、峰度、特徵數量、類別數量......等。首先為這 140 個資料集使用貝葉斯優化進行模型訓練，並將這些資料集對應的模型與最佳的超參數儲存起來。當有新的資料集進來時會先透過元特徵進行相似度匹配，並將匹配程度最高的資料集所對應的模型和超參數作為貝葉斯優化的初始設定。
 
 ## 安裝 Auto-sklearn
 目前 Auto-sklearn 僅支援 Lunux 系統。若沒有此系統的讀者可以透過 Colab 體驗。另外若安裝過程中出現錯誤，必須先確認 [swig](https://automl.github.io/auto-sklearn/master/installation.html) 是否已完成安裝。
