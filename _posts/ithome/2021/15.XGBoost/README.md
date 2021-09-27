@@ -2,11 +2,12 @@
 
 ## 今日學習目標
 - XGBoost 介紹
-    - XGBoost 是什麼?為什麼它那麼強大?
-- 比較兩種集成式學習架構差異
+    - XGBoost 是什麼？為什麼它那麼強大？
+    - XGBoost 優點
+- 比較兩種整體學習架構差異？
     - Bagging vs. Boosting
     - Boosting vs. Decision Tree
-
+- Boosting 方法有哪些
 - 實作 XGBoost 分類器與迴歸器
     - 比較 Bagging 與 Boosting 兩者差別
 
@@ -15,8 +16,16 @@ XGboost 全名為 eXtreme Gradient Boosting，是目前 Kaggle 競賽中最常�
 
 ![](./image/img15-1.png)
 
+## XGBoost 優點
+XGBoost 除了可以做分類也能進行迴歸連續性數值的預測，而且效果通常都不差。並透過 Boosting 技巧將許多弱決策樹集成在一起形成一個強的預測模型。
+
+- 利用了二階梯度來對節點進行劃分
+- 利用局部近似算法對分裂節點進行優化
+- 在損失函數中加入了 L1/L2 項，控制模型的複雜度
+- 提供 GPU 平行化運算
+
 ## Bagging vs. Boosting
-在這裡幫大家回顧一下集成式學習中的 Bagging 與 Boosting 兩者間的差異。首先 Bagging 透過隨機抽樣的方式生成每一棵樹，最重要的是每棵樹彼此獨立並無關聯。先前所提到的隨機森林就是 Bagging 的實例。另外 Boosting 則是透過序列的方式生成樹，後面所生成的樹會與前一棵樹相關。本章所提及的 XGBoost 就是 Boosting 方法的其中一種實例。正是每棵樹的生成都改善了上一棵樹學習不好的地方，因此 Boosting 的模型通常會比 Bagging 還來的精準。
+在這裡幫大家回顧一下整體學習中的 Bagging 與 Boosting 兩者間的差異。首先 Bagging 透過隨機抽樣的方式生成每一棵樹，最重要的是每棵樹彼此獨立並無關聯。先前所提到的隨機森林就是 Bagging 的實例。另外 Boosting 則是透過序列的方式生成樹，後面所生成的樹會與前一棵樹相關。本章所提及的 XGBoost 就是 Boosting 方法的其中一種實例。正是每棵樹的生成都改善了上一棵樹學習不好的地方，因此 Boosting 的模型通常會比 Bagging 還來的精準。
 
 - Bagging 透過抽樣的方式生成樹，每棵樹彼此獨立
 - Boosting 透過序列的方式生成樹，後面生成的樹會與前一棵樹相關
@@ -25,16 +34,6 @@ XGboost 全名為 eXtreme Gradient Boosting，是目前 Kaggle 競賽中最常�
 
 ## Boosting vs. Decision Tree
 我們再與最一開始所提的決策樹做比較。決策樹通常為一棵複雜的樹，而在 Boosting 是產生非常多棵的樹，但是每一棵的樹都很簡單的決策樹。Boosting 希望新的樹可以針對舊的樹預測不太好的部分做一些補強。最終我們要把所有簡單的樹合再一起才能當最後的預測輸出。
-
-
-## XGBoost 優點
-XGBoost 除了可以做分類也能進行迴歸連續性數值的預測，而且效果通常都不差。並透過 Boosting 技巧將許多弱決策樹集成在一起形成一個強的預測模型。
-
-- 利用了二階梯度來對節點進行劃分
-- 利用局部近似算法對分裂節點進行優化
-- 在損失函數中加入了 L1/L2 項，控制模型的複雜度
-- 提供 GPU 平行化運算
-
 
 ## Boosting 方法有哪些
 AdaBoost 是由 Yoav Freund 和 Robert Schapire 於 1995 年提出。所謂的自適應是表示根據弱學習的學習誤差率表現來更新訓練樣本的權重，然後基於調整權重後的訓練集來訓練第二個弱學習器，藉由此方法不斷的迭代下去。
