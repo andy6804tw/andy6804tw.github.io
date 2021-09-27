@@ -3,8 +3,10 @@
 ## 今日學習目標
 - XGBoost 介紹
     - XGBoost 是什麼?為什麼它那麼強大?
-- Bagging vs. Boosting
-    - 比較兩種集成式學習架構差異
+- 比較兩種集成式學習架構差異
+    - Bagging vs. Boosting
+    - Boosting vs. Decision Tree
+
 - 實作 XGBoost 分類器與迴歸器
     - 比較 Bagging 與 Boosting 兩者差別
 
@@ -41,7 +43,7 @@ AdaBoost 是由 Yoav Freund 和 Robert Schapire 於 1995 年提出。所謂的�
     - [AdaBoostClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html)
     - [AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html#sklearn.ensemble.AdaBoostRegressor)
 
-Gradient Boosting 由 Friedman 於 1999 年提出。其中 GBDT (Gradient Boosting Decision Tree) 的弱學習器僅限於只能使用 CART 決策樹模型，並採用加法模型的前向分步算法來解決分類和回歸問題。
+Gradient Boosting 由 Friedman 於 1999 年提出。其中 GBDT (Gradient Boosting Decision Tree) 的弱學習器僅限於只能使用 CART 決策樹模型，並採用加法模型的前向分步算法來解決分類和迴歸問題。
 
 - Gradient Boosting
     - [GradientBoostingClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)
@@ -51,7 +53,7 @@ Gradient Boosting 由 Friedman 於 1999 年提出。其中 GBDT (Gradient Boosti
 
 ![](./image/img15-3.png)
 
-未來幾天將會介紹 LightGBM 與 CatBoost~
+未來幾天將會介紹 LightGBM 與 CatBoost 哦！
 
 ## [程式實作]
 ## XGBoost 分類器
@@ -102,7 +104,7 @@ print('測試集: ',xgboostModel.score(X_test,y_test))
 
 ![](./image/img15-4.png)
 
-## XGBoost (回歸器)
+## XGBoost (迴歸器)
 
 Parameters:
 - n_estimators: 總共迭代的次數，即決策樹的個數。預設值為100。
@@ -134,5 +136,7 @@ predicted=xgbrModel.predict(x)
 ![](./image/img15-5.png)
 
 ## Reference
-- [超參數解析](https://medium.com/@pahome.chen/xgboost%E5%85%A5%E9%96%80%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB-e06931b835f5)
-- [關於 XGBoost 20 Faq](https://towardsdatascience.com/20-burning-xgboost-faqs-answered-to-use-the-library-like-a-pro-f8013b8df3e4)
+- [XGboost入門經驗分享-超參數解析](https://medium.com/@pahome.chen/xgboost%E5%85%A5%E9%96%80%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB-e06931b835f5)
+- [關於 XGBoost 20 個 FAQ](https://towardsdatascience.com/20-burning-xgboost-faqs-answered-to-use-the-library-like-a-pro-f8013b8df3e4)
+
+> 本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
