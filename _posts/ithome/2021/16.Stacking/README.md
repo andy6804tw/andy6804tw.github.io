@@ -1,4 +1,4 @@
-# Stacking
+# 堆疊法 (Stacking)
 ## 今日學習目標
 - 了解 Stacking 方法
     - 堆疊法的學習機制為何？
