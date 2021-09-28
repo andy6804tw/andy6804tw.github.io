@@ -1,11 +1,12 @@
 # Stacking
 ## 今日學習目標
 - 了解 Stacking 方法
-    - 堆疊法的學習機制為何 ?
+    - 堆疊法的學習機制為何？
 - 利用 Stacking 實作迴歸器
     - 透過 Stacking Regressor 建立房價預測模型
 
-堆疊法 (Stacking) 是整體學習中其中一種實例。它是結合許多獨立的模型所預測出來的結果，並將每個獨立模型的輸出視為最終模型預測的輸入特徵，最後再訓練一個最終模型。以下圖為例，假設我們事先訓練三個基底的模型 (base learner)，這三個模型彼此互相無關連。由於每一個模型所訓練出來的預測能力都不同，也許模型一在某個區段的資料有不太好的預測能力，而模型二能補足模型一預測不好的地方。藉由上述這個觀點我們將三個訓練好的模型輸出集合起來(P1、P2、P3)，如果是分類問題可以透過投票方式，而迴歸問題可以採用平均法將所有的預測做最後評估。又或者是可以將這三個輸出值當作是新模型的特徵再丟入一個機器學型模型做最後的預測得到最終輸出。
+## 前言
+堆疊法 (Stacking) 是整體學習中其中一種實例。它是結合許多獨立的模型所預測出來的結果，並將每個獨立模型的輸出視為最終模型預測的輸入特徵，最後再訓練一個最終模型。以下圖為例，假設我們事先訓練三個基底的模型 (base learner)，這三個模型彼此互相無關連。由於每一個模型所訓練出來的預測能力都不同，也許模型一在某個區段的資料有不太好的預測能力，而模型二能補足模型一預測不好的地方。藉由上述這個觀點我們將三個訓練好的模型輸出集合起來(P1、P2、P3)，如果是分類問題可以透過投票方式，而迴歸問題可以採用平均法或是加權平均法將所有的預測做最後評估。又或者是可以將這三個輸出值當作是新模型的特徵再丟入一個機器學型模型做最後的預測得到最終輸出。
 
 ![](./image/img16-1.png)
 
@@ -33,8 +34,8 @@ from sklearn.model_selection import train_test_split
 X  = boston.drop(['MEDV'],axis=1).values
 y = boston[['MEDV']].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
-print('Training data shape:',X_train.shape)
-print('Testing data shape:',X_test.shape)
+print('Training data shape:', X_train.shape)
+print('Testing data shape:', X_test.shape)
 ```
 
 由於 Sklearn 資料集提供的資料樣本數比較少，因此測試集僅切出 0.1 的資料。
@@ -58,11 +59,11 @@ xgboostModel.fit(X_train, y_train)
 # 使用訓練資料預測
 predicted = xgboostModel.predict(X_train)
 
-print("訓練集 Score: ",xgboostModel.score(X_train,y_train))
-print("測試集 Score: ",xgboostModel.score(X_test,y_test))
+print("訓練集 Score: ", xgboostModel.score(X_train,y_train))
+print("測試集 Score: ", xgboostModel.score(X_test,y_test))
 ```
 
-從預測結果我們先來查看 R2 score，一切看似還 ok。不過這裡要呼籲各位絕不要看 R2 分數高就太高興！
+從預測結果我們先來查看 R2 score，一切看似還 ok。不過這裡要呼籲各位讀者絕不要看 R2 分數高就高興得太早！
 
 執行結果：
 ```
@@ -131,8 +132,8 @@ clf = StackingRegressor(
 
 clf.fit(X_train, y_train)
 
-print("訓練集 Score: ",clf.score(X_train,y_train))
-print("測試集 Score: ",clf.score(X_test,y_test))
+print("訓練集 Score: ", clf.score(X_train,y_train))
+print("測試集 Score: ", clf.score(X_test,y_test))
 ```
 
 我們先觀察訓練後的 R2 score 在訓練集與測試集上的分數。從數值看觀察可以發現透過堆疊法兩者間的分數差距變小了。
@@ -164,3 +165,5 @@ print('測試集 MSE: ', mse)
 訓練集 MSE:  3.389581229598408
 測試集 MSE:  3.9225215768179433
 ```
+
+> 本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
