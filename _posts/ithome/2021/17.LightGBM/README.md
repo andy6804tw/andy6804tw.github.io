@@ -7,7 +7,7 @@
     - 信用卡盜刷偵測 (二元分類)
 
 ## 前言
-LightGBM 是屬於 GDBT 家族中成員之一，相較於先前介紹的 XGBoost 兩者可以拿來做比較。簡單來說從 LightGBM 名字上觀察，我們可以看出它是輕量級 (Light) 的梯度提升機 (GBM) 的實例。其相對 XGBoost 來說它具有訓練速度快、記憶體佔用低的特點，因此近幾年 LightGBM 在 Kaggle 上也算是熱門模型一。
+LightGBM 是屬於 GDBT 家族中成員之一，相較於先前介紹的 XGBoost 兩者可以拿來做比較。簡單來說從 LightGBM 名字上觀察，我們可以看出它是輕量化 (Light) 的梯度提升機 (GBM) 的實例。其相對 XGBoost 來說它具有訓練速度快、記憶體佔用低的特點，因此近幾年 LightGBM 在 Kaggle 上也算是熱門模型一。
 
 ![](https://i.imgur.com/ecN4zor.png)
 
@@ -25,7 +25,7 @@ LightGBM 由微軟團隊於 2017 年所發表的論文 [LightGBM: A Highly Effic
 - 支援 GPU 平行運算
 - 能夠處理大規模數據
 
-LightGBM 使用 leaf-wise tree 演算法，因此在迭代過程中能更快地收斂。但是 leaf-wise tree 方法較容易過擬合。
+LightGBM 使用 leaf-wise tree 演算法，因此在迭代過程中能更快地收斂。但是 leaf-wise tree 方法較容易過擬合。詳細的內容可以參考文章最後提供的相關資源。
 
 ## 處理 unbalance 資料
 在使用 LightGBM 做分類器時該如何處理樣本類別分佈不平衡的問題？一個簡單的方法是設定 `is_unbalance=True`，或是 `scale_pos_weight` 注意這兩個參數只能擇一使用。以下我們就使用一個不平衡的資料集，信用卡盜刷預測來做示範。首先我們可以載入 Google 所提供的信用卡盜刷資料集，詳細資訊可以參考[這裡](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data)。
@@ -66,7 +66,7 @@ X_test: (85443, 30)
 
 接下來重頭戲出場。我們採用 LightGBM 分類器，若還沒安裝的讀者可以參考以下指令進行安裝。
 
-```
+```bash
 pip install lightgbm
 ```
 
@@ -100,12 +100,12 @@ model.fit(X_train,y_train)
 ```py
 from sklearn.metrics import accuracy_score
 pred=model.predict(X_test)
-print("Accuracy", accuracy_score(y_test, pred))
+print("Accuracy:", accuracy_score(y_test, pred))
 ```
 
 輸出結果：
 ```
-Accuracy 0.9401706400758401
+Accuracy: 0.9401706400758401
 ```
 
 如果要判斷分類器的好壞，僅使用準確率來評估是一個不好的習慣。我們應該善用混淆矩陣做更近一步的分析，並查看正樣本與負樣本在預測上的表現。首先我們先來寫一個計算混淆矩陣的函式，並用 seaborn 繪製出熱力圖矩陣。
@@ -137,7 +137,7 @@ dict(zip(unique, counts))
 ```
 
 輸出結果：
-```
+```json
 {0: 85295, 1: 148}
 ```
 
