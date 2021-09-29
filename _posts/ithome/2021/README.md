@@ -19,9 +19,6 @@
 14. 隨機森林
 15. XGBoost
 16. Stacking
-```
---近期熱門演算法--
-```
 17. LightGBM
 18. CatBoost: 機器學習 boosting 神器介紹
 ```
@@ -48,7 +45,7 @@
 28. 儲存 Sklearn 訓練好的模型
 29. 使用 Python Flask 架設 API 吧!
 30. 使用 Heroku 免費部署機器學習 API
-```
+
 
 
 
