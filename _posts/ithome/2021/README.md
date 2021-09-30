@@ -20,7 +20,7 @@
 15. XGBoost
 16. Stacking
 17. LightGBM
-18. CatBoost: 機器學習 boosting 神器介紹
+18. 機器學習 boosting 神器 - CatBoost
 ```
 --自動化機器學習--
 ```

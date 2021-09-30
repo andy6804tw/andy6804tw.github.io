@@ -1,4 +1,12 @@
+# CatBoost
 
+## 今日學習目標
+- 了解 CatBoost 演算法
+- 實作 CatBoost 迴歸模型-房價預測
+    - 模型訓練、特徵篩選
+    - 超參數搜索
+    - 自動處理類別型的特徵
+    - 可解釋化模型
 
 ## 前言
 CatBoost 同樣是基於 Gradient Boosting Tree 的梯度提升樹模型框架，最大的特點對類別特徵的直接支持，甚至支持字符串類型的特徵。然而近日在 Kaggle 打比賽偶然看見有人使用 CatBoost 方法取得不錯的成績，於是就來撰寫文章順便來瞧瞧它與其他 Boosting 演算法不同之處。其中最特別的地方是 CatBoost 能夠處理非數值型態的資料，也就是説無需對數據特徵進行任何的預處理就可以將類別轉換爲數字。CatBoost 採用決策樹梯度提升方法並宣稱在效能上比 XGBoost 和 LightGBM 更加優化，同時支援 CPU 和 GPU 運算。與其他 Boosting 方法相比 CatBoost 是一種相對較新的開源機器學習算法。該演算法是由一間俄羅斯的公司 Yandex 於 2017 年所提出，同時在 arxiv 有一篇 [CatBoost: unbiased boosting with categorical features](https://arxiv.org/pdf/1706.09516.pdf) 的論文，文中作者詳細說明了 CatBoost 的方法與優點。
