@@ -1,7 +1,7 @@
 # CatBoost
 
 ## 今日學習目標
-- 了解 CatBoost 演算法
+- 了解 CatBoost 模型
 - 實作 CatBoost 迴歸模型-房價預測
     - 模型訓練、特徵篩選
     - 超參數搜索
@@ -9,9 +9,9 @@
     - 可解釋化模型
 
 ## 前言
-CatBoost 同樣是基於 Gradient Boosting Tree 的梯度提升樹模型框架，最大的特點對類別特徵的直接支持，甚至支持字符串類型的特徵。然而近日在 Kaggle 打比賽偶然看見有人使用 CatBoost 方法取得不錯的成績，於是就來撰寫文章順便來瞧瞧它與其他 Boosting 演算法不同之處。其中最特別的地方是 CatBoost 能夠處理非數值型態的資料，也就是説無需對數據特徵進行任何的預處理就可以將類別轉換爲數字。CatBoost 採用決策樹梯度提升方法並宣稱在效能上比 XGBoost 和 LightGBM 更加優化，同時支援 CPU 和 GPU 運算。與其他 Boosting 方法相比 CatBoost 是一種相對較新的開源機器學習算法。該演算法是由一間俄羅斯的公司 Yandex 於 2017 年所提出，同時在 arxiv 有一篇 [CatBoost: unbiased boosting with categorical features](https://arxiv.org/pdf/1706.09516.pdf) 的論文，文中作者詳細說明了 CatBoost 的方法與優點。
+CatBoost 同樣是基於 Gradient Boosting Tree 的梯度提升樹模型框架，最大的特點對類別特徵的直接支援，甚至允許字串類型的特徵進行模型訓練。近年來在 Kaggle 上的比賽陸續有人使用 CatBoost 方法並取得不錯的成績，於是就來撰寫文章順便來瞧瞧它與其他 Boosting 演算法不同之處。其中最特別的地方是 CatBoost 能夠處理非數值型態的資料，也就是説無需對數據特徵進行任何的預處理就可以將類別轉換爲數字。CatBoost 採用決策樹梯度提升方法並宣稱在效能上比 XGBoost 和 LightGBM 更加優化，同時支援 CPU 和 GPU 運算。與其他 Boosting 方法相比 CatBoost 是一種相對較新的開源機器學習算法。該演算法是由一間俄羅斯的公司 Yandex 於 2017 年所提出，同時在 arxiv 有一篇 [CatBoost: unbiased boosting with categorical features](https://arxiv.org/pdf/1706.09516.pdf) 的論文，文中作者詳細說明了 CatBoost 的方法與優點。
 
-![](/images/posts/AI/2021/img1100706-1.png)
+![](./image/img18-1.png)
 
 ## CatBoost 優點
 CatBoost 名稱源於 Category 和 Boost 兩個單詞，承襲 Boosting 的優點之外該演算法在類別型的特徵上做了一些更公平的特徵工程。訓練過程中允許沒有編碼的類別特徵，透過分類和數字特徵組合的各種統計量為類別型的特徵做編碼。不過在訓練前必須確保該特徵中無缺失值。其訓練資料若有缺失值 CatBoost 預設會將數值型的資料補上最小值，詳細內容可以[參考](https://catboost.ai/docs/concepts/algorithm-missing-values-processing.html#numerical-features)。另外對於 GPU 的使用者，它也能處理字串(類別)型態的特徵。
@@ -72,7 +72,7 @@ model = CatBoostRegressor(random_state=42,
 model.fit(X_train,y_train, eval_set=(X_test, y_test), verbose=0, plot=True)
 ```
 
-![](/images/posts/AI/2021/img1100706-3.jpeg)
+![](./image/img18-2.png)
 
 ## 特徵篩選
 訓練過程中會自動從資料中篩選對模型預測有用的特徵，並移除無幫助預測的特徵。
@@ -185,12 +185,12 @@ preds_raw = model.predict(eval_data,
 ## 善用 Verbose
 訓練過程中可以隨時觀察訓練集與測試集的loss，使用verbose=10即代表每10次迭代會顯示一次資訊，這種方式也解決每次疊代顯示一次的困擾。訓練過程中剩餘時間也會顯示出來。
 
-![](/images/posts/AI/2021/img1100706-2.gif)
+![](https://i.imgur.com/GbtGQKA.gif)
 
 ## 模型的解釋
 CatBoost 提供了 `plot` 可以方便在訓練時查看並作即時分析訓練趨勢。除此之外 CatBoost 也支援 SHAP 增加了模型可解釋。詳細的使用方式可以參考官方[教學](https://shap.readthedocs.io/en/latest/example_notebooks/tabular_examples/tree_based_models/Catboost%20tutorial.html)。
 
-![](/images/posts/AI/2021/img1100706-4.png)
+![](./image/img18-4.png)
 
 ## 小結
 CatBoost 的優點和使用方法都介紹完了，是不是覺得十分簡單易用且功能強大。尤其是遇到資料需要大量處理和特徵數值化的任務時最適合使用 CatBoost 了。真的是所謂的懶人套件，名符其實的 Ying Train Yi Fa(硬Train一發)!
