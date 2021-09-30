@@ -23,9 +23,9 @@ CatBoost 名稱源於 Category 和 Boost 兩個單詞，承襲 Boosting 的優�
 
 
 ## CatBoost 安裝
-CatBoost 演算法可以解決分類(CatBoostClassifier)和回歸(CatBoostRegressor)的問題。安裝的方式也非常簡單，使用 `pip` 就能輕鬆安裝。
+CatBoost 演算法可以解決分類 (CatBoostClassifier) 和迴歸 (CatBoostRegressor) 的問題。安裝的方式也非常簡單，使用 `pip` 就能輕鬆安裝。
 
-```
+```bash
 pip install catboost
 ```
 
