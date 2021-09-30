@@ -9,7 +9,7 @@
     - 採用鳶尾花朵分類器，比較兩種不同版本的 Auto-sklearn。
 
 ## 前言
-Auto-sklearn 採用元學習 (Meta Learning) 選擇模型和超參數優化的方法作為搜尋最佳模型的重點。此 AutoML 套件主要是搜尋所有 Sklearn 機器學習演算法以模型的超參數，並使用貝葉斯優化 (Bayesian Optimization) 與自動整合 (Ensemble Selection) 的架構在有限時間內搜尋最佳的模型。第一版的 Auto-sklearn 於 2015 年發表在 NIPS(Neural Information Processing Systems) 會議上，論文名稱為 [Efficient and Robust Automated Machine Learning](https://proceedings.neurips.cc/paper/2015/file/11d0e6287202fced83f79975ec59a3a6-Paper.pdf)。有別於其他的 AutoML 方法，Auto-sklearn 提出了元學習架構改善了貝葉斯優化在初始冷啟動的缺點，並提供一個好的採樣方向更快速尋找最佳的模型[1]。第二個版本於 2020 年發布，論文名稱為 [Auto-Sklearn 2.0: Hands-free AutoML via Meta-Learning](https://arxiv.org/abs/2007.04074)。在新的版本中修改了元學習架構，並不依賴元特徵來選擇模型選擇與調參策略。而是引入了一個元學習策略選擇器，根據資料集中的樣本數量和特徵，訂定了一個模型選擇的策略[2]。
+Auto-sklearn 採用元學習 (Meta Learning) 選擇模型和超參數優化的方法作為搜尋最佳模型的重點。此 AutoML 套件主要是搜尋所有 Sklearn 機器學習演算法以模型的超參數，並使用貝葉斯優化 (Bayesian Optimization) 與自動整合 (Ensemble Selection) 的架構在有限時間內搜尋最佳的模型。第一版的 Auto-sklearn 於 2015 年發表在 NIPS(Neural Information Processing Systems) 會議上，論文名稱為 [Efficient and Robust Automated Machine Learning](https://proceedings.neurips.cc/paper/2015/file/11d0e6287202fced83f79975ec59a3a6-Paper.pdf)。有別於其他的 AutoML 方法，Auto-sklearn 提出了元學習架構改善了貝葉斯優化在初始冷啟動的缺點，並提供一個好的採樣方向更快速尋找最佳的模型[1]。第二個版本於 2020 年發布，論文名稱為 [Auto-Sklearn 2.0: Hands-free AutoML via Meta-Learning](https://arxiv.org/abs/2007.04074)。在新的版本中修改了元學習架構，並不依賴元特徵來選擇模型選擇與調參策略。而是引入了一個元學習策略選擇器，根據資料集中的樣本數量和特徵，訂定了一個模型選擇的策略[3]。
 
 ![](./image/img20-1.png)
 
@@ -35,7 +35,7 @@ Auto-sklearn 可以被拿來處理迴歸和分類的問題。下圖為第一版�
 
 ![](./image/img20-4.png)
 
-> 以下內容摘錄自 Auto-sklearn v1.0 論文提供的內容
+> 以下內容摘錄自 Auto-sklearn v1.0 論文提供的內容 [1][2]
 
 ### Data Pre-processors
 在資料前處理部分 Auto-sklearn 提供了四種方法。包含特徵縮放、填補缺失值、類別特徵進行 one-hot encoding 與處理目標輸出類別數量不平衡問題。
@@ -56,8 +56,9 @@ Auto-sklearn 可以被拿來處理迴歸和分類的問題。下圖為第一版�
 > 詳細可以參考 Auto-sklearn [feature_preprocessing](https://github.com/automl/auto-sklearn/tree/master/autosklearn/pipeline/components/feature_preprocessing) 的原始程式。
 
 ## Build Ensemble
-多個模型組合成一個更強更大的模型。往往能提高預測準確性。
+在 Auto-sklearn 訓練階段會產生許多表現優良的模型，最終透過貪婪法的 [Bagging Ensemble Selection](http://www.cs.cornell.edu/~alexn/papers/shotgun.icml04.revised.rev2.pdf) 方法來合併多個模型組合成一個更強更大的模型，並提高預測的準確性。下圖為第一版論文中進行的實驗，其中橫軸為程式執行時間，縱軸為在時間內搜尋到的最佳模型的排名。我們可以發現綠色線條再加入了整體學習機制表現效果比尚未加入的藍色線條實驗來得好。並且在短時間內就可以得到不錯的結果。
 
+![](./image/img20-6.png)
 
 ## 安裝 Auto-sklearn
 目前 Auto-sklearn 僅支援 Lunux 系統。若沒有此系統的讀者可以透過 Colab 體驗。另外若安裝過程中出現錯誤，必須先確認 [swig](https://automl.github.io/auto-sklearn/master/installation.html) 是否已完成安裝。
@@ -67,7 +68,9 @@ pip install auto-sklearn
 ```
 
 ## Reference
-- [1] Feurer, Matthias et al. “Efficient and Robust Automated Machine Learning”. Advances in neural information processing systems 2015. https://automl.github.io/auto-sklearn
-- [2] Ono, Jorge et al. “PipelineProfiler: A Visual Analytics Tool for the Exploration of AutoML Pipelines”. 2020. https://arxiv.org/abs/2005.00160
+- [1] Feurer, Matthias et al. “[Efficient and Robust Automated Machine Learning](https://proceedings.neurips.cc/paper/2015/file/11d0e6287202fced83f79975ec59a3a6-Paper.pdf),” Advances in neural information processing systems 2015.
+- [2] Feurer, Matthias et al. “[Supplementary Material for Efficient and Robust Automated Machine Learning](https://ml.informatik.uni-freiburg.de/wp-content/uploads/papers/15-NIPS-auto-sklearn-supplementary.pdf),” Advances in neural information processing systems 2015.
+- [3] Feurer, Matthias et al. “[Efficient and Robust Automated Machine Learning](https://arxiv.org/abs/2007.04074),” arXiv, 2020.
+- [4] Ono, Jorge et al. “[PipelineProfiler: A Visual Analytics Tool for the Exploration of AutoML Pipelines](https://arxiv.org/abs/2005.00160),” arXiv, 2020.
 
 - [Auto Machine Learning筆記- Bayesian Optimization](http://codewithzhangyi.com/2018/07/31/Auto%20Hyperparameter%20Tuning%20-%20Bayesian%20Optimization/)
