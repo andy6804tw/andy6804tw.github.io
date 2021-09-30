@@ -27,7 +27,7 @@
 19. AutoML
 20. Auto-Sklearn
 <!-- 21. lightAutoML -->
-21. 自動調參神器: Optuna
+21. 自動調參神器 - Optuna
 
 ```
 --機器學習小撇步報你知--

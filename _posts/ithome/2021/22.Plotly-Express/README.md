@@ -12,7 +12,46 @@ Plotly Express 是一個高精緻的資料視覺化套件。初學機器學習�
 pip install plotly
 ```
 
+## 1) 載入資料集
 在今天的範例中我們一樣採用鳶尾花朵資料集來做示範，讓大家瞧瞧 Plotly Express 是如優雅的處理資料視覺化。
 
+```py
+import plotly.express as px
+import plotly.graph_objects as go
+from IPython.display import HTML
 
-由於 Plotly Express 只能將結果渲染在網頁瀏覽器上面，因此必須轉換成 HTML code 並在 Jupyter Notebook 顯示出來。
+df_data = px.data.iris()
+df_data
+```
+
+![](./image/img22-2.png)
+
+## 直方圖
+為了更清楚了解特徵的分布狀況，我們可以採用直方圖 histogram 做更近一步的分析。從直方圖我們可以更清楚知道特徵的每個值的頻率分佈。由於目前版本在 Notebook 無法直接使用 fig.show() 顯示互動圖，必須安裝一些小插件模組與設定。因此範例中採用最簡單方法，先轉換成 HTML code 並透過 IPython.display 中的 HTML 方法顯示出來。
+
+```py
+fig = px.histogram(df_data, x="sepal_width")
+HTML(fig.to_html())
+```
+
+![](./image/img22-3.png)
+
+除此之外我們也能觀察每一個獨立特徵對於花的品種的每個分布狀況。每個不同的顏色代表不同的花朵品種，我們可以藉由參數設定每個直方圖是否重疊，以及重疊的透明程度。
+
+```py
+fig = px.histogram(df_data, x="sepal_width", color="species")
+fig.update_layout(barmode='overlay')
+fig.update_traces(opacity=0.75)
+HTML(fig.to_html())
+```
+![](https://i.imgur.com/b0n0qOF.gif)
+
+接下來一樣透過直方圖方式來觀察每個花朵品種的數量。從視覺化可以很清楚得知該資料集是否是一個平穩的資料集。
+
+```py
+fig = px.histogram(df_data, x='species', y='sepal_width', histfunc='count', height=300,
+                    title='Histogram Chart')
+HTML(fig.to_html())
+```
+
+![](./image/img22-5.png)
