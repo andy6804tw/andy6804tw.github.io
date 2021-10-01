@@ -201,3 +201,5 @@ CatBoost 的優點和使用方法都介紹完了，是不是覺得十分簡單�
 - [CatBoost regression in 6 minutes](https://towardsdatascience.com/catboost-regression-in-6-minutes-3487f3e5b329)
 - [Catboost：超越Lightgbm和XGBoost的又一個boost算法神器](https://www.xuehua.us/a/5ebf84b0fdbefd9ba19e8d2f?lang=zh-tw)
 - [CatBoost、LightGBM、XGBoost，這些算法你都瞭解嗎？](https://www.xuehua.us/a/5eb594cf86ec4d63e698d3e7?lang=zh-tw)
+
+> 本文章引用自第13屆iT幫邦忙 [鐵人賽](https://ithelp.ithome.com.tw/articles/10275263)
