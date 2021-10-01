@@ -1,5 +1,11 @@
 # AutoML
 
+## 今日學習目標
+- 了解何謂 AutoML
+- 超參數調參方法
+    - Grid Search
+    - Random Search
+    - Bayesian Optimization
 
 ## AutoML 的動機
 大家還記得在 [[Day 5] 機器學習大補帖](https://ithelp.ithome.com.tw/articles/10265942) 中有提到完整的機器學習流程大致分成八個步驟。然而模型的訓練與超參數調整僅扮演其中的一環，選擇一個好的模型是件重要的事情。想必大家在訓練模型時一定會遇到一個棘手的問題，就是該如何正確選擇模型以及調整超參數？隨著越來越多的演算法不斷地被開發出來，要從茫茫大海中挑選一個合適的模型是件耗時的事。因此自動化機器學習 (Automated Machine Learning ,AutoML) 可以幫助我們在有限的時間內找出一個滿意的模型。在近年來有許多人開始研究這類的問題，筆者彙整了幾個 Python 熱門的 AutoML 開源套件：
@@ -98,7 +104,7 @@ Bayesian Optimization (貝葉斯優化) 目標是要在最少的試驗下尋找�
 
 ![](./image/img19-4.png)
 
-[Auto-sklearn](https://automl.github.io/auto-sklearn/master/) 就是一個透過貝葉斯優化來尋找最佳操參數的一個工具。同時他也能搜索在 Sklearn 中所有可能的算法，並為你推薦一個合適的模型與資料前處理方式。明天我們就來一探究竟該套件背後的神秘原理以及程式實作吧！
+[Auto-sklearn](https://automl.github.io/auto-sklearn/master/) 就是一個透過貝葉斯優化來尋找最佳操參數的一個工具。同時它也能搜索在 Sklearn 中所有可能的算法，並為你推薦一個合適的模型與資料前處理方式。明天我們就來一探究竟該套件背後的神秘原理以及程式實作吧！
 
 ## Reference
 - [automl.org](https://www.automl.org/automl/)
