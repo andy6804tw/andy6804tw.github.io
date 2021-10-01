@@ -158,3 +158,9 @@ fig.write_image("./demo.png")
 ```py
 fig.write_html("./demo.html")
 ```
+
+## Reference
+- [Plotly Express API Doc](https://plotly.com/python/plotly-express/)
+- [Plotly Express GitHub](https://github.com/plotly/plotly_express)
+
+> 本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
