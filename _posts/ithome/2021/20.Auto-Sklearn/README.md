@@ -67,6 +67,48 @@ Auto-sklearn 可以被拿來處理迴歸和分類的問題。下圖為第一版�
 pip install auto-sklearn
 ```
 
+> 若使用 Colab 執行，安裝完成後點選上方工具列 Runtime -> Restart runtime 重啟才能正常執行此套件。
+
+![](./image/img20-7.png)
+
+
+## 1) 載入資料集
+本次範例沿用鳶尾花朵資料集，並使用 Auto-sklearn 來搜尋最佳的分類器模型。此外大家可以試著觀察 Auto-sklearn 找到的最佳模型在訓練集與測試集上的表現，並與前幾天所介紹的那些機器學習演算法來做比較。
+
+```py
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+df_data = pd.DataFrame(data= np.c_[iris['data'], iris['target']],
+                     columns= ['SepalLengthCm','SepalWidthCm','PetalLengthCm','PetalWidthCm','Species'])
+df_data
+```
+
+![](./image/img20-8.png)
+
+## 2) 切割訓練集與測試集
+我們按照花朵種類的數量對資料集以 7:3 的比例切割出訓練集與測試集。其中參數 `stratify=y` 設定是確保訓練集與測試集對於三種花朵類別的比例在這兩個切出來的資料集中比例要一樣。
+
+```py
+from sklearn.model_selection import train_test_split
+X = df_data.drop(labels=['Species'],axis=1).values # 移除Species並取得剩下欄位資料
+y = df_data['Species'].values
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+
+print('train shape:', X_train.shape)
+print('test shape:', X_test.shape)
+```
+
+輸出結果：
+```
+train shape: (105, 4)
+test shape: (45, 4)
+```
+
 ## Reference
 - [1] Feurer, Matthias et al. “[Efficient and Robust Automated Machine Learning](https://proceedings.neurips.cc/paper/2015/file/11d0e6287202fced83f79975ec59a3a6-Paper.pdf),” Advances in neural information processing systems 2015.
 - [2] Feurer, Matthias et al. “[Supplementary Material for Efficient and Robust Automated Machine Learning](https://ml.informatik.uni-freiburg.de/wp-content/uploads/papers/15-NIPS-auto-sklearn-supplementary.pdf),” Advances in neural information processing systems 2015.
