@@ -91,7 +91,7 @@ df_data
 ![](./image/img20-8.png)
 
 ## 2) 切割訓練集與測試集
-我們按照花朵種類的數量對資料集以 7:3 的比例切割出訓練集與測試集。其中參數 `stratify=y` 設定是確保訓練集與測試集對於三種花朵類別的比例在這兩個切出來的資料集中比例要一樣。
+我們按照花朵種類的數量對資料集以 7:3 的比例切割出訓練集與測試集。其中參數 `stratify=y` 設定是確保訓練集與測試集對於三種花朵類別的比例在這兩個切出來的資料集中比例要一樣，以免訓練出來的模型有很大的偏差。
 
 ```py
 from sklearn.model_selection import train_test_split
@@ -109,10 +109,124 @@ train shape: (105, 4)
 test shape: (45, 4)
 ```
 
+## Auto-sklearn
+以下是模型常用的超參數以及方法，詳細內容可以參考官方 API [文件](https://automl.github.io/auto-sklearn/master/api.html)。
+
+Parameters:
+- time_left_for_this_task: 搜尋時間(秒)，預設3600秒(6分鐘)。
+- per_run_time_limit: 每個模型訓練的上限時間，預設為time_left_for_this_task的1/10。
+- ensemble_size: 模型輸出數量，預設50。
+- resampling_strategy: 資料採樣方式。為了避免過擬合，可以採用交叉驗證機制。預設方法為最基本的 holdout。
+
+Attributes:
+- cv_results_: 查詢模型搜尋結果以及每個最佳模型的超參數。
+
+Methods:
+- fit: 放入X、y進行模型擬合。
+- predict: 預測並回傳預測類別。
+- score: 預測成功的比例。
+- predict_proba: 預測每個類別的機率值。
+- leaderboard: 顯示 k 個 ensemble 模型並排名。
+
+首先我們來測試第一版的 Auto-sklearn，建立一個分類器類型的自動化機器學習模型並設定相關的執行參數。在本次實驗中我們設定模型搜尋總時間為 180 秒，每個模型訓練時間限制 40 秒內。此外設定 `resampling_strategy='cv'` 即 K-Fold 交叉驗證。此外必須另外設定 `resampling_strategy_arguments` 並給予 k=5，訓練集切割為五等份。這意味著相同的模型要訓練五次，每一次的訓練都會從這五等份挑選其中四等份作為訓練資料，剩下一等份未參與訓練並作為驗證集。
+
+```py
+import autosklearn.classification
+automlclassifierV1 = autosklearn.classification.AutoSklearnClassifier(
+    time_left_for_this_task=180,
+    per_run_time_limit=40,
+    resampling_strategy='cv',
+    resampling_strategy_arguments={'folds': 5}
+)
+automlclassifierV1.fit(X_train, y_train)
+```
+
+訓練結束後我們可以來查看模型在訓練集與測試集表現。大家可以試著調整模型訓練時間以及一些控制參數，查看是否有沒有幫助模型準確度提升。
+
+```py
+# 預測成功的比例
+print('automlclassifierV1 訓練集: ',automlclassifierV1.score(X_train,y_train))
+print('automlclassifierV1 測試集: ',automlclassifierV1.score(X_test,y_test))
+```
+
+輸出結果：
+```
+automlclassifierV1 訓練集:  0.9904761904761905
+automlclassifierV1 測試集:  0.9111111111111111
+```
+
+## 使用 Auto-sklearn 2.0
+在第二版的 Auto-sklearn 對模型搜尋進行了一些優化，並且可以自動搜尋好的資料採樣方式。因此我們不特地去指定 `resampling_strategy`，查看表現是否能夠提升。
+
+```py
+from autosklearn.experimental.askl2 import AutoSklearn2Classifier
+
+automlclassifierV2 = AutoSklearn2Classifier(time_left_for_this_task=180, per_run_time_limit=40)
+automlclassifierV2.fit(X_train, y_train)
+```
+
+```py
+# 預測成功的比例
+print('訓練集: ',automlclassifierV2.score(X_train,y_train))
+print('測試集: ',automlclassifierV2.score(X_test,y_test))
+```
+
+執行結果：
+```
+訓練集:  0.9904761904761905
+測試集:  0.9333333333333333
+```
+
+使用一樣的搜尋時間與訓練限制，最終訓練出來的模型在訓練集與測試集都表現不錯。兩者的準確率更接近了。這樣的結果的確比系列教學所介紹的任一個單一模型還來得好。
+
+![](./image/img20-9.png)
+
+## 查看每個模型的權重
+我們可以使用模型提供的方法查看最終訓練結果，並查看 k 個 Ensemble 模型的訓練結果以及每個模型的權重。
+
+```py
+automlclassifierV2.leaderboard(detailed = True, ensemble_only=True)
+```
+
+![](./image/img20-10.png)
+
+## 輸出模型
+如果想將 AutoML 的模型儲存起來，可以透過 `joblib` 將模型打包匯出。
+
+```py
+from joblib import dump, load
+
+# 匯出模型
+dump(automlclassifierV2, 'model.joblib') 
+# 匯入模型
+clf = load('model.joblib') 
+# 模型預測測試
+clf.predict(X_test)
+```
+
+## 視覺化 AutoML 模型
+首先安裝 `pipelineprofiler`。
+
+```sh
+!pip install pipelineprofiler
+```
+
+```py
+import PipelineProfiler
+
+profiler_data= PipelineProfiler.import_autosklearn(automlclassifierV2)
+PipelineProfiler.plot_pipeline_matrix(profiler_data)
+```
+
+![](https://i.imgur.com/mCiuTpJ.gif)
+
 ## Reference
 - [1] Feurer, Matthias et al. “[Efficient and Robust Automated Machine Learning](https://proceedings.neurips.cc/paper/2015/file/11d0e6287202fced83f79975ec59a3a6-Paper.pdf),” Advances in neural information processing systems 2015.
 - [2] Feurer, Matthias et al. “[Supplementary Material for Efficient and Robust Automated Machine Learning](https://ml.informatik.uni-freiburg.de/wp-content/uploads/papers/15-NIPS-auto-sklearn-supplementary.pdf),” Advances in neural information processing systems 2015.
 - [3] Feurer, Matthias et al. “[Efficient and Robust Automated Machine Learning](https://arxiv.org/abs/2007.04074),” arXiv, 2020.
 - [4] Ono, Jorge et al. “[PipelineProfiler: A Visual Analytics Tool for the Exploration of AutoML Pipelines](https://arxiv.org/abs/2005.00160),” arXiv, 2020.
-
 - [Auto Machine Learning筆記- Bayesian Optimization](http://codewithzhangyi.com/2018/07/31/Auto%20Hyperparameter%20Tuning%20-%20Bayesian%20Optimization/)
+- [A Quickstart Guide to Auto-Sklearn (AutoML) for Machine Learning Practitioners](https://neptune.ai/blog/a-quickstart-guide-to-auto-sklearn-automl-for-machine-learning-practitioners)
+- [Auto-Sklearn: Scikit-Learn on Steroids](https://towardsdatascience.com/auto-sklearn-scikit-learn-on-steroids-42abd4680e94)
+
+> 本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
