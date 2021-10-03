@@ -11,6 +11,27 @@ Sklearn 很方便也很強大，該套件也集結了各式各樣的機器學習
 
 但是如果你都沒有收到任何錯誤或警告是代表都沒事嗎？不盡然。雖然 Sklearn 套件都已經幫你包裝好，只要詳細了解超參數的設定以及模型方法的使用基本上是沒問題的。但是一般人往往會犯一些邏輯上的小毛病，雖然表上面上訓練結果非常好但是背後可能造成資料洩漏(data leakage)的疑慮。尤其是在初學階段，因缺乏經驗往往會犯一些無可避免的錯誤。所以這篇文章將點出 6 個機器學習中常犯的隱形錯誤。
 
+Data Issues
+- 3. 在分類中生成標籤分佈不均衡的訓練/測試集
+- 8. 資料收集不當
+       - Ignoring prediction bias
+ When wrong labels are detected, it is tempting to jump in and get them fixed. It is important to first analyze misclassified examples for the root cause. Oftentimes, errors due to incorrect labels may be a very small percentage. There might be a bigger opportunity to better train for specific data slices that might be the predominant root cause.
+
+Process Issues
+- 4. 使用 LabelEcoder 為特徵編碼
+- 論特徵工程重要性
+
+Modeling Issues
+- 1. 小心使用 `fit` 或 `fit_transform`
+- 2. 僅使用測試集評估模型好壞
+- 5. 在沒有交叉驗證的情況下判斷模型性能
+- 6. 分類問題僅使用準確率作為衡量模型的指標
+- 7. 迴歸問題僅使用 R2 分數評估模型好壞
+
+- 10. 任何事情別急著想用 AI 解決
+
+https://www.capitalone.com/tech/machine-learning/10-common-machine-learning-mistakes/
+
 ## 1. 小心使用 `fit` 或 `fit_transform`
 首先讓我們從最嚴重的錯誤開始，使有關於先前所提到的資料洩漏(data leakage)。資料洩漏是很微妙的，它會在不知不覺中影響模型預測結果。其發生的時機在於你在訓練過程中，不應該將測試的資料的資訊洩漏到訓練過程中。它會造成模型給出一個非常樂觀的結果，即使在交叉驗證中也是如此，但在對實際新數據進行測試時表現會非常地糟糕。
 
