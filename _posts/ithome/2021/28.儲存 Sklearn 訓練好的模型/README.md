@@ -4,7 +4,7 @@
 - 使用 pickle + gzip 儲存模型
     - 將訓練好的模型打包並儲存
 - 載入儲存的模型
-    - 讀取打包好的模型，並預測
+    - 讀取打包好的模型並預測
 
 ## 前言
 今天的教學內容要教各位如何將訓練好的模型儲存，並提供下一次載入模型和預測。在本系列的教學中介紹了許多 Sklearn 的模型演算法。當模型訓練好了，可以將訓練結果儲存起來，並建立一個 API 接口提供模型預測。
@@ -43,6 +43,7 @@ print('test shape:', X_test.shape)
 ```
 
 ## 訓練模型 - XGBoost
+XGBoost 模型是目前最熱門的演算法模型之一，詳細的內容可以參考 [[Day 15] 機器學習常勝軍 - XGBoost](https://ithelp.ithome.com.tw/articles/10273094)。裡面會有介紹詳細的模型說明與手把手實作。當然大家也可以試著用其他 Sklearn 的模型訓練看看，一樣可以透過 `pickle` 來儲存訓練好的模型。
 
 ```py
 from xgboost import XGBClassifier
@@ -74,6 +75,8 @@ import gzip
 with gzip.GzipFile('./model/xgboost-iris.pgz', 'w') as f:
     pickle.dump(xgboostModel, f)
 ```
+
+![](./image/img28-2.png)
 
 ## 載入 XGboost 模型
 試著載入兩種不同格式的模型，並預測一筆資料。注意模型預測輸入必須為 numpy 型態，且須為二維陣列格式。
