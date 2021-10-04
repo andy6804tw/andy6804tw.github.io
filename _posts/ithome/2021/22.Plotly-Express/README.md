@@ -1,6 +1,15 @@
-# Python 視覺化解釋數據 - Plotly Express
+# Plotly Express
+## 今日學習目標
+- 安裝 plotly
+- 手把手實作視覺化鳶尾花朵資料集
+    - 直方圖
+    - 特徵關聯度分析
+    - 散佈圖
+    - 箱形圖
+    - 複合型視覺化技巧
+    - 匯出圖片
 
-## Plotly Express
+## 前言
 Plotly Express 是一個高精緻的資料視覺化套件。初學機器學習的你一定碰過像是 matplotlib 和 seaborn 這類型的圖表化套件，不過使用過 Plotly Express 會讓你對於資料視覺化有更不一樣的體驗。它的功能使用起來非常直觀，並且可以很好地與 Pandas DataFrame 配合使用。[Plotly Express](https://plotly.com/python/plotly-express/) 於 2019 年由加拿大 Plotly 這間公司釋出了第一版高階的 Python 資料視覺化套件。
 
 ![](./image/img22-1.png)
@@ -27,7 +36,7 @@ df_data
 ![](./image/img22-2.png)
 
 ## 直方圖
-為了更清楚了解特徵的分布狀況，我們可以採用直方圖 histogram 做更近一步的分析。從直方圖我們可以更清楚知道特徵的每個值的頻率分佈。由於目前版本在 Notebook 無法直接使用 fig.show() 顯示互動圖，必須安裝一些小插件模組與設定。因此範例中採用最簡單方法，先轉換成 HTML code 並透過 IPython.display 中的 HTML 方法顯示出來。
+為了更清楚了解特徵的分布狀況，我們可以採用直方圖 histogram 做更近一步的分析。從直方圖我們可以更清楚知道特徵的每個值的頻率分佈。由於目前版本在 Notebook 無法直接使用 `fig.show()` 顯示互動圖，必須安裝一些小插件模組與設定。因此範例中採用最簡單方法，先轉換成 HTML code 並透過 `IPython.display` 中的 HTML 方法顯示出來。
 
 ```py
 fig = px.histogram(df_data, x="sepal_width")
@@ -138,7 +147,7 @@ HTML(fig.to_html())
 
 ## 匯出圖片
 ### 方法一
-直接點選控制面板的相機圖示(Download plot as a png)也可以立即下載圖片。
+直接點選控制面板的相機圖示 (Download plot as a png) 可以立即下載圖片。
 
 ![](./image/img22-14.png)
 
