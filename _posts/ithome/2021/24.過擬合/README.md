@@ -1,6 +1,4 @@
-不能忽略過擬合
-
-# Overfitting in Machine Learning: What It Is and How to Prevent It
+# 前言
 在機器學習中大家可能最常見的問題是，當訓練好了模型並在測試資料也獲得不錯的成績。於是很開心的落地並部署到真實場域中，殊不知預測出來的結果遠遠不如預期。我想這個痛點大家應該都經歷過，尤其是機器學習的新手。這種情況就是所謂的過度擬合，它是一個在機器學習領域中非常棘手的的問題。當你的模型過度的擬合訓練集，這意味著你的模型過於複雜的去記住所有現有的數據點，進而導致模型的泛化能力不佳，這不是我們期望的。所謂的模型泛化能力是指，當我利用訓練集訓練一個模型後再拿另一組模型沒看過的資料進行預測，最終的預測結果如果在沒看過的資料中依然保持不錯的表現我們就可以說此模型泛化能力強。今天我們將來詳細探討何謂過度擬合，以及該如何去解決它使得模型處於一個適當的狀態。
 
 ## 如何選擇最佳的模型？
@@ -27,14 +25,14 @@
 
 ![](./image/img03.png)
 
-這裡我們就要來思考機器學習模型中的 error 從何而來？模型中的 error 是判斷一個模型的好壞依據，但其實我們可以將 error 拆分成兩大部分。分別有 Bias 與 Variance 兩個部分。以實際例子來說，假設輸出 y 是輸入 x 真正的答案，而 y^ 則是透過模型 f(x) 訓練出來的預測值，我們希望預測的結果要與真實答案越接近越好，當 y^≠y 時就會產生 error (誤差)。
+這裡我們就要來思考機器學習模型中的 error 從何而來？模型中的 error 是判斷一個模型的好壞依據，但其實我們可以將 error 拆分成兩大部分。分別有 Bias 與 Variance 兩個部分。以實際例子來說，假設輸出 y 是輸入 x 真正的答案，而 ŷ 則是透過模型 f(x) 訓練出來的預測值，我們希望預測的結果要與真實答案越接近越好，當 `ŷ≠y` 時就會產生 error (誤差)。
 
 ## Bias-Variance Tradeoff
 方差與偏差之間存在著一些關係，我們必須從中找到一個適當的平衡點。因此我們希望透過權衡 bias error 跟 variance error 來使得總誤差達到最小。我們常會以打靶例子解釋方差與偏差之間的關聯性。假設我們發射十次，我們説一個人的打靶技術很精準。其中的`精`就表示這十個把面上的點彼此間距離都相當近，也就是我的方差非常低(low variance)。另外所謂的`準`就表示這十個點都離準心很近，也就是我們的偏差非常低(low bias)。
 
 ![](./image/img06.png)
 
-- Underfitting: 過於簡單的模型使得預測結果彈性不高，訓練集與測試集表現都不好。low variance (high bias)
+- Underfitting: 過於簡單的模型使得預測結果彈性不高，訓練集與測試集表現都不好。low variance (high bias)。
 - Overfitting: 過於複雜的模型使得訓練集完整的被擬合，因此訓練集表現極好，但測試集表現不佳。high variance (low bias)。
 
 ### Error from Bias
@@ -42,15 +40,15 @@
 
 ![](./image/img04.png)
 
-- 簡單的模型有大的 bias，小的 variance
-- Error 來自於 bias 很大，稱為欠擬合
-## Error from Variance
+- 簡單的模型有大的 bias，小的 variance。
+- Error 來自於 bias 很大，稱為欠擬合。
+### Error from Variance
 方差(variance)是指你的模型對於資料集的敏感程度。一個過於複雜的模型會導致輸出的變異性非常大。模型死背所有訓練集中的數據點會導致一個問題發生。當你的訓練資料有需多的隨機誤差或是離群值時，我們又把這些異常值全部擬合進模型裡面，導致學出來的模型過於複雜同時降低泛化能力，對於未知的資料預測的能力就會很差，同時造就了很高的 variance error。因此這樣的結果我們稱為過度擬合。
 
 ![](./image/img05.png)
 
-- 較複雜的模型有小的 bias，大的 variance
-- Error 來自於 variance 很大，稱為過度擬合
+- 較複雜的模型有小的 bias，大的 variance。
+- Error 來自於 variance 很大，稱為過度擬合。
 
 ## 如何避免欠擬合？
 通常 bias 大而導致模型過於簡單，而無法擬合訓練資料。我們可以試著增加輸入的特徵，並做一些特徵工程讓模型觀察多點線索。或是調整模型的演算法，使模型更複雜。例如使用項次更高的多項式模型，或是 tree-based 模型中適當的增加樹的深度......等。這裏更值得一提的是，當模型欠擬合時搜集再多的訓練資料是沒有用的。因為簡單的模型比較不會受資料的影響，所以 variance 相對的會比較低而 bias 大，也就是輸出的變化性不大。從這裡我們可以得知簡單的模型受到不同的輸入資料受到的影響是比較小的。因為模型選得不好，再怎麼訓練他的 bias 還是一樣大。
@@ -79,3 +77,5 @@
 - [WTF is the Bias-Variance Tradeoff? (Infographic)](https://elitedatascience.com/bias-variance-tradeoff)
 - [【機器學習】偏差與方差之權衡 Bias-Variance Tradeoff](https://jason-chen-1992.weebly.com/home/-bias-variance-tradeoff)
 
+
+完整 Code 可以從我的 [GitHub](https://github.com/1010code/python-outliers-clean) 中取得！
