@@ -1,9 +1,3 @@
-# 6 個 Sklearn 錯誤悄悄地透露出你是個菜雞
-以下問題沒有錯誤信息—這就是它們的微妙之處...
-
-本文源自[6 Sklearn Mistakes That Silently Tell You Are a Rookie](https://towardsdatascience.com/6-sklearn-mistakes-that-silently-tell-you-are-a-rookie-84fa55f2b9dd)。筆者認為此篇文章內容深深地點出大家在機器學習中無意間所犯的錯誤，故引用文章並加入我一些觀點讓大家學習。
-
-![](https://miro.medium.com/max/2000/1*QkSqDjnOui89L5U_GzVxMA.jpeg)
 
 Sklearn 很方便也很強大，該套件也集結了各式各樣的機器學習演算法與資料處理相關的工具。當你的語法錯誤的時候，時候 Sklearn 往往會吐出現一片紅色的錯誤訊息或是警告。這些訊息會提示你該如何去修正這些問題，筆者建議直接滑鼠滾到最後一行看錯誤訊息。如果對這些紅字毫無頭緒，通常將這些訊息複製到 Google 也能找到一些相關的解決方式。永遠記住 [Stack Overflow](https://stackoverflow.com/) 是工程師的好夥伴！
 
@@ -11,24 +5,6 @@ Sklearn 很方便也很強大，該套件也集結了各式各樣的機器學習
 
 但是如果你都沒有收到任何錯誤或警告是代表都沒事嗎？不盡然。雖然 Sklearn 套件都已經幫你包裝好，只要詳細了解超參數的設定以及模型方法的使用基本上是沒問題的。但是一般人往往會犯一些邏輯上的小毛病，雖然表上面上訓練結果非常好但是背後可能造成資料洩漏(data leakage)的疑慮。尤其是在初學階段，因缺乏經驗往往會犯一些無可避免的錯誤。所以這篇文章將點出 6 個機器學習中常犯的隱形錯誤。
 
-Data Issues
-- 3. 在分類中生成標籤分佈不均衡的訓練/測試集
-- 8. 資料收集不當
-       - Ignoring prediction bias
- When wrong labels are detected, it is tempting to jump in and get them fixed. It is important to first analyze misclassified examples for the root cause. Oftentimes, errors due to incorrect labels may be a very small percentage. There might be a bigger opportunity to better train for specific data slices that might be the predominant root cause.
-
-Process Issues
-- 4. 使用 LabelEcoder 為特徵編碼
-- 論特徵工程重要性
-
-Modeling Issues
-- 1. 小心使用 `fit` 或 `fit_transform`
-- 2. 僅使用測試集評估模型好壞
-- 5. 在沒有交叉驗證的情況下判斷模型性能
-- 6. 分類問題僅使用準確率作為衡量模型的指標
-- 7. 迴歸問題僅使用 R2 分數評估模型好壞
-
-- 10. 任何事情別急著想用 AI 解決
 
 https://www.capitalone.com/tech/machine-learning/10-common-machine-learning-mistakes/
 
@@ -68,81 +44,6 @@ print('The variance for each feature in the training set: ', scaler.var_)
 
 這裡做一個小結，總之在訓練好模型時請仔細檢查訓練和測試分數之間的差距。並且可以透過此評估方式檢視模型是否過擬合，同時也能進行模型條參或是選擇最佳的資料預處理方式。並為最終的模型做最佳的準備。
 
-## 3. 在分類中生成標籤分佈不均衡的訓練/測試集
-初學者常見的錯誤是忘記使用分層抽樣(stratify)來對訓練集和測試集進行切割。當測試集的分佈盡可能與訓練相同情況下，模型才更有可能得到更準確的預測。在分類的問題中，我們更關心每個類別的資料分佈比例。假設我們有三個標籤的類別，這三個類別的分佈分別有 0.4、0.3、0.3。然而我們在切割資料的時候必須確保訓練集與測試集需要有相同的資料比例分佈。
-
-通常我們都使用 Sklearn 的 `train_test_split` 進行資料切割。在此方法中 Sklearn 提供了一個 `stratify` 參數達到分層隨機抽樣的目的。特別是在原始數據中樣本標籤分佈不均衡時非常有用，一些分類問題可能會在目標類的分佈中表現出很大的不平衡：例如，負樣本與正樣本比例懸殊(信用卡倒刷預測、離職員工預測)。以下用紅酒分類預測來進行示範，首先我們不使用 `stratify` 隨機切割資料。
-
-```py
-from sklearn.datasets import load_wine
-from sklearn.model_selection import train_test_split
-
-X, y = load_wine(return_X_y=True)
-
-# Look at the class weights before splitting
-pd.Series(y).value_counts(normalize=True)
-```
-
-```
-# 全部資料三種類別比例
-1    0.398876
-0    0.331461
-2    0.269663
-dtype: float64
-```
-
-```py
-# Generate unstratified split
-X_train, X_test, y_train, y_test = train_test_split(X, y)
-
-
-# Look at the class weights of train set
-pd.Series(y_train).value_counts(normalize=True)
-# Look at the class weights of the test set
-pd.Series(y_test).value_counts(normalize=True)
-```
-
-```
-# 訓練集三種類別比例
-1    0.390977
-0    0.330827
-2    0.278195
-dtype: float64
-
-# 測試集三種類別比例
-1    0.511111
-0    0.266667
-2    0.222222
-dtype: float64
-```
-
-從上面切出來的訓練集與測試集可以發現三個類別的資料分佈比例都不同。因此我們可以使用 `stratify` 參數再切割一次。
-
-```py
-# Generate stratified split
-X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y)
-
-# Look at the class weights of train set
-pd.Series(y_train).value_counts(normalize=True)
-# Look at the class weights of the test set
-pd.Series(y_test).value_counts(normalize=True)
-```
-
-```
-# 訓練集三種類別比例
-1    0.400000
-0    0.333333
-2    0.266667
-dtype: float64
-
-# 測試集三種類別比例
-1    0.398496
-0    0.330827
-2    0.270677
-dtype: float64
-```
-
-我們可以發現將 `stratify` 設置為目標 (y) 在訓練和測試集中產生相同的分佈。因為改變的類別的比例是一個嚴重的問題，可能會使模型更偏向於特定的類別。因此訓練資料的分佈必須要與實際情況越接近越好。
 
 ## 4. 使用 LabelEcoder 為特徵編碼
 通常我們要為類別的特徵進行編碼，直覺會想到 Sklearn 的 [LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)。但是如果一個資料集中有多個特徵是屬於類別型的資料，豈不是很麻煩?必須要一個一個呼叫 LabelEncoder 分別為這些特徵進行轉換。如果你看到這邊有同感的，在這裡要告訴你事實並非如此！我們看看 在官方文件下 LabelEncoder 的描述：
