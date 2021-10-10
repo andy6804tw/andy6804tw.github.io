@@ -109,4 +109,4 @@ with open('./model/xgboost-iris.pickle', 'rb') as f:
 - [How to save and load your Scikit-learn models in a minute](https://medium.com/analytics-vidhya/save-and-load-your-scikit-learn-models-in-a-minute-21c91a961e9b)
 - [Don't Pickle Your Data](http://www.benfrederickson.com/dont-pickle-your-data/)
 
-本系列教學簡報 PDF & Code 都可以從我的 [GitHub](https://github.com/andy6804tw/2020-12th-ironman) 取得！
+> 本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
