@@ -127,16 +127,40 @@ pip install -r requirements.txt
 ```
 
 ## 執行 API
-
+在本機或開發環境中測試執行 API 的方式很簡單。只要開啟終端機並輸入以下指令即可：
 
 ```sh
 python run.py
 ```
 
-## 測試API的好工具 Postman
-當你寫好一支 API 時要馬上測試看看你寫的程式邏輯是否正確，就可以使用 Postman 這個軟體來做 API 測試。Postman 他是一個能夠模擬 HTTP Request 的工具能夠讓你簡單快速的測試你的 API，並且內建包含許多 HTTP 的請求方式，例如常見的 GET(取得)、POST(新增)、PUT(修改)、DELETE(刪除)。首先大家可以到[官網](https://www.postman.com/)下載與安裝。
-
 ![](./image/img29-4.png)
 
+> 程式真正上線時建議使用 gunicorn 或 Waitress 來產生 WSGI 服務，並於背景運行
+
+
+還記得我們有寫一個 GET 方法的測試路由嗎？這時候大家可以開啟電腦中的瀏覽器並在網址列輸入 `http://localhost:3000` 即可立即看到 API 在指定的路徑下所回應的內容。如果出現以下畫面即代表 API 已經正常的被運行囉。
+
+![](./image/img29-5.png)
+
+那你可能會問我該怎麼測試另一個 POST 方法呢？由於 GET 方法比較好處理，我們直接在瀏覽器輸入路徑就能立即觀看結果。那當我們要測試 POST、PUT、DELETE 等方法時就必須依靠第三方軟體 Postman 來協助模擬 HTTP Request 完成 API 測試。
+## 測試 API 的好工具 Postman
+當你寫好一支 API 時要馬上測試看看你寫的程式邏輯是否正確，就可以使用 Postman 這個軟體來做 API 測試。Postman 他是一個能夠模擬 HTTP Request 的工具能夠讓你簡單快速的測試你的 API，並且內建包含許多 HTTP 的請求方式，例如常見的 GET(取得)、POST(新增)、PUT(修改)、DELETE(刪除)。首先大家可以到[官網](https://www.postman.com/)下載與安裝。
+
+![](./image/img29-6.png)
+
+安裝好之後可以打開程式並點選 POST 並貼上 API 網址。由於我們現在要測試另一個預測的路徑 `predict`，因此在網址列貼上 `http://localhost:3000/predict`。點選 Body-> raw -> JSON 並將花朵的四個參數以 JSON 格式進行描述。
+
+```json
+{
+    "sepalLengthCm": 5.9,
+    "sepalWidthCm": 3,
+    "petalLengthCm": 5.1,
+    "petalWidthCm": 1.8
+}
+```
+
+點選 `send` 後即可將模擬的四個數值透過 JSON 格式使用 POST 方法傳送到後端 API 中的 `predict` 路徑。該 API 透過 POST 接收到前端使用者所發送的訊息後，解析這四個數值並依序放在陣列中並進行模型預測。最終預測結果會將花的種類以 JSON 格式回傳到前端使用者。此時前端的網頁設計師就可以將拿到的預測結果進行前端的畫面渲染與更新。
+
+![](./image/img29-7.png)
 
 > 本系列教學內容及範例程式都可以從我的 [GitHub](https://github.com/andy6804tw/2021-13th-ironman) 取得！
