@@ -41,6 +41,14 @@ newNumber = int(''.join(myLlist))
 newNumber # 123
 ```
 
+整數翻轉
+
+```py
+x = 123
+myStr = str(abs(x))
+reverse =  myStr[::-1] # 321
+```
+
 ### List 快速取值
 
 ```py
