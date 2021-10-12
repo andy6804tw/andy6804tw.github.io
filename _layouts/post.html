@@ -2,55 +2,69 @@
 layout: default
 ---
 <section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 15, ''}}">
-<div class="container">
-  <div class="columns">
-    <div class="column three-fourths">
-      <div class="collection-title">
-        <h1 class="collection-header">{{ page.title }}</h1>
-        <div class="collection-info">
-          {% if page.date %}
-          <span class="meta-info">
-            <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
-          </span>
-          {% endif %}
-          {% for cat in page.categories %}
-          <span class="meta-info">
-            <span class="octicon octicon-file-directory"></span>
-            <a href="{{ site.url }}/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
-          </span>
-          {% endfor %}
+  <div class="container">
+    <div class="columns">
+      <div class="column three-fourths">
+        <div class="collection-title">
+          <h1 class="collection-header">{{ page.title }}</h1>
+          <div class="collection-info">
+            {% if page.date %}
+            <span class="meta-info">
+              <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
+            </span>
+            {% endif %}
+            {% for cat in page.categories %}
+            <span class="meta-info">
+              <span class="octicon octicon-file-directory"></span>
+              <a href="{{ site.url }}/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+            </span>
+            {% endfor %}
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 <!-- / .banner -->
 <section class="container content">
-<div class="columns">
-  <div class="column three-fourths" >
-    <article class="article-content markdown-body">
-    {{ content }}
-    <div style="border-style: dotted;padding:5px;border-width:2px;">
-      版主10在2020年首次開設YouTube頻道，嘗試拍攝程式教學。想要了解更多的朋友歡迎關注我的頻道，您的訂閱就是最大的支持～如果想學其他什麼內容也歡迎許願XD
-    <br>
-    <a href="https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A" target="_blank">
-    <img src="https://media0.giphy.com/media/KFnSuizdGVCtkVFOXM/source.gif" width="15%"></a>
-    <a href="https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A" target="_blank">https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A</a>
+  <div class="columns">
+    <div class="column three-fourths">
+      <article class="article-content markdown-body">
+        {{ content }}
+        <!-- LikeCoin -->
+        鼓勵持續創作，支持化讚為賞！透過下方的 Like 拍手👏，讓創作者獲得額外收入~
+        <!-- Then use the post body as the schema.org description, for good G+/FB snippeting. -->
+        <div class='post-body entry-content' expr:id='"post-body-" + data:post.id'
+          expr:itemprop='(data:blog.metaDescription ? "" : "description ") + "articleBody"'>
+          <data:post.body />
+          <div style='clear: both;' /> <!-- clear for photos floats -->
+        </div>
+        <b:if cond='data:blog.pageType == "item"'>
+          <script
+            type="text/javascript">        document.write("<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/andy6804tw/button?referrer=" + encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");</script>
+        </b:if>
+        <!-- YouTube notify -->
+        <div style="border-style: dotted;padding:5px;border-width:2px;">
+          版主10在2020年首次開設YouTube頻道，嘗試拍攝程式教學。想要了解更多的朋友歡迎關注我的頻道，您的訂閱就是最大的支持～如果想學其他什麼內容也歡迎許願XD
+          <br>
+          <a href="https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A" target="_blank">
+            <img src="https://media0.giphy.com/media/KFnSuizdGVCtkVFOXM/source.gif" width="15%"></a>
+          <a href="https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A"
+            target="_blank">https://www.youtube.com/channel/UCSNPCGvMYEV-yIXAVt3FA5A</a>
+        </div>
+      </article>
+      <div class="share">
+        {% include sns-share.html %}
+      </div>
+      <div class="comment">
+        {% include comments.html %}
+      </div>
     </div>
-    </article>
-    <div class="share">
-      {% include sns-share.html %}
-    </div>
-    <div class="comment">
-      {% include comments.html %}
+    <div class="column one-fourth">
+      {% include sidebar-search.html %}
+      {% include sidebar-qrcode.html %}
+      {% include sidebar-post-nav.html %}
     </div>
   </div>
-  <div class="column one-fourth">
-    {% include sidebar-search.html %}
-    {% include sidebar-qrcode.html %}
-    {% include sidebar-post-nav.html %}
-  </div>
-</div>
 </section>
 <!-- /section.content -->
