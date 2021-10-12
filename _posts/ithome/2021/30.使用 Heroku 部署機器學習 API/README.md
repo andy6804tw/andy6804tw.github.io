@@ -5,10 +5,10 @@
 - 使用 Heroku 免費雲端平台部署應用程式
 
 ## 前言
-開發的最後一哩路`部署應用`。部署 API 必須在一個穩定的伺服器上運行，大多數企業可能會租用雲端的虛擬伺服器。常見的雲端平台三巨頭有 Google Cloud Platform (GCP)、Amazon Web Service (AWS) 以及 Microsoft Azure。以上三家供應商都有提供免費的試用額度以及部署的教學，另外雲端伺服器計費的方式是採用多少付多少的概念收費。若有 GCP 使用需求可以參考我過去所錄製的系列教學影片 [GCP教學-Python](https://www.youtube.com/watch?v=z3bU_MYPlOs&list=PLXSkku8eiD-hcW9N9A6M8Y6Hma8DHBsEJ)。假設你只有自用需求，或是正在尋找免費的雲端伺服器，這一篇文章可以幫助到你。
+開發的最後一哩路`部署應用`。部署 API 必須在一個穩定的伺服器上運行，大多數企業可能會租用雲端的虛擬伺服器。常見的雲端平台三巨頭有 Google Cloud Platform (GCP)、Amazon Web Service (AWS) 以及 Microsoft Azure。以上三家供應商都有提供免費的試用額度以及部署的教學，另外雲端伺服器計費的方式是採用多少付多少的概念收費。若有 GCP 使用需求可以參考我過去所錄製的系列教學影片 [GCP教學-Python](https://www.youtube.com/watch?v=z3bU_MYPlOs&list=PLXSkku8eiD-hcW9N9A6M8Y6Hma8DHBsEJ)。假設你只有自用需求，或是正在尋找免費的雲端伺服器，這一篇文章可以幫助到你。
 
 ## Heroku 雲端平台
-[Heroku](https://www.heroku.com) 是一個支援多種程式語言的雲平台即服務。並且提供一個免費的雲端服務，這個雲端平台一個帳號可以免費建立五個專案，雖然是免費當然也有使用上的限制。例如：(1) 超過`30分鐘`閒置將會進入睡眠狀態，之後重新啟動 API 時會需要等待一些時間才有回應。(2) `500MB`的儲存空間限制。當然 Heroku 也提供多種語言的部署環境像是 Ruby、Node.js、PHP 、 Go、Python ...等。本篇文章會教你如何部署 Python 的 Flask API。
+[Heroku](https://www.heroku.com) 是一個支援多種程式語言的雲平台即服務。並且提供一個免費的雲端服務，這個雲端平台一個帳號可以免費建立五個專案，雖然是免費當然也有使用上的限制。例如：(1) 超過`30分鐘`閒置將會進入睡眠狀態，之後重新啟動 API 時會需要等待一些時間才有回應。(2) `500MB`的儲存空間限制。當然 Heroku 也提供多種語言的部署環境像是 Ruby、Node.js、PHP、Go、Python ...等。本篇文章會教你如何部署 Python 的 Flask API。
 
 ## 1. 前置作業
 ### 1.1) 範例程式碼
@@ -27,14 +27,14 @@ Procfile 這個檔案是要告訴 Heroku 要如何啟動這個 web app，在 Her
 web gunicorn run:app
 ```
 
-## 2. 部署Heroku專案
-### 2.1 在Heroku建立應用程式
+## 2. 部署 Heroku 專案
+### 2.1 在 Heroku 建立應用程式
 建立帳號後右上角「 New 」中的「 Create new app 」建立第一個應用程式：
 
 ![](./image/img30-2.png)
 
 ### 2.2 專案與 GitHub 連動
-這一步驟是將 GitHub 上的專案直接與 Heroku 做連動，你也可以直接 Fork 這個專案直接實作。或是你也可以透過 Heroku CLI 直接將本機的程式碼部署到 Heroku 主機中。部署階段蠻吃大家 Git 版控的能力，基本的教學這裡就不贅述。想了解更多 Git 技巧可以[參考](https://github.com/doggy8088/Learn-Git-in-30-days)。
+這一步驟是將 GitHub 上的專案直接與 Heroku 做連動，你也可以直接 Fork 這個專案直接實作。或是你也可以透過 Heroku CLI 直接將本機的程式碼部署到 Heroku 主機中。部署階段蠻吃大家 Git 版控的能力，基本的教學這裡就不贅述，想了解更多 Git 技巧可以[參考](https://github.com/doggy8088/Learn-Git-in-30-days)。
 
 ![](./image/img30-3.png)
 
@@ -42,7 +42,7 @@ web gunicorn run:app
 
 ![](./image/img30-4.png)
 
-由於自動更新與部署會有上限，當你的專案在 GitHub 更新次數太頻繁。Heroku 這粒就會停止自動發布，因此你也可以試試手動部署。
+由於自動更新與部署會有上限次數，當你的專案在 GitHub 更新次數太頻繁。Heroku 就會停止自動發布，這時候你也可以試試手動部署。
 
 ![](./image/img30-5.png)
 
@@ -56,9 +56,7 @@ web gunicorn run:app
 
 部署完成後你可以在 Settings 內的 Domains 看到你的雲端連結，這個連結點下去就能看到我們的API囉！
 
-```
-https://flask-api-example-with-ml-mode.herokuapp.com
-```
+> https://flask-api-example-with-ml-mode.herokuapp.com
 
 ![](./image/img30-6.png)
 
