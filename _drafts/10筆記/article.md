@@ -14,10 +14,9 @@
 
 ## 程式技巧
 - [程式寫好重要](https://www.reddit.com/r/ProgrammerHumor/comments/ix00oi/communication_gap_in_software_projects_via/)
-
 - [尋找程式之路](https://hackmd.io/@lSYt44LVQQmH5gL_FVETOA/SJ2nnPY1O?fbclid=IwAR2V_RdlFOnQqqTuWPTR4mwE9pHGPzZHM1buSIaHQWt4MC_fUoKCDy6-5fM)
-
 - [如何提升你的程式可讀性之實務技巧](https://blog.niclin.tw/2020/02/29/readable-code-1/)
+- [寫程式不再崩潰！介紹 5 個 Google 工程師都在用的好習慣](https://buzzorange.com/techorange/2019/04/22/google-engineer-career/?fbclid=IwAR18KX8GYsHJgdTMLMDkqgNYdLpUcC8ZpW7Z8UywZ3NrUPFIy_14GaFnBgQ)
 
 - [轉職筆記大全](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
 
