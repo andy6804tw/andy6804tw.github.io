@@ -38,7 +38,7 @@
 25. 交叉驗證 Cross-Validation 簡介
 26. 交叉驗證 K-fold Cross-Validation
 <!-- 25. Boruta 特徵篩選利器 -->
-27. [6 個 Sklearn 錯誤悄悄地透露出你是個菜雞](https://elitedatascience.com/beginner-mistakes)
+27. [機器學習常犯錯的十件事](https://elitedatascience.com/beginner-mistakes)
 ```
 --AI整合落地--
 ```
