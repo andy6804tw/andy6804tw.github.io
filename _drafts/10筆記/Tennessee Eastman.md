@@ -18,10 +18,12 @@
 ![](https://i.imgur.com/JR8O3UL.png)
 
 ## 資料集介紹
-此資料集可以從 GitHub 取得 [tennessee-eastman-profBraatz](https://github.com/camaramm/tennessee-eastman-profBraatz)。該資料集中每個檔案共有52個特徵，其中包含11個可控參數以及41個製程監控參數。該資料集透過對進料等變量的輸入控制，可以模擬得到21個故障類型，其中正常數據和異常(故障)數據的採樣時間均為每3分鐘一筆，故每小時將有20筆監測資料。TE 訓練集和測試集結構：`d00.dat`至`d21.dat`為訓練集集，而`d00_te.dat`至`d21_te.dat`為測試集集。前41個特徵為製程的監控參數，後11個特徵為人為操控的製程參數。其中`d00.dat`和`d00_te.dat`為正常工況下的資料。`d00.dat`訓練集是在25小時運行模擬取得的。觀測數據總數為500筆。而`d00_te.dat`測試集是在48小時運行模擬取得的，觀測數據總數為960筆。`d01.dat`至`d21.dat`為帶有故障的訓練集集，`d01_te.dat`至`d21_te.dat`為帶有故障的測試集集。每個訓練集與測試集代表一種故障。
+此資料集可以從 GitHub 取得 [tennessee-eastman-profBraatz](https://github.com/camaramm/tennessee-eastman-profBraatz)。該資料集中每個檔案共有52個特徵，其中包含11個可控參數以及41個製程監控參數。該資料集透過對進料等變量的輸入控制，可以模擬得到21個故障類型，其中正常數據和異常(故障)數據的採樣時間均為每3分鐘一筆，故每小時將有20筆監測資料。TE 訓練集和測試集結構：`d00.dat`至`d21.dat`為訓練集集，而`d00_te.dat`至`d21_te.dat`為測試集集。前41個特徵為製程的監控參數，後11個特徵為人為操控的製程參數。其中`d00.dat`和`d00_te.dat`為正常工況下的資料。`d00.dat`訓練集是在25小時運行模擬取得的。觀測數據總數為500筆。而`d00_te.dat`測試集是在48小時運行模擬取得的，觀測數據總數為960筆。`d01.dat`至`d21.dat`為帶有故障的訓練集集，`d01_te.dat`至`d21_te.dat`為帶有故障的測試集集，每個訓練集與測試集代表一種故障[2]。
 
 - 正常資料 train: 500、test: 960
-- 異常資料 
+- 異常資料 train: 480、test: 960(前160為正常)
+
+值得注意的是所有故障的訓練集樣本，是在連續運行25小時模擬獲得的。模擬剛開始時並沒有故障情況，應在開始執行後一個小時才發生故障。因此故障的訓練集每個錯誤各有480筆。帶有故障的測試集是在48小時模擬下取得的，其中故障在第8小時的時候引入，共收集960個觀測值，其中前160個觀測值為正常數據。
 
 ![](https://i.imgur.com/wmg64pz.png)
 
@@ -31,3 +33,5 @@
 
 ## Reference
 [1] 严爱军(2017)。[Tennessee-Eastman 过程的学习型案例推理故障诊断方法](http://jcta.alljournals.ac.cn/cta_cn/ch/reader/create_pdf.aspx?file_no=CCTA160710&flag=1&journal_id=cta_cn&year_id=2017)。Control Theory & Applications (第 34 卷第 9 期)。
+
+[2] 八九十度(2021)。[PCA针对TE过程（田纳西伊斯曼过程）数据的故障监测处理](https://blog.csdn.net/weixin_40418080/article/details/120186027)。CSDN 部落格。
