@@ -1,6 +1,6 @@
 
 
-## Tennessee Eastman Process (TEP) 資料集簡介
+## Tennessee Eastman Process (TEP) 簡介
 田納西-伊士曼製程 (Tennessee Eastman Process, TEP) 是由美國 Eastman 化學公司所建立的化工模型仿真平台所模擬的製程數據，為研究該類過程的故障診斷技術提供了一個實驗平台。其產生的資料具有時間遞移性、強耦合以及非線性特徵，因此難以得到精確的數學模型，使得模型驅動方法的性能不盡理想。數據驅動法中比較有代表性的如多變量統計，例如：主成分分析、因子分析、典型相關、聚類分析...等。
 
 ## TE 製成故障描述 (Faults of TE process)
@@ -11,8 +11,23 @@
 - A(g)+E(g) → F(liq) (副產品)
 - 3D(g) → 2F(liq) (副產品)
 
-其中 A、C、D、E 為生產所需的主要原料，B 為惰性成分，經過化學反應過程所產生的 G 和 H 為目標液體產物，而 F 為副產品。
+![](https://i.imgur.com/AaRBjbW.png)
 
+其中 A、C、D、E 為生產所需的主要原料，B 為惰性成分，經過化學反應過程所產生的 G 和 H 為目標液體產物，而 F 為副產品。此製程中預設了21種故障文獻[1]列出了這些故障的原因及類型，即 IDV(1) ~ IDV(21)。其中 IDV(1) ~ IDV(15) 和 IDV(21) 是16種已知故障，IDV(16) ~ IDV(20) 是5種未知故障。更進一步的來說 IDV(1) ~ IDV(7) 7種故障的類型是物料流量與控制閥的變化;IDV(8) ~ IDV(12) 5種故障的類型是變量的隨機變化。IDV(13)是 slow draft; IDV(14)、IDV(15)與IDV(21) 3個故障表示閥門卡死。
+
+![](https://i.imgur.com/JR8O3UL.png)
+
+## 資料集介紹
+此資料集可以從 GitHub 取得 [tennessee-eastman-profBraatz](https://github.com/camaramm/tennessee-eastman-profBraatz)。該資料集中每個檔案共有52個特徵，其中包含11個可控參數以及41個製程監控參數。該資料集透過對進料等變量的輸入控制，可以模擬得到21個故障類型，其中正常數據和異常(故障)數據的採樣時間均為每3分鐘一筆，故每小時將有20筆監測資料。TE 訓練集和測試集結構：`d00.dat`至`d21.dat`為訓練集集，而`d00_te.dat`至`d21_te.dat`為測試集集。前41個特徵為製程的監控參數，後11個特徵為人為操控的製程參數。其中`d00.dat`和`d00_te.dat`為正常工況下的資料。`d00.dat`訓練集是在25小時運行模擬取得的。觀測數據總數為500筆。而`d00_te.dat`測試集是在48小時運行模擬取得的，觀測數據總數為960筆。`d01.dat`至`d21.dat`為帶有故障的訓練集集，`d01_te.dat`至`d21_te.dat`為帶有故障的測試集集。每個訓練集與測試集代表一種故障。
+
+- 正常資料 train: 500、test: 960
+- 異常資料 
+
+![](https://i.imgur.com/wmg64pz.png)
 
 ### PCA
 主成分分析的主要功能在分析多個變量間的相關，以建構變量間的總體性指標（overall indicators）。當研究者測量一群彼此間具有高度相關的變量，則在進行顯著性檢驗前，為避免變量數過多，造成解釋上的複雜與困擾，常會先進行主成分分析，在盡量不喪失原有信息的前提下，抽取少數幾個主成分，作為代表原來變量的總體性指標，達到資料縮減（data reduction）的功能。進行主成分分析時，並無自變量和因變量的區別，但是所有的變量都必須是定距以上層次變量。
+
+
+## Reference
+[1] 严爱军(2017)。[Tennessee-Eastman 过程的学习型案例推理故障诊断方法](http://jcta.alljournals.ac.cn/cta_cn/ch/reader/create_pdf.aspx?file_no=CCTA160710&flag=1&journal_id=cta_cn&year_id=2017)。Control Theory & Applications (第 34 卷第 9 期)。
