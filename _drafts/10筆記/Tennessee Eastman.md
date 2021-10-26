@@ -35,3 +35,5 @@
 [1] 严爱军(2017)。[Tennessee-Eastman 过程的学习型案例推理故障诊断方法](http://jcta.alljournals.ac.cn/cta_cn/ch/reader/create_pdf.aspx?file_no=CCTA160710&flag=1&journal_id=cta_cn&year_id=2017)。Control Theory & Applications (第 34 卷第 9 期)。
 
 [2] 八九十度(2021)。[PCA针对TE过程（田纳西伊斯曼过程）数据的故障监测处理](https://blog.csdn.net/weixin_40418080/article/details/120186027)。CSDN 部落格。
+
+[3] AhmedRagab et al., "[Fault diagnosis in industrial chemical processes using interpretable patterns based on Logical Analysis of Data](https://www.sciencedirect.com/science/article/abs/pii/S0957417417307984)," Expert Systems with Applications, Volume 95, 1 April 2018, Pages 368-383
