@@ -32,6 +32,7 @@
 - [Distilling the Knowledge in a Neural Network](https://www.itread01.com/content/1547235795.html)
 - [免費jupyter notebook](https://deepnote.com/project/8eb80ec5-2abd-4609-af7e-d22fda8829c1#%2Fexample.ipynb)
 - [NTHU CS565600 Deep Learning](https://nthu-datalab.github.io/ml/index.html)
+- [easyai 乾貨](https://easyai.tech/)
 
 ## coursera
 
