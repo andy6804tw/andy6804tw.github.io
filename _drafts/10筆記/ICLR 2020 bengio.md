@@ -48,12 +48,22 @@
 
 ![](https://i.imgur.com/9jP0yDB.png)
 
+在2017年 Bengio 發表一篇論文提到意識先驗 (The Consciousness Prior)。如果用稀疏的因子圖來表示的話，可以把每個因子像句子一樣看成是涉及幾個變量的聯合分布。高級語言會有一個驚人的特性，就是我可以在一句話中做出隱蔽性的預測。例如，「如果我扔一個球，這個球會掉在地上」。以上所談到的概念與注意力有關，因為當你想要對這樣一個稀疏的圖表進行推理時，一個合理的方法是一次只關注一個或幾個因素。
 
+![](https://i.imgur.com/936kMtd.png)
+
+關於事物在分布上可能變化的假設也非常重要，因為它能夠提供了一些`意識處理`的強大力量。在高階的抽象空間中，更改訊息是局部化的。如果以正確的方式表示信息，就可以快速傳輸。
+
+![](https://i.imgur.com/DvlsC53.png)
 
 
 Bengio 提出的「意識」概念的核心是注意力。他將機器注意力機制與我們的大腦選擇分配注意力的方式進行了比較：「機器學習可以用來幫助腦科學家更好地理解意識，但我們對意識的理解也可以幫助機器學習發展出更好的能力」。
 
 ## Reference
+[1] Yoshua Bengio, “[The Consciousness Prior](https://arxiv.org/abs/1709.08568),” arXiv:1709.08568, Sep. 2017.
+
+
 - [ICLR 2020 Yoshua Bengio：注意力是「有意識」AI的核心要素](https://kknews.cc/zh-tw/tech/x45rono.html)
 - [Bengio最新演講：Representations中的深度監督學習](https://cloud.tencent.com/developer/article/1070691?from=article.detail.1370482)
 - [Yoshua Bengio首次中國演講：深度學習通往人類水平AI的挑戰](https://cloud.tencent.com/developer/article/1370482)
+
