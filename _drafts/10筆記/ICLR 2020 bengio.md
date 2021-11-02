@@ -75,7 +75,6 @@
 
 
 
-
 ## Reference
 [1] Yoshua Bengio, “[The Consciousness Prior](https://arxiv.org/abs/1709.08568),” arXiv:1709.08568, Sep. 2017.
 
