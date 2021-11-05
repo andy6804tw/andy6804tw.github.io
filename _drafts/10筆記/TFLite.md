@@ -7,3 +7,5 @@
 
 # Android Kotlin
 - [android kotlin - Bitmap to byte array 學習建構方式](https://android--code.blogspot.com/2020/06/android-kotlin-bitmap-to-byte-array.html)
+
+
