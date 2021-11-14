@@ -1,5 +1,13 @@
-# Deep Learning
+---
+layout: post
+title: '[AI學習筆記] 李宏毅課程 - 深度學習簡介'
+categories: 'AI'
+description:
+keywords: Deep Learning 
+---
 
+
+# Deep Learning
 我們稍微回顧一下深度學習的歷史。他在歷史上經過好幾次的起起伏伏。首先在 1958 年 Perceptron 觀念被提出，它也是一個線性的模型。起初由 Frank Rosenblatt 在海軍的專案裡被提出來的，在當時 Perceptron 開啟了人工智慧機器自己學習的開端。後來有人指出線性的模型是有極限的，無法解決的多現實生活中許多問題。後來就有人提出多個 Perceptron 的 Multi-layer perceptron，並與現今的大家所用的 DNN 架構差不多。其中在 1986 年 Hinton 提出了 Backpropagation 的學習機制，但是當時僅限於三層的神經網路架構。然而在 1989 年又有人提出其實一層的 hidden layer 其實夠夠用了，因此那段時期大家都喜歡使用 SVM 而神經網路再度的被遺棄。直到 2006 年 Hinton 使用 Restricted Boltzmann Machine (RBM) 受限玻爾茲曼機 做神經網路的  initialization 稱作深度學習。RBM 使用比較深的理論並採用 graphical 模型並非現今大家所用的 neural nework。最後大家才發現原來其實這個方法其實也沒什麼用，如果你去讀深度學習的文獻現在已經沒有人用 RBM 做 initialization 了。不過它的出現讓大家再次對 Multi-layer perceptron 產生了興趣，因此 Google 的人還對 RBM 評論稱說這個方法就是石頭湯裡面的石頭。另外在 2009 年發現能夠用 GPU 加速運算，原本 CPU 需要花好幾週的運算透過 GPU 只需要幾小時就能完成了。另外在 2011 年神經網路開始運用在語音辨識，並發現結果非常好，因此大家瘋狂使用深度學習的技術。到了 2012 年的時候深度學習的技術贏了一個很重要的影像辨識的競賽，從此刻起影像的領域也開始使用了深度學習的技術。
 
 ![](https://i.imgur.com/rTY3Cxx.png)
