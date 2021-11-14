@@ -20,3 +20,6 @@
 
 - [轉職筆記大全](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
 
+
+## 工作
+- [一線大廠存活守則](https://www.businessweekly.com.tw/careers/blog/3007024)
