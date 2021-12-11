@@ -18,3 +18,13 @@ I am an energetic and adaptable Software Engineer.Who is happy to figure out pro
 
 這個前輩有提到去M面試準備簡報的內容
 - https://interview.tw/i/5c5d3598db461026a55d9652
+
+- Distinctive (sequence to sequence)
+    - Key and query states are from two distinct sequences.
+    - 機器翻譯、圖像描述、語音辨識
+- Co-attention (multiple sequence as input)
+    - Multiple input sequences.
+    - 影像問答、 情意分析
+- Self (sequence to non-sequence)
+    - Key and query states are from the same sequence.
+    - 文章分類、推薦系統、文本表示
