@@ -21,3 +21,18 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 假設 Residual Block 的輸入為 x，則輸出 y 等於以下公式(左)。其中 F 是學習的目標，即輸出輸入的殘差。殘差部分是中間有一個 Relu 雙層權重(w1, w2)，即公式(右)。
 
 ![](https://i.imgur.com/YTwItvt.png)
+
+下圖為殘差網絡的結構，以 ResNet18 為例：
+- ResNet18、34 都是由 BasicBlock 組成的，並且從表中也可以得知，50層(包括50層)以上的 ResNet 才由 Bottleneck 組成。
+- 有類型的 ResNet 卷積操作的通道數(無論是輸入通道還是輸出通道)都是64的倍數
+- 所有類型的 ResNet 的卷積核只有3x3和1x1兩種
+- 除了公共部分(conv1)外，都是由4大塊組成(con2_x,con3_x,con4_x,con5_x,)
+
+![](https://i.imgur.com/fOVxW2n.png)
+![](https://i.imgur.com/UOR4lCx.png)
+
+眼尖的你可能會發現這些殘差網路有實線與虛線。這些虛線的代表這些 Block 前後的維度不一致，因為 ResNet18 參照了 VGG 經典的設計，每隔x層，空間上/2（downsample）但深度翻倍。為了解決深度不一致問題，論文中採用 1*1 的卷積層進行升維。
+
+殘差網絡一般就是由下圖這兩個結構組成的。ResNet18、34 都是由 BasicBlock 組成的。50層以上的 ResNet 才由 Bottleneck 組成。兩者差別在於當有 1x1 卷積核的時候，我們稱 bottleneck。
+
+![](https://i.imgur.com/rw9OHd5.png)
