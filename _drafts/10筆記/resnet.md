@@ -36,3 +36,9 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 殘差網絡一般就是由下圖這兩個結構組成的。ResNet18、34 都是由 BasicBlock 組成的。50層以上的 ResNet 才由 Bottleneck 組成。兩者差別在於當有 1x1 卷積核的時候，我們稱 bottleneck。
 
 ![](https://i.imgur.com/rw9OHd5.png)
+
+## Reference
+- [1] Kaiming He et all.,"[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)", CVPR 2016.
+
+
+https://meetonfriday.com/posts/7c0020de/ 白話介紹
