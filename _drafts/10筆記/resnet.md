@@ -42,4 +42,3 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 
 
 https://meetonfriday.com/posts/7c0020de/ 白話介紹
-
