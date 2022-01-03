@@ -79,3 +79,7 @@ sudo kill -9 12705
 
 ### 2. 重新啟動VM
 這種方法最簡單直接重新開機即可。
+
+## Reference
+- [使用gunicorn部署flask項目](https://zhuanlan.zhihu.com/p/88422780)
+- [淺談 Gunicorn 各個 worker type 適合的情境](https://medium.com/@genchilu/淺談-gunicorn-各個-worker-type-適合的情境-490b20707f28)
