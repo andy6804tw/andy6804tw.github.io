@@ -72,6 +72,7 @@ Feature map 的輸出大小與 Kernel size、Padding、Strides 有關。通常Pa
 - 上取樣是用來擴增 feature map。
 - 做卷積時也可以用 zero padding 讓圖片保持原來大小。
 - 2x2 的 Pooling 會讓圖小一半。
+- 使用 Relu 函數去掉負值，更能淬煉出物體的形狀
 
 ## Reference
 - [卷積神經網路(Convolutional neural network, CNN) ](https://chih-sheng-huang821.medium.com/卷積神經網路-convolutional-neural-network-cnn-卷積運算-池化運算-856330c2b703)
