@@ -65,7 +65,7 @@ Feature map 的輸出大小與 Kernel size、Padding、Strides 有關。通常Pa
 其中卷積組合又可以拆分：
 > [卷積層→激勵函數(activation function)→Batch Normalization]=卷積組合
 
-![](https://i.imgur.com/6i7ddKs.png)
+![](https://i.imgur.com/6i7ddKs.png) 
 
 ## 結論
 - 1*1 卷積是拿來控制 channel 維度。
