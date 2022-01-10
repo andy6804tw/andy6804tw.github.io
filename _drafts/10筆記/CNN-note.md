@@ -85,3 +85,4 @@ Feature map 的輸出大小與 Kernel size、Padding、Strides 有關。通常Pa
 - [卷積神經網路(Convolutional neural network, CNN) ](https://chih-sheng-huang821.medium.com/卷積神經網路-convolutional-neural-network-cnn-卷積運算-池化運算-856330c2b703)
 - [深度學習：CNN原理](https://cinnamonaitaiwan.medium.com/深度學習-cnn原理-keras實現-432fd9ea4935)
 
+- [著名CNN模型](https://docs.google.com/presentation/d/1AlZkqPa2FylxKsYs2mcz0tpJdgP0Lbno6bYM_fA4UzM/edit#slide=id.p1)
