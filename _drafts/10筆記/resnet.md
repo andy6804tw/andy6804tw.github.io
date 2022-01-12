@@ -43,3 +43,6 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 
 https://meetonfriday.com/posts/7c0020de/ 白話介紹
 
+[精闢解說](https://www.bilibili.com/video/BV1vb4y1k7BV?p=4&spm_id_from=333.788.b_636f6d6d656e74.54)
+
+[ResNet 變體](https://www.bilibili.com/video/BV1PQ4y167hu?spm_id_from=333.999.0.0)
