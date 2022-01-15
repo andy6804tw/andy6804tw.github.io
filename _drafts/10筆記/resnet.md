@@ -5,13 +5,31 @@
 ![](https://i.imgur.com/vOOGMhR.png)
 
 ## ResNet 簡介
-ResNet 主要是解決當神經網路疊的越深直到層數增加到某種程度時，模型的準確率不升反降的問題。這也間接說明了深度模型所造成的模型退化(degradation)情況。因此在不做任何技巧下模型準確率會先上升然後達到飽和，再持續增加深度時則會導致準確率下降。其原因不是過度擬合，而是增加訓練的網路層反而帶來的 training errors。如下圖 CIFAR-10 資料及訓練，在 train 或 test 情況下，56層會比20層產生更多的 error。
+ResNet 主要是解決當神經網路疊的越深直到層數增加到某種程度時，模型的準確率不升反降的問題。這也間接說明了深度模型所造成的模型退化(degradation)情況。因此在不做任何技巧下模型準確率會先上升然後達到飽和，再持續增加深度時則會導致準確率下降。其原因不是過度擬合，而是增加訓練的網路層反而帶來的訓練誤差。如下圖 CIFAR-10 資料集訓練，在 train 或 test 情況下，56層會比20層產生更多的 error。
 
 ![](https://i.imgur.com/8eie43U.png)
 
 ## Residual Learning 主要解決什麼問題？
-從上面那張實驗圖可以得知擁有56層網路錯誤率遠遠比20層還來得大。這很明顯不是過度擬合所造成的。另外梯度的爆炸/消失的問題通常都使用 Bacth Normalization 來解決。至於模型退化的主因是，非線性的激發函數 Relu 的存在，使得每次輸入到輸出的過程都幾乎是不可逆的造成資訊損失。因此殘差學習的初衷，其實是讓模型的內部結構至少有恆等對映(identity mapping)的能力。以保證在堆疊網路的過程中，網路至少不會因為繼續堆疊而產生退化。
+從上面那張實驗圖可以得知擁有56層網路錯誤率遠遠比20層還來得大。這很明顯不是過度擬合所造成的。另外梯度的爆炸/消失的問題通常都使用 Bacth Normalization 來解決。因此這個結果並不是過度擬和所和梯度消失所造成的，而這是一個退化問題。至於模型退化的主因，是非線性的激發函數 Relu 的存在，使得每次輸入到輸出的過程都幾乎是不可逆的造成資訊損失。因此殘差學習的初衷，其實是讓模型的內部結構至少有恆等對映(identity mapping)的能力。以保證在堆疊網路的過程中，網路至少不會因為繼續堆疊而產生退化。由下圖可以看到左邊是一般的神經網路，而右邊則是 ResNet。從中可以發現左邊是一直線，而 ResNet 具有跳躍連線把先前的輸入接到輸出做相加。
 
+![](https://i.imgur.com/24ibrmd.png)
+
+### ResNet 解決網路退化的原理
+殘差網路的分支就是在修正上一層的誤差。假設上一層輸出足夠好那殘差就為0，如果不夠好就該修正這個誤差。在 MobileNet v2 使用此技巧彌補高度非線性造成不可逆的訊息損失。另外再現今許多主流模型中也會使用到殘差學習這個技巧。
+
+- 深層梯度回傳順暢：恆等映射的一段的梯度為1，因此把深層梯度注入淺層防止梯度消失。
+- 類比其他機器學習模型(殘差學習)：
+    - 整體學習中的 boosting 方法，每個弱分類器都是在擬合前面模型輸出與真實答案之差。
+    - 長短記憶神經網路(LSTM)的遺忘門
+    - relu 激發函數
+- 傳統線性結構網路難以擬合恆等映射
+    - 恆等映射即代表讓輸出和輸入一樣(什麼都不做)
+    - skip connection 可以讓模型自行選擇要不要更新
+- skip connection 可以實現不同尺度特徵的組合
+    - 造就了 FPN、DenseNet
+- ResNet 數學本質是用微分方程式的積分曲線去擬合系統的目標函數
+- 殘差網路相當於不同長度的神經網路組成的組合函數 (ensemble)
+- 殘差網路相當於一個差分放大器
 
 ## Residual Block 結構
 Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcut 將這個 block 的輸入和輸出進行一個 element-wise 的相加，這個簡單的加法並不會給網路增加額外的參數。當模型的層數加深時，這個簡單的結構能夠很好的解決退化問題。如果把網路設計為 H(x) = F(x) + x，即直接把恆等對映作為網路的一部分 。就可以把問題轉化為學習一個殘差函式F(x) = H(x) - x.
@@ -36,6 +54,17 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 殘差網絡一般就是由下圖這兩個結構組成的。ResNet18、34 都是由 BasicBlock 組成的。50層以上的 ResNet 才由 Bottleneck 組成。兩者差別在於當有 1x1 卷積核的時候，我們稱 bottleneck。
 
 ![](https://i.imgur.com/rw9OHd5.png)
+
+## ResNet 神經網路可解釋分析
+### ResNet 反向傳播回傳的梯度相關性較好
+在這篇論文 [The Shattered Gradients Problem: If resnets are the answer, then what is the question?](https://arxiv.org/abs/1702.08591)。就我們理解來說隨著網路加深因為激發函數導致相鄰像素回傳的梯度相關性會越來越低，最後接近白噪導致訓練時只會隨機擾動並無擬合作用。因此既然相鄰像素之間有局部相關性，我們會希望相鄰像素的梯度也應該局部相關。所以在這篇論文解釋 ResNet 梯度相關性衰減從 1/2<sup>L</sup> 增加為 1/√L，同時保持了梯度相關性。
+
+![](https://i.imgur.com/R6w3pN9.png)
+
+### ResNet 相當於幾個淺層網路的集成
+這篇論文 [Residual Networks Behave Like Ensembles of Relatively Shallow Networks](https://arxiv.org/abs/1605.06431) 提到三個殘差網路堆疊起來相當於下圖中(b) 每個模塊都有兩條路，因此三個模塊將有2的三次方共八種路徑。因此這三個殘差網路可以視為這八條路徑的集成(彼此間獨立訓練)。除此之外訓練好模型後他們在測試階段棄掉幾個殘差模塊(Dropout)發現幾乎不影響結果。
+
+![](https://i.imgur.com/Hijb2iL.png)
 
 ## Reference
 - [1] Kaiming He et all.,"[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)", CVPR 2016.
