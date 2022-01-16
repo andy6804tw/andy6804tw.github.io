@@ -1,8 +1,13 @@
 
 ## 前言
-本文將要介紹的是2015年 ILSVR 競賽冠軍的 ResNet(Residual Neural Network, 殘差網路)。ILSVR 是由 ImageNet 所舉辦的年度大規模視覺識別挑戰賽，自從2010年 開辦以來全世界的人都想訓練一個影像分類器打敗人類的 5% 錯誤率的極限。值得一提的是2012年 AlexNet 問世後，開啟了卷積神蹟網路在深度學習的時代。之後的競賽大家都已深度學習網路為主，不斷地挑戰人類的 5% baseline。ResNet 是由微軟研究團隊所開發，它的特點是神經網路的輸入是可以跳耀式的傳遞到深層網路，這也間接的允許我們可以建立更深的神經網路使得模型能學習到更多特徵。當年冠軍的 ResNet 其深度是152層，約莫是 GoogLeNet 22層的七倍，但Top-5 error rate卻大幅降低了47%。
+本文將要介紹的是2015年 ILSVR 競賽冠軍的 ResNet(Residual Neural Network, 殘差網路)。ILSVR 是由 ImageNet 所舉辦的年度大規模視覺識別挑戰賽，自從2010年 開辦以來全世界的人都想訓練一個影像分類器打敗人類的 5% 錯誤率的極限。值得一提的是2012年 AlexNet 問世後，開啟了卷積神蹟網路在深度學習的時代。之後的競賽大家都已深度學習網路為主，不斷地挑戰人類的 5% baseline。ResNet 是由微軟研究團隊所開發，它的特點是神經網路的輸入是可以跳耀式的傳遞到深層網路，這也間接的允許我們可以建立更深的神經網路使得模型能學習到更多特徵。當年冠軍的 ResNet 錯誤率為 3.57% 其深度是152層，約莫是 GoogLeNet 22層的七倍，但Top-5 error rate卻大幅降低了47%。
 
 ![](https://i.imgur.com/vOOGMhR.png)
+
+- 論文： [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) (CVPR 2016 best paper)
+- 程式碼： [GitHub](https://github.com/KaimingHe/deep-residual-networks)
+
+> 2015年的 ILSVRC 比賽變得異常激烈！2015 年 2 月 6 日，Microsoft 提出了 PReLU-Net [2]，其錯誤率為 4.94%，超越了 5.1% 的人為錯誤率。五天後，即 2015 年 2 月 11 日，Google 在 arXiv（未提交給 ILSVRC）中提出了 BN-Inception / Inception-v2，其錯誤率為 4.8%。
 
 ## ResNet 簡介
 ResNet 主要是解決當神經網路疊的越深直到層數增加到某種程度時，模型的準確率不升反降的問題。這也間接說明了深度模型所造成的模型退化(degradation)情況。因此在不做任何技巧下模型準確率會先上升然後達到飽和，再持續增加深度時則會導致準確率下降。其原因不是過度擬合，而是增加訓練的網路層反而帶來的訓練誤差。如下圖 CIFAR-10 資料集訓練，在 train 或 test 情況下，56層會比20層產生更多的 error。
@@ -66,6 +71,11 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 
 ![](https://i.imgur.com/Hijb2iL.png)
 
+## 總結
+- 深度殘差網路 ResNet 由微軟亞洲研究院發表
+- 2015 年 ImageNet 和 coco 競賽五項冠軍
+- CVPR 2016 最佳論文
+
 ## Reference
 - [1] Kaiming He et all.,"[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)", CVPR 2016.
 
@@ -75,3 +85,22 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 [精闢解說](https://www.bilibili.com/video/BV1vb4y1k7BV?p=4&spm_id_from=333.788.b_636f6d6d656e74.54)
 
 [ResNet 變體](https://www.bilibili.com/video/BV1PQ4y167hu?spm_id_from=333.999.0.0)
+
+
+## 筆記
+- 特徵提取的深度是解決電腦視覺眾多問題的核心。
+- 深度卷積神經網路已經在圖像分類領域有了顯著的進展與突破。
+- 在 ZFNet 中提到在深層的神經網路整合了低、中、高層不同尺度的特徵，最後在接上一個分類器完成端到端的分類。在低層的網路中提取圖像的邊緣、形狀、顏色。中層提取提取紋理。高層取得小物體上的特徵例如眼睛、輪子。
+- 特徵的層次可以透過將模型堆深，提供不同尺度特徵提升模型的豐富。
+- 在 VGG 和 GoogleNet 論文中指出網路深度的深度是非常重要的。
+![](https://i.imgur.com/HvlsmhF.png)
+- 何愷明： ResNet、PRelu、Mask R CNN、Faster R CNN、SPPNet、Group Normalization。
+- 梯度爆炸/消失可以使用適當初始化與 Batch Normalization 加快網路收斂。
+- 過去直接擬合 H(x) 現在擬合殘差 F(x)=H(x)-x。
+- 多層非線性網路層很難去擬合橫等映射。但殘差學習是可以。
+- 後面的網路只需要擬合前面網路的輸出與真實答案之間的殘差。
+- shortcut connection 並無額外的參數和計算複雜度
+- 使用 stride=2 下採樣，feature map 尺寸減半，通道數翻倍。
+- 訓練時圖像增強：放大至 `256*480` 尺度接著透過 `224*224` 隨機裁切。或是隨機翻轉。
+- 影像前處理：減去所有圖片的均值。
+- 在每個卷基層後面以及激發函數前都添加 batch normalization。batch normalization 於 BN-Inception 被提出。
