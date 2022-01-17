@@ -104,3 +104,10 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 - 訓練時圖像增強：放大至 `256*480` 尺度接著透過 `224*224` 隨機裁切。或是隨機翻轉。
 - 影像前處理：減去所有圖片的均值。
 - 在每個卷基層後面以及激發函數前都添加 batch normalization。batch normalization 於 BN-Inception 被提出。
+- 訓練設定： SGD 優化器、mini-batch 256、learning rate 0.1 遇到瓶頸時/10、60萬 epoch、 decay 0.0001、momentum 0.9、不採用 dropout。
+- 在打比賽的時候採用遵循 AlexNet 10-crop testing，以及多尺度裁減與融合(fully-convolutional form) {224, 256, 384, 640} 最終結果為多此度的圖像預測結果求平均。
+- ImageNet 2012 classification dataset 1000 classes 總共有大約 128 萬張訓練圖像、50,000 張驗證圖像和 100,000 張測試圖像。
+- 使用再多迭代並不能解決網路退化問題：“數據本身決定了該類問題的上限，而模型只是逼近這個上限”、“模型結構本身決定了模型上限，而訓練條參只是在逼近這個上限”。
+- 論文中採用 zero padding 進行下採樣 stride=2。沒有額外的參數量。
+- 34層的殘差網路比18層好，且深度越深性能越好。帶殘差的網路比不帶殘差的效果好。
+- 
