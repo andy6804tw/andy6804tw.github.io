@@ -56,7 +56,7 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 
 眼尖的你可能會發現這些殘差網路有實線與虛線。這些虛線的代表這些 Block 前後的維度不一致，因為 ResNet18 參照了 VGG 經典的設計，每隔x層，空間上/2（downsample）但深度翻倍。為了解決深度不一致問題，論文中採用 1*1 的卷積層進行升維。
 
-殘差網絡一般就是由下圖這兩個結構組成的。ResNet18、34 都是由 BasicBlock 組成的。50層以上的 ResNet 才由 Bottleneck 組成。兩者差別在於當有 1x1 卷積核的時候，我們稱 bottleneck。
+殘差網絡一般就是由下圖這兩個結構組成的。ResNet18、34 都是由 BasicBlock 組成的。50層以上的 ResNet 才由 Bottleneck 組成。兩者差別在於當有 1x1 卷積核的時候，我們稱 bottleneck，輸入和輸出都是高維度的但中間有降為過程。通常用於更深的如101這樣的網路中，目的是減少計算和引數量。
 
 ![](https://i.imgur.com/rw9OHd5.png)
 
@@ -99,15 +99,31 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 - 過去直接擬合 H(x) 現在擬合殘差 F(x)=H(x)-x。
 - 多層非線性網路層很難去擬合橫等映射。但殘差學習是可以。
 - 後面的網路只需要擬合前面網路的輸出與真實答案之間的殘差。
-- shortcut connection 並無額外的參數和計算複雜度
-- 使用 stride=2 下採樣，feature map 尺寸減半，通道數翻倍。
+- shortcut connection 並無額外的參數和計算複雜度。
+## 3 網路架構
+- /2 表示使用 stride=2 的卷積進行下採樣，取代 VGG 的池化，feature map 尺寸減半，通道數翻倍。
+- 最後一層採 GAP 進行一千分類。取代原本 VGG 的全連接層。
+- 實線表示相同維度直接加，虛線表示出現下採樣，必須小技巧讓 feature map 維度一致(論文提出三種實驗方法)。
+- 殘差分支出現下採樣(stride=2)時維度增加的(虛線)殘差補救方法，(A)padding 補 0，對於多出來的通道用 0 填充。(B) 使用 1*1 卷積。
 - 訓練時圖像增強：放大至 `256*480` 尺度接著透過 `224*224` 隨機裁切。或是隨機翻轉。
 - 影像前處理：減去所有圖片的均值。
 - 在每個卷基層後面以及激發函數前都添加 batch normalization。batch normalization 於 BN-Inception 被提出。
 - 訓練設定： SGD 優化器、mini-batch 256、learning rate 0.1 遇到瓶頸時/10、60萬 epoch、 decay 0.0001、momentum 0.9、不採用 dropout。
 - 在打比賽的時候採用遵循 AlexNet 10-crop testing，以及多尺度裁減與融合(fully-convolutional form) {224, 256, 384, 640} 最終結果為多此度的圖像預測結果求平均。
+## 4 實驗
 - ImageNet 2012 classification dataset 1000 classes 總共有大約 128 萬張訓練圖像、50,000 張驗證圖像和 100,000 張測試圖像。
 - 使用再多迭代並不能解決網路退化問題：“數據本身決定了該類問題的上限，而模型只是逼近這個上限”、“模型結構本身決定了模型上限，而訓練條參只是在逼近這個上限”。
-- 論文中採用 zero padding 進行下採樣 stride=2。沒有額外的參數量。
-- 34層的殘差網路比18層好，且深度越深性能越好。帶殘差的網路比不帶殘差的效果好。
+- 論文中 RestNet 18 與 34 採用 (A) 方案：zero padding 進行下採樣 stride=2。沒有額外的參數量。
+- 34層的殘差網路比18層好，且深度越深性能越好。帶殘差的網路比不帶殘差的效果好。證明殘差可以搭建非常深的網路。
+![](https://i.imgur.com/h7iOw1m.png)
+- 在論文中比較 shortcut connection 用恆等映射 identity mapping 還是經過其他投影處理較好。
+- 提出三種實驗 (A) 所有 shortcut 都是恆等映射，升維用 padding 補 0。(B) 實線用恆等映射，虛線遇到需要升維時用 1*1 卷積。(C) 所有 shortcut 都用 1*1 卷積。
+- B 比 A 好，但 A 在升維時用 padding 補 0，相當於丟失了 shortcut 分支的訊息。
+- C 又比 B 好，因為多了很多訓練參數。使得模型表示能力更好。
+![](https://i.imgur.com/gEM9jZ4.png)
+- Bottleneck 網路先用 1*1 卷積降維，最後再用 1*1 卷積升維質原來深度。目的減少餐數量與計算量。在 Inception 結構也用相同方法。
+- RestNet 50、101、152 採用 B 方案 1*1 卷積投影增加維度。
+- 在 ILSVRC 競賽中提交的版本是 6 個不同深度的集成模型(18、34、50、101、152、152)。並得到 3.57%。
 - 
+
+1:08
