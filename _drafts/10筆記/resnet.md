@@ -1,6 +1,6 @@
 
 ## 前言
-本文將要介紹的是2015年 ILSVR 競賽冠軍的 ResNet(Residual Neural Network, 殘差網路)。ILSVR 是由 ImageNet 所舉辦的年度大規模視覺識別挑戰賽，自從2010年 開辦以來全世界的人都想訓練一個影像分類器打敗人類的 5% 錯誤率的極限。值得一提的是2012年 AlexNet 問世後，開啟了卷積神蹟網路在深度學習的時代。之後的競賽大家都已深度學習網路為主，不斷地挑戰人類的 5% baseline。ResNet 是由微軟研究團隊所開發，它的特點是神經網路的輸入是可以跳耀式的傳遞到深層網路，這也間接的允許我們可以建立更深的神經網路使得模型能學習到更多特徵。當年冠軍的 ResNet 錯誤率為 3.57% 其深度是152層，約莫是 GoogLeNet 22層的七倍，但Top-5 error rate卻大幅降低了47%。
+本文將要介紹的是2015年 ILSVR 競賽冠軍的 ResNet(Residual Neural Network, 殘差網路)。ILSVR 是由 ImageNet 所舉辦的年度大規模視覺識別挑戰賽，自從2010年開辦以來全世界的人都想訓練一個影像分類器打敗人類的 5% 錯誤率的極限。值得一提的是2012年 AlexNet 問世後，開啟了卷積神蹟網路在深度學習的時代。之後的競賽大家都已深度學習網路為主，不斷地挑戰人類的 5% baseline。ResNet 是由微軟研究團隊所開發，它的特點是神經網路的輸入是可以跳耀式的傳遞到深層網路，這也間接的允許我們可以建立更深的神經網路使得模型能學習到更多特徵。當年冠軍的 ResNet 錯誤率為 3.57% 其深度是152層，約莫是 GoogLeNet 22層的七倍，但Top-5 error rate卻大幅降低了47%。
 
 ![](https://i.imgur.com/vOOGMhR.png)
 
@@ -47,16 +47,16 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 
 下圖為殘差網絡的結構，以 ResNet18 為例：
 - ResNet18、34 都是由 BasicBlock 組成的，並且從表中也可以得知，50層(包括50層)以上的 ResNet 才由 Bottleneck 組成。
-- 有類型的 ResNet 卷積操作的通道數(無論是輸入通道還是輸出通道)都是64的倍數
-- 所有類型的 ResNet 的卷積核只有3x3和1x1兩種
-- 除了公共部分(conv1)外，都是由4大塊組成(con2_x,con3_x,con4_x,con5_x,)
+- 所有類型的 ResNet 卷積操作的通道數(無論是輸入通道還是輸出通道)都是64的倍數。
+- 所有類型的 ResNet 的卷積核只有 3x3 和 1x1 兩種。
+- 除了公共部分(conv1)外，都是由4大塊組成(con2_x,con3_x,con4_x,con5_x)
 
 ![](https://i.imgur.com/fOVxW2n.png)
 ![](https://i.imgur.com/UOR4lCx.png)
 
-眼尖的你可能會發現這些殘差網路有實線與虛線。這些虛線的代表這些 Block 前後的維度不一致，因為 ResNet18 參照了 VGG 經典的設計，每隔x層，空間上/2（downsample）但深度翻倍。為了解決深度不一致問題，論文中採用 1*1 的卷積層進行升維。
+眼尖的你可能會發現這些殘差網路有實線與虛線。這些虛線的代表這些 Block 前後的維度不一致，因為 ResNet18 參照了 VGG 經典的設計，每隔 x 層，空間上 `/2` 減半（downsample）但深度翻倍。為了解決深度不一致問題，論文中採用 1x1 的卷積層進行升維。
 
-殘差網絡一般就是由下圖這兩個結構組成的。ResNet18、34 都是由 BasicBlock 組成的。50層以上的 ResNet 才由 Bottleneck 組成。兩者差別在於當有 1x1 卷積核的時候，我們稱 bottleneck，輸入和輸出都是高維度的但中間有降為過程。通常用於更深的如101這樣的網路中，目的是減少計算和引數量。
+殘差網絡一般就是由下圖這兩個結構組成的。ResNet18、34 都是由 BasicBlock 組成的。50層以上的 ResNet 才由 Bottleneck 組成。兩者差別在於當有 1x1 卷積核的時候，我們稱 bottleneck，輸入和輸出都是高維度的但中間有降為過程。通常用於更深的如 101 這樣的網路中，目的是減少計算和引數量。
 
 ![](https://i.imgur.com/rw9OHd5.png)
 
@@ -116,7 +116,8 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 - 論文中 RestNet 18 與 34 採用 (A) 方案：zero padding 進行下採樣 stride=2。沒有額外的參數量。
 - 34層的殘差網路比18層好，且深度越深性能越好。帶殘差的網路比不帶殘差的效果好。證明殘差可以搭建非常深的網路。
 ![](https://i.imgur.com/h7iOw1m.png)
-- 在論文中比較 shortcut connection 用恆等映射 identity mapping 還是經過其他投影處理較好。
+- 在論文中比較 shortcut connection 用恆等映射 identity mapping(實線) 與 projection shortcut(虛線)。
+![](https://i.imgur.com/4BOhhwr.png)
 - 提出三種實驗 (A) 所有 shortcut 都是恆等映射，升維用 padding 補 0。(B) 實線用恆等映射，虛線遇到需要升維時用 1*1 卷積。(C) 所有 shortcut 都用 1*1 卷積。
 - B 比 A 好，但 A 在升維時用 padding 補 0，相當於丟失了 shortcut 分支的訊息。
 - C 又比 B 好，因為多了很多訓練參數。使得模型表示能力更好。
@@ -124,6 +125,8 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 - Bottleneck 網路先用 1*1 卷積降維，最後再用 1*1 卷積升維質原來深度。目的減少餐數量與計算量。在 Inception 結構也用相同方法。
 - RestNet 50、101、152 採用 B 方案 1*1 卷積投影增加維度。
 - 在 ILSVRC 競賽中提交的版本是 6 個不同深度的集成模型(18、34、50、101、152、152)。並得到 3.57%。
-- 
-
-1:08
+- CIFAR-10 實驗每張圖像 32x32x3。五萬張訓練一萬測試共十種類別。實驗結果也是帶有殘差網路較好。
+- 做了每層殘差響應分佈分析，BN 層輸出的標準差相當於輸出信號大小。前幾層大後面越來越小。而且殘差網路比一般網路有更小的響應。因此可以得正越後層恆等映射足夠好的話他是會逐漸擬合成0。
+- 建構 1202層的殘差網路，雖然能收斂也沒有優化困難問題，但是測試集也沒有 110 層好。模型太深參數過多，表示空間過於大對小數據而言沒有必要。因此過擬合。
+- 殘差網路在目標檢測 PASCAL voc 和微軟 coco 資料集都有不錯成績
+- Dropout 在 AlexNet 被提出
