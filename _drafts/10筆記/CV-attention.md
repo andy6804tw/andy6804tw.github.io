@@ -4,18 +4,28 @@
 
 論文首先將基於注意力的模型在計算機視覺領域中的發展歷程大致歸為了四個階段：
 
-1. 將循環神經網路與注意力機制相結合，代表性方法為 [RAM](https://www.cnblogs.com/wangxiaocvpr/p/5537454.html)
-2. 明確預測判別性輸入特徵，代表性方法為 STN
-3. 隱性且自適應地預測潛在的關鍵特徵，代表方法為 SENet
+1. 將循環神經網路與注意力機制相結合。代表方法為 [RAM](https://www.cnblogs.com/wangxiaocvpr/p/5537454.html)。
+2. 透過注意力機制將原始圖片中的空間訊息變換到另一個空間中並保留了關鍵信息。代表性方法為 STN。
+3. 使用通道注意力網路自適應地採樣重要特徵。代表方法為 SENet。
 4. 自注意力機制
 
+![](https://i.imgur.com/nj2bZgD.png)
 
 
 ## 為什麼需要視覺注意力？
 電腦視覺中的注意力機制的基本概念就是讓機器學會注意力，並能夠忽略無關的訊息從而關注重點訊息。至於為什麼要忽略無關的訊息呢？
 
-## 模型結構簡介
-為了更清楚地介紹計算機視覺中的注意力機制，這篇文章將從注意力域（attention domain）的角度來分析幾種注意力的實現方法。其中主要是三種注意力域，空間域(spatial domain)，通道域(channel domain)，混合域(mixed domain)。
+## 模型結構簡介 (注意力分類)
+就注意力關注的域來分，大致可以分成以下五種：
+
+- 通道注意力（Channel Attention）
+- 空間注意力（Spatial Attention）
+- 時間注意力（Temporal Attention）
+- 分支注意力（Branch Attention）
+- 通道空間注意力（Channel & Spatial Attention）
+- 時空注意力（Spatial & Temporal Attention）
+
+![](https://i.imgur.com/TeJD9QY.png)
 
 （1） 空間域
 
