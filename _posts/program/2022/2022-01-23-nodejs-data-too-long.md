@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '[MySQL 故障排除] '
+title: '[MySQL 報錯] Data too long for column 與 request entity too large'
 categories: 'Program'
-description: 'MySQL報錯：Data too long for column 以及 request entity too large'
+description: 'MySQL報錯：Data too long for column 與 request entity too large'
 keywords:
 ---
 
