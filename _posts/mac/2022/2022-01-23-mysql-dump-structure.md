@@ -2,8 +2,8 @@
 layout: post
 title: '[Mac系統] MySQL 指令匯出資料庫'
 categories: 'Mac'
-description:
-keywords: 
+description: 'MySQL 資料庫匯出'
+keywords:
 ---
 
 ## 從資料庫匯出 SQL 檔案
