@@ -54,5 +54,10 @@ Transformer 在 NLP 中取得成功，其中 attention 是重要的關鍵元素�
 
 因此這個動態的注意力參數就很厲害了，因為這個模型隨著每次看這個圖會計算一個注意力分數。並透過這組分數幫助模型更關注重點。這也是為什麼最近在 CNN 研究中有個叫 Dynamic Network，其就是引入了這個思想運用在卷積層或是激發層例如：dynamic convolution、dynamic relu。
 
-Attention 其實更關注特徵彼此之間的相互關係。在早期的圖像匹配中最經典的方法是 SIFT 利用特徵點描述及比對來間接兩張圖的關聯性。SIFT 的 interest point 實際上可以學到圖中的哪些點是更突出具有代表性的。CNN 這種模型其實圖過級聯的關係可以學到不同尺度上的資訊，就好比影像中的 interest point。至於 Transformer 考慮了這個特徵學完以後跟另一個特徵他們之間有什麼相對關係。所以從這個角度來看這個模型的適應能會會更好，因為它不完全依賴於數據本身。因此輸入的數據值變的不是非常重要，反而它更關注了物體之間的相互關聯性。
+Attention 其實更關注特徵彼此之間的相互關係。在早期的圖像匹配中最經典的方法是 SIFT 利用特徵點描述及比對來間接兩張圖的關聯性。SIFT 的 interest point 實際上可以學到圖中的哪些點是更突出具有代表性的。CNN 這種模型其實圖過級聯的關係可以學到不同尺度上的資訊，就好比影像中的 interest point。至於 Transformer 考慮了這個特徵學完以後跟另一個特徵他們之間有什麼相對關係。所以從這個角度來看這個模型的適應能力會更好，因為它不完全依賴於數據本身。因此輸入的影像畫素值變的不是非常重要，反而它更關注了物體之間的相互關聯性。然後還有一個事情就是 Transformer 的注意力機制可以不僅僅關注 local 的訊息，它從 local 到 global 這樣一個擴散的機制去尋找表徵。除此之外其實 Transformer 是非常暴力的，它從低階的特徵開始就可以看全局的資訊，並建立與全局關鍵點之間的關聯性。當隨著層數加深這些 local 的點就會聚成了一些 corner point，接著再透過這些內容去找彼此間的關聯性。
 
+![](https://i.imgur.com/K55ywle.png)
+
+話又說回來 CNN 也是有他的可用之處，例如平移、縮放不變性。那將這件事情放到 Transformer 機制上其實是不具備的。因此最簡單的 Transformer 應用到視覺上例如像是目標檢測會出現問題的。因此有相研究將卷積與 Transformer 結合，有一系列的研究例如： Swin、CvT、CSwin、Focal Transformer 等。
+
+[參考](https://www.bilibili.com/video/BV1L3411x7hw/?spm_id_from=trigger_reload)
