@@ -23,6 +23,10 @@ SENet 的全名是 Squeeze-and-Excitation Networks，該論文於 2018 CVPR 由�
 
 第三個步驟： Scale(F<sub>sacle</sub>)，將前面得到的權重加權到每個通道的特徵上。論文中的方法是採用乘法，每個通道乘以權重，完成在通道維度上引入 attention 機制。
 
+SE block 就是一個型的 channel attention。如果以一個通用的式子表示將會長這樣：
+
+![](https://i.imgur.com/wM9kMaf.png)
+
 
 ## SE block 結合經典模型
 SENet 就是在通道引入注意力機制 (SE block)，並且可以再多種經典模型中被引入的一個機制。其中最著名的是 Mobilenet v3 不僅使用了 Google AutoML 搜索神經網路架構外，還引用了 SE block 提升模型準確率。除此之外在物件偵測任務上 Yolo v4 也在卷積層中使用此技巧。論文中 SE 開頭的深度網路名稱，例如： SE-ResNet 或 SE-Inception，便知道那是 ResNet 或 GoogLeNet 與 SeNet 整合的模型。透過實驗比較是否加入 SE block 對於預測準確度是否提升。
