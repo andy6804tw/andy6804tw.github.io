@@ -82,19 +82,34 @@ ECA-Net: Efficient Channel Attention for Deep Convolutional Neural Networks 發�
 ![](https://i.imgur.com/5Jez7Lx.png)
 
 #### 2.2 Spatial Transformer Networks (STN)
-Spatial Transformer Networks (STN)模型發表於2015年NIPS，此方法透過注意力機制，將原始圖片中的空間訊息變換到另一個空間中並保留了關鍵訊息。先前有些方法透過 max pooling 或 average pooling 將圖片訊息壓縮，減少運算量提升準確率。但作者認為這些 pooling 方法過於暴力，直接將訊息合併會導致關鍵訊息無法識別出來。所以提出了一個叫空間轉換器 (spatial transformer) 的模塊，將圖片中的的空間域訊息做對應的空間變換，從而能將關鍵的訊息提取出來。
+Spatial Transformer Networks (STN) 模型發表於2015年NIPS，此方法透過注意力機制，將原始圖片中的空間訊息變換到另一個空間中並保留了關鍵訊息。先前有些方法透過 max pooling 或 average pooling 將圖片訊息壓縮，減少運算量提升準確率。但作者認為這些 pooling 方法過於暴力，直接將訊息合併會導致關鍵訊息無法識別出來。所以提出了一個叫空間轉換器 (spatial transformer) 的模塊，將圖片中的的空間域訊息做對應的空間變換，從而能將關鍵的訊息提取出來。
 
 ![](https://i.imgur.com/OIJOlnq.png)
 
 空間注意力不同方法實例比較：
 ![](https://i.imgur.com/P1eFSa8.png)
 
-### 3. 
- (3) 混合域
+#### 2.3 GENet
+SENet: Gather-Excite: Exploiting Feature Context in Convolutional Neural Networks 的原作者隔年發表了 GENet。其中 SENet 是 GENet 的特殊情況，當selection operator 的範圍是整個 feature map 的時候，形式就和 SENet 一樣的，是對一個 channel 裡的所有點都施加一樣的權重。在該論文中提出了 Gather-Excite 兩個模塊。
+- Gather 負責聚合每個特徵圖的大鄰域的上下文訊息。本質上就是在輸入 x 上進行卷積或者池化操作生成維度減小的 feature map。
+- Excite 負責聚合特徵圖。將輸入 feature map x 經過 εG 之後得到的 X̂，使用Nearest Neighbor interpolation（最近鄰插值方法）resize 到 x 相同 shape，經過 sigmoid 後做點積運算。
 
-了解前兩種注意力域的設計思路後，簡單對比一下。首先，空間域的注意力是忽略了通道域中的訊息，將每個通道中的圖片特徵同等處理，這種做法會將空間域變換方法局限在原始圖片特徵提取階段，應用在神經網絡層其他層的可解釋性不強。
+![](https://i.imgur.com/wHDQrDT.png)
 
-而通道域的注意力是對一個通道內的訊息直接全局平均池化，而忽略每一個通道內的局部訊息，這種做法其實也是比較暴力的行為。所以結合兩種思路，就可以設計出混合域的注意力機制模型
+### 2.4 Non-local
+
+
+### 3. 時間注意力 (Temporal Attention)
+
+
+### 4. 分支注意力 (Branch Attention)
+
+![](https://i.imgur.com/LHpkIBI.png)
+
+### 5. 通道空間注意力 (Channel & Spatial Attention)
+空間域的注意力是忽略了通道域中的訊息，將每個通道中的圖片特徵同等處理，這種做法會將空間域變換方法局限在原始圖片特徵提取階段，應用在神經網絡層其他層的可解釋性不強。而通道域的注意力是對一個通道內的訊息直接全局平均池化，而忽略每一個通道內的局部訊息，這種做法其實也是比較暴力的行為。所以結合兩種思路，就可以設計出混合域的注意力機制模型。
+
+![](https://i.imgur.com/3BafqVa.png)
 
 ## Transformer 為何比 CNN 好？
 Transformer 在 NLP 中取得成功，其中 attention 是重要的關鍵元素。更重要的是它丟棄了原先 RNN seq2seq 的架構，並採用 self-attention 在 seq2seq 架構上學習。從最終的訓練結果來看 Transformer 對於大數據的適應能力非常強。這一點非常重要，因為當電腦視覺特別是 CNN 發展到一定階段會遇到一些瓶頸。這些瓶頸來至於訓練的 data scale，因為現在很多 CNN 的模型都是採用於監督式學習。當 CNN 模型採用大量的資料學習以後，我們會發現模型會對資料的適應能力沒有想像中的好。此時 Transformer 的橫空出世將 NLP 任務上得到的經驗套用在電腦視覺領域上面並有不錯的效果。我們能明顯看到隨著數據的增加他的效能可以繼續的成長。至於為何 Transformer 這麼強大呢？其中關鍵因素是它的每個注意力分數是可以動態的，而 CNN 很多學習的參數一但學完以後他就是 fixed 住不動了。
