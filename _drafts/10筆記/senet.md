@@ -31,6 +31,8 @@ SE block 就是一個型的 channel attention。如果以一個通用的式子�
 ## SE block 結合經典模型
 SENet 就是在通道引入注意力機制 (SE block)，並且可以再多種經典模型中被引入的一個機制。其中最著名的是 Mobilenet v3 不僅使用了 Google AutoML 搜索神經網路架構外，還引用了 SE block 提升模型準確率。除此之外在物件偵測任務上 Yolo v4 也在卷積層中使用此技巧。論文中 SE 開頭的深度網路名稱，例如： SE-ResNet 或 SE-Inception，便知道那是 ResNet 或 GoogLeNet 與 SeNet 整合的模型。透過實驗比較是否加入 SE block 對於預測準確度是否提升。
 
+![](https://i.imgur.com/DxYcvge.png)
+
 下圖分別說明 SE block 是如何嵌入到主流網絡(Inception和ResNet)中的，Global Pooling 就是 squeeze操作，FC+ReLu+FC+Sigmoid 就是excitation 操作，具體過程就是首先通過一個全連接層(FC)，將特徵維度降低到原來的 1/r，然後經過ReLu激活函數再通過一個全連接層(FC)生回到原來的特徵維度 C，然後通過 Sigmoid 函數轉化成一個 0~1 的正規化權重。這裡全連結層參數隨着 loss 不斷地迭代更新。
 
 ![](https://i.imgur.com/njP84HI.png)
@@ -69,7 +71,8 @@ Ans: 每個 block 都加最好
 #### 將 SE block 放在殘差結構的哪個位置較好？
 透過不同的組合我們可以發現 SE-PRE 效果是最佳的。
 
-
 Ans: SE-PRE 最好
 
 ![](https://i.imgur.com/TPc71QQ.png)
+
+[【CV中的注意力機制】SENet](https://www.bilibili.com/video/BV1QA411F7rR/?spm_id_from=333.788.recommend_more_video.10)
