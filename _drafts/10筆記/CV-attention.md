@@ -103,9 +103,12 @@ Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自註意力機�
 ![](https://i.imgur.com/WcPiGEK.png)
 
 ### 3. 時間注意力 (Temporal Attention)
+時間注意力可以被看作是一種動態的時間選擇機制，決定了何時進行注意，因此通常用於影片處理。
 
+![](https://i.imgur.com/scaevKa.png)
 
 ### 4. 分支注意力 (Branch Attention)
+分支注意可以被看作是一種動態的分支選擇機制，通過多分支結構決定去注意什麼。
 
 ![](https://i.imgur.com/LHpkIBI.png)
 
@@ -113,6 +116,11 @@ Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自註意力機�
 空間域的注意力是忽略了通道域中的訊息，將每個通道中的圖片特徵同等處理，這種做法會將空間域變換方法局限在原始圖片特徵提取階段，應用在神經網絡層其他層的可解釋性不強。而通道域的注意力是對一個通道內的訊息直接全局平均池化，而忽略每一個通道內的局部訊息，這種做法其實也是比較暴力的行為。所以結合兩種思路，就可以設計出混合域的注意力機制模型。
 
 ![](https://i.imgur.com/3BafqVa.png)
+
+### 6. 時空注意力 (Spatial & Temporal Attention)
+時空注意力機制可以自適應地選擇重要區域和關鍵幀。
+
+![](https://i.imgur.com/iAqMVxO.png)
 
 ## Transformer 為何比 CNN 好？
 Transformer 在 NLP 中取得成功，其中 attention 是重要的關鍵元素。更重要的是它丟棄了原先 RNN seq2seq 的架構，並採用 self-attention 在 seq2seq 架構上學習。從最終的訓練結果來看 Transformer 對於大數據的適應能力非常強。這一點非常重要，因為當電腦視覺特別是 CNN 發展到一定階段會遇到一些瓶頸。這些瓶頸來至於訓練的 data scale，因為現在很多 CNN 的模型都是採用於監督式學習。當 CNN 模型採用大量的資料學習以後，我們會發現模型會對資料的適應能力沒有想像中的好。此時 Transformer 的橫空出世將 NLP 任務上得到的經驗套用在電腦視覺領域上面並有不錯的效果。我們能明顯看到隨著數據的增加他的效能可以繼續的成長。至於為何 Transformer 這麼強大呢？其中關鍵因素是它的每個注意力分數是可以動態的，而 CNN 很多學習的參數一但學完以後他就是 fixed 住不動了。
