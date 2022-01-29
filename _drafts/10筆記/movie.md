@@ -54,3 +54,6 @@ AI 電影 https://www.finereport.com/tw/data-analysis/huati-1.html
 絕夜逢生
 
 下雨天紐約
+
+
+https://www.facebook.com/groups/243904157218812?fbtxt11&openExternalBrowser=1&fbclid=IwAR0p_H3zvtHfR5F-zwtY2OmSTMSvd18yclgjVXSAArelPyTZklj233Qdngk
