@@ -86,9 +86,6 @@ Spatial Transformer Networks (STN) 模型發表於2015年NIPS，此方法透過�
 
 ![](https://i.imgur.com/OIJOlnq.png)
 
-空間注意力不同方法實例比較：
-![](https://i.imgur.com/P1eFSa8.png)
-
 #### 2.3 GENet
 SENet: Gather-Excite: Exploiting Feature Context in Convolutional Neural Networks 的原作者隔年發表了 GENet。其中 SENet 是 GENet 的特殊情況，當selection operator 的範圍是整個 feature map 的時候，形式就和 SENet 一樣的，是對一個 channel 裡的所有點都施加一樣的權重。在該論文中提出了 Gather-Excite 兩個模塊。並充分利用空間注意力來更好的挖掘特徵之間的上下文信息。
 
@@ -101,6 +98,9 @@ SENet: Gather-Excite: Exploiting Feature Context in Convolutional Neural Network
 Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自註意力機制引入圖像領域的文章。文中提出了經典的Non-Local模塊，通過Self-Attention機制對全局上下午進行建模，有效地捕獲長距離的特徵依賴。後續許多基於自註意力的方法都是根據Non-Local來改進的。
 
 ![](https://i.imgur.com/WcPiGEK.png)
+
+空間注意力不同方法實例比較：
+![](https://i.imgur.com/P1eFSa8.png)
 
 ### 3. 時間注意力 (Temporal Attention)
 時間注意力可以被看作是一種動態的時間選擇機制，決定了何時進行注意，因此通常用於影片處理。
