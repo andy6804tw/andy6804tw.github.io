@@ -133,4 +133,5 @@ Attention 其實更關注特徵彼此之間的相互關係。在早期的圖像�
 
 話又說回來 CNN 也是有他的可用之處，例如平移、縮放不變性。那將這件事情放到 Transformer 機制上其實是不具備的。因此最簡單的 Transformer 應用到視覺上例如像是目標檢測會出現問題的。因此有相研究將卷積與 Transformer 結合，有一系列的研究例如： Swin、CvT、CSwin、Focal Transformer 等。
 
+
 [參考](https://www.bilibili.com/video/BV1L3411x7hw/?spm_id_from=trigger_reload)
