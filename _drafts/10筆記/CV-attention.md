@@ -136,4 +136,3 @@ Attention 其實更關注特徵彼此之間的相互關係。在早期的圖像�
 
 [參考](https://www.bilibili.com/video/BV1L3411x7hw/?spm_id_from=trigger_reload)
 
-blockly project
