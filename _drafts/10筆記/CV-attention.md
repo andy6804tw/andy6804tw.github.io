@@ -87,7 +87,7 @@ Spatial Transformer Networks (STN) 模型發表於2015年NIPS，此方法透過�
 ![](https://i.imgur.com/OIJOlnq.png)
 
 #### 2.3 GENet
-SENet: Gather-Excite: Exploiting Feature Context in Convolutional Neural Networks 的原作者隔年發表了 GENet。其中 SENet 是 GENet 的特殊情況，當selection operator 的範圍是整個 feature map 的時候，形式就和 SENet 一樣的，是對一個 channel 裡的所有點都施加一樣的權重。在該論文中提出了 Gather-Excite 兩個模塊。並充分利用空間注意力來更好的挖掘特徵之間的上下文信息。
+SENet 的原作者隔年發表了 GENet (Exploiting Feature Context in Convolutional Neural Networks)。其中 SENet 是 GENet 的特殊情況，當selection operator 的範圍是整個 feature map 的時候，形式就和 SENet 一樣的，是對一個 channel 裡的所有點都施加一樣的權重。在該論文中提出了 Gather-Excite 兩個模塊。並充分利用空間注意力來更好的挖掘特徵之間的上下文信息。
 
 - Gather 負責聚合每個特徵圖的大鄰域的上下文訊息，用於從局部的空間位置上提取特徵。本質上就是在輸入 x 上進行卷積或者池化操作生成維度減小的 feature map。
 - Excite 用於將特徵縮放至原始尺寸。將輸入 feature map x 經過 εG 之後得到的 X̂，使用Nearest Neighbor interpolation（最近鄰插值方法）resize 到 x 相同 shape，經過 sigmoid 後做點積運算。
@@ -95,7 +95,7 @@ SENet: Gather-Excite: Exploiting Feature Context in Convolutional Neural Network
 ![](https://i.imgur.com/wHDQrDT.png)
 
 ### 2.4 Non-local
-Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自註意力機制引入圖像領域的文章。文中提出了經典的Non-Local模塊，通過Self-Attention機制對全局上下午進行建模，有效地捕獲長距離的特徵依賴。後續許多基於自註意力的方法都是根據Non-Local來改進的。
+Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自注意力機制引入圖像領域的研究。文中提出了經典的 Non-Local 模塊，通過 Self-Attention 機制對全局上下午進行建模，有效地捕獲長距離的特徵依賴。後續許多基於自注意力的方法都是根據 Non-Local 來改進的。
 
 ![](https://i.imgur.com/WcPiGEK.png)
 
