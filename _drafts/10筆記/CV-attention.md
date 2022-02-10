@@ -95,7 +95,7 @@ SENet 的原作者隔年發表了 GENet (Exploiting Feature Context in Convoluti
 ![](https://i.imgur.com/wHDQrDT.png)
 
 ### 2.4 Non-local
-Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自注意力機制引入圖像領域的研究。文中提出了經典的 Non-Local 模塊，通過 Self-Attention 機制對全局上下午進行建模，有效地捕獲長距離的特徵依賴。後續許多基於自注意力的方法都是根據 Non-Local 來改進的。
+Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自注意力機制引入圖像領域的研究。文中提出了經典的 Non-Local 模塊，通過 Self-Attention 機制對全局上進行建模，有效地捕獲長距離的特徵依賴。後續許多基於自注意力的方法都是根據 Non-Local 來改進的。
 
 ![](https://i.imgur.com/WcPiGEK.png)
 
