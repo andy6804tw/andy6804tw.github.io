@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'MySQL 常用指令大全'
+title: '常用的 MySQL 指令'
 categories: 'Linux'
 description: 
 keywords:
@@ -44,6 +44,14 @@ DROP USER 'user'@'%';
 
 ```sh
 SELECT User, Host, plugin FROM mysql.user;
+```
+
+## root 帳戶 auth_socket 解決
+查看一下user表，當 root 的 plugin 被修改成了 auth_socket，若要用密碼登陸的 plugin 應該是 mysql_native_password。
+
+```sh
+update mysql.user set authentication_string=PASSWORD('newPwd'), plugin='mysql_native_password' where user='root';
+flush privileges;
 ```
 
 ## Reference
