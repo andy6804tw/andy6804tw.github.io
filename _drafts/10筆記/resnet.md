@@ -76,18 +76,7 @@ Residual block 透過 shortcut connection 實現，如下圖所示使用 shortcu
 - 2015 年 ImageNet 和 coco 競賽五項冠軍
 - CVPR 2016 最佳論文
 
-## Reference
-- [1] Kaiming He et all.,"[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)", CVPR 2016.
-
-
-https://meetonfriday.com/posts/7c0020de/ 白話介紹
-
-[精闢解說](https://www.bilibili.com/video/BV1vb4y1k7BV?p=4&spm_id_from=333.788.b_636f6d6d656e74.54)
-
-[ResNet 變體](https://www.bilibili.com/video/BV1PQ4y167hu?spm_id_from=333.999.0.0)
-
-
-## 筆記
+## 論文筆記
 - 特徵提取的深度是解決電腦視覺眾多問題的核心。
 - 深度卷積神經網路已經在圖像分類領域有了顯著的進展與突破。
 - 在 ZFNet 中提到在深層的神經網路整合了低、中、高層不同尺度的特徵，最後在接上一個分類器完成端到端的分類。在低層的網路中提取圖像的邊緣、形狀、顏色。中層提取提取紋理。高層取得小物體上的特徵例如眼睛、輪子。
@@ -100,7 +89,7 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 - 多層非線性網路層很難去擬合橫等映射。但殘差學習是可以。
 - 後面的網路只需要擬合前面網路的輸出與真實答案之間的殘差。
 - shortcut connection 並無額外的參數和計算複雜度。
-## 3 網路架構
+#### 3 網路架構
 - /2 表示使用 stride=2 的卷積進行下採樣，取代 VGG 的池化，feature map 尺寸減半，通道數翻倍。
 - 最後一層採 GAP 進行一千分類。取代原本 VGG 的全連接層。
 - 實線表示相同維度直接加，虛線表示出現下採樣，必須小技巧讓 feature map 維度一致(論文提出三種實驗方法)。
@@ -110,7 +99,7 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 - 在每個卷基層後面以及激發函數前都添加 batch normalization。batch normalization 於 BN-Inception 被提出。
 - 訓練設定： SGD 優化器、mini-batch 256、learning rate 0.1 遇到瓶頸時/10、60萬 epoch、 decay 0.0001、momentum 0.9、不採用 dropout。
 - 在打比賽的時候採用遵循 AlexNet 10-crop testing，以及多尺度裁減與融合(fully-convolutional form) {224, 256, 384, 640} 最終結果為多此度的圖像預測結果求平均。
-## 4 實驗
+#### 4 實驗
 - ImageNet 2012 classification dataset 1000 classes 總共有大約 128 萬張訓練圖像、50,000 張驗證圖像和 100,000 張測試圖像。
 - 使用再多迭代並不能解決網路退化問題：“數據本身決定了該類問題的上限，而模型只是逼近這個上限”、“模型結構本身決定了模型上限，而訓練條參只是在逼近這個上限”。
 - 論文中 RestNet 18 與 34 採用 (A) 方案：zero padding 進行下採樣 stride=2。沒有額外的參數量。
@@ -130,3 +119,10 @@ https://meetonfriday.com/posts/7c0020de/ 白話介紹
 - 建構 1202層的殘差網路，雖然能收斂也沒有優化困難問題，但是測試集也沒有 110 層好。模型太深參數過多，表示空間過於大對小數據而言沒有必要。因此過擬合。
 - 殘差網路在目標檢測 PASCAL voc 和微軟 coco 資料集都有不錯成績
 - Dropout 在 AlexNet 被提出
+
+
+## Reference
+- [1] Kaiming He et all.,"[Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)", CVPR 2016.
+- [[白話介紹]Deep Residual Learning for Image Recognition](https://meetonfriday.com/posts/7c0020de/)
+- [論文精闢解說](https://www.bilibili.com/video/BV1vb4y1k7BV?p=4&spm_id_from=333.788.b_636f6d6d656e74.54)
+- [ResNet 變體](https://www.bilibili.com/video/BV1PQ4y167hu?spm_id_from=333.999.0.0)
