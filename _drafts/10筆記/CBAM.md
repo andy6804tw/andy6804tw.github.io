@@ -61,3 +61,5 @@ CBAM: Convolutional Block Attention Module 從論文名字我們可以發現作�
 我們可以透過 GradCAM 來比較各模型的解釋能力。其中 CBAM 更能抓住目標物的整個物體。
 
 ![](https://i.imgur.com/ho6mkN1.png)
+
+
