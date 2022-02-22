@@ -81,6 +81,12 @@ Feature map 的輸出大小與 Kernel size、Padding、Strides 有關。通常Pa
 - 2x2 的 Pooling 會讓圖小一半。
 - 使用 Relu 函數去掉負值，更能淬煉出物體的形狀
 
+## 筆記
+- 理想中影像是一個二維的連續函數
+- 一張數位影像是一個 8bit
+- 卷積核就像對影像做加權運算
+- 透過卷積從低階輸入的能量萃取高階語意的資訊
+
 ## Reference
 - [卷積神經網路(Convolutional neural network, CNN) ](https://chih-sheng-huang821.medium.com/卷積神經網路-convolutional-neural-network-cnn-卷積運算-池化運算-856330c2b703)
 - [深度學習：CNN原理](https://cinnamonaitaiwan.medium.com/深度學習-cnn原理-keras實現-432fd9ea4935)
