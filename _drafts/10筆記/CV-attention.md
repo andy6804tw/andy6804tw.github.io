@@ -154,3 +154,21 @@ Attention 其實更關注特徵彼此之間的相互關係。在早期的圖像�
 生產部->拼產量
 業務->拼出貨量(交期)
 生產部門找交集生產排程
+
+# 製程參數最佳化
+
+Engineering Optimization:
+- Paramter Optimization (Doe)
+- R2R Control (虛擬量測)
+
+透過 ML 方法搜集資料訓練一個目標函數
+
+
+![](https://i.imgur.com/Rta8qVG.png)
+
+## 實驗設計 Design of Experiment
+透過較少的實驗次數、與時間有效率的方式找到因子間的相關性。
+
+是抽樣出來的結果
+
+p12. 全因子實驗 => 最佳組合 繪圖
