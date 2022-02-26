@@ -26,11 +26,11 @@ https://www.youtube.com/watch?v=528zJrGE1gA
 2. 開啟編輯(位置縮放選轉) 等比縮放要打勾 
 3. 使用合成快門角度關閉
 4. 快門角度360
-![](https://i.imgur.com/rOVzdOV.png)
+![](https://i.imgur.com/rOVzdOV.png)
 
 # 頻閃特效
 https://www.youtube.com/watch?v=sk5jk6_LrPM
-1. 效果->視頻效果->風格化->閃光燈
+1. 效果->視頻效果->風格化->閃光燈
 ![](https://i.imgur.com/UeWF5Ri.png)
 ```
 1. 0.05 0.22
