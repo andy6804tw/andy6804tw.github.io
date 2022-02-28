@@ -58,7 +58,7 @@ sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-po
 
 var http = require('http');
 http.createServer(function (req, res) {
-  res.end('Enter api http://api.1010code.tk/  PORT 8001');
+  res.end('Enter api http://api1.1010code.tk/  PORT 8001');
 }).listen(8001);
 ```
 
@@ -75,7 +75,7 @@ forever start ./api/index.js
 
 var http = require('http');
 http.createServer(function (req, res) {
-  res.end('Enter api http://api.1010code.tk/  PORT 8002');
+  res.end('Enter api http://api2.1010code.tk/  PORT 8002');
 }).listen(8002);
 ```
 
