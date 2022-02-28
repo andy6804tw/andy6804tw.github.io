@@ -7,7 +7,7 @@ keywords: Nginx
 ---
 
 ## 前言
-Nginx 是一個免費開源且穩定高效的網頁伺服器，擁有反向代理以及負載平衡的功能，經常作為伺服器架站的統一入口。
+Nginx 是一個免費開源且穩定高效的網頁伺服器，擁有反向代理以及負載平衡的功能，經常作為伺服器架站的統一入口。至於正向代理和反向代理的區別，很推薦各位可以先來看這篇[文章](https://kknews.cc/zh-tw/tech/k66p2gb.html)，裡面清楚解釋正向代理和反向代理。
 
 ![](https://i.imgur.com/ZR6sWbJ.png)
 > Image [from](https://medium.com/starbugs/web-server-nginx-2-bc41c6268646)
@@ -244,3 +244,9 @@ sudo nginx -t
 # 重啟
 sudo nginx -s reload
 ```
+
+
+## 相關資源
+- [使用Ubuntu Server架設Nginx伺服器](https://magiclen.org/ubuntu-server-nginx/)
+- [俄羅斯不愧是戰鬥民族：nginx](https://ithelp.ithome.com.tw/articles/10188498)
+- [Nginxconfig：自動產生 Nginx 設定檔的線上工具](https://noob.tw/nginxconfig/)
