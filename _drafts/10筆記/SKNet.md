@@ -1,12 +1,11 @@
 ## 前言
-SKNet 可以說是 SENet 的孿生兄弟。首先 SENet 採用通道注意力機制，一張特徵圖有多少個通道(c)就分成多少的 1*c 向量(每張圖透過全局平均池化)，然後通過注意力機制，使得每個通道的重要性程度不一樣。然而 SKNet 主要是是結合 Inception 和 ResNeXt 的優點並加入了 SENet 對於通道注意力的想法。間單來說此論文提出的 SK block 是在 ResNeXt block 的基礎之上，並加上多分支與注意力機制。
-
+SKNet 可以說是 SENet 的孿生兄弟。首先 SENet 採用通道注意力機制，一張特徵圖有多少個通道(c)就分成多少的 1*c 向量(每張圖透過全局平均池化)，然後通過注意力機制，使得每個通道的重要性程度不一樣。然而 SKNet 主要是是結合 Inception 和 ResNeXt 的優點並加入了 SENet 對於通道注意力的想法。間單來說此論文提出的 SK block 是在 ResNeXt block 的基礎之上，並加上多分支與注意力機制。SKNet 可以說是啟發自皮質神經元根據不同的刺激可動態調節其自身的感受野。
 
 - 論文： [Selective Kernel Networks](https://arxiv.org/abs/1903.06586) (CVPR 2019)
 - 程式碼： [GitHub](https://github.com/implus/SKNet)
 
 ## 解析 Selective Kernel Unit（SK block）
-SKNet 在一篇電腦視覺注意力機制總結的[論文](https://arxiv.org/abs/2111.07624)中被歸類為分支注意力機制(Branch Attention)的應用。SKNet 的目的是讓神經網路自適應調整感受野，動態的去重組這些特徵，並不像 Inception 一樣去拼接很多特徵圖。一個 SK block 網路主要分成三個步驟：Split、Fuse 、Select。
+SKNet 在一篇電腦視覺注意力機制總結的[論文](https://arxiv.org/abs/2111.07624)中被歸類為分支注意力機制(Branch Attention)的應用。目的是讓神經網路自適應調整感受野，動態的去重組這些特徵，並不像 Inception 一樣去拼接很多特徵圖。一個 SK block 網路主要分成三個步驟：Split、Fuse 、Select。
 
 ![](https://i.imgur.com/m3ODi9x.png)
 
@@ -44,3 +43,4 @@ SKNet 在一篇電腦視覺注意力機制總結的[論文](https://arxiv.org/ab
 
 ## Reference
 - [（SKNet）Selective Kernel Network 解析](https://zhuanlan.zhihu.com/p/357206967)
+- [SK-Net (Selective Kernel Networks) 架構介紹](https://liaowc.github.io/blog/SKNet-structure/)
