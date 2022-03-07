@@ -9,6 +9,10 @@
 - Semantic Segmentation: 是指將圖像中的所有像素點進行分類。
 - Instance Segmentation: 是物件偵測和語義分割的結合。
 
+本篇要討論的論文全名為 Fully Convolutional Networks for Semantic Segmentation，發表在2015的CVPR上。
+
+- 論文：https://arxiv.org/abs/1411.4038
+
 ## FCN 主要解決什麼問題？
 我們都知道在深度學習中卷積神經網路的出現，使得我們在影像識別的應用上達到非常強大的效果。若以 Semantic segmentation 來看的確也是一個分類的問題，但是它是以一張圖中每個像素為單位進行分類。若我們將每一個 pixel 都依序丟入一個訓練好的 CNN 分類器雖然也能達到想要的效果，但是此做法非常沒效率。
 
@@ -23,7 +27,7 @@
 ![](https://i.imgur.com/lYXrnw8.png)
 
 ## Fully Convolutional Networks (FCN)
-因為模型網路中每一層都是卷積層，故稱為全卷積網路。全卷積神經網路主要使用了下面兩個技巧：
+因為模型網路中每一層都是卷積層，故稱為全卷積神經網路(FCN)。FCN 在最後幾層網路用卷積層代替傳統的全連接層，使得輸出也可以變成二維形式，這一做法使得輸出中保留了空間訊息，對於語義分割這種任務來說還是非常有效的，同時還透過反卷積解決了輸入圖片尺寸的問題。全卷積神經網路主要使用了下面兩個技巧：
 
 1. Downsampling (Pooling 與 strided convolution)
 2. Upsampling (Unpooling 與 Transposed convolution)
@@ -33,11 +37,11 @@
 
 ![](https://i.imgur.com/Q9cFPxZ.png)
 
-以下是作者提出的 FCN 架構，首先輸入一張影像並透過 pooling 或是 stride convolution 將解析度逐漸變低。假設在第五個 block 輸出的解析度只有原先影像的 1/32。先前有提到 deconvolution 可以提高解析度。因此第一版 FCN-32s 做法是直接將 block5 的輸出做 deconvolution 得到原來大小，但效果有限預測出來的邊界模糊。那個該如何解決這個問題就是 FCN 這篇論文的貢獻。如果我們將 block5 的 1/32 影像先 upsampled 變成兩倍，此時的解析度跟 block4 一樣了。當一樣的解析度隨然可能會有不同的意義，但是它指的位置都是類似的。因此這裡做一個假設將兩個解析度一樣的圖作加總，之後再做 16 倍的 upsampled 透過 deconvolution 得到的結果為 FCN-16s。依此類推我們可以用同樣方法得到更精確的 FCN-8s 也是最終論文 FCN  的版本，用了兩次 skip connection 藉由 pool3 和 pool4 的特徵圖再經過八倍的 deconvolution 得到一個較好的高解析度輸出。
+以下是作者提出的 FCN 架構，首先輸入一張影像並透過 pooling 或是 stride convolution 將解析度逐漸變低。假設在第五個 block 輸出的解析度只有原先影像的 1/32。先前有提到 deconvolution 可以提高解析度。因此第一版 FCN-32s 做法是直接將 block5 的輸出做 deconvolution 得到原來大小，但效果有限預測出來的邊界模糊。那個該如何解決這個問題就是 FCN 這篇論文的貢獻。如果我們將 block5 的 1/32 影像先 upsampled 變成兩倍，此時的解析度跟 block4 一樣了。當一樣的解析度隨然可能會有不同的意義，但是它指的位置都是類似的。因此這裡做一個假設將兩個解析度一樣的圖作加總，之後再做 16 倍的 upsampled 透過 deconvolution 得到的結果為 FCN-16s。依此類推我們可以用同樣方法得到更精確的 FCN-8s 也是最終論文 FCN 的版本，用了兩次 skip connection 藉由 pool3 和 pool4 的特徵圖再經過八倍的 deconvolution 得到一個較好的高解析度輸出。
 
 ![](https://i.imgur.com/4ETid3Z.png)
 
-個人認為 FCN 這篇論文的主要貢獻是使用反捲積並從前幾層的池化和卷積資訊結合，結合歷史資訊填補我們缺失的資料。
+個人認為 FCN 這篇論文的主要貢獻是使用反卷積並從前幾層的池化和卷積資訊結合，結合歷史資訊填補我們缺失的資料。
 
 ![](https://i.imgur.com/buZPxuZ.png)
 
