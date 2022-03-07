@@ -36,3 +36,10 @@ FCN中使用的是逐點相加的方式 add()，而U-Net中是按 channel 維度
 
 - U-Net與FCN幾乎都是同一時間出現。想問老師U-Net是受到FCN啟發而出現的架構，還是兩者剛好都是在同一年受到先前的反卷積啟發呢。
 
+- Mask R-CNN 一開始的 Feature extractor 採用 RestNet 是 pretrain 好的模型嗎？真實在訓練時要把 trainable 打開或是只開後面幾層呢？
+
+- RoIAlign 簡報中的例子假設在 2*2 情況下一個 cell 有四個透過雙線性內差法得到的點。接著再透過 max pooling 保留一個點嗎？想請教 RoIAlign 最後如何採用 max pooling 保留具有代表性的點，是否能舉簡單例子。
+
+- FCN 跟 U-net 在 real time 上的效能比較。
+
+- Mask R-CNN 效能大約 5fps 請問是在什麼規格下呢？像是影像大小、GPU 幾顆。
