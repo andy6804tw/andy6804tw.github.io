@@ -34,7 +34,7 @@ FCN中使用的是逐點相加的方式 add()，而U-Net中是按 channel 維度
 ## QA
 - 關於 CNN 若每一層卷積的 kernel size 都等於原圖 H*W 是不是就等同於全連接層網路？
 
-- CNN中的convolution單元每次只關注鄰域kernel size 的區域，就算後期感受野越來越大，終究還是局部區域的運算。這一點該如何解決？ 
+- CNN中的convolution單元每次只關注鄰域kernel size 的區域，就算後期感受野越來越大，終究還是局部區域的運算。這一點該如何解決？採用注意力機制可以解決這個問題嗎
 
 - FCN 有使用到 Unpooling 技巧嗎還是只有採用反卷機進行 upsampled？FCN 論文圖中架構是基於 VGG16 嗎？
 
