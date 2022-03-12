@@ -44,3 +44,4 @@ SKNet 在一篇電腦視覺注意力機制總結的[論文](https://arxiv.org/ab
 ## Reference
 - [（SKNet）Selective Kernel Network 解析](https://zhuanlan.zhihu.com/p/357206967)
 - [SK-Net (Selective Kernel Networks) 架構介紹](https://liaowc.github.io/blog/SKNet-structure/)
+- [ResNeXt, SENet, SKNet -> ResNeSt](https://cloud.videojj.com/bbs/topic/29/resnext-senet-sknet-resnest)

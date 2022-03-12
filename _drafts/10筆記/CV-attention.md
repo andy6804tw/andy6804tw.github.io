@@ -5,18 +5,29 @@
 論文首先將基於注意力的模型在計算機視覺領域中的發展歷程大致歸為了四個階段：
 
 1. 將循環神經網路與注意力機制相結合。代表方法為 [RAM](https://www.cnblogs.com/wangxiaocvpr/p/5537454.html)。
-2. 透過注意力機制將原始圖片中的空間訊息變換到另一個空間中並保留了關鍵訊息。代表性方法為 STN。
-3. 使用通道注意力網路自適應地採樣重要特徵。代表方法為 SENet。
-4. 自注意力機制
+2. 透過注意力機制將原始圖片中的空間訊息變換到另一個空間中並保留了關鍵訊息，代表性方法為 STN。
+3. 使用通道注意力網路自適應地採樣重要特徵，代表方法為 SENet。
+4. 自注意力機制。
 
 ![](https://i.imgur.com/nj2bZgD.png)
 
-
 ## 為什麼需要視覺注意力？
-電腦視覺中的注意力機制的基本概念就是讓機器學會注意力，並能夠忽略無關的訊息從而關注重點訊息。至於為什麼要忽略無關的訊息呢？
+注意力機制能夠靈活捕捉全局和局部訊息之間的關係，它的目的就是讓模型學習到需要關注的重點 。假設要辨識一隻狗，模型必須對物體投入更大的權重，突出顯著有用特徵，並且抑制和忽略無關特徵。
+
+![](https://i.imgur.com/h8ZzjC7.png)
+
+然而電腦視覺中的注意力機制的基本概念就是讓機器學會注意力，並能夠忽略無關的訊息從而關注重點訊息。至於為什麼要忽略無關的訊息呢？首先我們先來談談 CNN 的優點：
+
+1. 結合影像特性採用影像區域相似、平滑變化的特性於模型架構中。
+2. 同樣的 pattern 可以使用同一組 filter 搜尋，因此可以共用權重並減少需要用的參數。
+3. 一張高解析度的圖，經過 subsampling 可以變成較小的圖，但是圖中的資訊不會受到影響。所以可以透過 subsampling 來減少訓練神經網路時需使用到參數數量。
+
+但是卷積神經網路還是有一些明顯的缺點，像是卷積出來的訊息還是比較局部。我們以 1D CNN 為例，下圖是一個一維的輸入，在一維卷積的情況下輸入三層的卷積層，其實最終的輸出點也只有五個連網的感受野 (receptive field)。我們可以從這個例子中知道卷積網路是有局部性的。這樣一個特性就限制了網路去學習資料間彼此的關係。
+
+![](https://i.imgur.com/Jzc2aZY.png)
 
 ## 模型結構簡介 (注意力分類)
-就注意力關注的域來分，大致可以分成以下五種：
+就注意力關注的域來分，大致可以分成以下六種：
 
 - 通道注意力 (Channel Attention)
 - 空間注意力 (Spatial Attention)
@@ -25,7 +36,7 @@
 - 通道空間注意力 (Channel & Spatial Attention)
 - 時空注意力 (Spatial & Temporal Attention)
 
-![](https://i.imgur.com/TeJD9QY.png)
+![](https://i.imgur.com/uhRbvRA.png)
 
 ### 1. 通道注意力 (Channel Attention)
 在卷積神經網絡中，每一張圖片初始會由 (R，G，B)三通道表示出來，之後經過不同的捲積核之後，每一個通道又會生成新的特徵圖 (feature map)，比如圖片特徵的每個通道使用16核卷積，就會產生16個新通道的矩陣 (H,W,16)，其中 H,W 分別表示圖片特徵的高度和寬度。每個通道的特徵其實就表示該圖片在不同卷積核上的分量，而這裡面用卷積核的捲積類似於信號做了傅立葉變換，從而能夠將這個特徵一個通道的訊息給分解成16個卷積核上的信號分量。既然每個信號都可以被分解成核函數上的分量，產生的新的16個通道對於關鍵訊息的貢獻肯定有多有少，如果我們給每個通道上的信號都增加一個權重，來代表該通道與關鍵訊息的相關度的話，這個權重越大，則表示相關度越高，也就是我們越需要去注意的通道。
@@ -41,6 +52,8 @@ SENet 就是在通道引入注意力機制 (SE block)，並且可以再多種經
 ![](https://i.imgur.com/uHcxPV8.png)
 
 此中方法也有存在不足的地方，例如像是在 squeeze 模塊中採用全局平均池化過於簡單，無法捕捉複雜的全局訊息。另外在 excitation 模塊中使用全連接層增加了模型複雜性。因此後續的研究中有為此方法做進一步的改善，例如 GSoP-Net 提高 squeeze 模塊的輸出，或是 ECANet 通過改進 excitation 模塊來降低模型的複雜性。又或是同時改善兩者的 SRM。
+
+> 完整論文介紹可以參考：[[CNN 經典模型] 通道域注意力機制 (SENet)](https://medium.com/@andy6804tw/cnn-%E7%B6%93%E5%85%B8%E6%A8%A1%E5%9E%8B-%E9%80%9A%E9%81%93%E5%9F%9F%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%A9%9F%E5%88%B6-senet-a1df1cb9943d)
 
 #### 1.2 GSop-Net
 Global Second-order Pooling Convolutional Networks 發表於 CVPR 2019，透過 GSoP 可以充分利用到圖像中的二階統計量以捕捉更多的訊息量。與 SEnet 中的一階注意力機制最大的區別是，本方法提出了2維平均池化透過協方差矩陣差來計算通道之間的關係。
@@ -97,30 +110,59 @@ SENet 的原作者隔年發表了 GENet (Exploiting Feature Context in Convoluti
 ### 2.4 Non-local
 Non-local Neural Networks 發表於 CVPR 2018，是第一篇將自注意力機制引入圖像領域的研究。文中提出了經典的 Non-Local 模塊，通過 Self-Attention 機制對全局上進行建模，有效地捕獲長距離的特徵依賴。後續許多基於自注意力的方法都是根據 Non-Local 來改進的。
 
-![](https://i.imgur.com/WcPiGEK.png)
+![](https://i.imgur.com/CRDkUVi.png)
 
-空間注意力不同方法實例比較：
+空間注意力的各種模型比較：
 ![](https://i.imgur.com/P1eFSa8.png)
 
-### 3. 時間注意力 (Temporal Attention)
-時間注意力可以被看作是一種動態的時間選擇機制，決定了何時進行注意，因此通常用於影片處理。
+### 3. 通道空間注意力 (Channel & Spatial Attention)
+空間域的注意力是忽略了通道域中的訊息，將每個通道中的圖片特徵同等處理，這種做法會將空間域變換方法局限在原始圖片特徵提取階段，應用在神經網絡層其他層的可解釋性不強。而通道域的注意力是對一個通道內的訊息直接全局平均池化，而忽略每一個通道內的局部訊息，這種做法其實也是比較暴力的行為。所以結合兩種思路，就可以設計出混合域的注意力機制模型。
 
-![](https://i.imgur.com/scaevKa.png)
+![](https://i.imgur.com/3BafqVa.png)
+#### 3.1 CBAM
+CBAM: Convolutional Block Attention Module 從論文名字我們可以發現作者提出的是一個卷積模塊，這意味著他可以被引用在任何網路架構中。然而這個模塊可以接收任一層卷積神經網路的輸出，並依序經過通道注意力模塊以及空間注意力模塊。
 
+![](https://miro.medium.com/max/1400/0*L5wtE2IT7xZSk9_d.png)
+
+> 完整論文介紹可以參考：[通道空間注意力： CBAM](https://medium.com/@andy6804tw/%E9%80%9A%E9%81%93%E7%A9%BA%E9%96%93%E6%B3%A8%E6%84%8F%E5%8A%9B-cbam-805deb9ebe1c)
 ### 4. 分支注意力 (Branch Attention)
 分支注意可以被看作是一種動態的分支選擇機制，通過多分支結構決定去注意什麼。
 
 ![](https://i.imgur.com/LHpkIBI.png)
 
-### 5. 通道空間注意力 (Channel & Spatial Attention)
-空間域的注意力是忽略了通道域中的訊息，將每個通道中的圖片特徵同等處理，這種做法會將空間域變換方法局限在原始圖片特徵提取階段，應用在神經網絡層其他層的可解釋性不強。而通道域的注意力是對一個通道內的訊息直接全局平均池化，而忽略每一個通道內的局部訊息，這種做法其實也是比較暴力的行為。所以結合兩種思路，就可以設計出混合域的注意力機制模型。
+#### 4.1 Highway Network
+最具代表性的方法分別是 CVPR 2019 提出來的 SKNet (Selective Kernel Networks) 以及 ResNeSt。Highway Network 顧名思義就是有多條分支網路進行卷積，通過不同大小的卷積核形成多個分支。最後再透過注意力分數的計算決定要融合 Feature maps 的比例。
 
-![](https://i.imgur.com/3BafqVa.png)
+![](https://i.imgur.com/INAlTxN.png)
+
+#### 4.2 Dynamic Network
+Dynamic Network 會比較難訓練，因為他還要考慮到每個卷積核的注意力訊息。最典型的例子就是動態卷積神經網路 (Dynamic convolution layer)。其概念是在一個卷積層中用到了多個卷積核，並且使用注意力機制去結合不同卷積核的訊息，提取到更加豐富的特徵。
+
+![](https://i.imgur.com/DZBxy3h.png)
+
+
+### 5. 時間注意力 (Temporal Attention)
+時間注意力可以被看作是一種動態的時間選擇機制，決定了何時進行注意，因此通常用於影片處理。
+
+![](https://i.imgur.com/scaevKa.png)
+
+![](https://i.imgur.com/Yyh5507.png)
 
 ### 6. 時空注意力 (Spatial & Temporal Attention)
 時空注意力機制可以自適應地選擇重要區域和關鍵幀。
 
 ![](https://i.imgur.com/iAqMVxO.png)
+
+
+## 總結
+
+- 通道注意力對應 what to attend: 它關注於選擇重要的通道。
+- 空間注意力對應 where to attend: 它關注於選擇重要的特徵圖。
+- 時間注意力對應 when to attend: 它關注於選擇重要的 Frame。
+- 分支注意力對應 which to attend: 它關注於選擇重要的感受野。
+
+
+![](https://i.imgur.com/o0jZ1x0.png)
 
 ## Transformer 為何比 CNN 好？
 Transformer 在 NLP 中取得成功，其中 attention 是重要的關鍵元素。更重要的是它丟棄了原先 RNN seq2seq 的架構，並採用 self-attention 在 seq2seq 架構上學習。從最終的訓練結果來看 Transformer 對於大數據的適應能力非常強。這一點非常重要，因為當電腦視覺特別是 CNN 發展到一定階段會遇到一些瓶頸。這些瓶頸來至於訓練的 data scale，因為現在很多 CNN 的模型都是採用於監督式學習。當 CNN 模型採用大量的資料學習以後，我們會發現模型會對資料的適應能力沒有想像中的好。此時 Transformer 的橫空出世將 NLP 任務上得到的經驗套用在電腦視覺領域上面並有不錯的效果。我們能明顯看到隨著數據的增加他的效能可以繼續的成長。至於為何 Transformer 這麼強大呢？其中關鍵因素是它的每個注意力分數是可以動態的，而 CNN 很多學習的參數一但學完以後他就是 fixed 住不動了。
