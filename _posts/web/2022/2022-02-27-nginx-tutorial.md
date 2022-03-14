@@ -250,3 +250,4 @@ sudo nginx -s reload
 - [使用Ubuntu Server架設Nginx伺服器](https://magiclen.org/ubuntu-server-nginx/)
 - [俄羅斯不愧是戰鬥民族：nginx](https://ithelp.ithome.com.tw/articles/10188498)
 - [Nginxconfig：自動產生 Nginx 設定檔的線上工具](https://noob.tw/nginxconfig/)
+- [Serving multiple proxy endpoints under location in Nginx](https://serverfault.com/questions/650117/serving-multiple-proxy-endpoints-under-location-in-nginx)
