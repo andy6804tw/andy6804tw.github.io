@@ -35,6 +35,20 @@ conda install packagename
 pip install packagename
 ```
 
+## 安裝 Jupyter Notebook
+若想在虛擬環境使用 Notebook 可以在指定環境下安裝。
+
+```
+conda install -n test ipykernel --update-deps --force-reinstall
+python -m pip install jupyterlab
+```
+
+安裝完成後即可在終端機輸入以下指令開啟 Jupyter Lab。
+
+```
+jupyter lab
+```
+
 ## 其他常用指令
 
 ```
