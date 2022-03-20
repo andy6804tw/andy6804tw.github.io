@@ -77,6 +77,12 @@ ps -ef | grep gunicorn
 sudo kill -9 12705
 ```
 
+或是使用以下指令停止所有 gunicorn 背景。
+
+```
+pkill gunicorn
+```
+
 ### 2. 重新啟動VM
 這種方法最簡單直接重新開機即可。
 
