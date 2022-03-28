@@ -94,3 +94,6 @@ Feature map 的輸出大小與 Kernel size、Padding、Strides 有關。通常Pa
 - [著名CNN模型](https://docs.google.com/presentation/d/1AlZkqPa2FylxKsYs2mcz0tpJdgP0Lbno6bYM_fA4UzM/edit#slide=id.p1)
 
 strides=2, pool=2 map 大小減半
+
+
+rmsle 會將大誤差放小
