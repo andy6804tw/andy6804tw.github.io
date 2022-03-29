@@ -89,7 +89,7 @@ OSError: SavedModel file does not exist at: ./save/model/s/{saved_model.pbtxt|sa
 myModel = keras.models.load_model('./weights')
 ```
 ### 問題2
-下面錯誤指出，保存的模型裡並沒有保存任何參數設置，例如optimizer的選擇、learning rate ...等。
+下面錯誤指出，保存的模型裡並沒有保存任何參數設置，例如 optimizer 的選擇、learning rate ...等。
 
 ```
 WARNING:tensorflow:No training configuration found in save file, so the model was *not* compiled. Compile it manually.
