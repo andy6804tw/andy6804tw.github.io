@@ -62,6 +62,9 @@ model.save('./checkpoints/boston_model.pb')
 
 ![](/images/posts/AI/2021/img1100329-2.png)
 
+> model.save 會保存網絡結構，可以直接載入並預測。
+> model.saveweights 只保存權重，需要重新構建網絡，才能加載權重。
+
 ## 載入模型
 #### HDF5 檔
 ```py
@@ -72,5 +75,32 @@ myModel = keras.models.load_model('./weights/boston_model.h5')
 ```py
 myModel = keras.models.load_model('./checkpoints/boston_model.pb')
 ```
+
+## 故障排除
+### 問題1
+若出現下面錯誤訊息。有些模式下給予儲存的資料夾路徑就可以了，不一定要指向到該檔案。
+
+```
+OSError: SavedModel file does not exist at: ./save/model/s/{saved_model.pbtxt|saved_model.pb}
+```
+
+```py
+# 解決辦法
+myModel = keras.models.load_model('./weights')
+```
+### 問題2
+下面錯誤指出，保存的模型裡並沒有保存任何參數設置，例如optimizer的選擇、learning rate ...等。
+
+```
+WARNING:tensorflow:No training configuration found in save file, so the model was *not* compiled. Compile it manually.
+```
+
+由於推論過程並不需要進行訓練，因此載入模型時加上 `compile=False` 即可。
+
+```py
+# 解決辦法
+myModel = keras.models.load_model('./weights', compile=False)
+```
+
 
 完整 Code 可以從我的 [GitHub](https://github.com/1010code/tensorflow-save-model) 中取得！
