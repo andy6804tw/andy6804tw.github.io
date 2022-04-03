@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Python '
+title: 'Python Imageio 影像處理 (輸出mp4格式)'
 categories: 'Python'
 description: 'Loading and saving mp4 video file with imageio library'
 keywords: 
