@@ -68,7 +68,24 @@ aList.extend(bList)
 print("Extended List : ", aList) # Extended List :  [123, 'xyz', 'zara', 'abc', 123, 2009, 'manni']
 ```
 
-## Swap Two Variables
+## 其他
+
+### 條件(三元) 運算子
+條件運算子常常被用來當作 if...else 的簡潔寫法。在一個條件後面會跟著一個問號 (?)，如果條件是 True，在冒號(:)前的表達式會被執行，如果條件是 False，在冒號後面的表達式會被執行。在 C/C++ 裡以 ?: (問號冒號)表示。在 python 中則以 x if y else z 表示。
+
+
+```py
+x = True if 'a' == 'a' else False
+#意思同於
+if 'a' == 'a':
+    x = True
+else:
+    x = False
+```
+
+
+
+### Swap Two Variables
 
 ```py
 # 方法一
