@@ -53,3 +53,6 @@
 - 人工智慧小聚演講
 - 物件偵測專班
 - 智慧製造專班
+https://tsmc.taleo.net/careersection/tsmc_exti/jobdetail.ftl?job=21000032&lang=zh_TW
+
+Hello, thank you for taking the time to read, my name is Tsai, Yi-lin. Currently works as a part-time AI engineer in Taiwan AI Academy. I'm interesting in technology, also have my own blogs to share hands-on teaching, and like participate in technical meetup. In addition, I am a full stack engineer. In my spare time, I will build a side project to enhance my program skills. My motto is that “Coding is My Life” likes to explore the world from the perspective of information technology. Life is closely related to programs and technology.
