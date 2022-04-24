@@ -6,7 +6,7 @@ description: 'Python basic tip about String'
 keywords: 
 ---
 
-# 前言
+## 前言
 Python 字串中有提供許多的內建方法呼叫。本篇文章將整理在 Python 語言中文字處理的一些小技巧。
 
 ## count() 計算字母出現次數
