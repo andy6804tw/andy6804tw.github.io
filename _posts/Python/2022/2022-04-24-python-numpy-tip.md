@@ -113,4 +113,5 @@ resultant array [[ 1  2  1  2  3]
  [ 1  2  9  6 10]]
  ```
 
- ref: [Python | Ways to add row/columns in numpy array](https://www.geeksforgeeks.org/python-ways-to-add-row-columns-in-numpy-array/)
+ - ref: [Python | Ways to add row/columns in numpy array](https://www.geeksforgeeks.org/python-ways-to-add-row-columns-in-numpy-array/)
+
