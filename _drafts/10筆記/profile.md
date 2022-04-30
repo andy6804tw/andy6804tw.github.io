@@ -21,3 +21,9 @@ I am an energetic and adaptable Software Engineer.Who is happy to figure out pro
 - https://interview.tw/i/5c5d3598db461026a55d9652
 
 
+delta https://blog.interview.tw/article/2751
+
+新人是否有職前訓練?
+一般上班的時間是多久?
+
+https://profile.104.com.tw/5bJckGiI2JW/about
