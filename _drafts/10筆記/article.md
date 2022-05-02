@@ -23,4 +23,4 @@
 
 ## 工作
 - [一線大廠存活守則](https://www.businessweekly.com.tw/careers/blog/3007024)
-
+- [台灣的軟體工程師都跑哪裡去了？](https://www.bnext.com.tw/article/45449/where-are-those-engineers)
