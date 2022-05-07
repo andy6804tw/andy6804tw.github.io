@@ -24,3 +24,5 @@ I am an energetic and adaptable Software Engineer.Who is happy to figure out pro
 
 delta https://blog.interview.tw/article/2751
 
+http://master.get.com.tw/file/Paper/Transfer/MDU/102/Logic.pdf
+https://wikiteamwork.fandom.com/zh/wiki/%E8%AA%9E%E6%96%87%E9%82%8F%E8%BC%AF%E6%8E%A8%E7%90%86%E6%B8%AC%E9%A9%97%E8%A9%A6%E9%A1%8C%E8%8D%89%E7%A8%BF
