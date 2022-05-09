@@ -69,6 +69,12 @@ Hello, thank you for taking the time to read, my name is Tsai, Yi-lin. Currently
 - 從布號與預計染色的色水編號(LABDIP)，提供染指派染機的優先順序建議。
 
 - 機群編號的依據？要如何去分配說機群D6 要幾台？
+- 相同的工單參數都一樣，不同的機台會產生不同結果
+- 製程卡資訊 USERDEFINECOL04、USERDEFINECOL38 整欄不見了
+- 染機資訊與染機運作資訊是透過染機名稱(EQUIPMENT)，但是兩者名字有差異
+    - 染機資訊的染機名稱=>DYE2116
+    - 染機運作資訊的染機名稱=>2116
+- 秤藥單噴嘴(DATA5)資料顯示有問題，格式跑掉變成月份
 
 ## 胚布品質分析(織布廠)
 - 胚布品質人工判斷判斷的標準不一，每一個機台都有一個人做檢驗
