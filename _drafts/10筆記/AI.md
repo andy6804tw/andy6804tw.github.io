@@ -17,42 +17,6 @@
 7. 中國在數據搜集上佔有優勢
 8. 
 
-## Industry Projects
-- 光電業
-    - FAB 機台環境濕度控制 (檢驗與測量預測)
-    - 液晶面板 RGB 覆蓋率預測 (檢驗與測量預測)
-    - 抽水馬達健康檢測 (預測性維護)
-- 運輸業
-    - 大眾運輸系統乘客安全預警 (行為偵測)
-    - 列車車廂振動評估 (預測性維護)
-- 醫療
-    - 處方簽藥品排斥偵測 (自然語言處理)
-    - 醫藥健康英文資料自動翻譯 (自然語言處理)
-- 製造業
-    - 焚化爐控制最適化 (設備參數最佳組合)
-    - 鍋爐燃燒效率最佳化 (設備參數最佳組合)
-    - 設備劣化預警分析 (設備異常預測)
-    - 膠粒粒徑辨識與統計 (瑕疵檢測與統計)
-    - DPC 產品中 PS 含量預測 (檢驗與測量預測)
-    - 以人工智慧優化蒸餾塔效能 (檢驗與測量預測)
-    - 無塵室作業 SOP 檢測 (動作偵測)
-- 其他
-    - PISA學生學習評量分析 (學生能力分析)
-    - 煙霧,火焰智能偵測 (環境偵測)
-    - 腳踏車行駛安全偵測 (行為預測)
-    - 鳥類聲紋辨識 (信號處理)
-    - 房價預測 (價格預測)
-    - 電商推薦系統 (推薦系統)
-
-
-領域: Data Analysis、Machine Learning、Deep Learning、CNN、GAN、RNN、物件偵測、智慧製造
-- 技術實作 AI 專班課程 TA
-- 經理人產業 AI 專班案例演講
-- 場域專案 & 業界專題帶領(20+)
-    - 瑕疵檢測、生產排程、供應鏈管理、製程參數優化、智慧醫療...等
-- 人工智慧小聚演講
-- 物件偵測專班
-- 智慧製造專班
 
 
 Hello, thank you for taking the time to read, my name is Tsai, Yi-lin. Currently works as a part-time AI engineer in Taiwan AI Academy. I'm interesting in technology, also have my own blogs to share hands-on teaching, and like participate in technical meetup. In addition, I am a full stack engineer. In my spare time, I will build a side project to enhance my program skills. My motto is that “Coding is My Life” likes to explore the world from the perspective of information technology. Life is closely related to programs and technology.
@@ -75,8 +39,8 @@ Hello, thank you for taking the time to read, my name is Tsai, Yi-lin. Currently
     - 染機資訊的染機名稱=>DYE2116
     - 染機運作資訊的染機名稱=>2116
 - 秤藥單噴嘴(DATA5)資料顯示有問題，格式跑掉變成月份
+- QUANTITY_y
+- EQUIPMENT_x
 
 ## 胚布品質分析(織布廠)
 - 胚布品質人工判斷判斷的標準不一，每一個機台都有一個人做檢驗
-
-Hi 各位學員大家早，今天的主題是供應鏈與存貨決策分析上機實作。我們邀請台中的工程師冠華來為我們進行手把手實作。

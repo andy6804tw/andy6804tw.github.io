@@ -99,7 +99,7 @@ plt.show()
 
 [參考來源](https://wiki.mbalib.com/zh-tw/%E7%AE%B1%E7%BA%BF%E5%9B%BE)
 
-因此我們必須將超出1.5倍的極端異常值清掉。
+因此我們必須將超出1.5倍的離群值清掉。
 
 ```python
 print ("Shape Of The Before Ouliers: ",data.shape)
