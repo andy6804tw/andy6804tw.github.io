@@ -44,3 +44,4 @@ Hello, thank you for taking the time to read, my name is Tsai, Yi-lin. Currently
 
 ## 胚布品質分析(織布廠)
 - 胚布品質人工判斷判斷的標準不一，每一個機台都有一個人做檢驗
+
