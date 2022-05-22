@@ -105,23 +105,26 @@ Bootstrap 5 釋出也一陣子了，相信大家對於新版本非常的期待�
 <!-- Footer -->
 <section class="section-footer d-flex justify-content-center">
     <div class="align-self-center d-flex flex-row">
-        <div class="icon">
-            <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" />
-        </div>
+        <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" />
         <span class="align-self-center ms-3">©2022 Bootstrap 5</span>
     </div>
 </section>
 ```
 
-第二種方法
+第二種方法透過最外層還是採用 flexbox 容器並設定置中，接著圖片外層透過 `d-inline` 將元素設定 X 軸寬度不佔滿頁面。最後文字透過 `align-middle` 設定垂直置中。詳細內容可以[參考](https://bootstrap5.hexschool.com/docs/5.1/utilities/vertical-align/)。
 
 ```html
+<!-- Footer -->
 <section class="section-footer d-flex justify-content-center">
     <div class="align-self-center">
-        <div class="icon d-inline">
-            <img src="./image/logo.png" id="colabLogo" />
+        <div class="d-inline">
+           <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" />
         </div>
         <span class="align-middle ms-3">©2022 Bootstrap 5</span>
     </div>
 </section>
 ```
+
+![](/images/posts/css/2022/img1110522-3.png)
+
+範例程式碼： https://codepen.io/andy6804tw/pen/poareVJ
