@@ -12,7 +12,10 @@ Bootstrap 5 釋出也一陣子了，相信大家對於新版本非常的期待�
 ## 導覽列 (Navbar)
 導覽列預設是響應式的，並且使用 spacing 及 flex 通用類別來控制物件在導覽列的間隔及對齊。詳細的文件可以[參閱](https://bootstrap5.hexschool.com/docs/5.0/components/navbar/)六角學院貼心的翻譯文件。
 
+大尺寸(桌機)：
 ![](/images/posts/css/2022/img1110522-1.png)
+
+小尺寸(平板、手機)：
 ![](/images/posts/css/2022/img1110522-2.png)
 
 ```html
@@ -95,7 +98,7 @@ Bootstrap 5 釋出也一陣子了，相信大家對於新版本非常的期待�
 <div class="d-block d-lg-none"></div>
 ```
 
-除此之外 `d-inline` 使用使用時機也非常多，當想要兩個元件並排時可以用到。更多 Display 內容可以[參考](https://bootstrap5.hexschool.com/docs/5.0/utilities/display/)
+除此之外 `d-inline` 使用使用時機也非常多，當想要兩個元件並排時可以用到。更多 Display 內容可以[參考](https://bootstrap5.hexschool.com/docs/5.0/utilities/display/)。
 
 ## 頁尾(Footer)
 以下提供兩種方法，通常頁尾都會希望內容居中。因此第一種方法可以透過建立 flexbox 容器來設定內層的方向，使用方式很簡單就是在最外層加上 `d-flex`。接著透過 `justify-content-center` 來設定水平置中。另外可以透過 `flex-row` 來將多個元素並排顯示，以下面範例我們希望 icon 與文字同一列顯示。最後可以透過 `align-self-center` 控制元素垂直置中。
