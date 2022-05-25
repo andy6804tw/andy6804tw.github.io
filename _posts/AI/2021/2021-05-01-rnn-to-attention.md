@@ -49,4 +49,4 @@ Encoder-Decoder 結構應用範圍主要有:
 [RNN 知乎](https://zhuanlan.zhihu.com/p/95278797)
 
 ## 下篇文章
-[[學習筆記] 李宏毅課程 Self-Attention 機制解說](https://andy6804tw.github.io/2021/05/02/self-attention/)
+[[AI學習筆記] 李宏毅課程 Self-Attention 機制解說](https://andy6804tw.github.io/2021/05/02/ntu-self-attention/)

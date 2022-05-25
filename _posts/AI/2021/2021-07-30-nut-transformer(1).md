@@ -46,7 +46,7 @@ Seq2seq 在自然語言處理的領域使用的非常廣泛。我們可以將所
 
 [[論文] Oriol Vinyals, "grammar as a foreign language", arxiv, Dec 2014.](https://arxiv.org/abs/1412.7449)
 
-還有一些任務也可以用 Seq2seq，舉例來說 Multi-label Classfication 這問題會與 Multi-class Classfication 搞混。Multi-class Classfication 是指機器要從數個x欸別當中去找出一個適合的種類作為輸出。但是 Multi-label Classfication 意思是指同一個東西他可以屬於多個類別種類。最常見的問題就是文章分類，輸入一篇文章輸出機器自己判斷有幾個類別。
+還有一些任務也可以用 Seq2seq，舉例來說 Multi-label Classfication 這問題會與 Multi-class Classfication 搞混。Multi-class Classfication 是指機器要從數個 x 類別當中去找出一個適合的種類作為輸出。但是 Multi-label Classfication 意思是指同一個東西他可以屬於多個類別種類。最常見的問題就是文章分類，輸入一篇文章輸出機器自己判斷有幾個類別。
 
 ![](https://i.imgur.com/5FZpsG6.png)
 
