@@ -3,7 +3,7 @@ layout: post
 title: '反向代理 Nginx 伺服器架設'
 categories: 'Web'
 description: 'Node.js Nginx'
-keywords: Nginx
+keywords: backend
 ---
 
 ## 前言
