@@ -214,5 +214,3 @@ Engineering Optimization:
 是抽樣出來的結果
 
 p12. 全因子實驗 => 最佳組合 繪圖
-
-ViT
