@@ -48,4 +48,12 @@ zip -r archive.zip ./target/directory
 unzip archive.zip
 ```
 
+#### 解壓縮到指定資料夾
+- -o 覆寫檔案
+- -q 無顯示解壓縮訊息
+- -qq 極度安靜模式解壓縮
+- -d 解壓縮到指定資料夾
 
+```sh
+unzip -oq archive.zip -d ./target/directory
+```
