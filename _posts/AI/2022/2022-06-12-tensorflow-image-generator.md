@@ -1,3 +1,11 @@
+---
+layout: post
+title: 'TensorFlow 資料讀取 ImageDataGenerator 介紹(1): flow_from_directory'
+categories: 'AI'
+description:
+keywords: 
+---
+
 ## 影像讀取方式
 
 ## ImageDataGenerator
@@ -56,4 +64,37 @@ test_generator = test_datagen.flow_from_directory(
  ```
 
 
+我們可以透過 `class_indices` 取得類別名稱，接著透過串列長度計算類別數量。另外可以取得標籤字典 (dictionary) 取得每個類別標籤 (key) 相對應的名稱 (value)。在這個範例當中 ImageDataGenerator 自動的將所有貓 (cat) 的資料標記成：0，狗 (dog) 的資料標記成：1。
+ ```py
+classes = list(train_generator.class_indices) # 類別名稱
+num_classes = len(train_generator.class_indices) # 類別數量
+label_dict = dict((v,k) for k,v in (train_generator.class_indices).items()) # flip k,v
+
+print(f'類別名稱: {classes}')
+print(f'類別數量: {num_classes}')
+print(f'標籤字典: {label_dict}')
+```
+
+輸出結果：
+```
+類別名稱: ['cat', 'dog']
+類別數量: 2
+標籤字典: {0: 'cat', 1: 'dog'}
+```
+
+### Generator 資料讀取
+剛剛我們透過 flow_from_directory 方式成功的將影像放到一個 Generator 容器中。如果想要查看裡面的每一張照片可以透過 `next()` 方式去讀取每個 batch 的內容。以下圖為例假設我的 `batch_size=4`，當我每 `next()` 一次就會批次的載入四張影像。同時我能夠將每張影像的內容(img)以及標籤(label)拿出來，這會是一個多維陣列的型態。假設我要拿該 batch 的第一張照片和標籤就是 img[0] 與 label[0]。
  
+ ![](/images/posts/AI/2022/img1110612-1.png)
+
+ ```py
+img , label = train_generator.next()
+label=labels[0].argmax()
+plt.title(f'{label} {classes[label]}')
+plt.imshow(img[0])
+plt.show()
+```
+
+
+## Reference
+- [stackexchange](https://datascience.stackexchange.com/questions/32194/how-to-predict-class-label-from-class-probability-given-by-predict-generator-for)
