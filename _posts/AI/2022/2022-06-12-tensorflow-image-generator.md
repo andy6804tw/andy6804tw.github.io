@@ -2,8 +2,8 @@
 layout: post
 title: 'TensorFlow 資料讀取 ImageDataGenerator 介紹(1): flow_from_directory'
 categories: 'AI'
-description:
-keywords: 
+description: 'TensorFlow ImageDataGenerator flow_from_directory'
+keywords: 'TensorFlow'
 ---
 
 ## 影像讀取方式
