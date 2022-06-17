@@ -38,4 +38,4 @@ plt.plot(x,y)
 
 ## Reference
 - [Colab 進行matplotlib繪圖時顯示繁體中文](https://colab.research.google.com/github/willismax/matplotlib_show_chinese_in_colab/blob/master/matplotlib_show_chinese_in_colab.ipynb#scrollTo=-V2uiORvNza7)
-- [蔡炎龍老師分享 colab99_在_matplotlib_中使用中文](https://nbviewer.org/github/yenlung/Deep-Learning-Basics/blob/master/colab99_%E5%9C%A8_matplotlib_%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87.ipynb?fbclid=IwAR0qEzwT_62unuwy2aAs5-E5HOVsFus8OZY_b4E0BIjDqPS4vcnEutEMpok)
+- [蔡炎龍老師分享 colab 在 matplotlib 中使用中文](https://nbviewer.org/github/yenlung/Deep-Learning-Basics/blob/master/colab99_%E5%9C%A8_matplotlib_%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%B8%AD%E6%96%87.ipynb?fbclid=IwAR0qEzwT_62unuwy2aAs5-E5HOVsFus8OZY_b4E0BIjDqPS4vcnEutEMpok)
