@@ -89,7 +89,7 @@ print(f'標籤字典: {label_dict}')
 
  ```py
 img , label = train_generator.next()
-label=labels[0].argmax()
+label=label[0].argmax()
 plt.title(f'{label} {classes[label]}')
 plt.imshow(img[0])
 plt.show()
