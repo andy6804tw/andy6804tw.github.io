@@ -19,12 +19,70 @@ Transformer 如今已經成為家喻戶曉的神經網路架構，並且已經�
 
 ![](https://i.imgur.com/KGoxc62.png)
 
+### 1.1 Patch layer 實作
+參考 Keras 官方 [ViT tutorial](https://keras.io/examples/vision/image_classification_with_vision_transformer) 的寫法，採用 `tf.image.extract_patches()` 依序地為整張影像進行 `patch_size*patch_size` 大小的切割。
+
+```py
+import tensorflow as tf
+from tensorflow.keras import layers
+
+class Patches(layers.Layer):
+    def __init__(self, patch_size):
+        super(Patches, self).__init__()
+        self.patch_size = patch_size
+
+    def call(self, images):
+        batch_size = tf.shape(images)[0]
+        patches = tf.image.extract_patches(
+            images=images,
+            sizes=[1, self.patch_size, self.patch_size, 1],
+            strides=[1, self.patch_size, self.patch_size, 1],
+            rates=[1, 1, 1, 1],
+            padding="VALID",
+        )
+        patch_dims = patches.shape[-1]
+        patches = tf.reshape(patches, [batch_size, -1, patch_dims])
+        return patches
+```
+
+![](https://i.imgur.com/1UyoTRO.png)
+
+[範例程式]()
+
 ### 2. Linear Projection
-此步驟會將原本 N 個 patch 圖片映射成 N 個 D 維的向量。實際的作法是將每個 patch (x¹ₚ ~ xᴺₚ) 攤平(Flatten) 接著乘上一個透過訓練得到的 Linear Projection 稱為 E。E 是一個(P x P x C) x D的矩陣。D 的數字及代表將每個 patch 轉換後的維度，這是一個可以自行控制的超參數。
+此步驟會將原本 N 個 patch 圖片映射成 N 個 D 維的向量。實際的作法是將每個 patch (x¹ₚ ~ xᴺₚ) 攤平(Flatten) 接著乘上一個透過訓練得到的 Linear Projection 稱為 E。E 是一個(P x P x C) x D的矩陣。D 的數字及代表將每個 patch 轉換後的維度(projection_dim)，這是一個可以自行控制的超參數。
 
 ![](https://i.imgur.com/2J4QZzb.png)
+
+### 2.1 Linear Projection 實作
+
+```py
+class PatchEncoder(layers.Layer):
+    def __init__(self, num_patches, projection_dim):
+        super(PatchEncoder, self).__init__()
+        self.num_patches = num_patches
+        self.projection_dim = projection_dim
+        self.projection = layers.Dense(units=projection_dim)
+
+    def call(self, patch):
+        encoded = self.projection(patch)
+        encoded = tf.reshape(encoded, [-1, self.num_patches, self.projection_dim])
+        return encoded
+```
+
+> 注意在 Keras blog 中 PatchEncoder 的寫法有同時處理 Position embedding，但在這範例中並無加入位置資訊(稍後會提到)。
 
 ### 3. Position embedding
 由於每個 patch 在整張影像中是有順序性的，因此我們需要為這些 patch embedding 向量添加一些位置的資訊。如圖所示，將編號 0~9 的紫色框表示各個位置的 position embedding(編碼方式是透過神經網路學習)，而紫色框旁邊的粉色框則是上一部所提到的經過 linear projection 後的 patch embedding 向量。最後將每個 patch 的紫框和粉框相加後正式得到 Embadded Patches 的輸出。
 
 ![](https://i.imgur.com/zCbaI6h.png)
+
+值得一提的是 ViT 巧妙的運用 learnable class token 學習每個 patch 和目標物的關聯性。因此在圖中的最左邊有一個 `*` 的 Patch Embedding 是透過訓練得到的 [CLS] Embedding。
+
+### 3.1 ClassToken 實作
+
+```py
+
+```
+
+### 3.2 Position embedding 實作
