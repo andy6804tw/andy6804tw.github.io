@@ -82,7 +82,45 @@ class PatchEncoder(layers.Layer):
 ### 3.1 ClassToken 實作
 
 ```py
+class ClassToken(tf.keras.layers.Layer):
+    def build(self, input_shape):
+        cls_init = tf.zeros_initializer()
+        self.hidden_size = input_shape[-1]
+        self.cls = tf.Variable(
+            name="cls",
+            initial_value=cls_init(shape=(1, 1, self.hidden_size), dtype="float32"),
+            trainable=True,
+        )
 
+    def call(self, inputs):
+        batch_size = tf.shape(inputs)[0]
+        cls_broadcasted = tf.cast(
+            tf.broadcast_to(self.cls, [batch_size, 1, self.hidden_size]),
+            dtype=inputs.dtype,
+        )
+        return tf.concat([cls_broadcasted, inputs], 1)
 ```
 
 ### 3.2 Position embedding 實作
+
+```py
+class AddPositionEmbs(tf.keras.layers.Layer):
+    def build(self, input_shape):
+        
+        self.position_embedding = layers.Embedding(
+            input_dim=input_shape[1], output_dim=input_shape[2]
+        )
+        self.positions = tf.range(start=0, limit=input_shape[1], delta=1)
+
+    def call(self, inputs):
+        return inputs + self.position_embedding(self.positions)
+```
+
+以上 1~3 步驟結束後我們就得到了 Transformer 的 input：z₀。
+
+![](https://i.imgur.com/6ef98kD.png)
+
+## 4. Transformer
+一個 Transformer block 由多個 Self-Attention 所組成的 Multiheaded Self-Attention(MSA) 與 MultiLayer Perceptron(MLP) 所組成。
+
+![](https://i.imgur.com/PatRcRw.png)
