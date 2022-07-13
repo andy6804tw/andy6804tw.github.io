@@ -72,7 +72,7 @@ Encoder 裡面會分成很多的 block，每一個 block 都是輸入一排向�
 
 ![](https://i.imgur.com/YBDYxf0.png)
 
-所以左邊的圖就是上述所做的事情，一個 Encoder 有很多個 Block。然而又變的圖就是一個 Block 中所做的事情，裡面有多個網路層(multi-head self attention+FCN)。另外值得注意是 transformer 在輸入還加上 Positional Encoding 位置資訊，經過 multi-head self attention 後加上 Residual connection 接下來還要過 Layer norm。最後再進到全連階層，這裡一樣要再做 Residual connection 與 Layer norm 才是最後的一個 Block 輸出。
+所以左邊的圖就是上述所做的事情，一個 Encoder 有很多個 Block。然而右邊的圖就是一個 Block 中所做的事情，裡面有多個網路層(multi-head self attention+FCN)。另外值得注意是 transformer 在輸入還加上 Positional Encoding 位置資訊，經過 multi-head self attention 後加上 Residual connection 接下來還要過 Layer norm。最後再進到全連階層，這裡一樣要再做 Residual connection 與 Layer norm 才是最後的一個 Block 輸出。
 
 ![](https://i.imgur.com/4GrIjMj.png)
 
