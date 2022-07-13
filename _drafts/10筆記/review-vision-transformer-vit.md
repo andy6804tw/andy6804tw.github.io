@@ -8,7 +8,7 @@ Transformer 如今已經成為熱門的神經網路架構，並且已經大量�
 
 整體架構如動畫所示，該模型透過將一張影像切成多個 patch 並丟入模型中。接著進到 Transformer Encoder 對輸入的所有資訊進行特徵萃取，最後再經過一個全連接層進行影像分類。雖然講得很簡單(中間我省略很多細節)，但其實內部細節有很多直得討論的地方。接下來將會依序地為各位說明。
 
-## Vision Transformer (ViT)
+## Vision Transformer (ViT) 架構
 
 ### 1. 將圖片轉成序列化資訊 (Split image)
 為了將一張影像變成一串序列編碼，我們需要把 H×W×C 的影像變成 N×(P²×C)。以下圖為例，假設我們有一張寬(W)和高(H) 32 X 32 的彩色影像(C=3)。Patch size 表示為 (P, P) 範例中使用 4 X 4 大小的 patch。N 表示 pacth 的總數量，其計算方式為 N=HW/P²，在這個例子中我們將會得到 64 個 patches。
@@ -52,6 +52,7 @@ class Patches(layers.Layer):
 ### 2. Linear Projection
 此步驟會將原本 N 個 patch 圖片映射成 N 個 D 維的向量。實際的作法是將每個 patch (x¹ₚ ~ xᴺₚ) 攤平(Flatten) 接著乘上一個透過訓練得到的 Linear Projection 稱為 E。E 是一個(P x P x C) x D的矩陣。D 的數字及代表將每個 patch 轉換後的維度(projection_dim)，這是一個可以自行控制的超參數。
 
+![](https://i.imgur.com/33HAbmS.png)
 ![](https://i.imgur.com/2J4QZzb.png)
 
 ### 2.1 Linear Projection 實作
@@ -135,6 +136,35 @@ Transformer 觀念很推薦大家先去觀看[李宏毅課程 Transformer 機制
 ![](https://i.imgur.com/sIwRKm1.png)
 
 ## 5. 輸出分類
-經過 N 個 block 後得到
+最後要進行影像的分類，將經過 N 個 block 後得到的輸出僅拿取其中的 [CLS] token Encode 後的結果，也就是 z⁰L。將它丟入 MLP 最後再接 softmax 產生出每個 class 的機率輸出預測結果。
 
 ![](https://i.imgur.com/bkimi0i.png)
+
+## 實驗結果
+Google 提出了幾個不同模型大小，以及在不同資料集預訓練的 ViT 來實驗，如下表：
+
+![](https://i.imgur.com/ENvL05m.png)
+
+
+以下表中第一列的 ImageNet 來比較，在中等規模的數據集上(ImageNet-21K)進行預訓練 ViT-L/16 表現不如 ResNet 和 EfficientNet；而當數據集的規模擴大(JFT)， ViT 模型的效果接近或者超過了目前的一些當時 SOTA 結果。
+
+- Competing methods
+    - BiT (Big Transfer): A variant of ResNet
+    - Noisy Student: A variant of EfficientNet
+- Datasets for pre-training
+    - ImageNet: 1.3M images of 1K classes (small)
+    - ImageNet-21K: 14M images of 21K classes (medium)
+    - JFT: 300M images of 18K classes (large)
+
+![](https://i.imgur.com/cep1xMD.png)
+
+## 模型可解釋性
+這裡提供一個 [Attention Rollout](https://storrs.io/attention-rollout/) 方法，[參考](https://jacobgil.github.io/deeplearning/vision-transformer-explainability)。簡單來說 Attention Rollout 就是計算從底層到高層的Attention矩陣的乘積。
+
+![](https://i.imgur.com/hcbXlEj.png)
+
+- 相關論文
+    - [Quantifying Attention Flow in Transformers](https://arxiv.org/pdf/2005.00928.pdf)
+    - [Transformer Interpretability Beyond Attention Visualization](https://arxiv.org/pdf/2012.09838v1.pdf)
+## 結論
+到目前為止 Google 團隊還是持續研發更強大的模型，可以從官方 [GitHub](https://github.com/tensorflow/models/blob/master/official/projects/vit/modeling/vit.py) 看到相關資訊。然而在筆者撰寫這篇文章時可能有比 ViT 更好的模型，例如微軟提出的 Swin Transformer、Facebook 提出的 DeiT (Data-efficient image Transformer)。又或者是在 CVPR 2022 Google 團隊新提出的 ViT-G，論文名稱為 [Scaling Vision Transformers](https://www.aminer.org/research_report/60cc151830e4d5752f50e6a8)。其模型改進了 ViT 的架構和訓練，減少了記憶體消耗並提高了模型的準確性。最終成功訓練了一個具有20億參數的 ViT 模型並在 ImageNet 上達到了 90.45% 的 Top-1 準確率。
