@@ -1,170 +1,82 @@
-# [論文導讀] Vision Transformer (ViT)
-> An Image is Worth 16x16 Words Transformers for Image Recognition at Scale
+# [論文導讀] 蒸餾版的 ViT: DeiT (Data-efficient image Transformers)
+ViT 在電腦視覺領域中算是一個重大的突破，它拋棄了 CNN 僅用 Transformer 的 Encoder 即可得到不錯的結果。但是由於要訓練一個好的 Transformer 需要非常龐大的資料集。就如 ViT 最後實驗結果發現，必須要使用 Google 所收集的 JFT 幾億張龐大的資料集進行預訓練才能在下游任務上微調得到 SOTA 結果。因此 DeiT 的貢獻就是讓 Vision Transformer 變得更貼近我們一般人使用的需求。DeiT 的目標就是讓網路參數量減少(與 CNN 在同個水平上)、預訓練時需訓練資料集減少(不需要再 JFT 使用 ImageNet1K 即可)。而且不用 TPU 訓練，僅需要用 GPU 訓練三天就可以訓練不錯的預訓練模型。
 
-Transformer 如今已經成為熱門的神經網路架構，並且已經大量的應用在自然語言(NLP)任務上。它的成功追朔於 2017 年 Google 所提出的 Attention Is All You Need。這樣的重大突破使得 Google 團隊將這一套 Transformer 架構中的 Encoder 抽離出來變成了 Vision Transformer (ViT) 應用在影像分類技術上。此外它拋棄了 CNN 層並以 self-attention 計算做取代，並在分類問題上取得不錯的成績。
+![](https://i.imgur.com/8VB8gOz.png)
+> neptune.ai
 
-![](https://1.bp.blogspot.com/-_mnVfmzvJWc/X8gMzhZ7SkI/AAAAAAAAG24/8gW2AHEoqUQrBwOqjhYB37A7OOjNyKuNgCLcBGAsYHQ/s16000/image1.gif)
-> Google blog 
+## 何謂 DeiT
+DeiT 顧名思義就是在資料有限的狀況下，同時能夠保持跟 ViT 一樣的效果甚至比用 CNN 的網路還來得好。他的全名為 Training data-efficient image transformers & distillation through attention。這篇論文發表於 2021 ICML 會議上，並由 Facebook AI 團隊所提出。在這篇論文中 data efficient training 使用了目前在模型上常用的現有技術，大致分成三個部分：訓練網路的優化器、資料增強以及網路訓練的時候的正規化。以上提的這三點都採用現成的方法，因此本篇文章不會花太多時間說明每個的背後原理。而會深度探討如何透過蒸餾法(distillation)來為 DeiT 模型提升到另一個層次。
 
-整體架構如動畫所示，該模型透過將一張影像切成多個 patch 並丟入模型中。接著進到 Transformer Encoder 對輸入的所有資訊進行特徵萃取，最後再經過一個全連接層進行影像分類。雖然講得很簡單(中間我省略很多細節)，但其實內部細節有很多直得討論的地方。接下來將會依序地為各位說明。
+#### Data efficient training
+- Optimization solver
+    - AdamW [Loshchilov & Hutter, arXiv’17], Adam with weight decay
+- Data augmentation
+    - Rand-Augment [Cubuk et al. arXiv’19]
+    - Mixup [Zhang et al. arXiv’17]
+    - CutMix [Yun et al. arXiv’19]
 
-## Vision Transformer (ViT) 架構
-
-### 1. 將圖片轉成序列化資訊 (Split image)
-為了將一張影像變成一串序列編碼，我們需要把 H×W×C 的影像變成 N×(P²×C)。以下圖為例，假設我們有一張寬(W)和高(H) 32 X 32 的彩色影像(C=3)。Patch size 表示為 (P, P) 範例中使用 4 X 4 大小的 patch。N 表示 pacth 的總數量，其計算方式為 N=HW/P²，在這個例子中我們將會得到 64 個 patches。
-
-![](https://i.imgur.com/A6v7P5D.png)
-
-而論文中範例原始圖片大小為 48 x 48 x 3，Patch Size=16 因此將會把一張圖片切成 9 個 patch，每個 patch 大小為 16 x 16 x 3。第一張 patch 稱為 x¹ₚ，依此類推最後一張為  x⁹ₚ。
-
-![](https://i.imgur.com/KGoxc62.png)
-
-### 1.1 Patch layer 實作
-參考 Keras 官方 [ViT tutorial](https://keras.io/examples/vision/image_classification_with_vision_transformer) 的寫法，採用 `tf.image.extract_patches()` 依序地為整張影像進行 `patch_size*patch_size` 大小的切割。
-
-```py
-import tensorflow as tf
-from tensorflow.keras import layers
-
-class Patches(layers.Layer):
-    def __init__(self, patch_size):
-        super(Patches, self).__init__()
-        self.patch_size = patch_size
-
-    def call(self, images):
-        batch_size = tf.shape(images)[0]
-        patches = tf.image.extract_patches(
-            images=images,
-            sizes=[1, self.patch_size, self.patch_size, 1],
-            strides=[1, self.patch_size, self.patch_size, 1],
-            rates=[1, 1, 1, 1],
-            padding="VALID",
-        )
-        patch_dims = patches.shape[-1]
-        patches = tf.reshape(patches, [batch_size, -1, patch_dims])
-        return patches
-```
-
-![](https://i.imgur.com/1UyoTRO.png)
-
-[範例程式]()
-
-### 2. Linear Projection
-此步驟會將原本 N 個 patch 圖片映射成 N 個 D 維的向量。實際的作法是將每個 patch (x¹ₚ ~ xᴺₚ) 攤平(Flatten) 接著乘上一個透過訓練得到的 Linear Projection 稱為 E。E 是一個(P x P x C) x D的矩陣。D 的數字及代表將每個 patch 轉換後的維度(projection_dim)，這是一個可以自行控制的超參數。
-
-![](https://i.imgur.com/33HAbmS.png)
-![](https://i.imgur.com/2J4QZzb.png)
-
-### 2.1 Linear Projection 實作
-
-```py
-class PatchEncoder(layers.Layer):
-    def __init__(self, num_patches, projection_dim):
-        super(PatchEncoder, self).__init__()
-        self.num_patches = num_patches
-        self.projection_dim = projection_dim
-        self.projection = layers.Dense(units=projection_dim)
-
-    def call(self, patch):
-        encoded = self.projection(patch)
-        encoded = tf.reshape(encoded, [-1, self.num_patches, self.projection_dim])
-        return encoded
-```
-
-> 注意在 Keras blog 中 PatchEncoder 的寫法有同時處理 Position embedding，但在這範例中並無加入位置資訊(稍後會提到)。
-
-### 3. Position embedding
-由於每個 patch 在整張影像中是有順序性的，因此我們需要為這些 patch embedding 向量添加一些位置的資訊。如圖所示，將編號 0~9 的紫色框表示各個位置的 position embedding(編碼方式是透過神經網路學習)，而紫色框旁邊的粉色框則是上一部所提到的經過 linear projection 後的 patch embedding 向量。最後將每個 patch 的紫框和粉框相加後正式得到 Embadded Patches 的輸出。
-
-![](https://i.imgur.com/zCbaI6h.png)
-
-值得一提的是 ViT 巧妙的運用 learnable class token 學習每個 patch 和目標物的關聯性。因此在圖中的最左邊有一個 `*` 的 Patch Embedding 是透過訓練得到的 [CLS] Embedding。因此這裡的 x⁰ₚ 經過 encoder 後對應的結果作為整個圖的表示，因為在 Transformer Encoder 中會拿 x⁰ₚ 當 key 與每一個 patch 進行 query。
-
-### 3.1 ClassToken 實作
-
-```py
-class ClassToken(tf.keras.layers.Layer):
-    def build(self, input_shape):
-        cls_init = tf.zeros_initializer()
-        self.hidden_size = input_shape[-1]
-        self.cls = tf.Variable(
-            name="cls",
-            initial_value=cls_init(shape=(1, 1, self.hidden_size), dtype="float32"),
-            trainable=True,
-        )
-
-    def call(self, inputs):
-        batch_size = tf.shape(inputs)[0]
-        cls_broadcasted = tf.cast(
-            tf.broadcast_to(self.cls, [batch_size, 1, self.hidden_size]),
-            dtype=inputs.dtype,
-        )
-        return tf.concat([cls_broadcasted, inputs], 1)
-```
-
-### 3.2 Position embedding 實作
-
-```py
-class AddPositionEmbs(tf.keras.layers.Layer):
-    def build(self, input_shape):
-        
-        self.position_embedding = layers.Embedding(
-            input_dim=input_shape[1], output_dim=input_shape[2]
-        )
-        self.positions = tf.range(start=0, limit=input_shape[1], delta=1)
-
-    def call(self, inputs):
-        return inputs + self.position_embedding(self.positions)
-```
-
-以上 1~3 步驟結束後我們就得到了 Transformer 的 input：z₀。
-
-![](https://i.imgur.com/6ef98kD.png)
-
-## 4. Transformer Encoder
-Transformer 觀念很推薦大家先去觀看[李宏毅課程 Transformer 機制解說](https://andy6804tw.github.io/2021/07/30/ntu-transformer(1)/#encoder)，筆者將它整理成筆記分享給各位。簡單來說一個 Transformer Encoder 是由多個 block 堆疊而成的。也就是下圖中灰色的區塊。
-
-![](https://i.imgur.com/PatRcRw.png)
-
-首先輸入 z₀ 以後先經過一層 Layer Normalization(LN)，接著進入由 Self-Attention 所組成的 Multiheaded Self-Attention(MSA)。此時得到的輸出再加上原本輸入的 z₀ 得到 z'ℓ，這一個動作也就是 residual connection。
-
-![](https://i.imgur.com/st0seSC.png)
+- Regularization
+    - Stochastic depth [Huang et al. ECCV’16]
+    - Random erasing [Zhong et al. AAAI’20]
+    - Repeated augmentation [Hoffer et al. CVPR’20]
+#### Apply distillation to ViT 
 
 
-接下來再通過一層 LN 以及 MultiLayer Perceptron(MLP)，最後再 residual connection 一次得到得到第 ℓ 層的輸出 zℓ。值得一提的是這裡的 MLP 是由兩層的 Dense layer 全連接神經網路所組成，第一層的神經元的數量可以自行設定，通常是 `projection_dim*2` 接著第二層的神經元數一定要等於 projection_dim。另外 activation 在論文中是採用 `tf.nn.gelu` (TF 2.4 以上版本以上)。
 
-![](https://i.imgur.com/sIwRKm1.png)
 
-## 5. 輸出分類
-最後要進行影像的分類，將經過 N 個 block 後得到的輸出僅拿取其中的 [CLS] token Encode 後的結果，也就是 z⁰L。將它丟入 MLP 最後再接 softmax 產生出每個 class 的機率輸出預測結果。
+## 模型比較
+如下圖所示，論文中以 DeiT、ViT、EfficientNet(Noise student) 進行效能與準確度比較。X 軸表示一秒可以分類幾張影像，Y 軸表示模型在 top-1 的準確率，因此越靠近右上方代表越佳(速度又快、準確率又高)。這張圖上的所有模型都採用 ImageNet1K(約140萬張影像) 進行預訓練，而計算效能都採用 Nvidia v100 進行運算。我們可以發現這張圖表中 ViT 在左下腳，相較其他模型是又慢又不準。其不準的原因在一開始有說到 ViT 需要在非常龐大的資料及訓練下才能凸顯優勢，而這張圖的實驗僅使用在中小型的資料集。第二條淡紅色的線是代表僅使用 Data efficient training 技巧訓練模型，雖然明顯有提升一些，但是效果還是不及 CNN based 的 EfficientNet(途中黃色的線)。然而我們將 DeiT 加上蒸餾的技巧訓練模型(如圖紅線)，此時的結果優於 EfficientNet。因此接下來我們就來討論如何進行模型蒸餾技巧。
 
-![](https://i.imgur.com/bkimi0i.png)
+![](https://i.imgur.com/YAwCIjg.png)
+
+## Distillation (蒸餾)
+蒸餾法最初由 Geoffrey Hinton 所提出，而這篇論文將模型蒸餾的概念套用在 Transformer 模型上。然而典型的蒸餾法通常涵蓋兩個網路，分別為 teacher network 和 student network。通常會使用一個比較強大的網路當成 teacher network 來教導一個比較小型的 student network。其目的是讓 student network 模仿 teacher network，有種青出於藍的概念不僅讓模型變的更小同時表現得也很好。
+
+![](https://i.imgur.com/pkgaOrG.png)
+> image from [EscVM](https://github.com/EscVM)
+
+在模型蒸餾過程中我們會同時看 teacher 和 student network 的輸出，假設有一個手寫數字的訓練資料同時會放到 teacher 和 student network。teacher network 是一個已經事先訓練好的網路，因此他會為每個類別預測機率(這裡的例子就是 0~9 每類的機率)。而較小的 student network 也會看相同的資料並預測 0~9 每類的機率並輸出。而訓練的 loss 將有兩個，一方面是希望對 Ground truth 越接近越好，因此採用 cross entropy。另外一方面希望 student 與 teacher 預測出來結果非常像，因此可以透過 KL divergence 衡量距離，使得 student 跟 teacher 預測分佈很像。
+
+![](https://i.imgur.com/s7JMdbE.png)
+
+## 兩種 Distillation 方法
+蒸餾法的 loss 通常由兩項所構成，依據實作的方法有兩種不同的版本，分別有 soft distillation 和 hard distillation。以 soft distillation 來說左邊這項就是希望 student 預測的結果與 Ground truth 越接近越好(cross entropy loss)。而右邊那一項就是希望 student 和 teacher 的輸出分佈距離要越小越好(KL divergence loss)。其中我們必須透過 lambda(λ) 來控制這兩項彼此的重要性。而 hard distillation 將原本右邊 KL divergence loss 改成一樣用 cross entropy loss，僅學習 teacher 預測的該類別就好，預測其他類別的機率大小不重要只要預測正確即可。
+
+Soft distillation:
+- The teacher’s output is soft labels and the used loss is KL divergence.
+
+![](https://i.imgur.com/GJXAUo6.png)
+
+Hard distillation:
+- The teacher’s output is hard labels and the used loss is cross entropy.
+
+![](https://i.imgur.com/UnoRLzo.png)
+
+## DeiT 如何讓 Transformer 進行蒸餾
+接下來我們就來談談 DeiT 如何讓 Transformer 也能進行模型蒸餾。首先要選擇一個 teacher network 的模型(它可以是 CNN，也可以是 Transformer，最後會有實驗驗證哪個效果最好)，在論文中採用一個 ResNet 變形的 CNN 網路 RegNetY。雖然是採用 CNN 當作 teacher network 但是我們只是模擬它的行為好處，但是他的運作流程還是 Transformer 架構(如下圖所示)我們在 ViT 的基礎上，加上一個 distillation token。class token 的目標是跟真實的標籤(Ground truth)一致，而 distillation token 是要跟 teacher model 預測的標籤一致。
+
+![](https://i.imgur.com/12OLexe.png)
+
+## 為何使用 CNN 當作 teacher model?
+其主要原因是因為在小型的資料集上 CNN 模型還是帶來比較好的預測結果。另外 CNN 是專門設計在處理影像任務上的，它的 inductive bias 如： local connectivity 和 weight sharing 具有對影像上的先備知識。因此很適合讓 student 模型進行知識蒸餾並且轉移到 Transformer 模型架構上。
 
 ## 實驗結果
-Google 提出了幾個不同模型大小，以及在不同資料集預訓練的 ViT 來實驗，如下表：
+DeiT 設計了三種不同大小的模型，實驗參數的設置如下圖表所示。DeiT-B 的參數量正好與 ViT-B 相同，並採用了 data-efficient training 與蒸餾技巧訓練模型。而 DeiT-S 和 DeiT-Ti 是透過漸少 embedding 的維度以及 heads 和 layers 層數，使得模型參數量更少。
 
-![](https://i.imgur.com/ENvL05m.png)
+![](https://i.imgur.com/JWs1ibc.png)
+
+下圖是比較選擇不同模型當作 teacher model，在 student model 為 DeiT-B 所帶來的效益有多大。我們可以發現原先 teacher 為同樣的 Transformer based 的 DeiT-B 蒸餾效果有限(一樣的東西無互補性，因此沒什麼好學習)。但是如果 teacher model 選擇 CNN based(如 RegNetY) 在不同規模的模型下，大多在蒸餾到 DeiT-B 都有不錯的結果。這就是 inductive bias 融入到 Transformer 的最好證明。因為用 CNN 蒸餾的時候，Transformer 學到了 CNN 的 local connectivity 和 weight sharing 的好處。左邊的 DeiT-B 是訓練在 `224*224` 的影像上，而最右邊 384 代表是將輸入影像畫素提升到 `384*384` 蒸餾在 DeiT-B。從結果也可以發現，提升解析度準度也有明顯的改變。
+
+#### Teacher model
+- CNN: one of the four variants of RegNet
+- Transformer: DeiT-B
 
 
-以下表中第一列的 ImageNet 來比較，在中等規模的數據集上(ImageNet-21K)進行預訓練 ViT-L/16 表現不如 ResNet 和 EfficientNet；而當數據集的規模擴大(JFT)， ViT 模型的效果接近或者超過了目前的一些當時 SOTA 結果。
+![](https://i.imgur.com/A0SdSMv.png)
 
-- Competing methods
-    - BiT (Big Transfer): A variant of ResNet
-    - Noisy Student: A variant of EfficientNet
-- Datasets for pre-training
-    - ImageNet: 1.3M images of 1K classes (small)
-    - ImageNet-21K: 14M images of 21K classes (medium)
-    - JFT: 300M images of 18K classes (large)
+接著最後這一張圖是所有模型預訓練在 ImageNet1K 並預測在 ImageNet 上 top-1 的準確率。我們可以發現 DeiT-B 在 data efficient training 和蒸餾的方法上結果都優於 ViT-B。並且所有模型再提高解析度對於 DeiT-B 的模型蒸餾都得到更好的結果。此外拉大訓練的回合數(200->1000)能有效的提升 DeiT-B 準確度。並且能夠取得比當時 SOTA (EfficientNet)更好的的結果。
 
-![](https://i.imgur.com/cep1xMD.png)
+![](https://i.imgur.com/xUSpq8A.png)
 
-## 模型可解釋性
-這裡提供一個 [Attention Rollout](https://storrs.io/attention-rollout/) 方法，[參考](https://jacobgil.github.io/deeplearning/vision-transformer-explainability)。簡單來說 Attention Rollout 就是計算從底層到高層的Attention矩陣的乘積。
-
-![](https://i.imgur.com/hcbXlEj.png)
-
-- 相關論文
-    - [Quantifying Attention Flow in Transformers](https://arxiv.org/pdf/2005.00928.pdf)
-    - [Transformer Interpretability Beyond Attention Visualization](https://arxiv.org/pdf/2012.09838v1.pdf)
 ## 結論
-到目前為止 Google 團隊還是持續研發更強大的模型，可以從官方 [GitHub](https://github.com/tensorflow/models/blob/master/official/projects/vit/modeling/vit.py) 看到相關資訊。然而在筆者撰寫這篇文章時可能有比 ViT 更好的模型，例如微軟提出的 Swin Transformer、Facebook 提出的 DeiT (Data-efficient image Transformer)。又或者是在 CVPR 2022 Google 團隊新提出的 ViT-G，論文名稱為 [Scaling Vision Transformers](https://www.aminer.org/research_report/60cc151830e4d5752f50e6a8)。其模型改進了 ViT 的架構和訓練，減少了記憶體消耗並提高了模型的準確性。最終成功訓練了一個具有20億參數的 ViT 模型並在 ImageNet 上達到了 90.45% 的 Top-1 準確率。
+DeiT 在資料部分採用了一些數據增強並透過一些模型訓練技巧，例如 AdamW 優化器適當的衰減學習速率以及網路正規化的方法提升模型準確度。除此之外還透過蒸餾法在原先的 ViT-B 架構上添加 distillation token 並有效的學習 teacher model 上的知識。簡單來說 DeiT 就是改變訓練策略的 ViT，然後在 ImageNet 上進行預訓練並透過蒸餾法就能取得 SOTA 的結果。此外在蒸餾模型的部分 teacher model 可以是 CNN，也可是是 Transformer，實驗中CNN 作為 teacher model 的結果更好。
