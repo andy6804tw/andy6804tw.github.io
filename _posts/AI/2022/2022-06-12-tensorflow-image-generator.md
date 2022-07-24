@@ -95,6 +95,7 @@ plt.imshow(img[0])
 plt.show()
 ```
 
+[範例程式](https://colab.research.google.com/github/1010code/tensorflow-generator/blob/main/CNN_flow_from_directory.ipynb)
 
 ## Reference
 - [stackexchange](https://datascience.stackexchange.com/questions/32194/how-to-predict-class-label-from-class-probability-given-by-predict-generator-for)
