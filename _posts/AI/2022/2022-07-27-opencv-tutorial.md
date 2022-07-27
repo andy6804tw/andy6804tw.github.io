@@ -83,3 +83,5 @@ _, threshold = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
 
 plt.imshow(threshold, cmap='gray')
 ```
+
+[範例程式](https://github.com/1010code/opencv-tutorial/blob/main/tutorial.ipynb)
