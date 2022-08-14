@@ -16,9 +16,12 @@ keywords:
 gradlew clean
 ```
 
+重新 build 可能需要等個十幾分鐘。
 ```sh
 gradlew build
 ```
 
 ## 方法二：更新 Android SDK built-tools
-在 Android Studio 點選 Tools->SDK Manager-SDK tools
+在 Android Studio 點選 Tools->SDK Manager-SDK tools，選擇 Android SDK Built-Tools 並安裝更新。
+
+![](/images/posts/Flutter/2022/img1110814-1.png)
