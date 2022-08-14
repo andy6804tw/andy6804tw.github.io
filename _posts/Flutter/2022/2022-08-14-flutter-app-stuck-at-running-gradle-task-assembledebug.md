@@ -19,3 +19,6 @@ gradlew clean
 ```sh
 gradlew build
 ```
+
+## 方法二：更新 Android SDK built-tools
+在 Android Studio 點選 Tools->SDK Manager-SDK tools
