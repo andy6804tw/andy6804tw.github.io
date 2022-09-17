@@ -9,6 +9,9 @@ keywords:
 ## 前言
 此方法透過 system 的方法呼叫 CURL 實現 HTTP Request GET 通訊協定。並將回應結果透過文件寫檔輸出一個名為 `data.txt` 的文件。最後在透過 `getline` 方法讀檔取得 API 回應的結果。
 
+## 實作
+你可以在 url 變數雙引號內貼上想要存取的 API 路徑。本範例中使用一個公開的測試 API(擲骰子)。透過 GET 協定存取該 API 將會回傳隨機 1~6 的數值作為回應結果存在文件中。
+
 ```c
 #include <iostream>
 #include <fstream>
@@ -37,7 +40,7 @@ int main() {
 g++ -o main main.cpp
 ```
 
-你可以在 url 變數雙引號內貼上想要存取的 API 路徑。本範例中使用一個公開的測試 API(擲骰子)。透過 GET 協定存取該 API 將會回傳隨機 1~6 的數值作為回應結果存在文件中。編譯完成後將會看到 `main`(Windows 會看到 main.exe)。
+編譯完成後將會看到 `main`(Windows 會看到 main.exe)。
 
 執行結果：
 
@@ -54,3 +57,6 @@ Done
 ```
 http://127.0.0.1:3000/predict?age=21&phone=123456
 ```
+
+## Reference
+- [How to make an HTTP request in c++ within 20 lines of code.](https://replit.com/talk/learn/How-to-make-an-HTTP-request-in-c-within-20-lines-of-code/120930)
