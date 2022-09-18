@@ -13,12 +13,12 @@ keywords:
 在 Flutter 專案中有個 Android 資料夾，使用終端機進入 Android 目錄下。接著執行以下兩個指令：
 
 ```sh
-gradlew clean
+./gradlew clean
 ```
 
 重新 build 可能需要等個十幾分鐘。
 ```sh
-gradlew build
+./gradlew build
 ```
 
 ## 方法二：更新 Android SDK built-tools
