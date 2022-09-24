@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 'Flutter 故障排除： dependencies don't support null safety'
+title: 'Flutter 故障排除： dependencies not support null safety'
 categories: 'Flutter'
-description: ''
+description: 'dependencies not support null safety'
 keywords: 
 ---
 
