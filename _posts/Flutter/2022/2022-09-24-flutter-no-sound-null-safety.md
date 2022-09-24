@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 'Flutter 故障排除： dependencies not support null safety'
+title: 'Flutter TEST'
 categories: 'Flutter'
-description: 'Cannot run with sound null safety because dependencies don't support null safety'
+description: ''
 keywords: 
 ---
 
