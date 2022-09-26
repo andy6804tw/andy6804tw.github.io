@@ -37,6 +37,14 @@ int main() {
 }
 ```
 
+執行結果：
+```
+Elapsed time in nanoseconds: 3000115862 ns
+Elapsed time in microseconds: 3000115 µs
+Elapsed time in milliseconds: 3000 ms
+Elapsed time in seconds: 3 sec
+```
+
 ## 使用 Linux 系統時間
 本方使用函數 gettimeofday 來得到程式執行前後的時間，是調用 `<sys/time.h>` 取得當前系統時間。gettimeofday 是符合 POSIX 標準的函式，用於檢索系統時鐘，精度可達到微秒（microsecond，即μs）。
 
@@ -58,6 +66,12 @@ int main() {
     printf("Elapsed time in seconds: %lf sec\n", timeuse);
     printf("Elapsed time in milliseconds: %lf ms\n", timeuse*1000);
 }
+```
+
+執行結果：
+```
+Elapsed time in seconds: 3.000074 sec
+Elapsed time in milliseconds: 3000.074000 ms
 ```
 
 ## Windows 系統計時方法
