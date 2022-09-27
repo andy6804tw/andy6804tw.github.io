@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'raspberry pi 連線至隱藏網路'
+title: 'Raspberry Pi 連線至隱藏網路'
 categories: 'Linux'
 description: 'How to auto-connect your Raspberry Pi to a hidden SSID wifi network'
 keywords: 
