@@ -18,7 +18,7 @@ keywords:
 接著輸入以下指令修改 `wpa_supplicant.conf` 檔案。
 
 ```sh
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+sudo vim /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
 在該文件中加入以下內容，並在雙引號內填入你要連接的 WiFi 資訊。其中連接隱藏 WiFi 時需要指定 `scan_ssid=1` 為1。
