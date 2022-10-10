@@ -20,7 +20,7 @@
 - [如何進行 Code Review?](https://enginebai.medium.com/code-review-guidelines-b76a859c377c)
 - [2021 轉職前端工程師學習資源與心得分享](https://jimmyswebnote.com/change-career-to-front-end-developer/?fbclid=IwAR1M_-0gQpf1FidGbF3qTtE7ldDkriNLZJZg9hH3DndJ87TewS1Q_mmZk3c)
 - [Git電子書](https://xinhe.gitbooks.io/nutc-jack-lab-frontend-tutorial/content/)
-
+- [2022-越挫越勇的前端工程師面試心得](https://medium.com/@haha861924/2022-%E8%B6%8A%E6%8C%AB%E8%B6%8A%E5%8B%87%E7%9A%84%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%9D%A2%E8%A9%A6%E5%BF%83%E5%BE%97-f206b2157b3b)
 
 ## 工作
 - [一線大廠存活守則](https://www.businessweekly.com.tw/careers/blog/3007024)
