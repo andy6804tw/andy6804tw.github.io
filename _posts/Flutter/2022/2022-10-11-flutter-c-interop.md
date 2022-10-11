@@ -181,3 +181,5 @@ _ffiBridge.getAge()
 ## Reference
 - [官方文件 Binding to native iOS code using dart:ffi](https://docs.flutter.dev/development/platform-integration/ios/c-interop)
 - [官方文件 Binding to native Android code using dart:ffi](https://docs.flutter.dev/development/platform-integration/android/c-interop)
+- [Calling Native Libraries in Flutter with Dart FFI](https://www.raywenderlich.com/21512310-calling-native-libraries-in-flutter-with-dart-ffi)
+- [[Flutter] 使用 Dart FFI 呼叫 C 程式](https://cg2010studio.com/2022/01/08/flutter-%E4%BD%BF%E7%94%A8-dart-ffi-%E5%91%BC%E5%8F%AB-c-%E7%A8%8B%E5%BC%8F/)
