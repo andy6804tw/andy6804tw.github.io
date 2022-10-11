@@ -7,10 +7,12 @@ keywords:
 ---
 
 ## 前言
-我們在開發跨平台 Flutter APP 的時候，會依賴第三方套件進行實作。例如影像辨識會使用 OpenCV 所提供的影像處理方法，當然它有提供各種平台的動態連結庫提供 Linux、Windows、Andorid、iOS...等。然而在開發 Flutter 時可以直接透過 `dart:ffi`(foreign function interface) 呼叫原生的 C APIs。如此一來各種平台統一維護一份 C/C++ 程式碼即可，最後再由 ffi 去呼叫外部定義好的函式。
+我們在開發跨平台 Flutter APP 的時候，會依賴第三方套件進行實作。例如影像辨識會使用 OpenCV 所提供的影像處理方法，當然它有提供各種平台的動態連結庫提供 Linux、Windows、Andorid、iOS...等。然而在開發 Flutter 時可以直接透過 `dart:ffi`(foreign function interface) 呼叫原生的 C APIs。如此一來各種平台統一維護一份 C/C++ 程式碼即可，最後再由 ffi 去呼叫外部定義好的函式。關於 FFI 可以參考[這篇](https://www.gushiciku.cn/pl/gKwF/zh-tw)文章，寫得蠻清楚的。
 
 ## 實作
 這次範例透過建立一個 C++ BMI 計算的方法，讓 Flutter 呼叫並取得結果。
+
+![](https://github.com/1010code/flutter_native_c/blob/main/screenshot/demo.gif)
 
 ### 0. 建立專案
 首先開啟 Android Studio 先建立一個空專案 `flutter_native_c`。
