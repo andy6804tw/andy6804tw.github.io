@@ -46,5 +46,3 @@ npm install codecov  --save-dev
 
 <img src="/images/posts/devops/2018/img1070329-2.png">
 
-
-範例程式碼：https://bitbucket.org/ab24627375/circle-ci-demo/src

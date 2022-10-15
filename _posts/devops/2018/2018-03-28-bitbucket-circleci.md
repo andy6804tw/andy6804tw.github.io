@@ -99,5 +99,3 @@ jobs:
 <img src="/images/posts/devops/2018/img1070328-4.png">
 <img src="/images/posts/devops/2018/img1070328-3.png">
 
-
-範例程式碼：https://bitbucket.org/ab24627375/circle-ci-demo/src/9eaf15b2f1287957ec67ad88c16b91fe8bdac0e7?at=master
