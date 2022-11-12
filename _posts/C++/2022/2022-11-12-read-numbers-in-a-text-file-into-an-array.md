@@ -1,6 +1,13 @@
+---
+layout: post
+title: 'c++ vector 陣列使用與讀取txt文件'
+categories: 'C++'
+description: 'read numbers in a text file into an array'
+keywords: 
+---
 
-
-# Multi-Dimensional Arrays
+## 前言
+Vector 是C++ 標準程式庫中的序列容器。向量會將指定類型的專案儲存線上性排列中，並允許快速隨機存取任何元素。 
 
 ## 1D vector
 
@@ -30,7 +37,6 @@ int main() {
 ---------------------------------
 1 2 3 4
 ```
-
 ## 2D vector
 可以建立一個二維 vector 並給予初值，直接透過 `{}` 將維度內的元素進行區隔。
 
