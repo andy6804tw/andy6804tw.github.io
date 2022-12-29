@@ -37,6 +37,45 @@ int main() {
 ---------------------------------
 1 2 3 4
 ```
+
+## vector 陣列初始化
+當有一個浮點陣列 `double arr[]`，建立一個浮點 vector 時可以直接初始化。
+
+```c
+#include <iostream>
+#include <vector>
+
+int main(){
+    
+    double arr[]={0.1, 0.2, 0.3};
+    std::vector<double> values(arr, arr+3); 
+    
+    for(int i= 0;i<values.size();i++)
+        std::cout<< values[i] <<", ";
+}
+```
+
+亦或是使用 `assign()` 將指定陣列透過指標位置初始化 vector。
+```c
+#include <iostream>
+#include <vector>
+
+int main(){
+    
+    double arr[]={0.1, 0.2, 0.3};
+    std::vector<double> values; 
+    
+    values.assign(arr, arr+3);
+    for(int i= 0;i<values.size();i++)
+        std::cout<< values[i] <<", ";
+}
+```
+
+以上輸出結果:
+```
+0.1, 0.2, 0.3
+```
+
 ## 2D vector
 可以建立一個二維 vector 並給予初值，直接透過 `{}` 將維度內的元素進行區隔。
 
