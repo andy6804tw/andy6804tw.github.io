@@ -136,6 +136,37 @@ int main() {
 }
 ```
 
+## 讀取 txt 字串並儲存陣列
+首先建立一個 `vocab.txt` 文件，透過空白或換行區隔每個字串。
+
+```
+[PAD]
+[UNK]
+[CLS]
+[SEP]
+[MASK]
+```
+
+```c
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+
+int main(){
+    
+    std::vector<std::string> inputValues; 
+    std::ifstream file("./vocab.txt"); 
+    while(!file.eof()) 
+    {
+        std::string i; 
+        file >> i; 
+        inputValues.emplace_back(i); 
+    }
+    std::cout<< inputValues[0] <<"\n";
+}
+```
+
 ## Reference
 - [2D Vector In C++ With User Defined Size](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/)
 - [Multi-Dimensional Arrays](https://cplusplus.com/forum/articles/7459/)
