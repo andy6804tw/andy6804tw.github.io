@@ -99,3 +99,30 @@ int main(){
 Andy 27
 Jack 28
 ```
+
+## 函式回傳多個數值
+回到正題，在本文一開始提到函式要回傳兩個以上的值可以使用 tuple 來實現。以下範例建立一個 `AddOne()` 函式允許輸入兩個數值，最後回傳這兩個數值個別加一的結果。
+
+```c
+#include <iostream>
+#include <tuple>
+#include <string>
+
+std::tuple<int, int> AddOne(int a, int b) {
+    a+=1;
+    b+=1;
+    return  {a, b};
+}
+
+int main(){
+    auto [a, b] = AddOne(1, 2);
+    std::cout << "a: " << a << std::endl;
+    std::cout << "b: " << b << std::endl;
+}
+```
+
+輸出結果：
+```
+a: 2
+b: 3
+```
