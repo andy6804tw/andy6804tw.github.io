@@ -77,7 +77,7 @@ Andy 27
 ```
 
 ## tuple 陣列
-
+剛剛展示了單個 tuple 的使用，我們也能將他拓展成陣列型態。
 
 ```c
 #include <iostream>
