@@ -27,7 +27,6 @@ extern int a;
 int main(){
     a+=2;
     std::cout << a << std::endl;
-    return 0;
 }
 ```
 
