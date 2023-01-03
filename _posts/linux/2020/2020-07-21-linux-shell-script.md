@@ -51,3 +51,13 @@ chmod u+x *.sh
 
 GitHub: [Source Code](https://github.com/1010code/remove-shell)
 
+## 補充
+假設需要自動的終止某個佔用的 PORT 可以透過 `lsof` 查詢指定 PORT 號的 PID 接著透過 kill 指令強制終止服務。
+
+```sh
+#!/bin/bash
+
+echo "PORT 502 PID: $(lsof -t -i:502)"
+kill -9 $(lsof -t -i:502)
+echo "Done!"
+```
