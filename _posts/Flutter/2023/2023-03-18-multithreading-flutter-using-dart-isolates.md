@@ -109,7 +109,29 @@ I/flutter (12047): In runMyIsolate
 I/flutter (12047): Result: 5
 ```
 
+## 番外: 創建Future的另外一種方式：Completer
+completer可以用來創建future，相比使用future，completer可以自己指定future的完成時機。它不是一個獨立的執行緒，而是用於在當前執行緒中創建一個 future 對象，用於異步操作的完成通知。由於 Completer 並不是一個獨立的執行緒，它運行在當前執行緒中，通常是 UI 執行緒中。
 
+在以下例子中，我們首先創建了一個 Completer 對象，然後模擬了一個耗時的異步操作，3秒後通過 complete 方法返回了一個結果。最後，我們使用 await 關鍵字等待異步操作完成，並獲取結果。當異步操作完成後，Completer 對象會通過 future 屬性返回一個 future 對象，我們可以通過 await 來等待 future 對象的完成。
+```dart
+import 'dart:async';
+
+void main() async {
+  // 創建一個 Completer 對象
+  final completer = Completer<String>();
+
+  // 模擬一個異步操作，3秒後返回一個結果
+  Future.delayed(Duration(seconds: 3), () {
+    completer.complete('Hello, world!');
+  });
+
+  // 等待異步操作完成，並獲取結果
+  final result = await completer.future;
+  print(result);
+}
+```
+
+> 如果在 Completer 中進行了耗時的操作，會導致 UI 阻塞，影響用戶體驗。為了避免這種情況，通常會將耗時的操作放到獨立的 Isolate 中進行，這樣可以避免 UI 阻塞，提高應用程序的性能和響應速度。
 
 ## 小結
 簡單來說 Isolate 像是個單執行緒的程序，而 Flutter 主要的程序都是在 main isolate 中完成的。如果真的想要讓某些工作能夠同時進行，不要卡住 main isolate 的話，就要自己宣告新的 isolate 來執行。另外在 Ｆlutter 中可以直接使用更方便的 compute 函數實現 isolate 間的通信，來增加程式的可讀性。
