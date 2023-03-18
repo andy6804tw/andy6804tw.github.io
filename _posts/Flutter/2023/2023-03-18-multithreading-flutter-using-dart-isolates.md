@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Flutter 中的 Isolate 非同步執行序'
+title: 'Flutter 中的 Isolate 非同步執行緒'
 categories: 'Flutter'
 description: 'Multithreading in Flutter using Dart isolates'
 keywords: 
@@ -66,6 +66,8 @@ Isolate 的 callback 方法應該要被宣告在最外層函數或使用靜態(s
 ```
 Unhandled Exception: Invalid argument(s): Illegal argument in isolate message: (object extends NativeWrapper - Library:'dart:ui' Class: Path)
 ```
+
+> compute 呼叫的 function 必須要是 top-level function 或是 static 才行。
 
 
 ## 使用更簡單的 Compute 方法
@@ -135,6 +137,11 @@ void main() async {
 
 ## 小結
 簡單來說 Isolate 像是個單執行緒的程序，而 Flutter 主要的程序都是在 main isolate 中完成的。如果真的想要讓某些工作能夠同時進行，不要卡住 main isolate 的話，就要自己宣告新的 isolate 來執行。另外在 Ｆlutter 中可以直接使用更方便的 compute 函數實現 isolate 間的通信，來增加程式的可讀性。
+
+- 避免運算量大阻塞 UI 執行緒，可以宣告新的 isolate 來執行。
+- Compute 底層還是會去建立新的 isolate，處理完 task 後再把該 isolate 砍掉。
+- Completer 則是一個封裝了 Future 的物件，它提供了一個更方便的方式來控制 Future 的結果。它並不是一個獨立的執行緒，被執行於 UI 執行緒中。
+
 
 ## Reference
 - [stackoverflow: illegal-argument-in-isolate-message](https://stackoverflow.com/questions/71406166/unhandled-exception-invalid-arguments-illegal-argument-in-isolate-message)
