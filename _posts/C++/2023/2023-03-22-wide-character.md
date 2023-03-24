@@ -80,7 +80,8 @@ Path: ./data/xgb.onnx
 ```
 
 MultiByteToWideChar 是 Windows API 中的一個函數，用於將多字節（multi-byte）字符轉換為寬字符（wide character）。其函數原型如下：
-```
+
+```c
 int MultiByteToWideChar(
   UINT     CodePage,
   DWORD    dwFlags,
