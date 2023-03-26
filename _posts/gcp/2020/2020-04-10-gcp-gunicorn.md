@@ -86,6 +86,9 @@ pkill gunicorn
 ### 2. 重新啟動VM
 這種方法最簡單直接重新開機即可。
 
+## 後記
+在本機上開發時通常會直接用 `python run.py` 直接執行 API，若一樣用這指令測試上線時必須將 `debug=False` 不然會有記憶體流失 (Memory leak) 問題。
+
 ## Reference
 - [使用gunicorn部署flask項目](https://zhuanlan.zhihu.com/p/88422780)
 - [淺談 Gunicorn 各個 worker type 適合的情境](https://medium.com/@genchilu/淺談-gunicorn-各個-worker-type-適合的情境-490b20707f28)

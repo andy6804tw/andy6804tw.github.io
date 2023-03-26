@@ -63,4 +63,5 @@ Parallel 則是指同一個時間段內，有多個任務同時執行，每個�
 ## Concurrency + Parallelism: Web + Machine Learning
 FastAPI 是一個可以在 Web 開發中充分利用 concurrency（並發性）優勢的框架，就像 NodeJS 一樣。此外，它還可以利用 parallelism（平行性）和 multiprocessing（多處理）等特性，適用於像機器學習等需要 CPU 運算的工作負載。再加上 Python 是主要的資料科學、機器學習、深度學習的語言，因此 FastAPI 非常適合用於架設機器學習 API。
 
+# 使用 FastAPI 實現高效能的 Python 非同步處理(下)
 ## async 和 await
