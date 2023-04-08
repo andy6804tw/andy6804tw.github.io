@@ -115,3 +115,5 @@ cmake -S . -B build
 # 建構項目
 cmake --build build --target finish
 ```
+
+> 以上測試都在 windows10 環境編譯
