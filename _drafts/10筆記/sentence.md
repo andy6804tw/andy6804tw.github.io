@@ -68,3 +68,5 @@ https://medium.com/@zdravko/13-things-you-should-give-up-if-you-want-to-be-succe
 ### 
 ### 
 ### 
+
+[台灣薪資平台](https://sinshui.com/)
