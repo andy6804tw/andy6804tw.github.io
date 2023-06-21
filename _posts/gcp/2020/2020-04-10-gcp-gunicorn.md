@@ -87,7 +87,16 @@ pkill gunicorn
 這種方法最簡單直接重新開機即可。
 
 ## 後記
+### 1. 記憶體問題
 在本機上開發時通常會直接用 `python run.py` 直接執行 API，若一樣用這指令測試上線時必須將 `debug=False` 不然會有記憶體流失 (Memory leak) 問題。
+
+### 2. sudo: python: command not found
+若想執行監聽 80 PORT 需要使用 sudo 指令。若出現 `sudo: python: command not found` 時可以透過以下指令解決：
+
+```sh
+sudo env PATH="$PATH" gunicorn -w 1 -b 0.0.0.0:80 run:app
+```
+我們使用了 PATH="$PATH" 來保留原始使用者的 PATH 設定。這表示在使用 sudo 命令執行指令時，仍然可以繼承原始使用者的 PATH 設定，以確保能夠正確找到所需的程式或命令。
 
 ## Reference
 - [使用gunicorn部署flask項目](https://zhuanlan.zhihu.com/p/88422780)
