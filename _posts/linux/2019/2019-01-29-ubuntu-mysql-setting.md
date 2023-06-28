@@ -69,6 +69,17 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '你的密碼' WITH GRAN
 
 上面指令中 `root` 為你的資料庫 `user`，此指令是透過 `*` 允許所有外部 IP 可以自由存取我這台 Server 的資料庫，但這有安全問題若是正式主機建議就輸入開發者的 IP 就好。
 
+
+若有出現以下錯誤訊息是因為，MySQL8和5的密碼加密方式不同。所以即便輸入正確密碼依然無法正常登入。
+```
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IDENTIFIED BY 'root' WITH GRANT OPTION' at line 1.
+```
+
+解決辦法手動建立MySQL8的帳戶。
+```
+CREATE USER 'root'@'%' IDENTIFIED BY 'PASSWORD';
+```
+
 #### 4. 更新設定
 全部設定完成後我們輸入以下指令進行刷新：
 
