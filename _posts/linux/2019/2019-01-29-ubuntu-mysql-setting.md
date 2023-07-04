@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Linux系統] ubuntu安装MySQL'
+title: '[Linux系統] ubuntu安裝MySQL'
 categories: 'Linux'
 description: 
 keywords:
