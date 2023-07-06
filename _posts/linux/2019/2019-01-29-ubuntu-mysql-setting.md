@@ -64,8 +64,11 @@ mysql -u root -p
 在 `MySQL` 環境下執行授權命令(授權給遠程任何電腦登錄資料庫)，輸入以下指令：
 
 ```bash
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '你的密碼' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 ```
+> mysql8開始不支援此寫法
+~~GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '你的密碼' WITH GRANT OPTION;~~
+
 
 上面指令中 `root` 為你的資料庫 `user`，此指令是透過 `*` 允許所有外部 IP 可以自由存取我這台 Server 的資料庫，但這有安全問題若是正式主機建議就輸入開發者的 IP 就好。
 
