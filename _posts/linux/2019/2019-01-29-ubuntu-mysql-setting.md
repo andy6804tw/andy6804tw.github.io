@@ -109,3 +109,15 @@ service mysql restart
 最後就可以通過我們電腦的資料庫視覺軟體(MySQL Workbench、Navicat...etc)連接上我們的資料庫了。
 
 
+## MySQL 簡單指令
+
+```bash
+# 取得所有使用者
+SELECT User,Host FROM mysql.user;
+# 移除使用者
+drop user 'username'@'%';
+# 新增使用者
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+# 授予用戶權限
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'%';
+```
