@@ -70,7 +70,7 @@ Postman 是一個能夠模擬 HTTP Request 的工具能夠讓你簡單快速的�
 ```js
 function doGet() {
     // 1. SpreadsheetApp -> Spreadsheet 
-    var id = '10HBDXodn4MDqcfJ6Tq8zHVeQY-BoBNp6s3ZXEoDQRIc';
+    var id = '輸入你的試算表 id';
     var spreadsheet = SpreadsheetApp.openById(id);
     // 2. Spreadsheet -> Sheet 
     var name = 'table1';
