@@ -124,4 +124,6 @@ function doGet() {
 }
 ```
 
+![](https://i.imgur.com/EBZuE71.png)
+
 此寫法會逐一地走訪每個欄位的內容與值，並且轉換成 Json 格式。最終會逐一的存放在變數 `data` 之中。
