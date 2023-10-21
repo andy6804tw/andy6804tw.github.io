@@ -63,3 +63,65 @@ Postman 是一個能夠模擬 HTTP Request 的工具能夠讓你簡單快速的�
 ![](/images/posts/web/2020/img20200804-5.png)
 
 ![](/images/posts/web/2020/img20200804-7.png)
+
+## 讀取 sheet 所有資料
+剛剛已經成功地將資料透過 POST 方法將每一筆資訊塞入 Google Sheet 當中。接著我們可以透過 Get 方法將所有的資料讀取出來。此功能就類似於 SQL 中的 Select() 表格。在這個方法當中我們在該 Sheet 建立了一個 `tabel1` 的頁籤，因此可以透過 `getSheetByName` 取得該頁面的所有內容。或是可以仿造上面 Post 的寫法 `let Sheet = SpreadSheet.getSheets()[0];` 直接指定第一個頁面的內容。
+
+```js
+function doGet() {
+    // 1. SpreadsheetApp -> Spreadsheet 
+    var id = '10HBDXodn4MDqcfJ6Tq8zHVeQY-BoBNp6s3ZXEoDQRIc';
+    var spreadsheet = SpreadsheetApp.openById(id);
+    // 2. Spreadsheet -> Sheet 
+    var name = 'table1';
+    var sheet = spreadsheet.getSheetByName(name);
+    // retrieve the first row as the header containing item name 
+    // 3. + 4. Sheet -> Range -> Value 
+    var item_range = sheet.getRange('1:1')
+        .getValues();
+    // retrieve the first column as the list of keys of each data row 
+    // 3. + 4. Sheet -> Range -> Value 
+    var key_range = sheet.getRange('A2:A')
+        .getValues();
+    var items = [];
+    var keys = [];
+    for (var idx in item_range[0]) {
+        // neglect if the value is an empty string
+        if (item_range[0][idx] == '') {
+            break;
+        }
+        items.push(item_range[0][idx]);
+    }
+    for (var idx in key_range) {
+        // neglect if the value is an empty string // @ts-ignore 
+        if (key_range[idx] == '') {
+            break;
+        }
+        keys.push(key_range[idx]);
+    }
+    // the number of data rows 
+    var row_number = keys.length;
+    // the number of items in data rows 
+    var column_number = items.length;
+    // get the data excluding the first row (as the item field names) 
+    // 3. Sheet -> Range 
+    var range = sheet.getRange(2, 1, row_number, column_number);
+    var data = [];
+    // 4. Range -> Value 
+    var values = range.getValues();
+    // transform into JSON-like array 
+    for (var row = 0; row < row_number; ++row) {
+        var row_object = {};
+        for (var col = 0; col < column_number; ++col) {
+            var item = items[col];
+            row_object[item] = values[row][col];
+        }
+        data.push(row_object);
+    }
+    // 回傳結果 
+    return ContentService.createTextOutput(JSON.stringify(data))
+        .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+此寫法會逐一地走訪每個欄位的內容與值，並且轉換成 Json 格式。最終會逐一的存放在變數 `data` 之中。
