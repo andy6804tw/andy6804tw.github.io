@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'HTML和CSS中內嵌入SVG圖片'
+title: 'HTML 和 CSS 中內嵌入 SVG 圖片'
 categories: 'Web'
 description: 'svg to css'
 keywords: frontend
