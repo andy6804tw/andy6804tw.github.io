@@ -32,7 +32,7 @@ server {
 
 > 8002 PORT 的 API 必須先掛上憑證。
 
-加設我使用 Python 架設一個 FastAPI，可以使用 gunicorn 或是 uvicorn 來啟動。並同時加上 ssl 憑證
+假設我使用 Python 架設一個 FastAPI，可以使用 gunicorn 或是 uvicorn 來啟動。並同時加上 ssl 憑證
 
 ```
 gunicorn -w 2 -b 0.0.0.0:8001 run:app -k uvicorn.workers.UvicornWorker -t 0 --keyfile=/etc/ssl/example.com.key --certfile=/etc/ssl/example.com.crt --daemon
