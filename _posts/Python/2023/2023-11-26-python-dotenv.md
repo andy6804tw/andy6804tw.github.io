@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 load_dotenv()
 ```
 
-### 3. 現在你可以使用 os.environ.get() 來讀取這些環境變數：
+#### 3. 現在你可以使用 os.environ.get() 來讀取這些環境變數：
 
 ```py
 import os
