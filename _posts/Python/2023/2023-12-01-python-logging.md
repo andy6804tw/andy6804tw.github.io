@@ -85,5 +85,33 @@ logging.critical('這是一條 CRITICAL 訊息')
 2023-12-01 21:14:07,546 - WARNING : 這是一條 WARNING 訊息
 2023-12-01 21:14:07,546 - ERROR : 這是一條 ERROR 訊息
 2023-12-01 21:14:07,546 - CRITICAL : 這是一條 CRITICAL 訊息
+```
 
+## 攔截錯誤訊息
+我們也可以記錄 Exception 的錯誤訊息。在這個範例中，我們首先配置了 logging，將等級設定為 ERROR。接著，我們使用 try 和 except 塊來包裹可能引發異常的程式碼。當異常發生時，`logging.exception` 方法會捕獲並記錄異常訊息，同時保留原始的異常類型和 stack trace。
+
+```py
+import logging
+
+# 配置 logging，設定等級為 ERROR
+logging.basicConfig(
+    level=logging.ERROR,
+    format='%(asctime)s - %(levelname)s - %(funcName)s:%(lineno)d - %(message)s'
+)
+
+try:
+    throw_error()
+except Exception as e:
+    logging.exception('An exception occurred: %s', str(e))
+
+```
+
+輸出結果：
+```
+2023-12-01 21:27:09,370 - ERROR - <module>:12 - An exception occurred: name 'throw_error' is not defined
+Traceback (most recent call last):
+  File "/Users/Desktop/demo/run.py", line 10, in <module>
+    throw_error()
+    ^^^^^^^^^^^
+NameError: name 'throw_error' is not defined
 ```
