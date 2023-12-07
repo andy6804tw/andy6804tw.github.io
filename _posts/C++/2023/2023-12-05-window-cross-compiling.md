@@ -8,11 +8,20 @@ keywords:
 
 ## 前言
 本篇文章將深入介紹如何在Windows上設定開發環境，以實現從Windows到aarch64的跨平台編譯。
+MinGW 是一個用於 Windows 平台的開發工具套件，其目的是提供一個在 Windows 上使用類 Unix 工具（如 GCC 編譯器）的環境，以便開發者能夠輕鬆地在 Windows 上進行跨平台的程式碼開發。 以下是 MinGW 的主要特點和組成部分：
+
+- Minimalist GNU for Windows： MinGW 是「Minimalist GNU for Windows」的縮寫，它提供了一個最小化、輕量級的 GNU 工具集合，主要包括 GCC 編譯器、GNU Binutils 工具、以及相關的庫和頭文件。
+- GCC 編譯器： MinGW 的核心是 GCC（GNU Compiler Collection），它是一個強大的開源編譯器，支援多種程式語言，包括 C、C++、Fortran 等。在 MinGW 中，GCC 主要用於將源代碼編譯成可執行文件。
+- GNU Binutils： 這是一個包含了各種二進位工具的軟體包，包括連接器（ld）、目標轉換器（objcopy）、反彙編工具（objdump）等。這些工具協助在編譯和連接過程中處理二進位文件。
+- MSYS（Minimal SYStem）： MinGW 通常與 MSYS 搭配使用，這是一個提供類 Unix 環境的工具，包括一個 Bash shell 和一些基本的 Unix 工具，使得在 Windows 上進行類 Unix 開發更加方便。
+- 簡單安裝： MinGW 的安裝相對簡單，開發者可以通過下載安裝管理器進行工具的安裝和更新。這使得在 Windows 上建立開發環境變得容易。
+- 支援跨平台開發： 使用 MinGW，開發者可以在 Windows 上開發跨平台的應用程式，而無需依賴於 Microsoft Visual Studio 的編譯器。Minimalist GNU for Windows： MinGW 是「Minimalist GNU for Windows」的縮寫，它提供了一個最小化、輕量級的 GNU 工具集合，主要包括 GCC 編譯器、GNU Binutils 工具、以及相關的庫和頭文件。
 
 ## 設定開發環境
 在開始之前，我們需要確保Windows上安裝了適當的交叉編譯工具鏈。這包括編譯器、連結器和其他相關工具。我們可以依照需求安裝Cygwin、MinGW或其他工具，以便支援aarch64的交叉編譯。
 
 - 安裝[gcc-linaro-7.5.0-2019.12-i686-mingw32_aarch64-linux-gnu](https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/)
+- 安裝[x86_64-8.1.0-release-posix-seh-rt_v6-rev0](https://releases.linaro.org/components/toolchain/binaries/latest-7/aarch64-linux-gnu/)
 
 安裝完工具後，設定環境變數是確保系統能夠找到這些工具的關鍵步驟。在Windows環境中，這可能包括修改系統的PATH變數以包含交叉編譯工具的路徑。這確保了在命令提示字元或其他開發環境中能夠正確調用這些工具。
 
