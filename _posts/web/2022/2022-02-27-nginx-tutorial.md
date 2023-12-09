@@ -231,6 +231,25 @@ sudo nginx -s reload
 
 ![](/images/posts/web/2022/img1110227-7.png)
 
+## 常用的設定
+### proxy_read_timeout
+後端伺服器處理請求的時間設定。（頁面等待伺服器回應時間）
+
+```
+location / {
+        …
+        proxy_read_timeout  150 ; # 秒
+        …
+    }
+```
+
+### client_max_body_size 350M;
+設定上傳文件大小限制。(預設為1MB)
+
+```
+client_max_body_size 350M;
+```
+
 ## Nginx 常用指令
 
 ```
