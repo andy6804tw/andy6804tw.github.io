@@ -206,7 +206,37 @@ int main(){
 }
 ```
 
+### Queue 轉換成 Vector 
+透過 `push_back()` 在 vector 容器尾部添加一個元素，然而在 C++ 11 中推薦使用 `emplace_back()`。兩者區別在於底層實現的機制不同。`push_back()` 向容器尾部添加元素時，首先會創建這個元素，然後再將這個元素拷貝或者移動到容器中(如果是拷貝的話，事後會自行銷毀先前創建的這個元素)；而 `emplace_back()` 在實現時，則是直接在容器尾部創建這個元素，省去了拷貝或移動元素的過程。
+
+```c
+# include<vector>
+# include<queue>
+# include<iostream>
+using namespace std;
+
+int main(){
+    vector<int> v;
+    queue<float> q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    // convert queue to vector
+    while (!q.empty())
+    {
+        v.emplace_back(q.front());
+        q.pop();
+    }
+    // print vector
+    for(int i=0;i<v.size();i++){
+        cout<< v[i] << " ";
+    }
+    cout<< endl;
+}
+```
+
 ## Reference
 - [2D Vector In C++ With User Defined Size](https://www.geeksforgeeks.org/2d-vector-in-cpp-with-user-defined-size/)
 - [Multi-Dimensional Arrays](https://cplusplus.com/forum/articles/7459/)
 - [How can I read numbers in a text file into an array in C++?](https://www.quora.com/How-can-I-read-numbers-in-a-text-file-into-an-array-in-C%2B%2B/answer/Vishal-Oza-4?ch=10&oid=137495368&share=6e487327&target_type=answer)
+- [C++ STL vector添加元素詳解](http://c.biancheng.net/view/6826.html)
