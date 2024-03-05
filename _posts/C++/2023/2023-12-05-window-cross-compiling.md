@@ -74,3 +74,11 @@ cmake --build build
 ```sh
 aarch64-linux-gnu-g++ -o main .\main.cpp
 ```
+
+## 補充功能
+在 VSCode 中如果有安裝 CMake 擴充套件，可以使用快捷鍵建立一個 CMake C++ 板模。注意請在 windows 系統環境變數先配置好 mingw toolchain。
+
+1. 按下ctrl+shift+P選擇CMake: Quick Start
+2. 選擇 toolchain
+3. 輸入專案名稱
+4. 選擇專案型態，library/executable
