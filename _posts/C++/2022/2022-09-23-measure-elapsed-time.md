@@ -45,6 +45,15 @@ Elapsed time in milliseconds: 3000 ms
 Elapsed time in seconds: 3 sec
 ```
 
+如果要印出單一個時間點 epoch 可以參考以下程式：
+
+```c
+// If you want to print the time in milliseconds since epoch
+auto durationSinceEpoch = start_time_.time_since_epoch();
+auto nanos = std::chrono::duration_cast<std::chrono::nanoseconds>(durationSinceEpoch).count();
+std::cout << "Nanoseconds since epoch: " << nanos << std::endl;
+```
+
 ## 使用 Linux 系統時間
 本方使用函數 gettimeofday 來得到程式執行前後的時間，是調用 `<sys/time.h>` 取得當前系統時間。gettimeofday 是符合 POSIX 標準的函式，用於檢索系統時鐘，精度可達到微秒（microsecond，即μs）。
 
