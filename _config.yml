@@ -18,7 +18,7 @@ side_bar_repo_limit: 5
 author: Tsai Yi Lin
 organization: 1010 Code Workshop
 organization_url: https://1010code.blogspot.tw/
-github_username: 1010code
+github_username: andy6804tw
 location: Taiwan, Tainan
 email: andy6804tw@yahoo.com.tw
 
@@ -110,3 +110,7 @@ lazy_load_disqus : true
 # ---------------- #
 google:
     analytics_id: G-XRN47TB6Z8
+
+
+exclude:
+  - sharefile
