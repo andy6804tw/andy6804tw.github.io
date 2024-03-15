@@ -110,7 +110,3 @@ lazy_load_disqus : true
 # ---------------- #
 google:
     analytics_id: G-XRN47TB6Z8
-
-
-exclude:
-  - sharefile
