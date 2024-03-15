@@ -1,42 +1,32 @@
-{% comment %}
-手動定義 Repositories 資訊列表
-{% endcomment %}
-{% assign custom_repos = 
-  '[
-    {"name": "Repo 1", "html_url": "https://github.com/user/repo1", "description": "Description of Repo 1", "stargazers_count": 100, "forks_count": 50, "updated_at": "2022-03-12"},
-    {"name": "Repo 2", "html_url": "https://github.com/user/repo2", "description": "Description of Repo 2", "stargazers_count": 200, "forks_count": 75, "updated_at": "2022-03-11"},
-    {"name": "Repo 3", "html_url": "https://github.com/user/repo3", "description": "Description of Repo 3", "stargazers_count": 300, "forks_count": 100, "updated_at": "2022-03-10"}
-  ]' | parse_json 
-%}
-
 <h3>My Popular Repositories</h3>
-{% for repo in custom_repos %}
-<a href="{{ repo.html_url }}" target="_blank" class="card text-center">
-    <div class="thumbnail">
-        <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
-            <div class="card-image-cell">
-                <h3 class="card-title">
-                    {{ repo.name }}
-                </h3>
-            </div>
-        </div>
-        <div class="caption">
-            <div class="card-description">
-                <p class="card-text">{{ repo.description }}</p>
-            </div>
-            <div class="card-text">
-                <span class="meta-info" title="{{ repo.stargazers_count }} stars">
-                    <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}
-                </span>
-                <span class="meta-info" title="{{ repo.forks_count }} forks">
-                    <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
-                </span>
-                <span class="meta-info" title="Last updated：{{ repo.updated_at }}">
-                    <span class="octicon octicon-clock"></span>
-                    <time datetime="{{ repo.updated_at }}">{{ repo.updated_at | date: '%Y-%m-%d' }}</time>
-                </span>
-            </div>
-        </div>
-    </div>
-</a>
+{% assign repos = site.data.repos %}
+{% for repo in repos %}
+  <a href="{{ repo.html_url }}" target="_blank" class="card text-center">
+      <div class="thumbnail">
+          <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
+              <div class="card-image-cell">
+                  <h3 class="card-title">
+                      {{ repo.name }}
+                  </h3>
+              </div>
+          </div>
+          <div class="caption">
+              <div class="card-description">
+                  <p class="card-text">{{ repo.description }}</p>
+              </div>
+              <div class="card-text">
+                  <span class="meta-info" title="{{ repo.stargazers_count }} stars">
+                      <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}
+                  </span>
+                  <span class="meta-info" title="{{ repo.forks_count }} forks">
+                      <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
+                  </span>
+                  <span class="meta-info" title="Last updated：{{ repo.updated_at }}">
+                      <span class="octicon octicon-clock"></span>
+                      <time datetime="{{ repo.updated_at }}">{{ repo.updated_at | date: '%Y-%m-%d' }}</time>
+                  </span>
+              </div>
+          </div>
+      </div>
+  </a>
 {% endfor %}
