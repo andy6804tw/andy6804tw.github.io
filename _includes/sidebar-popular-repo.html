@@ -1,16 +1,52 @@
-<h3>My Popular Repositories!!</h3>
+<h3>My Popular Repositories</h3>
 {% assign manual_repos = 
   [
     {
-      "name": "2023-15th-ironman",
-      "html_url": "https://github.com/andy6804tw/2023-15th-ironman",
-      "description": "第15屆iT邦幫忙鐵人賽 AI & Data 組",
+      "name": "Repo 1",
+      "html_url": "https://github.com/username/repo1",
+      "description": "Description of Repo 1",
       "stargazers_count": 10,
       "forks_count": 5,
-      "updated_at": "2023-03-13"
+      "updated_at": "2022-03-13T12:00:00Z"
+    },
+    {
+      "name": "Repo 2",
+      "html_url": "https://github.com/username/repo2",
+      "description": "Description of Repo 2",
+      "stargazers_count": 20,
+      "forks_count": 8,
+      "updated_at": "2022-03-12T10:00:00Z"
     }
   ]
 %}
-{% for repo in manual_repos %}
-<div>Hi</div>
+
+{% for repo in manual_repos | limit: site.side_bar_repo_limit %}
+  <a href="{{ repo.html_url }}" target="_blank" class="card text-center">
+      <div class="thumbnail">
+          <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
+              <div class="card-image-cell">
+                  <h3 class="card-title">
+                      {{ repo.name }}
+                  </h3>
+              </div>
+          </div>
+          <div class="caption">
+              <div class="card-description">
+                  <p class="card-text">{{ repo.description }}</p>
+              </div>
+              <div class="card-text">
+                  <span class="meta-info" title="{{ repo.stargazers_count }} stars">
+                      <span class="octicon octicon-star"></span> {{ repo.stargazers_count }}
+                  </span>
+                  <span class="meta-info" title="{{ repo.forks_count }} forks">
+                      <span class="octicon octicon-git-branch"></span> {{ repo.forks_count }}
+                  </span>
+                  <span class="meta-info" title="Last updated：{{ repo.updated_at }}">
+                      <span class="octicon octicon-clock"></span>
+                      <time datetime="{{ repo.updated_at }}">{{ repo.updated_at | date: '%Y-%m-%d' }}</time>
+                  </span>
+              </div>
+          </div>
+      </div>
+  </a>
 {% endfor %}
