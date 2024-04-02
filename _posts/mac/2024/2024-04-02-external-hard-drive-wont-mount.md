@@ -20,9 +20,9 @@ ps aux | grep fsck
 ```
 
 從輸出結果中可以看到，rdisk2s2 現在被 fsck_exfat 指令佔用了，因此處於忙碌狀態，無法進行掛載(mount)。
-```
-root              4345   3.2  0.0 33751240   4352   ??  U     7:49PM   0:00.74 /System/Library/Filesystems/exfat.fs/Contents/Resources/./fsck_exfat -y /dev/rdisk2s2
-```
+
+> root              4345   3.2  0.0 33751240   4352   ??  U     7:49PM   0:00.74 /System/Library/Filesystems/>  exfat.fs/Contents/Resources/./fsck_exfat -y /dev/rdisk2s2
+
 
 解決方法是終止該程序(process)。在這個例子中，查詢到的程序 ID 是 4345。這個數值是根據當下使用者電腦隨機生成的編號，所以一旦找到了該 PID，就可以使用以下指令終止該程序。
 
