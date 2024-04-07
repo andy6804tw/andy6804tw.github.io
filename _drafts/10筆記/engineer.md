@@ -1,4 +1,6 @@
 
+## 求職
+- [經典邏輯考題](https://hackmd.io/@MrBean/S1-vxjfXp)
 
 
 ## 軟體工程
