@@ -13,28 +13,32 @@ Git LFS（Large File Storage）是一種用於處理大型檔案的工具。傳�
 根據不同作業系統可以參照[官網](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage?platform=mac)的說明安裝 Git LFS。
 
 - Linux
-```
+
+```sh
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt-get install git-lfs
 git lfs install
 ```
 
 - MacOS
-```
+
+```sh
 brew install git-lfs
 git lfs install
 ```
 
 - Windows
+
 下載安裝 [Git Large File Storage (LFS)](https://git-lfs.com/)
 執行安裝檔，安裝完畢後，回到專案終端機，輸入以下指令讓你的 git 支援 lfs。
 
-```
+```sh
 git lfs install
 ```
 
 
 切記安裝完成後一定要輸入 `git lfs install` 並確保回傳以下訊息，即代表成功。
+
 ```
 Updated Git hooks.
 Git LFS initialized.
@@ -43,13 +47,13 @@ Git LFS initialized.
 ## 使用方式
 首先進入專案資料夾先為你的轉案進行 Git 的初始化。
 
-```
+```sh
 git init
 ```
 
 接著假設在專案資料夾下有一個 `model.onnx` 容量很大的模型。我們想為他宣告為 LFS 檔案。
 
-```
+```sh
 git lfs track model.onnx
 git add .
 git commit -m 'add onnx model'
@@ -65,18 +69,19 @@ model.onnx filter=lfs diff=lfs merge=lfs -text
 
 另外想設定某個副檔名的所有文件都要加入 LFS 處理。可以使用 `*` 表示全部。
 
-```
+```sh
 git lfs track *.onnx
 ```
 
 要查看目前正在使用 Git LFS 追蹤的檔案，可以執行以下指令。
-```
+
+```sh
 git lfs track
 ```
 
 若想要取消追蹤某些檔案，可以執行以下指令。
 
-```
+```sh
 git lfs untrack model.onnx
 ```
 
