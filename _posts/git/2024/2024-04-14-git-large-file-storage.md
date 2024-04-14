@@ -9,6 +9,8 @@ keywords:
 ## 前言
 Git LFS（Large File Storage）是一種用於處理大型檔案的工具。傳統的 Git 主要設計用於處理文字檔案，因此在處理大型二進位檔案時效能較差。當其他開發者從遠端倉儲 Clone 專案時，預設情況下 Git 會下載所有歷史版本和檔案，這可能導致儲存空間浪費和效能下降。為了解決這個問題，GitHub 建議使用 Git LFS 來管理大型檔案。Git LFS 可以將大型檔案存儲在遠端服務器上，僅在需要時才下載。GitHub 建議將檔案大小超過50MB的檔案轉換為 Git LFS 跟蹤，以提高效能並節省儲存空間。
 
+> GitHub免費帳戶提供一個月上限1GB的LFS額度
+
 ## 安裝 Git LFS
 根據不同作業系統可以參照[官網](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage?platform=mac)的說明安裝 Git LFS。
 
