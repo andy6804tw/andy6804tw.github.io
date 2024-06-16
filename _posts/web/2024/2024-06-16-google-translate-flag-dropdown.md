@@ -9,6 +9,8 @@ keywords: 'google translate'
 ## 前言
 Google 翻譯提供了一個方便的嵌入式翻譯小工具，但其預設的下拉選單樣式可能不符合您的網站設計。本文將教您如何使用 Google 翻譯功能並客製化下拉選單，使其符合您的網站風格。
 
+![](https://github.com/1010code/google-translate-flag-dropdown/raw/main/screenshot/demo02.png)
+
 ### 前置作業
 本範例將使用  Bootstrap5 和 FontAwesome 來幫助設計。
 
@@ -82,8 +84,6 @@ function googleTranslateElementInit() {
 
 如何知道這些語言的編碼參數，像是en,ja去哪找?我們可以進到[Google翻譯網頁](https://translate.google.com/?hl=zh-TW&tab=TT)。並選擇要翻譯的語言，接著瀏覽器的網址列屆會立即出現翻譯的代碼。
 
-![](https://cc.nchu.edu.tw/var/file/0/1000/img/1/Google001.png)
-
 接著使用 JavaScript 為每個下拉選單項目添加點擊事件監聽器，當用戶選擇語言時更新 Google 翻譯下拉選單的值並觸發變更事件。
 
 ```js
@@ -114,6 +114,7 @@ dropdownItems.forEach(item => {
 ```
 
 > 完整程式碼可以從 [GitHub](https://github.com/1010code/google-translate-flag-dropdown) 取得
+> 展示[網頁](https://1010code.github.io/google-translate-flag-dropdown)
 
 
 ## Reference
