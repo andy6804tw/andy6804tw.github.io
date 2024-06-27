@@ -82,3 +82,6 @@ aarch64-linux-gnu-g++ -o main .\main.cpp
 2. 選擇 toolchain
 3. 輸入專案名稱
 4. 選擇專案型態，library/executable
+
+
+> 範例程式可以從[GitHub](https://github.com/1010code/cpp-cross-compile)取得！
