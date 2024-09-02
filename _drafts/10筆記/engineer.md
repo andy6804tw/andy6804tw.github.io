@@ -15,6 +15,9 @@
 - [2022-越挫越勇的前端工程師面試心得](https://medium.com/@haha861924/2022-%E8%B6%8A%E6%8C%AB%E8%B6%8A%E5%8B%87%E7%9A%84%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%9D%A2%E8%A9%A6%E5%BF%83%E5%BE%97-f206b2157b3b)
 
 
+## 業界薪資
+- [2022整理](https://www.dcard.tw/f/tech_job/p/238600302?cid=F11D04EE-31DC-4771-857A-649E539CC8C9)
+
 ## 網頁
 ### 前端
 - [CSS 命名](https://www.youtube.com/watch?v=DX5PUZd3oPw)
