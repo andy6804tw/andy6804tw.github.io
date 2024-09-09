@@ -110,3 +110,6 @@ DISPLAY=:0.0 WINEPREFIX=~/.wine wine cmd /c python-3.7.6-amd64.exe  /quiet  Prep
 wine pip install pyinstaller
 wine pyinstaller --onefile main.py
 ```
+
+## Reference
+- [How to cross-compile a Python script into a Windows executable on Linux](https://andreafortuna.org/2017/12/27/how-to-cross-compile-a-python-script-into-a-windows-executable-on-linux/)
