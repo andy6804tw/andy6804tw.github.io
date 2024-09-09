@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '在Linux中使用Wine打包Python程式為Windows可執行檔'
+title: '在 Linux 中使用 Wine 打包 Python Windows 可執行檔'
 categories: 'Python'
 description: 'How to cross-compile a Python script into a Windows executable on Linux'
 keywords: 
