@@ -113,3 +113,4 @@ wine pyinstaller --onefile main.py
 
 ## Reference
 - [How to cross-compile a Python script into a Windows executable on Linux](https://andreafortuna.org/2017/12/27/how-to-cross-compile-a-python-script-into-a-windows-executable-on-linux/)
+- [how to install python3 in wine?how to install python3 in wine?](https://askubuntu.com/questions/678277/how-to-install-python3-in-wine)
