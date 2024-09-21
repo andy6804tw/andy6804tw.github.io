@@ -96,6 +96,7 @@ job_B:
 
 
 #### Cache vs Artifacts
+
 | Cache | Artifacts |
 | ----- | --------- |
 | 透過 `key` 辨識，同樣的 `key` 會被後來執行的 Job 覆蓋 | 無覆蓋問題，同樣的檔案可被多個 Job 取用 |
