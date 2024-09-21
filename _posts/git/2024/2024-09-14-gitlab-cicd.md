@@ -40,8 +40,69 @@ CI（持續整合，Continuous Integration）與 CD（持續交付/持續部署�
 
 ![](https://pin-yi.me/git-or-cicd/gitlab-cicd/cicd.jpg)
 
+## What is `.gitlab-ci.yml`?
+`.gitlab-ci.yml` 是 GitLab CI/CD 的配置檔案，放置在專案的根目錄，用來決定 GitLab CI 的工作內容。當你每次推送專案時，GitLab 會自動讀取此檔案，並使用 GitLab Runner 來執行 pipeline。這個檔案使用 YAML 語言來定義執行的階段、規則與任務，類似 Python 的縮排代表層級關係。
 
-## `.gitlab-ci.yml` 撰寫
+### `.gitlab-ci.yml` 檔案結構
+
+```yml
+stages:
+    - stage_1
+    - stage_2
+		
+image: alpine:latest
+```
+- stages：定義 Pipeline 中的階段與執行順序。
+- image：指定執行環境，這裡使用輕量化的 Linux 映像檔（Alpine）。
+
+```yml
+job_A:
+    stage: stage_1
+    script:
+        - touch hello.txt
+        - echo 'Hello world!' > hello.txt
+    artifacts:
+        paths:
+            - hello.txt
+```
+
+- script：設定此 Job 的執行內容。
+artifacts: 當 stage 結束時會保留的檔案，以便別的 job 取用。
+
+```yml
+job_B:
+    stage: stage_1
+    script:
+        - exit 1
+    allow_failure: true
+```
+
+- allow_failure：允許此 Job 失敗，後續階段仍會執行。
+
+> exit 1  強制設定 job 為 failed (0 為 success)
+
+#### 其他參數
+
+| 參數          | 說明                                                           |
+| ------------- | -------------------------------------------------------------- |
+| `tags`        | 用來選擇與 GitLab 註冊的自架 Runner                            |
+| `dependencies`| 設定 Job 之間的依賴關係                                         |
+| `cache`       | 儲存所需套件，過去未使用 Cache 時會將其放在 `artifacts` 中       |
+| `before_script`| 在每次 Job 執行前的設置，如 Docker 登入或安裝依賴              |
+| `only`        | 定義 Job 只在特定分支上執行                                     |
+| `except`      | 定義 Job 不會在特定分支上執行                                   |
+| `retry`       | 設置當 Job 失敗時的重試次數，最多可設為 2                       |
+
+
+
+#### Cache vs Artifacts
+| Cache | Artifacts |
+| ----- | --------- |
+| 透過 `key` 辨識，同樣的 `key` 會被後來執行的 Job 覆蓋 | 無覆蓋問題，同樣的檔案可被多個 Job 取用 |
+| 只存在同一個 Runner，不同標籤的 Job 無法共享 | 生成後，後續所有 Job 都能取用 |
+
+
+## 一個完整的 `.gitlab-ci.yml` 撰寫
 GitLab CI/CD 的運作原理是，在專案根目錄中新增一個名為 .gitlab-ci.yml 的文件，這是設定建構、測試和部署流程的腳本。該文件可以定義執行命令的順序、部署位置、以及是否自動或手動觸發等規則。當這個文件被放入 Repository 後，GitLab 會自動啟動 GitLab Runner 工具，依照腳本來執行指定流程。接下來，我們將介紹 .gitlab-ci.yml 文件的基本編寫方式與運行流程。
 
 ```yml
