@@ -1,20 +1,20 @@
-- name: 2023-15th-ironman 
-  html_url: https://github.com/andy6804tw/2023-15th-ironman
-  description: '[揭開黑箱模型：探索可解釋人工智慧] 第15屆iT邦幫忙鐵人賽 AI & Data 組'
-  stargazers_count: 0
+- name: 全民瘋AI系列 [探索可解釋人工智慧]
+  html_url: https://github.com/andy6804tw/crazyai-xai
+  description: '第15屆iT邦幫忙鐵人賽 AI & Data 組 [佳作]'
+  stargazers_count: 4
   forks_count: 0
-  updated_at: 2023-12-02
+  updated_at: 2024-10-11
 
-- name: 2021-13th-ironman
-  html_url: https://github.com/andy6804tw/2021-13th-ironman
-  description: '[全民瘋AI系列2.0] 第13屆iT邦幫忙鐵人賽  AI & Data 組'
-  stargazers_count: 140
-  forks_count: 37
-  updated_at: 2023-12-02
+- name: 全民瘋AI系列 [經典機器學習]
+  html_url: https://github.com/andy6804tw/crazyai-ml
+  description: '第13屆iT邦幫忙鐵人賽  AI & Data 組'
+  stargazers_count: 156
+  forks_count: 41
+  updated_at: 2024-10-11
 
-- name: 2020-12th-ironman
-  html_url: https://github.com/andy6804tw/2020-12th-ironman
-  description: '[全民瘋AI系列] 第12屆iT邦幫忙鐵人賽 影片教學組'
-  stargazers_count: 187
+- name: 適合初學者的機器學習入門教材
+  html_url: https://www.youtube.com/playlist?list=PLXSkku8eiD-iFRBr11rV83579hing3gMU
+  description: '第12屆iT邦幫忙鐵人賽 影片教學組 [優選]'
+  stargazers_count: 198
   forks_count: 103
-  updated_at: 2023-12-02
+  updated_at: 2024-10-11
