@@ -76,3 +76,12 @@ Gradiant Descent 的參數更新，要看微分的值，越大更新越快。在
 [影片-ML Lecture 3-1: Gradient Descent](https://www.youtube.com/watch?v=yKKNr-QKz2Q&list=PLJV_el3uVTsPy9oCRY30oBPNLCo89yu49&index=7)
 
 > 本篇文章來至於台大李宏毅教授2017 機器學習課程[影片](https://www.youtube.com/playlist?list=PLJV_el3uVTsPy9oCRY30oBPNLCo89yu49)，記錄了課程重點與摘要。更多課程內容可以從[這裡](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML17_2.html)取得。
+
+---
+
+> 如果你對 AI 和深度學習有興趣，歡迎參考我的免費線上電子書《深度學習與神經網路》。這本書涵蓋了許多實用的深度學習知識與技巧，適合任何對此領域有興趣的讀者。內容集結了多位專家的教學資源，例如台大李弘毅教授的課程筆記。點擊下方連結即可獲取最新內容，讓我們一起探索 AI 的世界！
+>
+> 👉 [全民瘋 AI 系列《深度學習與神經網路》](https://andy6804tw.github.io/crazyai-dl) - 免費線上電子書  
+> 👉 [其它全民瘋 AI 系列](https://andy6804tw.github.io/wiki) - 匯集多主題的 AI 免費電子書
+
+---
