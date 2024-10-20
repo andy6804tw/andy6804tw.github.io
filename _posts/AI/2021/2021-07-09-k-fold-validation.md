@@ -69,3 +69,14 @@ keywords: K-fold Cross-Validation
 
 
 [[scikit-learn] GroupKFold](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupKFold.html#sklearn.model_selection.GroupKFold)
+
+
+文章同時發表於： https://andy6804tw.github.io/crazyai-ml/26.交叉驗證%20K-Fold%20Cross-Validation
+
+---
+> 如果你對機器學習和人工智慧（AI）技術感興趣，歡迎參考我的線上免費電子書《經典機器學習》。這本書涵蓋了許多實用的機器學習方法和技術，適合任何對這個領域有興趣的讀者。點擊下方連結即可獲取最新內容，讓我們一起深入了解AI的世界！
+>
+> 👉 [全民瘋AI系列 [經典機器學習]](https://andy6804tw.github.io/crazyai-ml) 線上免費電子書
+> 👉 [其它全民瘋AI系列](https://andy6804tw.github.io/wiki) 這是一個入口，匯集了許多不同主題的AI免費電子書
+
+---
