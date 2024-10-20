@@ -203,3 +203,12 @@ CatBoost 的優點和使用方法都介紹完了，是不是覺得十分簡單�
 - [CatBoost、LightGBM、XGBoost，這些算法你都瞭解嗎？](https://www.xuehua.us/a/5eb594cf86ec4d63e698d3e7?lang=zh-tw)
 
 > 本文章引用自第13屆iT幫邦忙 [鐵人賽](https://ithelp.ithome.com.tw/articles/10275263)
+> 文章同時發表於： https://andy6804tw.github.io/crazyai-ml/18.CatBoost
+
+---
+> 如果你對機器學習和人工智慧（AI）技術感興趣，歡迎參考我的線上免費電子書《經典機器學習》。這本書涵蓋了許多實用的機器學習方法和技術，適合任何對這個領域有興趣的讀者。點擊下方連結即可獲取最新內容，讓我們一起深入了解AI的世界！
+>
+> 👉 [全民瘋AI系列 [經典機器學習]](https://andy6804tw.github.io/crazyai-ml) 線上免費電子書
+> 👉 [其它全民瘋AI系列](https://andy6804tw.github.io/wiki) 這是一個入口，匯集了許多不同主題的AI免費電子書
+
+---
