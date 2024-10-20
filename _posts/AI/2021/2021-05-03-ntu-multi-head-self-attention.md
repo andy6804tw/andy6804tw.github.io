@@ -7,8 +7,7 @@ keywords: machine learning 2021 spring ntu
 ---
 
 ## 前言
-本篇文章來至於台大李宏毅教授2021機器學習課程影片，記錄了課程重點與摘要。更多課程內容可以從[這裡](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)取得。
-
+本篇文章來至於台大李宏毅教授2021機器學習課程影片，記錄了課程重點與摘要。更多課程內容可以從[這裡](https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.html)取得。另外其他更多李老師的機器學習筆記可以[參考](https://andy6804tw.github.io/crazyai-dl/)
 
 # multi-head-self-attention
 self-attention 有一個進階的版本叫做 multi-head self-attention。這個 head 的數量為超參數，需要自己去調。那為什麼我們需要比較多的 head 呢？我們在做 self-attention 的時候，就是用 q 去找相關的 k。但是相關這件事情有很多不同的形式，所以也許我們不能只有一個 q。我們應該要有多個 q，不同的 q 負責不同種類的相關性。以下解釋兩個 multi-head 的 self-attention 運作模式。首先跟原本一樣把 a 乘上一個矩陣得到 q，接下來再把 q 乘上另外兩個矩陣，分別得到 q1 跟 q2 代表我們有兩個 head。我們認為這個問題有兩種不同的相關性，所以我們要產生兩種不同的 head 來找兩種不同的相關性。既然 q 有兩個，那 k 與 v 也會有兩個。因此 q k v 得到後各乘上兩個矩陣得到不同的 head。最後 q k v 得到兩組後，計算 self-attention 的方式跟之前一樣。1 那一類的一起做，2 那一類的一起做 self-attention。所以 qi1 跟 ki1 算 attention，qj1 跟 kj1 算 attention，也就是算 dot product 得到 attemtion 分數。計算出來兩個 attention 分數後乘上 vi1 與 vj1 計算加權和得到 bi1。這邊目前只得到其中一個 head 結果，那我們另一個 head 也是做相同的計算。q2 跟 k2 做 attention，另外它們只對 v2 做加權和得到 bi2。
