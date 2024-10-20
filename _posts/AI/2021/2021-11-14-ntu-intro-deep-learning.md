@@ -70,3 +70,13 @@ keywords: Deep Learning
 
 - [簡報](http://speech.ee.ntu.edu.tw/~tlkagk/courses/ML_2016/Lecture/DL%20(v2).pdf)
 - [影片](https://www.youtube.com/watch?v=Dr-WRlEFefw&feature=youtu.be)
+
+
+---
+
+> 如果你對 AI 和深度學習有興趣，歡迎參考我的免費線上電子書《深度學習與神經網路》。這本書涵蓋了許多實用的深度學習知識與技巧，適合任何對此領域有興趣的讀者。內容集結了多位專家的教學資源，例如台大李弘毅教授的課程筆記。點擊下方連結即可獲取最新內容，讓我們一起探索 AI 的世界！
+>
+> 👉 [全民瘋 AI 系列《深度學習與神經網路》](https://andy6804tw.github.io/crazyai-dl) - 免費線上電子書  
+> 👉 [其它全民瘋 AI 系列](https://andy6804tw.github.io/wiki) - 匯集多主題的 AI 免費電子書
+
+---
