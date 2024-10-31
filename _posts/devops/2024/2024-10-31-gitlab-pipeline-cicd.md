@@ -18,7 +18,7 @@ keywords:
 > 第一次接觸 GitLab CI/CD 的讀者可以先閱讀 [初探GitLab CI/CD](https://andy6804tw.github.io/2024/09/14/gitlab-cicd/)，了解基礎的 .yml 語法與流程。
 
 ## 前置作業：範例專案介紹
-此[範例專案](https://gitlab.com/1010code/cpp-cross-compile)為一個以 C++ 撰寫的簡單程式，包含主程式 (main) 和單元測試架構。專案目錄結構如截圖所示，其中包含：
+此[範例專案](https://gitlab.com/1010code/cpp-cross-compile)為一個以 C++ 撰寫的簡單程式，包含主程式 (main) 和單元測試架構。專案目錄結構如下所示，其中包含：
 
 - **src 資料夾**：儲存主程式碼。
 - **test 資料夾**：包含使用 Google Test 撰寫的單元測試程式。
