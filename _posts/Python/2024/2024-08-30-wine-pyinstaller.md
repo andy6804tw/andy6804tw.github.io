@@ -6,12 +6,10 @@ description: 'How to cross-compile a Python script into a Windows executable on 
 keywords: 
 ---
 
-
-
 ## 前言
 在Linux系統中，開發Python跨平台應用會面臨到一個問題：儘管PyInstaller是一個方便的工具來打包Python程式成為可執行檔（exe），但它無法直接在Linux環境下生成Windows的可執行檔。這是由於PyInstaller在打包過程中需要依賴系統相關的動態連結庫，而Linux與Windows的系統架構和函式庫明顯不同，導致無法跨平台進行編譯和打包。
 
-為了解決這個問題，PyInstaller官方建議開發者在Linux中使用Wine來模擬Windows環境。Wine是一個開源的兼容層，可以讓Linux使用者執行Windows應用程式，藉此可以在模擬的Windows環境中進行打包作業。具體來說，使用者需要在Wine環境中安裝Windows版的Python，例如python-3.7.6-amd64，並在該環境下使用PyInstaller進行編譯，這樣才能成功生成適用於Windows的可執行檔。
+為了解決這個問題，PyInstaller官方建議開發者在Linux中使用Wine來模擬Windows環境。Wine是一個開源的兼容層，可以讓Linux使用者執行Windows應用程式，藉此可以在模擬的Windows環境中進行打包作業。具體來說，使用者需要在Wine環境中安裝Windows版的Python，例如python-3.8.9-amd64，並在該環境下使用PyInstaller進行編譯，這樣才能成功生成適用於Windows的可執行檔。
 
 接下來的部分將詳述如何在Linux中透過Wine安裝Windows版的Python，並使用PyInstaller打包Python程式為Windows的exe檔。
 
@@ -44,11 +42,15 @@ jid=$!
 
 
 ## 步驟三：下載Windows版Python安裝程式
-接下來，我們需要從Python官網下載對應的Windows版本安裝程式。這裡選擇python-3.7.6-amd64.exe：
+接下來，我們需要從Python官網下載對應的Windows版本安裝程式。這裡選擇python-3.8.9-amd64.exe：
 
 ```sh
-wget https://www.python.org/ftp/python/3.7.6/python-3.7.6-amd64.exe
+wget https://www.python.org/ftp/python/3.8.9/python-3.8.9-amd64.exe
 ```
+
+目前筆者測試過可以支援的版本：
+- 3.7.6
+- 3.8.9
 
 ## 步驟四：設定Wine環境
 使用Wine來模擬一個Windows環境。在這步驟，我們透過以下指令啟動並設定Wine的基本配置：
@@ -67,7 +69,7 @@ WINEPREFIX=~/.wine WINARCH=win64 winetricks corefonts win10
 透過以下指令，在Wine環境中安裝Windows版的Python（靜默安裝並將Python加入系統路徑）：
 
 ```sh
-DISPLAY=:0.0 WINEPREFIX=~/.wine wine cmd /c python-3.7.6-amd64.exe /quiet PrependPath=1 && echo "Python Installation complete!"
+DISPLAY=:0.0 WINEPREFIX=~/.wine wine cmd /c python-3.8.9-amd64.exe /quiet PrependPath=1 && echo "Python Installation complete!"
 ```
 
 安裝完成後，您應該會看到「Python Installation complete!」的訊息。
@@ -101,11 +103,11 @@ sudo apt install xvfb -y
 Xvfb :0 -screen 0 1024x768x16 &
 jid=$!
 # 下載Windows版Python安裝程式
-wget https://www.python.org/ftp/python/3.7.6/python-3.7.6-amd64.exe
+wget https://www.python.org/ftp/python/3.8.9/python-3.8.9-amd64.exe
 # 設定Wine環境
 WINEPREFIX=~/.wine WINARCH=win64 winecfg
 # 安裝Windows版Python
-DISPLAY=:0.0 WINEPREFIX=~/.wine wine cmd /c python-3.7.6-amd64.exe  /quiet  PrependPath=1  && echo "Python Installation complete!"
+DISPLAY=:0.0 WINEPREFIX=~/.wine wine cmd /c python-3.8.9-amd64.exe  /quiet  PrependPath=1  && echo "Python Installation complete!"
 # 安裝PyInstaller並打包應用
 wine pip install pyinstaller
 wine pyinstaller --onefile main.py
@@ -114,3 +116,4 @@ wine pyinstaller --onefile main.py
 ## Reference
 - [How to cross-compile a Python script into a Windows executable on Linux](https://andreafortuna.org/2017/12/27/how-to-cross-compile-a-python-script-into-a-windows-executable-on-linux/)
 - [how to install python3 in wine?how to install python3 in wine?](https://askubuntu.com/questions/678277/how-to-install-python3-in-wine)
+- [Wine支援Python版本討論](https://github.com/python/cpython/issues/88568)

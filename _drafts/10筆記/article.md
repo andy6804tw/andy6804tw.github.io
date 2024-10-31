@@ -4,7 +4,7 @@
 - [The Non-Secret Formula for Writing Better Code](https://hackernoon.com/the-non-secret-formula-for-writing-better-code-e41d1ff38682)
 - [Good code Vs Bad code](https://medium.com/@navdeepsingh_2336/good-code-vs-bad-code-35624b4e91bc)
 - [資安](https://ithelp.ithome.com.tw/articles/10189201)
-
+- [Google Search Console教學以及 SEO優化](https://blog.iddle.dev/public/2023/04/09/如何在Google搜尋到我的網站？Google-Search-Console教學以及SEO優化//)
 
 
 ## 工作
