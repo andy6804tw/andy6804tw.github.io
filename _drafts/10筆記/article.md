@@ -5,7 +5,7 @@
 - [Good code Vs Bad code](https://medium.com/@navdeepsingh_2336/good-code-vs-bad-code-35624b4e91bc)
 - [資安](https://ithelp.ithome.com.tw/articles/10189201)
 - [Google Search Console教學以及 SEO優化](https://blog.iddle.dev/public/2023/04/09/如何在Google搜尋到我的網站？Google-Search-Console教學以及SEO優化//)
-
+- [科技愛好者週刊，每週五發布](https://github.com/ruanyf/weekly)
 
 ## 工作
 - [一線大廠存活守則](https://www.businessweekly.com.tw/careers/blog/3007024)

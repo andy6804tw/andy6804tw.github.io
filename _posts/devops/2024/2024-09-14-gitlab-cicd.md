@@ -1,13 +1,21 @@
 ---
 layout: post
 title: '初探GitLab CI/CD'
-categories: 'Git'
+categories: 'DevOps'
 description: 'GitLab CI/CD'
 keywords: 
 ---
 
 ## 前言 
 在軟體開發過程中，經常需要不斷進行測試和程式更新。然而，面對需求變更甚至新功能的開發，如何讓工程師能夠更專注於「coding」，並節省測試和人工部署的時間呢？因此，近年來軟體業界提出了「CI / CD」的概念，透過自動化的方式來減少開發過程中的成本，降低人工操作的負擔。本篇文章將介紹如何使用「GitLab-CI」作為自動化工具，並撰寫 GitLab-CI 腳本，在每次 Push Commit 時觸發 CI 事件，實現網頁服務的自動建置與部署。
+
+## GitLab 簡介
+GitLab 是一個整合了版本控制、CI/CD、自動化部署和專案管理的開源平台。它不僅提供 Git 儲存庫功能，還包括強大的協作工具，適合開發者和團隊進行軟體開發和交付的全流程管理。許多知名的開源專案都在 GitLab 上託管，例如 [Inkscape](https://gitlab.com/inkscape)，這是一款開源的向量圖形編輯器，支援 SVG 格式，廣泛應用於設計和插畫領域，深受設計師社群的喜愛。
+
+![](https://miro.medium.com/v2/resize:fit:942/1*3stkQyMCIZHjDII0dUOaJw.png)
+
+> GitLab 提供了靈活的工作流程，使開發者能夠在同一平台上進行從程式碼管理到產品交付的所有操作。
+
 
 ## 何謂 CI / CD？
 CI（持續整合，Continuous Integration）與 CD（持續交付/持續部署，Continuous Delivery/Continuous Deployment）是現代軟體開發流程中重要的自動化概念。
