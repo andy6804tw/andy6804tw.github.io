@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'ONNX-MLIR 與 TVM：機器學習模型編譯器的比較與分析'
+title: 'ONNX-MLIR 與 TVM：機器學習編譯器的比較與分析'
 categories: 'AI'
 description: 
 keywords: 'machine learning compiler, TVM, ONNX-MLIR'
