@@ -6,7 +6,7 @@ description:
 keywords: 'machine learning compiler, MLIR, ONNX-MLIR'
 ---
 
-
+## 前言
 隨著人工智慧和機器學習應用的快速發展，越來越多的框架和工具支持將訓練好的模型進行優化並部署在不同的硬體環境中。ONNX-MLIR 是其中一個專門用於 ONNX 模型的優化和編譯工具，它可以將 ONNX 格式的機器學習模型轉換為高度優化的可執行文件（如 .so 或 .dll 動態庫）。這樣的轉換使得模型可以在目標硬體上以較高的效率運行，並且利用 LLVM 和 MLIR 的優化功能，進一步減少了運行時的延遲和計算資源的消耗。
 
 ONNX（Open Neural Network Exchange）作為開放的中間格式，使得不同機器學習框架之間的模型可以互相轉換和運行。ONNX-MLIR 就是基於這一格式的模型編譯工具，能夠處理符合 ONNX 標準的模型，將其轉換為不同平台的動態庫，使得在嵌入式設備、伺服器等多種環境中進行高效的推論成為可能。
@@ -308,7 +308,7 @@ g++ --std=c++17 static-inference.cpp -o main -I../onnx-mlir/include -L../onnx-ml
 
 ---
 
-# 小結
+## 小結
 
 `ONNX-MLIR` 是一個工具，用於將 ONNX 模型編譯為高效的可執行文件（`.so` 動態庫）。其工作流程如下：
 
