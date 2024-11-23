@@ -33,7 +33,7 @@ LLVM 中的核心概念是其通用的中介表示法（Intermediate Representat
 2. **Optimizer** 將 LLVM IR 優化為執行效率更高的版本。  
 3. **Backend** 根據 LLVM IR 生成特定平台的機器語言。
 
-![](https://miro.medium.com/v2/resize:fit:640/format:webp/1*KmC_EtMxS5ttRKGi8VYwgg.png)
+![](/images/posts/AI/2024/img1131113-3.png)
 > 圖源：[LLVM 編譯器架構](https://aosabook.org/en/v1/llvm.html)
 
 這種結構化的設計讓 LLVM 能夠支援多種語言與硬體平台，同時也為 AI 編譯器的開發提供了寶貴的參考範例。而 AI 編譯器則是將 AI 模型（如 TensorFlow 或 PyTorch 的模型）轉換為針對特定硬體優化的運算圖。AI 編譯器需要考慮深度學習特有的運算，例如矩陣乘法、非線性激發函數等，並對這些操作進行融合和優化，以提升運行效率。此外，AI 編譯器還涉及模型量化、剪枝等技術，進一步縮減模型大小並加速推論。讓我們進一步比較深度學習編譯器與傳統編譯器（如 LLVM）在結構上的異同。
@@ -47,7 +47,7 @@ LLVM 中的核心概念是其通用的中介表示法（Intermediate Representat
 ## AI 編譯器的基本設計與原理
 AI 編譯器通常統稱為 **深度學習編譯器（Deep Learning Compiler）**。這些工具的主要目的是將高階的機器學習模型（例如從 TensorFlow、PyTorch、ONNX 等框架中導出的模型）編譯、優化，並轉換為可以在特定硬體（如 CPU、GPU、TPU、嵌入式設備）上高效運行的機器碼。
 
-![](https://ask.qcloudimg.com/http-save/yehe-781483/dbrsuy68ln.png)
+![](/images/posts/AI/2024/img1131113-4.png)
 > 圖源：[關於深度學習編譯器，這些知識你需要知道](https://cloud.tencent.com/developer/article/1800730)
 
 
@@ -68,7 +68,7 @@ AI 編譯器的基本結構通常包括前端、優化器和後端三個部分�
 - 支援多種硬體架構，包括 GPU、ARM CPU、x86 CPU、NPU 等，針對不同硬體特性進行深度優化。
 - 輸出適配目標硬體的高性能執行機器碼，並生成相應的二進位檔案（如 .elf、.so 或可執行文件）。
 
-![](https://ettrends.etri.re.kr/ettrends/189/0905189004/images_1/2021/v36n2/HJTODO_2021_v36n2_32f6.jpg)
+![](/images/posts/AI/2024/img1131113-5.jpg)
 
 如上圖所示，ONNX-MLIR 是基於 LLVM 的模組化設計理念，充分利用 LLVM 強大的中間表示（IR）和優化基礎設施，實現對 ONNX 模型的高效編譯。這種設計方式讓 ONNX-MLIR 能夠將 ONNX 格式的模型轉譯為針對特定硬體架構深度優化的機器碼（如二進位文件）。
 
