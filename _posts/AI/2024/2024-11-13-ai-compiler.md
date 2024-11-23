@@ -18,7 +18,7 @@ AI 模型通常涉及大量的矩陣運算和複雜的計算圖，如果直接�
 ## AI 編譯器與傳統編譯器的不同
 我們熟知的編譯器的主要功能是將高階語言（如 C/C++ 或 Java）撰寫的程式碼，轉譯為機器可以直接執行的機器碼。各 AI 訓練框架訓練出來的模型要如何部署到不同的硬體，就需要 AI 編譯器來解決。而 AI 編譯器的設計理念受到主流編譯器（如 LLVM）的啟發。為了更清楚地了解 AI 編譯器的運作，我們可以先透過下圖理解 LLVM 編譯器的架構。
 
-![](https://ask.qcloudimg.com/http-save/yehe-781483/5cz4go6pfa.png)
+![](/images/posts/AI/2024/img1131113-3.png)
 > 圖源：[關於深度學習編譯器，這些知識你需要知道](https://cloud.tencent.com/developer/article/1800730)
 
 典型的編譯器架構通常分為三個部分：**Frontend（前端解析器）**、**Optimizer（優化器）**、**Backend（後端程式碼生成器）**。
@@ -33,7 +33,7 @@ LLVM 中的核心概念是其通用的中介表示法（Intermediate Representat
 2. **Optimizer** 將 LLVM IR 優化為執行效率更高的版本。  
 3. **Backend** 根據 LLVM IR 生成特定平台的機器語言。
 
-![](/images/posts/AI/2024/img1131113-3.png)
+![](/images/posts/AI/2024/img1131113-6.png)
 > 圖源：[LLVM 編譯器架構](https://aosabook.org/en/v1/llvm.html)
 
 這種結構化的設計讓 LLVM 能夠支援多種語言與硬體平台，同時也為 AI 編譯器的開發提供了寶貴的參考範例。而 AI 編譯器則是將 AI 模型（如 TensorFlow 或 PyTorch 的模型）轉換為針對特定硬體優化的運算圖。AI 編譯器需要考慮深度學習特有的運算，例如矩陣乘法、非線性激發函數等，並對這些操作進行融合和優化，以提升運行效率。此外，AI 編譯器還涉及模型量化、剪枝等技術，進一步縮減模型大小並加速推論。讓我們進一步比較深度學習編譯器與傳統編譯器（如 LLVM）在結構上的異同。
