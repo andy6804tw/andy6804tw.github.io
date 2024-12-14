@@ -285,7 +285,7 @@ node index.js
 讀取到的浮點數：3.14159
 ```
 
-如果執行 Node.js 程式失敗，請回想是否在 C++ 編譯時曾遇到需要加上 `-lrt` 才成功編譯的情況。這可能表示 Node.js 程式也需要額外連接 POSIX 庫，才能呼叫所需的函數。詳細的程式碼實作範例，請參考 [GitHub](https://github.com/andy6804tw/cpp-nodejs-shared-memory-ipc/blob/main/index-lrt.js)。
+如果執行 Node.js 程式失敗，請回想是否在 C++ 編譯時曾遇到需要加上 `-lrt` 才成功編譯的情況。這可能表示 Node.js 程式也需要額外連接 POSIX 庫，才能呼叫所需的函數。詳細的程式碼實作範例，請參考 [GitHub](https://github.com/1010code/cpp-nodejs-shared-memory-ipc/blob/main/example1/index-lrt.js)。
 
 
-範例程式可以從[GitHub](https://github.com/andy6804tw/cpp-nodejs-shared-memory-ipc)中取得！
+範例程式可以從[GitHub](https://github.com/1010code/cpp-nodejs-shared-memory-ipc)中取得！
