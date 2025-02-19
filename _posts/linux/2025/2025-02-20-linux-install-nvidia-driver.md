@@ -6,14 +6,13 @@ description: 'Comprehensive Guide to Installing NVIDIA GPU Drivers on Linux'
 keywords: 
 ---
 
-# **Linux 安裝 NVIDIA GPU 驅動完整指南**
 本篇教學將完整介紹 如何在 Linux 上安裝 NVIDIA 驅動，確保你的系統能夠順利偵測並使用 GPU，以便高效進行 AI 訓練、科學運算或圖形處理等工作。
 
 
-## **步驟 1：檢查 GPU 是否被偵測到**
+## 步驟 1：檢查 GPU 是否被偵測到
 在開始安裝 NVIDIA 驅動之前，先確認系統是否能夠偵測到 **NVIDIA GPU**。
 
-### **1.1 使用 lspci 檢查 GPU**
+### 1.1 使用 lspci 檢查 GPU
 執行以下指令來確認是否偵測到 NVIDIA 顯示卡：
 
 ```sh
@@ -31,7 +30,7 @@ lspci | grep -i nvidia
 - GPU 在 BIOS 中被禁用
 
 
-## **步驟 2：檢查是否已安裝 NVIDIA 驅動**
+## 步驟 2：檢查是否已安裝 NVIDIA 驅動
 請執行以下指令來確認系統是否已經載入 NVIDIA 驅動：
 
 ```sh
@@ -55,12 +54,12 @@ NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver.
 表示驅動未安裝或未正確啟動，需要進一步處理。
 
 
-## **步驟 3：安裝 NVIDIA 驅動**
+## 步驟 3：安裝 NVIDIA 驅動
 在安裝 NVIDIA 驅動前，請先確認你的 Linux 發行版，並按照對應的方法來安裝。
 
 
-### **3.1 Ubuntu / Debian 安裝 NVIDIA 驅動**
-#### **3.1.1 查詢推薦的 NVIDIA 驅動版本**
+### 3.1 Ubuntu / Debian 安裝 NVIDIA 驅動
+#### 3.1.1 查詢推薦的 NVIDIA 驅動版本
 Ubuntu 提供了一個自動偵測工具 `ubuntu-drivers`，可以幫助我們找到最佳的 NVIDIA 驅動：
 
 ```sh
@@ -73,7 +72,7 @@ driver   : nvidia-driver-550 - distro non-free recommended
 ```
 
 
-#### **3.1.2 安裝 NVIDIA 驅動**
+#### 3.1.2 安裝 NVIDIA 驅動
 執行以下指令來安裝 NVIDIA 驅動：
 
 ```sh
@@ -89,7 +88,7 @@ sudo reboot
 ```
 
 
-#### **3.1.3 驗證 NVIDIA 驅動是否成功安裝**
+#### 3.1.3 驗證 NVIDIA 驅動是否成功安裝
 系統重新啟動後，執行以下指令：
 
 ```sh
@@ -121,7 +120,7 @@ nvidia-smi
 代表 NVIDIA 驅動已安裝成功。
 
 
-## **結論**
+## 結論
 這篇教學涵蓋了 **Linux 安裝 NVIDIA 驅動的完整步驟**，包含：
 - **檢查 GPU 是否被偵測**
 - **確認驅動是否載入**
