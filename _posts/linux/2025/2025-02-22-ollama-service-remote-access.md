@@ -1,12 +1,12 @@
 ---
 layout: post
-title: '如何讓 Ollama 服務允許遠端設備存取'
+title: '如何在 Linux 讓 Ollama 服務允許遠端設備存取'
 categories: 'Linux'
 description: 'Learn how to configure Ollama service with systemd to allow remote access by setting it to listen on 0.0.0.0:11434.'
 keywords: 'Ollama, Linux, systemd, remote access, listen 0.0.0.0, enable external access, Ollama configuration'
 ---
 
-# 如何讓 Ollama 服務允許遠端設備存取
+# 如何在 Linux 讓 Ollama 服務允許遠端設備存取
 ## 前言
 Ollama 預設僅允許本機存取 (`127.0.0.1`)，如果你希望讓遠端設備也能連線到 Ollama 服務，就需要修改 systemd 設定，讓其監聽 `0.0.0.0:11434`。
 
