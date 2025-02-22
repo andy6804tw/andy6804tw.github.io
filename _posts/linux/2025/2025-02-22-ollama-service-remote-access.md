@@ -28,17 +28,16 @@ sudo vim /etc/systemd/system/ollama.service
 
 ```ini
 [Service]
+.
+.
+...略
 Environment="OLLAMA_HOST=0.0.0.0:11434"
-ExecStart=/usr/bin/ollama serve
-Restart=always
+...
+
 ```
 ### 🔍 說明
 - `Environment="OLLAMA_HOST=0.0.0.0:11434"`  
   - 設定 Ollama 監聽所有 IP，而不只是本機 (`127.0.0.1`)。
-- `ExecStart=/usr/bin/ollama serve`  
-  - 確保 `ExecStart` 指令為 `ollama serve`，如果已有其他內容，請修改為這一行。
-- `Restart=always`  
-  - 確保服務崩潰後可以自動重啟，提高穩定性。
 
 ---
 
