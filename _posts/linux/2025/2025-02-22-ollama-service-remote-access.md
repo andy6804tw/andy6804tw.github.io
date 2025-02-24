@@ -10,7 +10,7 @@ keywords: 'Ollama, Linux, systemd, remote access, listen 0.0.0.0, enable externa
 ## 前言
 Ollama 預設僅允許本機存取 (`127.0.0.1`)，如果你希望讓遠端設備也能連線到 Ollama 服務，就需要修改 systemd 設定，讓其監聽 `0.0.0.0:11434`。
 
-本教學將指導你如何修改 `ollama.service` 讓它可以被任何 IP 存取。
+本教學將指導你如何修改 `ollama.service` 讓它可以被任何 IP 存取。如果是其他的作業系統，例如 macOS、Windows，可以參考 [How do I configure Ollama server?](https://github.com/ollama/ollama/blob/main/docs/faq.md#how-do-i-configure-ollama-server)。
 
 ---
 
@@ -80,8 +80,8 @@ ss -tulnp | grep 11434
 
 > 🔗 **參考資料**：
 > - [官方 Ollama Linux 文件](https://github.com/ollama/ollama/blob/main/docs/linux.md)
-> - [Ollama 官方 FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.md#faq)
-
+> - [How do I configure Ollama server?](https://github.com/ollama/ollama/blob/main/docs/faq.md#how-do-i-configure-ollama-server)
+> - [API not running](https://github.com/ollama/ollama/issues/1520)
 ---
 
 這樣就完成了！現在你的 Ollama 服務已開放給外部設備存取，並確保它可以在系統重啟後自動啟動 
