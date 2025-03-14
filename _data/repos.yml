@@ -1,7 +1,7 @@
-- name: 全民瘋AI系列 [探索可解釋人工智慧]
-  html_url: https://andy6804tw.github.io/crazyai-xai
-  description: '第15屆iT邦幫忙鐵人賽 AI & Data 組 [佳作]'
-  stargazers_count: 7
+- name: 全民瘋AI系列 [大語言模型應用與實戰]
+  html_url: https://andy6804tw.github.io/crazyai-llm
+  description: '適合新手小白，深入探討如何運用 LLM 進行應用開發'
+  stargazers_count: 0
   forks_count: 0
   updated_at: 2025-02-14
 
