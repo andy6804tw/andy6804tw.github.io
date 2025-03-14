@@ -1,20 +1,27 @@
 - name: 全民瘋AI系列 [探索可解釋人工智慧]
   html_url: https://andy6804tw.github.io/crazyai-xai
   description: '第15屆iT邦幫忙鐵人賽 AI & Data 組 [佳作]'
+  stargazers_count: 7
+  forks_count: 0
+  updated_at: 2025-02-14
+
+- name: 全民瘋AI系列 [探索可解釋人工智慧]
+  html_url: https://andy6804tw.github.io/crazyai-xai
+  description: '第15屆iT邦幫忙鐵人賽 AI & Data 組 [佳作]'
   stargazers_count: 4
   forks_count: 0
-  updated_at: 2024-10-11
+  updated_at: 2025-02-14
 
 - name: 全民瘋AI系列 [經典機器學習]
   html_url: https://andy6804tw.github.io/crazyai-ml
   description: '第13屆iT邦幫忙鐵人賽  AI & Data 組'
-  stargazers_count: 156
-  forks_count: 41
-  updated_at: 2024-10-11
+  stargazers_count: 187
+  forks_count: 45
+  updated_at: 2025-02-14
 
 - name: 適合初學者的機器學習入門教材
   html_url: https://www.youtube.com/playlist?list=PLXSkku8eiD-iFRBr11rV83579hing3gMU
   description: '第12屆iT邦幫忙鐵人賽 影片教學組 [優選]'
-  stargazers_count: 198
-  forks_count: 103
-  updated_at: 2024-10-11
+  stargazers_count: 202
+  forks_count: 102
+  updated_at: 2025-02-14
