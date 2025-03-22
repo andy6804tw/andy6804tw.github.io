@@ -12,7 +12,7 @@ keywords: 'Glows.ai, cloud GPU, GPU computing, LLM deployment, AI infrastructure
 
 With the recent surge in artificial intelligence, especially the popularity of large language models (LLMs), the demand for computational resources has skyrocketed. For many people interested in entering the AI field, one major hurdle is the costly and challenging task of acquiring and managing GPU resources. Building your own high-performance GPU workstation involves significant upfront costs and hidden expenses, including ongoing maintenance, electricity costs, and data center management.
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*dD52-NUTDLbCjcTLpApwUg.jpeg)
+![](/images/posts/AI/2024/img1131031-1.png)
 
 Recently, while working on model training, I came across the Glows.ai cloud platform. I noticed there weren't many tutorials or documentation online, so after spending some time exploring it myself, I found it to be quite user-friendly, affordable, and notably a Taiwanese startup. I've therefore put together this article and video tutorial for those who might be interested or have similar needs.
 
@@ -39,7 +39,7 @@ Glows.ai offers three key advantages:
    - **Billing**: Transparent expense tracking and top-up system.
    - **Profile**: Manage personal details and educational verification.
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*Fg_CjYz5hlNcPDxHp4S-Tw.png)
+![](/images/posts/AI/2024/img1131031-2.png)
 
 ## Affordable Computing Costs
 
@@ -53,7 +53,7 @@ If you haven't registered a Glows.ai account yet, you can use my referral link t
 
 👉 [https://glows.ai/invite/Glows-db95n19q](https://glows.ai/invite/Glows-db95n19q)
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*GBrDCKFTQybHB8p31O5qRA.png)
+![](/images/posts/AI/2024/img1131031-3.png)
 
 ## Step-by-Step Tutorial: Launching a Glows.ai Instance with Ollama + WebUI
 
@@ -74,14 +74,14 @@ In this tutorial, we choose the official pre-configured **TAIDE LX8B WebUI** ima
 - Optionally attach a personal cloud Data Drive (skip if you don’t have one).
 - After configuration, click **"Checkout"** to start the virtual machine.
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*4dx7vTXmZHNNKARQCYI9Sw.png)
+![](/images/posts/AI/2024/img1131031-4.png)
 
 ### Step 3: Wait for the Virtual Machine to Start
 
 - The VM will automatically start, changing from **Pending** to **Running**.
 - Access the **My Instances** page to check its status.
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*thV33cmpwpr-DCSiQGlo5Q.png)
+![](/images/posts/AI/2024/img1131031-5.png)
 
 ### Step 4: Accessing the Ollama + WebUI Interface
 
@@ -89,7 +89,7 @@ In this tutorial, we choose the official pre-configured **TAIDE LX8B WebUI** ima
 2. Open WebUI through the provided link.
 3. Register an admin account on your first login, and you can immediately start testing AI models.
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*NETzPYjFt_zlSEGr9KqB5g.png)
+![](/images/posts/AI/2024/img1131031-6.png)
 
 This completes your basic LLM chatbot deployment, ideal for enterprises prioritizing privacy and local AI service deployment. For further customization, you can use SSH to configure environments on systems like **Ubuntu 24.04 Server**.
 
@@ -97,7 +97,7 @@ This completes your basic LLM chatbot deployment, ideal for enterprises prioriti
 
 Explore my free eBook series **全民瘋AI系列 [大語言模型應用與實戰]** (Crazy about AI: Large Language Models Applications and Practices). This series covers foundational concepts, practical deployments, free-tier API resources, and user-friendly AI tools designed even for non-technical users.
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*H3UjjJ_OwSts3WcBdBEQGw.png)
+![](/images/posts/AI/2024/img1131031-7.png)
 
 **The series covers:**
 
