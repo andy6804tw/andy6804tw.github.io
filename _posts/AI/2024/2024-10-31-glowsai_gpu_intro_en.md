@@ -6,10 +6,7 @@ description: 'Get Started Quickly with Cloud GPU Computing and Build Your Own AI
 keywords: 'Glows.ai, cloud GPU, GPU computing, LLM deployment, AI infrastructure, cloud AI service, on-premise GPU, Ollama, WebUI, TAIDE, cost-effective GPU, machine learning, AI deployment'
 ---
 
-# Introduction to Glows.ai: Quickly Set Up a GPU Computing Environment
-
-## Get Started Quickly with Cloud GPU Computing and Build Your Own AI Services!
-
+### Get Started Quickly with Cloud GPU Computing and Build Your Own AI Services!
 With the recent surge in artificial intelligence, especially the popularity of large language models (LLMs), the demand for computational resources has skyrocketed. For many people interested in entering the AI field, one major hurdle is the costly and challenging task of acquiring and managing GPU resources. Building your own high-performance GPU workstation involves significant upfront costs and hidden expenses, including ongoing maintenance, electricity costs, and data center management.
 
 ![](/images/posts/AI/2024/img1131031-1.png)
@@ -93,11 +90,13 @@ In this tutorial, we choose the official pre-configured **TAIDE LX8B WebUI** ima
 
 This completes your basic LLM chatbot deployment, ideal for enterprises prioritizing privacy and local AI service deployment. For further customization, you can use SSH to configure environments on systems like **Ubuntu 24.04 Server**.
 
+![](/images/posts/AI/2024/img1131031-8.png)
+
 ---
 
 Explore my free eBook series **全民瘋AI系列 [大語言模型應用與實戰]** (Crazy about AI: Large Language Models Applications and Practices). This series covers foundational concepts, practical deployments, free-tier API resources, and user-friendly AI tools designed even for non-technical users.
 
-![](/images/posts/AI/2024/img1131031-7.png)
+![](/images/posts/AI/2024/img1131031-8.png)
 
 **The series covers:**
 
@@ -105,6 +104,8 @@ Explore my free eBook series **全民瘋AI系列 [大語言模型應用與實戰
 - **Practical LLM Deployments**: Step-by-step tutorials from environment setup to model deployment, including Langchain integration with RAG and Agentic AI.
 - **Free LLM API Resources**: Overview of free-tier resources from various LLM providers for quick project validation.
 - **Popular No-Code AI Tools**: Easy-to-follow guides for non-technical users to integrate generative AI into daily tasks.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Sh6qzPU9HqY?si=0tBT3oOn9Q9JMKM-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **Crazy About AI Series – Free eBooks**
 
