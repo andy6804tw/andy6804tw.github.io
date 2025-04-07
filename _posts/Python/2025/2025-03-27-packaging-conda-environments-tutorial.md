@@ -6,7 +6,7 @@ description: 'A comprehensive guide to packaging Conda environments using conda 
 keywords: 'conda, conda env export, conda pack'
 ---
 
-## 打包 Conda 環境：conda env export 與 conda pack 教學
+## 前言
 
 在開發或部署專案時，環境的遷移與重現性非常重要。有時候我們需要將已建立好的 conda 環境移植到另一台電腦，或在沒有網路的環境下還原環境。本文將介紹兩種常用的方法：
 

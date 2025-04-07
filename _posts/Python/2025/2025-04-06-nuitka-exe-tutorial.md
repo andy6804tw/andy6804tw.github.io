@@ -6,8 +6,6 @@ description: 'A simple guide to convert Python scripts into standalone executabl
 keywords: 'Python, Nuitka, packaging, executable, compiler'
 ---
 
-# Nuitka 打包工具教學：把 Python 程式變成獨立的執行檔
-
 ## 前言
 對許多 Python 新手來講，一直都有個疑問──「我寫好的程式怎麼才能讓沒安裝 Python 的朋友也能直接執行呢？」  
 不像 C++ 可以編譯成 exe 或是 JS 直接在瀏覽器執行，Python 程式必須靠 Python 解釋器來運行，而大部分作業系統預設都沒有安裝 Python。這時候，打包工具就登場啦！

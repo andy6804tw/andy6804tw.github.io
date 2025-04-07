@@ -6,7 +6,6 @@ description: 'A quick guide to package ONNX models into standalone executable fi
 keywords: 'ONNX, executable, Nuitka, Python, packaging'
 ---
 
-# 如何將 ONNX 模型打包成獨立 EXE
 ## 前言
 許多開發者在完成模型訓練後，會面臨如何讓模型在各式平台上穩定運作的問題。本篇教學將以鳶尾花分類器為例，示範如何將 scikit-learn 訓練的模型轉換為 ONNX 格式，並利用 onnxruntime 撰寫一個互動式推論 App，最後透過 Nuitka 將整個應用程式打包成獨立的 EXE 檔案。
 
