@@ -136,6 +136,81 @@ if __name__ == '__main__':
 - **GUI 輔助工具**：  
   由於 Nuitka 的參數非常豐富，市面上也有一些 GUI 輔助工具，讓打包參數設定變得更簡單直覺，適合不熟悉命令列的使用者。
 
+### 🎯 `--follow-import-to` 和 `--include-plugin-directory` 差在哪裡？
+
+這兩個參數**都是在處理「你自己的其他模組或檔案」該不該一起打包的問題**，但用途跟運作邏輯其實有差：
+
+---
+
+#### 🔍 `--follow-import-to=路徑`
+
+這個是叫 Nuitka 去「追蹤」你自家的某個資料夾底下所有 `import` 的模組，像是你自己的 package、modules 或子資料夾。
+
+🧠 重點是：**程式碼裡面要真的有 `import` 到它們，它才會打包進去**。
+
+#### ✅ 適用情境：
+- 你有一個專案資料夾，比如：
+  ```
+  my_project/
+    ├── main.py
+    ├── utils/
+    │    ├── helper.py
+    │    └── tools.py
+  ```
+
+然後你有在 `main.py` 裡寫：
+```python
+from utils.helper import do_something
+```
+
+你就可以打包時加上：
+```bash
+nuitka --standalone --follow-import-to=./utils main.py
+```
+
+Nuitka 就會去把 `utils/` 裡有被用到的模組全部一起打包。
+
+---
+
+#### 🧩 `--include-plugin-directory=路徑`
+
+這是強制告訴 Nuitka：「這個資料夾裡面的東西可能會被 *動態載入*，你就算掃描不到也要一起打包進去！」
+
+#### ✅ 適用情境：
+- 你用 `importlib`, `__import__()`, 或其他方式動態載入模組
+- 或者你開發了一個 plugin 架構的系統，讓別人丟模組進來用
+
+例如你有個 plugin 目錄結構這樣：
+
+```
+plugins/
+  ├── image_plugin.py
+  └── audio_plugin.py
+```
+
+然後你的程式碼裡動態這樣載入：
+
+```python
+import importlib
+plugin = importlib.import_module(f"plugins.{plugin_name}")
+```
+
+這樣 Nuitka 是**抓不到那些實際模組名稱的**，你就要靠：
+
+```bash
+nuitka --standalone --include-plugin-directory=./plugins main.py
+```
+
+這樣它才會照單全收把整個 `plugins/` 都包進去。
+
+
+| 參數 | 用途 | 適合什麼狀況 |
+|------|------|--------------|
+| `--follow-import-to=路徑` | 自動追蹤你有寫 `import` 的模組 | 你有自己的程式模組分資料夾放 |
+| `--include-plugin-directory=路徑` | 強制打包動態載入用到的 plugin 資料夾 | plugin 系統、importlib、動態匯入 |
+
+
+
 ## 小結
 
 Nuitka 是一個功能強大的 Python 打包工具，除了能夠將程式打包成獨立的執行檔，還能藉由轉譯成 C 語言來提升執行效能。不論是簡單的小工具，或是需要處理大量計算的程式，Nuitka 都提供了不錯的解決方案。若在打包過程中遇到困難，也可以試試其他工具（如 PyInstaller），選擇最適合自己需求的方案。
