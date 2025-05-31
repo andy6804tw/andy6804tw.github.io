@@ -71,6 +71,13 @@ ubuntu-drivers devices
 driver   : nvidia-driver-550 - distro non-free recommended
 ```
 
+若找不到指令請先安裝 `ubuntu-drivers-common`:
+
+```sh
+sudo apt update
+sudo apt install ubuntu-drivers-common
+```
+
 
 #### 3.1.2 安裝 NVIDIA 驅動
 執行以下指令來安裝 NVIDIA 驅動：
