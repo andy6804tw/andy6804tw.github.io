@@ -7,133 +7,162 @@ keywords: tool, iterm2
 ---
 
 
-## 安裝 iTerm2
-這裡有兩種安裝方式挑一個即可。
+## 一、前言
 
-#### 1. 官網下載安裝
-請到[這裡](https://www.iterm2.com/)點選下載來安裝，當然你也可以使用內建的終端機，iTerm2 僅是終端機(Terminal)集成多了一些好用的功能，還沒用的可以來試試看。
+從 macOS Catalina（10.15）開始，蘋果已將 **zsh** 設為預設登入與互動 Shell。
+也就是說，若你使用的是 M1、M2 或 M3 晶片的 MacBook，大多數情況下已經不需要再額外安裝 zsh，只需進行美化與環境設定即可。
 
-<img src="/images/posts/tool/2018/img1070101-1.png" width="600">
+---
 
-#### 2. 使用 Homebrew 來安裝
-如果以下指令不能執行的話先執行這段指令看看 `brew tap caskroom/cask`。
+## 二、安裝 iTerm2（取代原生 Terminal）
+
+[iTerm2]((https://www.iterm2.com/)) 是 macOS 上最受歡迎的終端機軟體之一，支援分頁、顏色主題與豐富的自訂功能。
 
 ```bash
-brew cask instal iterm2 
+brew install --cask iterm2
 ```
 
-## 設定 iTerm2
+安裝完成後，可從 Launchpad 或 Spotlight 搜尋 iTerm2 啟動。
 
-#### 1. 修改 Report Terminal Type
-點選左上角 `Preferences > Profiles > Terminal > Report Terminal Type`，顏色設為 xterm-256color 色調較為飽滿，此外 iTerm2 會自動儲存你的設定哦。
+---
+
+## 三、確認你的 Shell
+
+檢查目前的 Shell 是否為 zsh：
+
+```bash
+echo $SHELL
+```
+
+若顯示結果為 `/bin/zsh`，表示系統已預設使用 zsh。
+若仍為 bash，可執行以下指令修改：
+
+```bash
+chsh -s /bin/zsh
+```
+
+然後重新開啟 iTerm2。
+
+---
+
+## 四、安裝 Oh My Zsh
+
+Oh My Zsh 是一套管理 zsh 設定與主題的框架，讓你的終端環境更強大又美觀。
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+執行後會自動建立以下檔案：
+
+```
+~/.oh-my-zsh/
+~/.zshrc
+```
+
+若你想立即生效，執行：
+
+```bash
+source ~/.zshrc
+```
+
+---
+
+## 五、安裝字型（Nerd Font）
+
+Powerlevel10k 主題使用 Nerd Font 來顯示特殊圖示。
+新版 Homebrew 已整合字體，不再需要 `homebrew/cask-fonts`。
+
+推薦安裝 **Hack Nerd Font** 或 **JetBrains Mono Nerd Font**：
+
+```bash
+brew install --cask font-hack-nerd-font
+```
+
+### 設定 iTerm2 字型：
+
+1. 開啟 iTerm2 → Settings
+2. 選擇 Profiles → Text
+3. 點選 Font → 改為 `Hack Nerd Font`
+
+<img src="/images/posts/tool/2018/img1070101-1.png">
+
+---
+
+### 設定 iTerm2 色系
+##### 1. 修改 Report Terminal Type
+點選左上角 `Settings > Profiles > Terminal > Report Terminal Type`，顏色設為 xterm-256color 色調較為飽滿，此外 iTerm2 會自動儲存你的設定哦。
 
 <img src="/images/posts/tool/2018/img1070101-2.png">
 
-#### 2. 修改 color scheme
-想要有個人風格色調的 command line 就來這邊設定，或是到 iTerm2-Color-Schemes[GitHub](https://github.com/mbadolato/iTerm2-Color-Schemes) clone 或下載方式將整包下載下來裡面的 schemes 資料夾有很多配設風格，可以先在 README.md 先找找自己順眼的，確定後到 iterm2 的設定 `Preferences > Profiles > Colors` 點選 import 引入顏色風格，這邊我是選用 `Solarized Dark`。
-
-<img src="/images/posts/tool/2018/img1070101-6.png">
-<img src="/images/posts/tool/2018/img1070101-7.png">
-<img src="/images/posts/tool/2018/img1070101-8.png">
-
-
-#### 3. 修改字型
-我們要來安裝包含 icon 的字體之後安裝 zsh 才能正常顯示不會破圖，所以現在就下載 nerd font 吧！首先下第一行指令建立字型的資料夾，才能用 homebrew 安裝字型，brew 上面也有很多字型可以挑，其中我是使用 `hack-nerd-font`。
-
-```bash
-brew tap homebrew/cask-fonts  
-brew cask install font-hack-nerd-font
-```
-
-安裝後就到 Preferences > Profiles > Text > Change Font 來套用你剛下載的字型囉
+##### 2. 修改 color scheme
+想要有個人風格色調的 command line 就來這邊設定，或是到 iTerm2-Color-Schemes[GitHub](https://github.com/mbadolato/iTerm2-Color-Schemes) clone 或下載方式將整包下載下來裡面的 schemes 資料夾有很多配設風格，可以先在 README.md 先找找自己順眼的，確定後到 iterm2 的設定 `Settings > Profiles > Colors` 點選顏色風格，這邊我是選用內建提供的 `Solarized`。
 
 <img src="/images/posts/tool/2018/img1070101-3.png">
 
-## 安裝 zsh
-Z Shell 是一種 Unix shell，它可以用作為交互式的登錄shell，也是一種強大的 shell 腳本命令解釋器。 zsh 可以認為是一種 Bourne shell 的擴展，帶有數量龐大的改進，包括一些 bash、ksh、tcsh 的功能，一樣用 homebrew 來安裝。
+## 六、安裝 Powerlevel10k 主題
+Powerlevel10k 是 Powerlevel9k 的繼任者，支援 Apple Silicon，速度快又可視化效果佳。
 
 ```bash
-brew install zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-## 安裝 oh-my-zsh
-zsh 會快速火紅的原因是有大神寫出 oh-my-zsh 來方便管理 zsh 的設定像是 plugin、alias、theme...等，更多詳細的可以到他們的 [GitHub](https://github.com/robbyrussell/oh-my-zsh) 看，安裝後會是預設的 zsh 介面，可以發現多了 git 資訊。 
+修改主題設定：
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+open ~/.zshrc
 ```
 
-<img src="/images/posts/tool/2018/img1070101-4.png" width="550">
-
-
-### 套用主題
-
-##### 1. 開啟`.zshrc`設定檔
-安裝 oh-my-zsh 後會在本地建立一個名為 `.zshrc` 的設定檔裡面可以快速做主題設定，首先開啟設定檔案 `vi  ~/.zshrc`。
+找到：
 
 ```bash
-## 使用 vim 編輯 .zshrc 設定檔
-vi  ~/.zshrc
+ZSH_THEME="robbyrussell"
 ```
 
-##### 2. 套用主題
-進去設定檔後可以看到 `ZSH_THEME="robbyrussell"` 這是 zsh 的預設風格，將設定值改為 `agnoster`，若你想要其他主題也可以到[這裡](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)找一個適合你的。
+改成：
 
 ```bash
-## 使用agnoster主題預設為robbyrussell
-ZSH_THEME="agnoster"
-## 隱藏用戶名稱(user@hostname)
-DEFAULT_USER=`id -un`
+ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
-<img src="/images/posts/tool/2018/img1070101-5.png" width="600">
 
-編輯結束後按下 `esc` 再鍵入 `:wq!` 退出編輯模式，重新開啟終端機或是鍵入 `exec $SHELL` 就會立即套用囉。
+儲存後重新載入設定：
 
 ```bash
-// 立即套用
 exec $SHELL
 ```
 
-<img src="/images/posts/tool/2018/img1070101-9.png" width="550">
+---
 
-### 下載powerlevel9k主題
-powerlevel9k 風格是承襲 agnoster ，不同的地方是新增了一些小功能像是版控資訊、電池狀態、硬碟狀況、ip位置、時間、還有小圖icon ...等讓使用者自行設定。
+## 七、啟動 Powerlevel10k 設定精靈
 
-##### 1. 安裝 powerlevel9k
-由於 powerlevel9k 並非 oh-my-zsh 內建主題，所以要再下載至 `.oh-my-zsh/custom/themes/powerlevel9k` 的資料夾當中。
-
-```bash
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-```
-
-##### 2. 套用 powerlevel9k 主題
-
-首先開啟設定檔案 `vi  ~/.zshrc`。
+第一次開啟 iTerm2 時，Powerlevel10k 會自動啟動互動式設定精靈。
+若未出現，可手動執行：
 
 ```bash
-## 使用 vim 編輯 .zshrc 設定檔
-vi  ~/.zshrc
+p10k configure
 ```
 
-```bash
-# 使用powerlevel9k主題亦可選擇使用agnoster或預設robbyrussell
-ZSH_THEME="powerlevel9k/powerlevel9k"
-# 隱藏用戶名稱(user@hostname)
-DEFAULT_USER=`id -un`
-# 含有icon的字型
-POWERLEVEL9K_MODE='nerdfont-complete'
-# command line 左邊想顯示的內容(資料夾路徑、資料夾讀寫狀態、版本控制資訊)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir dir_writable vcs) # <= left prompt 設了 "dir"
-# command line 右邊想顯示的內容(狀態、時間)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+依照指示設定外觀（建議如下）：
+
+* 字型正確顯示圖示 → Yes
+* 提示字顏色主題 → 選 “Rainbow” 或 “Lean”
+* 顯示時間、Git 狀態 → 可依個人喜好
+* 設定完成後會自動建立 `~/.p10k.zsh`
+
+若想直接引用我的風格可以，直接參考我的[設定](https://gist.github.com/andy6804tw/98ef24e29740ee15168a32d016562c01)。直接複製貼上 `~/.p10k.zsh`
+
+```
+open ~/.p10k.zsh
 ```
 
-編輯結束後按下 `esc` 再鍵入 `:wq!` 退出編輯模式，重新開啟終端機或是鍵入 `exec $SHELL` 就會立即套用囉，最後結果如下圖是不是更有質感了呢！
-
-```bash
-// 立即套用
-exec $SHELL
+改完之後：
 ```
+source ~/.p10k.zsh
+
+```
+
+此時你應該會看到色彩繽紛又乾淨的 Powerlevel10k 介面。
+Git 分支、時間、資料夾、命令狀態都會即時顯示。
 
 <img src="/images/posts/tool/2018/img1070101-10.png" width="600">
-
