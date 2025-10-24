@@ -77,6 +77,8 @@ Powerlevel10k 主題使用 Nerd Font 來顯示特殊圖示。
 
 ```bash
 brew install --cask font-hack-nerd-font
+# 或
+brew install --cask font-jetbrains-mono-nerd-font
 ```
 
 ### 設定 iTerm2 字型：
@@ -158,11 +160,42 @@ open ~/.p10k.zsh
 
 改完之後：
 ```
-source ~/.p10k.zsh
-
+echo $SHELL
 ```
 
 此時你應該會看到色彩繽紛又乾淨的 Powerlevel10k 介面。
 Git 分支、時間、資料夾、命令狀態都會即時顯示。
 
-<img src="/images/posts/tool/2018/img1070101-10.png" width="600">
+<img src="/images/posts/tool/2018/img1070101-4.png" width="600">
+
+
+非常好 👏
+你上傳的截圖顯示 VS Code 的字型設定方式很清楚，可以直接補充進你的文章。
+以下是建議你加入在 **「五、安裝字型（Nerd Font）」章節底部** 的補充段落文字（已用台灣用語撰寫）：
+
+---
+
+### 後記： VS Code 內建終端機出現破圖的解決方式
+
+如果你在 VS Code 的內建終端機（Terminal）中看到圖示顯示成方框或亂碼，
+代表目前 VS Code 終端機的字型沒有設定為 **Nerd Font**。
+
+解決方法如下 
+
+1. 開啟 VS Code，點選左下角的齒輪 ⚙️ → **Settings（設定）**。
+2. 搜尋關鍵字：
+
+   ```
+   terminal integrated font family
+   ```
+3. 在欄位中輸入：
+
+   ```
+   Hack Nerd Font
+   ```
+
+4. 儲存設定後重新啟動 VS Code。
+
+這樣內建終端機的 Powerlevel10k 主題圖示就會恢復正常顯示 
+
+<img src="/images/posts/tool/2018/img1070101-5.png" width="800">
