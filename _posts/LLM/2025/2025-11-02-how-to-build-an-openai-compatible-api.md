@@ -57,6 +57,9 @@ pip install fastapi uvicorn pydantic openai
 
 
 ## 核心程式：`app.py`
+這個範例主要是示範「如何建立一個 OpenAI 相容的 API 端點」的基本概念，
+為了讓整體結構簡單易懂，我們並沒有直接串接任何真實的 LLM 模型，
+而是寫了一個簡單會回傳使用者輸入內容（prompt）的回應端口。
 
 ```python
 import asyncio
