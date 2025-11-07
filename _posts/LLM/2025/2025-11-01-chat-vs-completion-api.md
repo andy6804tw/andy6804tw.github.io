@@ -6,7 +6,7 @@ description: 'Learn the key differences between OpenAI Chat Completions and Comp
 keywords: 'OpenAI API, Chat Completions, Completions'
 ---
 
-# 一篇看懂 Chat API 與 Completion API 差在哪
+## 前言
 自 2020 年以來，OpenAI 的文字生成 API 一路從「文字補全」（Completion）進化到「多輪對話」（Chat Completion）架構。
 在使用 OpenAI API 時，許多人會注意到有兩個看似相似的端點：
 

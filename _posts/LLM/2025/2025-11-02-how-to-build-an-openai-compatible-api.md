@@ -6,8 +6,6 @@ description: 'Learn how to build an OpenAI-compatible Chat Completions API using
 keywords: 'OpenAI API, FastAPI, Chat Completions, LLM, Python'
 ---
 
-# 打造屬於你的 OpenAI 相容 API：用 FastAPI 模擬 Chat Completions 服務
-
 ## 為什麼要自己建 OpenAI 相容 API？
 生成式 AI 爆發後，**OpenAI 的 API 幾乎成為業界標準**。
 不論是客服機器人、程式助理還是知識問答系統，開發者都習慣透過 OpenAI 的 `/v1/chat/completions` 介面來呼叫 GPT 模型。
