@@ -3,7 +3,7 @@ layout: post
 title: '一文看懂 Tool Use 與 Function Calling 的差異與未來趨勢'
 categories: 'LLM'
 description: 'A concise guide explaining how Function Calling evolved into Tool Use and what this shift means for the future of LLM-based applications.'
-keywords: Tool Use, Function Calling, LLM, OpenAI API, MCP
+keywords: 'Tool Use, Function Calling, LLM, OpenAI API, MCP'
 ---
 
 ## 前言
