@@ -11,7 +11,6 @@ keywords: Tool Use, Function Calling, LLM, OpenAI API, MCP
 
 本文將帶大家一次看懂這場變化的脈絡、原因與實務影響。
 
----
 
 ## 從「函式呼叫」到「工具使用」的演進
 
@@ -24,7 +23,6 @@ keywords: Tool Use, Function Calling, LLM, OpenAI API, MCP
 > **Function Calling 是技術；Tool Use 是語意與架構。**
 過去我們只是「讓模型會呼叫函式」；現在我們在做的是「讓模型能靈活使用一整個工具生態系」。
 
----
 
 ## 在 API 層面的對應關係
 
