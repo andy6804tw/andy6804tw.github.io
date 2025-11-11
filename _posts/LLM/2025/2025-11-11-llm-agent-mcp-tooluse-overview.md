@@ -15,7 +15,6 @@ LLM Client 跟 MCP Client 又差在哪？
 讓你能真正理解這些名詞背後的結構與邏輯。
 
 
-
 ## 本文重點摘要
 
 * **LLM（如 GPT-5）不是 Agent**：
