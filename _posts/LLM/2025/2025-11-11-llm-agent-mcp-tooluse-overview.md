@@ -64,19 +64,7 @@ LLM 便能依語意自行判斷要使用哪個工具，Client 只需執行與回
 
 在早期的 Function Calling 架構中，工具的定義與執行都綁在 LLM Client 內：
 
-```mermaid
-sequenceDiagram
-    title Function Calling：工具由 LLM Client 執行
-    participant Client as LLM 客戶端
-    participant Model as LLM 模型
-
-    Client->>Client: 產生提示詞（包含工具與使用說明）
-    Client->>Model: 傳送提示詞給模型
-    Model->>Model: 決定要使用哪個工具
-    Model-->>Client: 指示執行工具與參數
-    Client->>Client: 執行工具
-    Client-->>Model: 回傳執行結果
-```
+![](/images/posts/LLM/2025/img1141111-1.png)
 
 模型只決定「要用哪個工具」，但真正的執行是在 Client 內完成。
 當應用越來越多，工具重複定義、難以重用成了痛點。
@@ -86,22 +74,7 @@ sequenceDiagram
 MCP 的出現，讓工具可以由獨立的 **MCP Server** 管理與執行。
 Client 不再需要實際執行工具，而是透過協定委派 Server 執行。
 
-```mermaid
-sequenceDiagram
-    title MCP 架構：將工具執行外包給 MCP 伺服器
-    participant Server as MCP 伺服器
-    participant Client as MCP 客戶端 / LLM 客戶端
-    participant Model as LLM 模型
-
-    Server-->>Client: 提供可用的工具（工具清單與描述）
-    Client->>Client: 產生提示詞（包含工具與使用方式）
-    Client->>Model: 傳送提示詞給模型
-    Model->>Model: 決定要使用哪個工具
-    Model-->>Client: 指示執行工具與參數
-    Client->>Server: 請求執行工具
-    Server-->>Client: 回傳執行結果
-    Client-->>Model: 回傳執行結果
-```
+![](/images/posts/LLM/2025/img1141111-2.png)
 
 透過這種架構，MCP 讓工具可以跨應用共用、可集中管理，
 更容易觀測、控管權限與擴充。
