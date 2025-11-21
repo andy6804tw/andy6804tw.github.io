@@ -29,7 +29,7 @@ flutter create --platforms=android,ios --template=plugin native_bmi
 dependencies:
   native_bmi:
     path: native_bmi
-  ffi: ^2.0.1
+  ffi: ^2.1.4
 ```
 
 ![](/images/posts/Flutter/2022/img1111011-1.png)
@@ -178,6 +178,56 @@ final FFIBridge _ffiBridge = FFIBridge();
 _ffiBridge.getAge()
 ```
 
+下面是同樣內容、但語氣更順、更符合台灣用語的版本（中文維持繁體）：
+
+---
+
+## 後記（支援 16KB page size）
+
+Google 已經宣布：
+從 **2025/11/1 起，只要你的 App 在 Google Play 上架，且 target Android 15（API 35）以上，就一定要支援 16KB page size**。
+
+要符合這項要求，官方給的建議如下：
+
+1. **Android Gradle Plugin 使用 8.5.1 以上版本**（通常會搭配 Gradle 8.x）。
+2. **NDK 建議使用 r28 或更新版本**，因為 r28 起就預設支援彈性 page size（包含 16KB）。
+3. 如果你目前用的是 **NDK r28 以下**，那就需要在 `native_bmi/android/build.gradle` 裡手動加入這個參數：
+
+   ```groovy
+    android {
+        defaultConfig {
+            externalNativeBuild {
+                cmake {
+                    arguments '-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON'
+                }
+            }
+        }
+    }
+   ```
+
+   這樣才能確保你的 native .so 具備 16KB 相容性。
+
+
+### 如何確認自己的 App 是否真正支援？
+
+由於這篇文章本身有用到 C++ 來編譯自訂的 native `.so`，
+你可以用下面這個檢查腳本來驗證你的 APK / AAB：
+
+📄 **check_elf_alignment.sh**
+[https://gist.github.com/NitinPraksash9911/76f1793785a232b2aa2bc2e409873955](https://gist.github.com/NitinPraksash9911/76f1793785a232b2aa2bc2e409873955)
+
+使用方式如下：
+
+```bash
+chmod +x check_elf_alignment.sh
+./check_elf_alignment.sh build/app/outputs/apk/release/app-release.apk
+```
+
+跑完腳本會顯示每一個 `.so` 是否符合 16KB page size 的規則。
+
+![](/images/posts/Flutter/2022/img1111011-2.png)
+
+
 - 完整程式碼參考: [GitHub](https://github.com/1010code/flutter_native_c)
 
 ## Reference
@@ -185,3 +235,4 @@ _ffiBridge.getAge()
 - [官方文件 Binding to native Android code using dart:ffi](https://docs.flutter.dev/development/platform-integration/android/c-interop)
 - [Calling Native Libraries in Flutter with Dart FFI](https://www.raywenderlich.com/21512310-calling-native-libraries-in-flutter-with-dart-ffi)
 - [[Flutter] 使用 Dart FFI 呼叫 C 程式](https://cg2010studio.com/2022/01/08/flutter-%E4%BD%BF%E7%94%A8-dart-ffi-%E5%91%BC%E5%8F%AB-c-%E7%A8%8B%E5%BC%8F/)
+- [16KB Compatibility Warning on Google Play: Fix for Flutter & Android Apps](https://dev.to/zaid_syni_05ff81fb2cce5e1/fixing-the-app-isnt-16kb-compatible-warning-on-google-play-console-flutter-android-2p7e)
