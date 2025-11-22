@@ -9,7 +9,7 @@ keywords: 'Flutter, OpenCV, Android'
 ## 前言
 近來在做一個 **Flutter** 專案，需要用到 **OpenCV** 做影像處理。考量到既有程式碼與套件相容性，我採用 **OpenCV 4.5.2**（老版本）。但 2025 年 Google 的新政策正式上路：**自 2025/11/01 起，只要你的 App 上架 Google Play 且 target Android 15（API 35）以上，就必須支援 16KB page size**。也就是說，App 內所有 **native .so** 都要能在 4KB/16KB page size 的機制下正常載入。
 
-![](https://github.com/1010code/opencv-android-build/blob/main/Screenshot/img1141122-1.png)
+![](https://github.com/1010code/opencv-android-build/blob/main/Screenshot/img1141122-1.png?raw=true)
 
 ## 背景與目標
 
@@ -164,3 +164,4 @@ chmod +x check_elf_alignment.sh
 * **需求面**：Flutter 的 plugin 只要能連到 **C++ 的 `.so`** 就好，**不需要** Java OpenCV API。
 * **合規面**：Google 的 16KB 規範檢查的是 **native shared libraries** 的 page size 相容性；我們產出的 **`libopencv_world.so`**（或各模組 `.so`）只要支援 flexible page size 就合規。
 
+完整程式碼可以參考[GitHub](https://github.com/1010code/opencv-android-build/tree/main)
