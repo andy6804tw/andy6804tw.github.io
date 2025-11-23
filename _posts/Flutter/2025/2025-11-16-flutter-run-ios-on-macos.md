@@ -187,5 +187,7 @@ open -a Simulator
 flutter run
 ```
 
+儘管新版 Android Studio 已不再提供原生的「Open iOS module in Xcode」按鈕，不少開發者仍希望保留類似的快速入口。如果你希望在 Android Studio 裡重新擁有「一鍵開啟 Xcode」的能力，可以參考另一篇教學文章，透過 **External Tool** 自行新增按鈕：
 
-
+> **延伸閱讀**：[如何在 Android Studio 建立 External Tool 一鍵開啟 Xcode](./2025-11-17-android-studio-external-tool-open-xcode.md)
+> （此篇將示範如何加上自訂快捷鍵、右鍵選單或工具列按鈕，完整取代舊版的功能。）
