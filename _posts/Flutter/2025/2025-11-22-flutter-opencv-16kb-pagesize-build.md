@@ -60,8 +60,8 @@ git clone -b 4.5.2 https://github.com/opencv/opencv.git
 git clone -b 4.5.2 https://github.com/opencv/opencv_contrib.git
 ```
 
-* `[opencv-4.5.2](https://github.com/opencv/opencv/releases/tag/4.5.2)`
-* `[opencv_contrib-4.5.2](https://github.com/opencv/opencv_contrib/releases/tag/4.5.2)`
+* [opencv-4.5.2](https://github.com/opencv/opencv/releases/tag/4.5.2)
+* [opencv_contrib-4.5.2](https://github.com/opencv/opencv_contrib/releases/tag/4.5.2)
 
 
 > 用舊版是為了與既有邏輯相容；若能升級新版 OpenCV，建議優先評估，但本文聚焦「舊版也要上線」的實務場景。
