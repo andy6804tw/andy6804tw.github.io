@@ -7,7 +7,7 @@ keywords: 'FastAPI,Fly.io,Docker,Dockerfile,Deploy'
 ---
 
 ## 前言
-[前一篇](./2025-11-29-deploy-fastapi-on-render.md)我們示範了如何在 Render 上部署一個最簡單的 FastAPI API。這次我們沿用同一個範例專案，改成用 **Dockerfile** 打包後部署到 **Fly.io**。
+[前一篇](https://andy6804tw.github.io/2025/11/29/deploy-fastapi-on-render/)我們示範了如何在 Render 上部署一個最簡單的 FastAPI API。這次我們沿用同一個範例專案，改成用 **Dockerfile** 打包後部署到 **Fly.io**。
 
 [Fly.io](https://fly.io/) 本質上是「跑容器的 VM 平台」，很適合拿來部署 FastAPI 這種長駐型 API 服務。官方文件也示範了用 Docker image 來部署 FastAPI，流程大致是：先把應用程式打包成 image，再交給 Fly.io 跑。
 
