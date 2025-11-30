@@ -188,10 +188,9 @@ git push -u origin main
 
 #### （4）Runtime & Build Settings
 
-**Runtime**：選擇 **Python**（如果介面有這個選項）。
-有時候 Render 會以「Docker」或「Native environment」呈現，原則是我們用「普通的 Python 環境」即可，不需要自己寫 Dockerfile。
+* Language：選擇 **Python**。
 
-**Build Command（建置指令）**
+#### （5）Build Command（建置指令）
 
 Render 預設會幫你從 `requirements.txt` 安裝套件，你可以這樣寫：
 
@@ -199,7 +198,7 @@ Render 預設會幫你從 `requirements.txt` 安裝套件，你可以這樣寫�
 pip install -r requirements.txt
 ```
 
-**Start Command（啟動指令）**
+#### （6）Start Command（啟動指令）
 
 這是最關鍵的部分，Render 會用這個指令啟動你的 FastAPI。
 
@@ -215,7 +214,7 @@ uvicorn main:app --host 0.0.0.0 --port $PORT
 > * `--host 0.0.0.0` 讓外部可以連進來。
 > * `--port $PORT` 是 Render 指定的 port，不能自己亂寫 8000。
 
-#### （5）Environment（環境）
+#### （7）Instance Type（機器種類）
 
 * 一開始可以先選 `Free`
 * Python 版本：有些介面可以指定，若有選項建議選 Python 3.10 或以上
