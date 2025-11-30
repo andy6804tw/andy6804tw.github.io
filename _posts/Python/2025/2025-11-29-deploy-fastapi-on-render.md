@@ -354,3 +354,6 @@ Render 免費版有一個很重要的特性：**若一段時間沒有流量，�
 3. 把專案推到 GitHub
 4. 在 Render 建立 Web Service，設定 Build / Start Command
 5. 拿到一個線上的 HTTPS API 網址讓外部可以使用
+
+
+完整[GitHub](https://github.com/1010code/fastapi-render-demo)範例成始碼
