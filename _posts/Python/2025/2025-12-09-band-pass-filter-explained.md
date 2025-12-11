@@ -7,10 +7,7 @@ keywords: 'filter, signal processing, band-pass filter, cutoff frequency, filter
 ---
 
 
-# 什麼是「濾波器」？從概念到實務的完整介紹
-
-（最後將深入理解 Band-Pass Filter 與不同階數 N 的效果）
-
+## 前言
 在訊號處理（Signal Processing）中，「濾波器」（Filter）扮演著極為重要的角色。
 簡單來說，濾波器的功能是：
 
