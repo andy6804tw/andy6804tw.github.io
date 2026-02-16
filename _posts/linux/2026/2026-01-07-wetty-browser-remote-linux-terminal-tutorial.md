@@ -33,7 +33,7 @@ ssh user@remote-host
 ### WeTTY 的兩種使用情境整理
 在一台 Linux 伺服器上部署多個 Docker container 時，若希望透過 **WeTTY（Web Terminal）** 讓使用者以瀏覽器方式進入終端機，常見會有以下兩種做法：
 
-![Screenshot 2026-02-07 at 11.06.24 PM](https://hackmd.io/_uploads/BkReBANvZl.png)
+![](/images/posts/linux/2026/img1150109-1.png)
 
 #### 用法一：Host 主機安裝 WeTTY（統一入口）
 
