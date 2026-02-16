@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Raspberry Pi 連接 ADXL345 加速度計 (SPI介面)'
-categories: 'Hardware'
+categories: 'Linux'
 description: 'A practical guide to connecting the ADXL345 accelerometer to a Raspberry Pi via SPI for higher sampling rates and reliable vibration measurements.'
 keywords: 'ADXL345, Raspberry Pi, SPI, accelerometer, vibration'
 ---

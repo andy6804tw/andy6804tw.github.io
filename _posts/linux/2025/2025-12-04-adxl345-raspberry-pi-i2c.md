@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Raspberry Pi 連接 ADXL345：I2C 接線與 Python 加速度讀取教學'
-categories: 'Hardware'
+categories: 'Linux'
 description: 'A practical guide to connecting the ADXL345 accelerometer to a Raspberry Pi using I2C and reading X, Y, Z acceleration data with Python.'
 keywords: 'ADXL345, Raspberry Pi, accelerometer, I2C, Python'
 ---
